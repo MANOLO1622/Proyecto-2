@@ -21,12 +21,17 @@
                     <i class="fas fa-lock prefix grey-text mb-2" style="color: grey; font-size: 1.3em"></i>
                     <label data-error="wrong" data-success="right" for="defaultForm-pass">Contraseña</label>
                     <input type="password" id="loginPassword" class="form-control validate mb-2">
+
+                    @Html.GetButton("loginButton", "loginEvent", "LoginComponent", string.Empty, "btn", "btn-success", "Iniciar Sesión")
+                    @*@Html.GetButton("btnRecover", "recoverPasswordEvent", "LoginComponent", string.Empty, "btn", "btn btn-link", "Recuperar Contraseña")*@
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                @Html.GetButton("loginButton", "loginEvent", "LoginComponent", string.Empty, "btn", "regular-btn", "Iniciar Sesión")
-                @Html.GetButton("btnRecover", "recoverPasswordEvent", "LoginComponent", string.Empty, "btn","regular-btn", "Recuperar Contraseña")
+
+               <p>No tienes cuenta?</p> <a class="btn btn-link" href="#" id="session-label-link" data-toggle="modal" data-target="#usersModal"> Registrar aquí</a>
+
+
             </div>
         </div>
     </div>

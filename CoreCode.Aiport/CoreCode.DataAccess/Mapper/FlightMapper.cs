@@ -13,8 +13,8 @@ namespace CoreCode.DataAccess.Mapper
     {
         private const string DB_COL_ID = "ID";
         private const string DB_COL_AIRLINE_ID = "AIRLINE_ID";
-        private const string DB_COL_ORIGIN_AIRPORT = "ORIGIN_AIRPORT_ID";
-        private const string DB_COL_DESTINY_AIRPORT = "DESTINY_AIRPORT_ID";
+        private const string DB_COL_ORIGIN_AIRPORT_ID = "ORIGIN_AIRPORT_ID";
+        private const string DB_COL_DESTINY_AIRPORT_ID = "DESTINY_AIRPORT_ID";
         private const string DB_COL_DEPARTURE_TIME = "DEPARTURE_TIME";
         private const string DB_COL_ARRIVAL_TIME = "ARRIVAL_DATETIME";
         private const string DB_COL_STATUS = "STATUS";
@@ -28,8 +28,8 @@ namespace CoreCode.DataAccess.Mapper
             {
                 Id = GetStringValue(row, DB_COL_ID),
                 Airline_Id = GetStringValue(row, DB_COL_AIRLINE_ID),
-                Origin_Airport_Id = GetStringValue(row, DB_COL_ORIGIN_AIRPORT),
-                Destiny_Airport_Id = GetStringValue(row, DB_COL_DESTINY_AIRPORT),
+                Origin_Airport_Id = GetStringValue(row, DB_COL_ORIGIN_AIRPORT_ID),
+                Destiny_Airport_Id = GetStringValue(row, DB_COL_DESTINY_AIRPORT_ID),
                 Departure_Time = Convert.ToDateTime(GetDateValue(row, DB_COL_DEPARTURE_TIME)),
                 Arrival_DateTime = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_TIME)),
                 Status = GetStringValue(row, DB_COL_STATUS),
@@ -58,8 +58,8 @@ namespace CoreCode.DataAccess.Mapper
 
             operation.AddVarcharParam(DB_COL_ID, a.Id);
             operation.AddVarcharParam(DB_COL_AIRLINE_ID, a.Airline_Id);
-            operation.AddVarcharParam(DB_COL_ORIGIN_AIRPORT, a.Origin_Airport_Id);
-            operation.AddVarcharParam(DB_COL_DESTINY_AIRPORT, a.Destiny_Airport_Id);
+            operation.AddVarcharParam(DB_COL_ORIGIN_AIRPORT_ID, a.Origin_Airport_Id);
+            operation.AddVarcharParam(DB_COL_DESTINY_AIRPORT_ID, a.Destiny_Airport_Id);
             operation.AddDateParam(DB_COL_DEPARTURE_TIME, a.Departure_Time);
             operation.AddDateParam(DB_COL_ARRIVAL_TIME, a.Arrival_DateTime);
             operation.AddVarcharParam(DB_COL_STATUS, a.Status);

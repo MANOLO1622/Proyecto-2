@@ -1,5 +1,4 @@
-﻿
-@using CoreCode.Web.UI.Models.Helpers
+﻿@using CoreCode.Web.UI.Models.Helpers
 
 @{
     /**/
@@ -8,7 +7,7 @@
 }
 
 @section pageCss{
-    <link rel="stylesheet" href="~/Scripts/TableHide.css" />
+<link rel="stylesheet" href="~/Scripts/TableHide.css" />
 }
 <div class="main-right-content-container">
     <section>
@@ -22,8 +21,9 @@
                 <button type="button" id="btnRegisterStore">Registrar tienda</button>
             </div>*@
             <div>
-                @Html.GetSelectDropdown("statusFilter", "", "", "", "", new Dictionary<string, string> { { "Tiendas habilitadas", "true" }, { "Tiendas deshabilitadas", "false" } })
-                @*<select id="statusFilter">
+                @Html.GetSelectDropdown("statusFilter", "", "", "", "", new Dictionary<string, string>
+                    { { "Tiendas habilitadas", "true" }, { "Tiendas deshabilitadas", "false" } })
+                    @*<select id="statusFilter">
                         <option selected value="true">Tiendas habilitadas</option>
                         <option value="false">Tiendas deshabilitadas</option>
                     </select>*@
@@ -39,7 +39,6 @@
             </div>
         </div>
     </section>
-
     <section>
         <table id="tblStore">
             <thead>
@@ -64,7 +63,6 @@
                     <th>Configuracion</th>
                 </tr>
             <tbody></tbody>
-
         </table>
         <table id="tblStore3">
             <thead>
@@ -75,31 +73,22 @@
                     <th>Teléfono</th>
                 </tr>
             <tbody></tbody>
-
         </table>
     </section>
 </div>
-
 <div class="modal fade" id="editStoreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-
         <div class="modal-content">
-
             <div class="modal-header" style="background-color: rgba(1,1,1,.85)">
                 <h2 class="modal-title" id="modalTitle" style="color: #fff">Modifcar tienda</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" style="font-size: 1.3em; color: #fff">&times;</span>
                 </button>
 
-
             </div>
             <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y:auto">
 
-
-
                 <form>
-
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="txtNameEdit">Nombre*</label>
@@ -124,37 +113,30 @@
                         <div class="form-group col-md-6">
                             <label for="selectAirportEdit">Aeropuerto*</label>
                             <select class="form-control register register" id="selectAirportEdit">
-                                @*<option value="">Seleccione aeropuerto</option>*@
+                                @*
+                                <option value="">Seleccione aeropuerto</option>*@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="selectCategoryEdit">Categoría*</label>
                             <select class="form-control register register" id="selectCategoryEdit">
-                                @*<option value="">Seleccione categoría</option>*@
+                                @*
+                                <option value="">Seleccione categoría</option>*@
                             </select>
                         </div>
-
                     </div>
 
-
-
                 </form>
-
 
             </div>
             <div class="modal-footer">
                 <button id="btnEditStore" type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 @section scripts{
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="~/Scripts/CoreCodeScripts/ApiService.js"></script>
-    <script src="~/Scripts/CoreCodeScripts/Stores/StoreList.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/CoreCodeScripts/ApiService.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Stores/StoreList.js"></script>
 }

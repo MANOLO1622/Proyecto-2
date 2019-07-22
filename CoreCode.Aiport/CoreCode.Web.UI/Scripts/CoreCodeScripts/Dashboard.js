@@ -265,7 +265,12 @@ var Dashboard = function(parameters) {
 
     }
 
+    
+
+
 };
+
+
 
 
 Dashboard.prototype.init = function() {
@@ -722,6 +727,8 @@ Dashboard.prototype.createStorePieChart = function(storeArray) {
     data.addRows(dataArrasy);
     chart.draw(data, options);
 };
+
+
 
 
 $(document).ready(function() {

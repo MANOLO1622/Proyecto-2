@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using CoreCode.API.Core;
 using CoreCode.API.Core.Managers;
 using CoreCode.Entities.POJO;
@@ -12,7 +13,7 @@ using CoreCodeAPI.Models;
 
 namespace CoreCodeAPI.Controllers
 {
-    [AllowCors]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class DashboardController : ApiController
     {
         [Route("api/dashboard/getGeneralReport")]

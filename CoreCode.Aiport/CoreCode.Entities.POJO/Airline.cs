@@ -10,6 +10,7 @@ namespace CoreCode.Entities.POJO
     {
         public String Id {get; set; }
         public String Comercial_name {get; set; }
+        public string Comercial_NAME { get; set; }
         public String Business_name {get; set; }
 
         public string FormattedYear => Creation_year.ToString("yyyy-MM-dd");

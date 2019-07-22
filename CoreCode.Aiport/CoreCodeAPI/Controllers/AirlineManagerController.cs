@@ -6,12 +6,13 @@ using CoreCodeAPI.Helpers;
 using CoreCodeAPI.Models;
 using System;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 
 namespace CoreCodeAPI.Controllers
 {
-    [AllowCors]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AirlineManagerController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();

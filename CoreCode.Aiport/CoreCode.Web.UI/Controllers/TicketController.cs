@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using CoreCode.Web.UI.ActionFilter;
 using Stripe;
 
 namespace CoreCode.Web.UI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TicketController : Controller
     {
-        [AllowCors]
+        
 
         public ActionResult Index()
         {

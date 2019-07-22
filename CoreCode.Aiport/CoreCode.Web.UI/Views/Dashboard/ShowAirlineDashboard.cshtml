@@ -1,15 +1,15 @@
-﻿@{
-    Layout = "~/Views/Shared/DashboardLayout.cshtml";
-}
+﻿@*@{*@
+    @*Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}*@
 
-<main id="main-dashboard-right-container" class="main">
+@*<main id="main-dashboard-right-container" class="main">
     <div id="report-dashboard" class="reports-dashboard currentShownSlide">
         <div class="main-header main-header-airlineAdmin">
             <div class="main-header__intro-wrapper">
                 <div class="main-header__welcome">
-                    <div class="main-header__welcome-title text-light"><strong id="airlineName">America Airlines</strong></div>
+                    <div class="main-header__welcome-title text-light"><strong id="airlineName">America Airlines</strong></div>*@
                     @*<div class="main-header__welcome-subtitle text-light">How are you today?</div>*@
-                </div>
+                @*</div>
                 <div class="quickview">
                     <div class="quickview__item">
                         <div class="quickview__item-total">0</div>
@@ -27,8 +27,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="main-overview">
+        </div>*@
+        @*<div class="main-overview">
             <div class="overviewCard" id="gates-gain">
 
             </div>
@@ -53,9 +53,9 @@
                     <p class="overviewCard-subtitle">Cantidad de Puertas</p>
                 </div>
             </div>
-        </div> <!-- /.main__overview -->
+        </div>*@ <!-- /.main__overview -->
 
-        <div class="main__cards">
+        @*<div class="main__cards">
             <div class="card card--finance">
 
                 <div id="bigBarChart"></div>
@@ -71,8 +71,8 @@
                         Rent: 50
                         Categoria: Churros
                     </div>
-                </div>
-                <div class="card card--finance total-revenue-card">
+                </div>*@
+                @*<div class="card card--finance total-revenue-card">
                     <div class="store-card-header">
                         Tienda 1
                     </div>
@@ -83,9 +83,9 @@
                         Rent: 50
                         Categoria: Churros
                     </div>
-                </div>
+                </div>*@
 
-                <div class="store-card-header">
+                @*<div class="store-card-header">
                     Tienda 1
                 </div>
                 <div class="store-card-hero">
@@ -95,12 +95,12 @@
                     Rent: 50
                     Categoria: Churros
                 </div>
-            </div>
+            </div>*@
 
 
-        </div>
+        @*</div>
 
-        <div class="main__cards">
+        <div class="main__cards">*@
             @*<div class="card">
                     <div class="card__header">
                         <div class="card__header-title text-light">
@@ -206,7 +206,7 @@
                         </div>
                     </div>
                 </div>*@
-            <div class="card card--finance">
+            @*<div class="card card--finance">
                 <div class="card__header">
                     <div class="card__header-title text-light">
                         Ganancia de <strong>tiendas</strong> este mes
@@ -218,9 +218,9 @@
                     </div>
                 </div>
 
-                <div id="storesPieChart"></div>
+                <div id="storesPieChart"></div>*@
 
-            </div>
+            @*</div>
             <div class="card card--finance">
                 <div class="card__header">
                     <div class="card__header-title text-light">
@@ -232,7 +232,7 @@
                     </div>
                 </div>
 
-                <div id="worldMapChart"></div>
+                <div*@ @*id="worldMapChart"></div>
             </div>
             <div class="card card--finance">
                 <div class="card__header">
@@ -248,13 +248,13 @@
             </div>
 
 
-        </div> <!-- /.main-cards -->
+        </div> <!-- /.main-cards -->*@
 
 
-        <div style="column-count: 3; background-color: white; padding-left: 20px;">
-            <div class="store-card card">
+        @*<div style="column-count: 3; background-color: white; padding-left: 20px;">
+            <div class="store-card card">*@
                 @*@Html.GetUserHistoryAirport()*@
-            </div>
+            @*</div>
             <div class="store-card card">
                 Status Enabled
             </div>
@@ -262,36 +262,36 @@
                 Current Tax
             </div>
         </div>
-    </div>
+    </div>*@
     @*Edit Airport*@
-    <div id="loading-skeleton" style="display: none">
+    @*<div id="loading-skeleton" style="display: none">
         <div class="skeleton" style="width: 100%;margin: 17px 5px;"></div>
         <div class="skeleton skeleton-triple " style="width: 20%;float: left;height: 110px;"></div>
         <div class="skeleton skeleton-triple " style="width: 20%;float: left;height: 110px;"></div>
         <div class="skeleton skeleton-triple " style="width: 20%;height: 110px;float: left;"></div>
         <div class="skeleton skeleton-single-line"></div>
         <div class="skeleton skeleton-single-line"></div>
-        <div class="skeleton skeleton-middle" style="height: 300px;"></div>
+        <div class="skeleton skeleton-middle" style="height: 300px;"></div>*@
         @*<div class="skeleton" style="width: 30%"></div>
             <div class="skeleton" style="width: 40%"></div>*@
-    </div>
+    @*</div>*@
     @*Edit Airport*@
 
-</main>
+@*</main>
 
 <div id="generalScoreCardContainer" class="generalDashboardContainer">
 
 
-    <div id="scoreCard-template">
-        <div class="overviewCard-icon overviewCard-icon--document">
+    <div id="scoreCard-template">*@
+        @*<div class="overviewCard-icon overviewCard-icon--document">*@
             @*<i class="far fa-file-alt"></i>*@
-            <img class="scoreImage" url="" />
+            @*<img class="scoreImage" url="" />
         </div>
         <div class="overviewCard-description">
             <h3 class="overviewCard-title text-light scoreTitle"></h3>
             <p class="overviewCard-subtitle scoreValue"></p>
         </div>
-    </div>
+    </div>*@
 
 
     @*<div id="scoreCard-template">
@@ -308,12 +308,12 @@
             </div>
 
         </div>*@
-</div>
+@*</div>*@
 
 
 
-@section pageCss
-{
+@*@section pageCss*@
+@*{
     <link href="~/Content/Dashboard.css" rel="stylesheet" />
     <style>
 
@@ -322,53 +322,53 @@
             padding: 0;
             box-sizing: border-box;
             font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif
-        }
+        }*@
 
         /*Store Card*/
-        .store-card-header {
-            background-color: #5D5D5D;
-            color: white;
-        }
+        //.store-card-header {
+        //    background-color: #5D5D5D;
+        //    color: white;
+        //}
 
-        .store-card {
-            border: 1px solid #8B8B8B;
-        }
+        //.store-card {
+        //    border: 1px solid #8B8B8B;
+        //}
         /*End Store Cards*/
-        .scoreImage {
-            width: 100%;
-        }
+//        .scoreImage {
+//                width: 100%;
+//                }
 
-        #scoreCard-template {
-            display: none;
-        }
+//#scoreCard-template {
+//            display: none;
+//            }
 
-        .scoreTitle {
-            font-weight: bold;
-        }
+//        .scoreTitle {
+//            font-weight: bold;
+//        }
 
-        .scoreCard {
-            border: 1px solid black;
-            width: 20%;
-        }
+        @*.scoreCard {
+    border: 1px solid black;
+    width: 20%;
+    }
 
         .skeleton-triple {
-            float: left;
-            margin: 20px 6%;
-        }
+        float: left;
+    margin: 20px 6%;
+    }
 
         .skeleton-middle {
-            margin: 0 auto;
-            width: 30%;
-        }
+    margin: 0 auto;
+    width: 30%;
+    }
 
         .skeleton-single-line {
-            width: 75%;
-            margin: 20px auto;
-        }
+    width: 75%;
+    margin: 20px auto;
+    }
     </style>
-}
+}*@
 
-@section headerScripts
+@*@section headerScripts
 {
     <script src="~/Scripts/GoogleCharts.js"></script>
 }
@@ -377,4 +377,4 @@
 @section scripts{
     <script src="~/Scripts/Views/ControlActions.js"></script>
     <script src="~/Scripts/CoreCodeScripts/Dashboard.js"></script>
-}
+}*@

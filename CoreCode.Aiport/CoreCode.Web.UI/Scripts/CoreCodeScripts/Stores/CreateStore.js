@@ -230,5 +230,5 @@ function CreateStore(parameters) {
 
 
 //function redirectToStoreList() {
-//    window.location.href = 'http://dev.corecode.com/ListStore';
+//    window.location.href = 'http://localhost:57312/ListStore';
 //}

@@ -81,7 +81,7 @@
                     icon: "success",
                     button: "OK"
                 }).then(function () {
-                    // window.location.href = 'http://dev.corecode.com/vCreateAirlineAdmin';
+                    // window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
                 });
             });
 
@@ -314,7 +314,7 @@
         }
         else {
             localStorage.setItem('idAirlineLS', document.querySelector("#txtId").value);
-            window.location.href = 'http://dev.corecode.com/vEditAirlineAdmin';
+            window.location.href = 'http://localhost:57312/vEditAirlineAdmin';
         }
 
 

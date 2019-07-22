@@ -9,10 +9,11 @@ using System.Net.Http;
 using System.Web.Http;
 using CoreCode.Exceptions;
 using CoreCodeAPI.ActionFilter;
+using System.Web.Http.Cors;
 
 namespace CoreCodeAPI.Controllers
 {
-    [AllowCors]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class GateController : ApiController
     {
 

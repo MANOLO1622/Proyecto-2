@@ -12,7 +12,7 @@
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div id="DropdownAndTable" style="margin: 0 auto; width: 98%;">
+<div id="DropdownAndTable" style="margin: 0 auto; width: 98%;"> 
     <label>        *Costo de puerta, pista e impuesto es en dólares $</label>
     @Html.GetSelectDropdown("statusFilter", "vListAirports", "AirportStatusDropdownChange", "", "", new Dictionary<string, string> { { "Aeropuertos habilitados", "true" }, { "Aeropuertos deshabilitados", "false" } })
 
@@ -107,7 +107,7 @@
                     <div style="display: none">
                         <b>Instrucciones de uso:</b>
                         <div id="statusMarcador">
-                            <i>Mueva el marcador.</i>
+                            <i>Mueva el marcador.</ i>
                         </div>
                         <b>Posición actual:</b>
 

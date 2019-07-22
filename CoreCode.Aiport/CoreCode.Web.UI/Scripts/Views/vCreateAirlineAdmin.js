@@ -11,7 +11,7 @@
         if (!this.Validate()) {
             var user;
             var airlineAdminData = {};
-            airlineAdminData = this.ctrlActions.GetDataForm('frmEdition');
+            airlineAdminData = this.ctrlActions.GetDataForm('frmCreateUser');
             let callback = function (response) {
                 user = response.Data;
                 if (!user) {
@@ -27,7 +27,7 @@
                             button: "OK"
                         }).then(function () {
                             instance.CleanForm();
-                            //  window.location.href = 'http://dev.corecode.com/vCreateAirlineAdmin';
+                            //  window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
                         });
                     });
                 } else if (user.ID === document.querySelector('#txtId').value) {

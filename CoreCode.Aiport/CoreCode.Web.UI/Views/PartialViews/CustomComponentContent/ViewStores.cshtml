@@ -1,5 +1,4 @@
-﻿
-@using CoreCode.Web.UI.Models.Helpers
+﻿@using CoreCode.Web.UI.Models.Helpers
 <div id="view-stores-container">
     <section>
         <section>
@@ -13,8 +12,9 @@
                     <button type="button" id="btnRegisterStore">Registrar tienda</button>
                 </div>
                 <div>
-                    @Html.GetSelectDropdown("statusFilter", "", "", "", "", new Dictionary<string, string> { { "Tiendas habilitadas", "true" }, { "Tiendas deshabilitadas", "false" } })
-                    @*<select id="statusFilter">
+                    @Html.GetSelectDropdown("statusFilter", "", "", "", "", new Dictionary<string, string>
+                        { { "Tiendas habilitadas", "true" }, { "Tiendas deshabilitadas", "false" } })
+                        @*<select id="statusFilter">
                             <option selected value="true">Tiendas habilitadas</option>
                             <option value="false">Tiendas deshabilitadas</option>
                         </select>*@
@@ -30,7 +30,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <table id="tblStore">
                 <thead>
@@ -55,7 +54,6 @@
                         <th>Configuracion</th>
                     </tr>
                 <tbody></tbody>
-
             </table>
             <table id="tblStore3">
                 <thead>
@@ -66,7 +64,6 @@
                         <th>Teléfono</th>
                     </tr>
                 <tbody></tbody>
-
             </table>
         </section>
     </section>

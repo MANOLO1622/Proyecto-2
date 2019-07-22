@@ -11,7 +11,7 @@ DashboardNav.prototype.init = function() {
         logOutElement.addEventListener("click",
             function() {
                 sessionStorage.removeItem("userObject");
-                window.location.href = "http://dev.corecode.com";
+                window.location.href = "http://localhost:57312";
             });
     }
     if (instance.userObject) {

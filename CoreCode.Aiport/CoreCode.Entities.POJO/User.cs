@@ -14,19 +14,32 @@ namespace CoreCode.Entities.POJO
 
     public class User: BaseEntity
     {
-        public string ID { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string LastName { get; set; }
-        public string SecondLastName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string Genre { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Phone { get; set; }
-        public string CivilStatus { get; set; }
+        public String ID { get; set; }
+        public String FirstName { get; set; }
+        public String SecondName { get; set; }
+        public String FirstLastName { get; set; }
+        public String SecondLastName { get; set; }
+       // public DateTime BirthDate { get; set; }
+        public String BirthDate { get; set; }
+        public String Genre { get; set; }
+        public String Email { get; set; }
+        public String Password { get; set; }
+        public String Phone { get; set; }
+        public String CivilStatus { get; set; }
         public bool Status { get; set; }
         public int Rol { get; set; }
-        public string AssignedID { get; set; }
+        public String AssignedID { get; set; }
+        public String Age { get; set; }
+        public String Address { get; set; }
+        public String Nationality { get; set; }
+        public String Province { get; set; }
+        public String Canton { get; set; }
+        public String District { get; set; }
+        public String Experience { get; set; }
+        // public String FormattedYear => GraduationYear.ToString("dd-MM-yyyy");
+        // public DateTime GraduationYear { get; set; }
+        public String GraduationYear { get; set; }
+        public String License { get; set; }
+        public String Put { get; set; }
     }
 }

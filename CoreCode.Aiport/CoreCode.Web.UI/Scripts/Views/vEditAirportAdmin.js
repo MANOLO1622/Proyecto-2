@@ -73,7 +73,7 @@
                             icon: "success",
                             button: "OK"
                         }).then(function () {
-                            window.location.href = 'http://dev.corecode.com/vListAirports';
+                            window.location.href = 'http://localhost:57312/vListAirports';
                         });
                     });
 
@@ -130,7 +130,7 @@
 
 
     this.Cancel = function () {
-        window.location.href = 'http://dev.corecode.com/vListAirports';
+        window.location.href = 'http://localhost:57312/vListAirports';
     }
 }
 

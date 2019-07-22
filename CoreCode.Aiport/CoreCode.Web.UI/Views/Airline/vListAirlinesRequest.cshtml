@@ -28,15 +28,16 @@
 
 </div>
 
-<div class="card border-secondary" style="margin: 0 auto; width: 98%">
+<div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
         <div class="row pull-right">
             <div class="col-md-8">Información de aerolínea</div>
             <div class="col-md-4">
+
                 @Html.GetConfirmButton("btnAccept", "Accept", "vListAirlinesRequest", "", "Aprobar")
                 @Html.GetConfirmButton("btnEdit", "Update", "vListAirlinesRequest", "", "Modificar")
                 @Html.GetConfirmButton("btnAdmin", "ShowAdmin", "vListAirlinesRequest", "", "Ver administrador")
-                @Html.GetConfirmButton("btnReject", "Reject", "vListAirlinesRequest", "", "Rechazar")
+                @Html.GetConfirmButton("btnReject", "Reject", "vListAirlinesRequest", "", "Rechazar")   
                 @Html.GetConfirmButton("btnClean", "CleanForm", "vListAirlinesRequest", "", "Limpiar")
 
 
@@ -48,11 +49,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="bs-component">
-
-
                     <form id="frmEdition" class="main-right-content-container">
-                        <div style="margin: 0 auto; width: 30%;">
-                        </div>
+                    
                         <div class="row">
                             <div class="form-group col-md-6">
 

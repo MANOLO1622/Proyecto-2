@@ -61,7 +61,7 @@
         }
         else {
             localStorage.setItem('idAirport', document.getElementById("txtId").value);
-            window.location.href = 'http://dev.corecode.com/vEditAirportAdmin';
+            window.location.href = 'http://localhost:57312/vEditAirportAdmin';
 
         }
 
@@ -93,7 +93,7 @@
                         instance.CleanForm();
                         instance.ReloadTable();
 
-                        //  window.location.href = 'http://dev.corecode.com/vCreateAirportAdmin';
+                        //  window.location.href = 'http://localhost:57312/vCreateAirportAdmin';
                     }
 
                 });
@@ -140,7 +140,7 @@
                         instance.CleanForm();
                         instance.ReloadTable();
 
-                        //  window.location.href = 'http://dev.corecode.com/vCreateAirportAdmin';
+                        //  window.location.href = 'http://localhost:57312/vCreateAirportAdmin';
                     }
 
                 });
@@ -162,9 +162,9 @@
 
     this.HomePage = function () {
         //if (rol == 1) {
-        ////  window.location.href = 'http://dev.corecode.com/vCreateAirportAdmin';
+        ////  window.location.href = 'http://localhost:57312/vCreateAirportAdmin';
         //} else if (rol == 2) {
-        ////  window.location.href = 'http://dev.corecode.com/vCreateAirportAdmin';
+        ////  window.location.href = 'http://localhost:57312/vCreateAirportAdmin';
         //}
     }
 
@@ -219,7 +219,7 @@
         }
         else {
             localStorage.setItem('idAirportLS', document.querySelector("#txtId").value);
-            window.location.href = 'http://dev.corecode.com/vGates';
+            window.location.href = 'http://localhost:57312/vGates';
         }
 
 

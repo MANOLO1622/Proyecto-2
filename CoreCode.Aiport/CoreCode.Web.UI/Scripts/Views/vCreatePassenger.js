@@ -19,7 +19,7 @@
                     if (!regEmail.test(document.querySelector('#txtEmail').value)) {
                         document.querySelector('#txtEmail').classList.add('input-error');
                         swal({
-                            title: "Error al registrar Pasajero",
+                            title: "Error al registrar Usuario",
                             text: "Correo electrónico no cuenta con formato correcto",
                             icon: "error",
                             button: "Ok",
@@ -39,7 +39,7 @@
                         if (age < 18) {
                             document.querySelector('#txtBirthDate').classList.add('input-error');
                             swal({
-                                title: "Error al registrar el Pasajero",
+                                title: "Error al registrar el Usuario",
                                 text: "Usuario debe ser mayor de edad",
                                 icon: "error",
                                 button: "Ok",
@@ -55,13 +55,13 @@
                             instance.ctrlActions.PostToAPI('CreatePassenger', PassengerData, function () {
 
                                 swal({
-                                    title: "¡Pasajero registrado!",
+                                    title: "¡Usuario registrado!",
                                     text: "Gracias por confiar en nosotros",
                                     icon: "success",
                                     button: "OK"
                                 }).then(function () {
                                     instance.CleanForm();
-                                    //    window.location.href = 'http://dev.corecode.com/vCreateAirlineAdmin';
+                                    //    window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
                                 });
                             });
                         }
@@ -71,7 +71,7 @@
                     document.querySelector('#txtId').classList.add('input-error');
 
                     swal({
-                        title: "Error al registrar Pasajero",
+                        title: "Error al registrar Usuario",
                         text: "Cédula de identidad ya se encuentra registrada",
                         icon: "error",
                         button: "Ok",
@@ -80,7 +80,7 @@
                     document.querySelector('#txtEmail').classList.add('input-error');
 
                     swal({
-                        title: "Error al registrar Pasajero",
+                        title: "Error al registrar Usuario",
                         text: "Correo electrónico ya se encuentra registrado",
                         icon: "error",
                         button: "Ok",

@@ -74,7 +74,7 @@
                             button: "OK"
                         }).then(function () {
 
-                            window.location.href = 'http://dev.corecode.com/vListAirlinesRequest';
+                            window.location.href = 'http://localhost:57312/vListAirlinesRequest';
                         });
                     });
 
@@ -131,7 +131,7 @@
 
 
     this.Cancel = function () {
-        window.location.href = 'http://dev.corecode.com/vListAirlinesRequest';
+        window.location.href = 'http://localhost:57312/vListAirlinesRequest';
     }
 }
 

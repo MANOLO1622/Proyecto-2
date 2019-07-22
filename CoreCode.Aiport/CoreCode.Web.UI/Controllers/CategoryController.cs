@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using CoreCode.Web.UI.ActionFilter;
 
 namespace CoreCode.Web.UI.Controllers
 {
-    [AllowCors]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CategoryController : Controller
     {
 

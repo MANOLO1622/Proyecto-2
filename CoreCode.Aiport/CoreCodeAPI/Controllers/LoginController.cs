@@ -11,17 +11,18 @@ using System.Web.Http;
 using System.Web.Mvc;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 using CoreCode.Exceptions;
+using System.Web.Http.Cors;
 
 namespace CoreCodeAPI.Controllers
 {
-    [AllowCors]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
         LoginManager mng = new LoginManager();
         ApiResponse apiResp = new ApiResponse();
 
 
-        [Route("api/getUsers")]
+        [Route("api/getUser")]
         public IHttpActionResult Get()
         {
             try
@@ -113,7 +114,7 @@ namespace CoreCodeAPI.Controllers
         {
             try
             {
-                apiResp.Data = mng.CheckIfUserExistsByUserOrId(userName, id);
+                apiResp.Data = mng.CheckIfUserExistsByUserOrId(id, userName);
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
@@ -164,7 +165,7 @@ namespace CoreCodeAPI.Controllers
                 return InternalServerError(new Exception(ex.Message));
             }
         }
-
+        //MENSAJE DE REINICIO DE CONTRASEÑA
         [Route("api/recoverPassAirline")]
         public IHttpActionResult UpdatePassAirlineAdmin(User user)
         {
@@ -175,7 +176,7 @@ namespace CoreCodeAPI.Controllers
                 mng.RecoverPasswordAdminAirline(user);
                 var CorreoElectronico = user.Email;
                 var pass = user.Password;
-                string Mensaje = "Hola" + user.FirstName + "  " + user.LastName + " Se ha reiniciado su contraseña <br/><br/> " + pass + " es su nueva contraseña para ingresar";
+                string Mensaje = "Hola" + user.FirstName + "  " + user.FirstLastName + " Se ha reiniciado su contraseña <br/><br/> " + pass + " es su nueva contraseña para ingresar";
                 ToolsHelper.SendMail(CorreoElectronico, "Nueva contraseña de ingreso", Mensaje);
 
                 apiResp = new ApiResponse
@@ -244,6 +245,15 @@ namespace CoreCodeAPI.Controllers
                 MessageManage.Create(msg);
                 return InternalServerError(new Exception(ex.Message));
             }
+        }
+
+
+        [Route("api/role")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult GetRoleForEmail(string email)
+        {
+            apiResp.Data = 1;
+            return Ok(apiResp);
         }
 
     }

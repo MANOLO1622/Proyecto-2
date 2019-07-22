@@ -61,7 +61,7 @@ function showAirlines() {
                             let idAirline = this.dataset.idAirline;
                             localStorage.setItem('idAirlineLS', idAirline);
                             console.log("edit");
-                            window.location.href = 'http://dev.corecode.com/EditAirline';
+                            window.location.href = 'http://localhost:57312/EditAirline';
                             
                             
                         }
@@ -181,5 +181,5 @@ function disable() {
 }
 
 function redirectToRegisterAirline() {
-    window.location.href = 'http://dev.corecode.com/CreateAirline';
+    window.location.href = 'http://localhost:57312/CreateAirline';
 }

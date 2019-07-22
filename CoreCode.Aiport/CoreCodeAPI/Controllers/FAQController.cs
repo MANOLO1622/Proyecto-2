@@ -13,7 +13,7 @@ using CoreCodeAPI.ActionFilter;
 
 namespace CoreCodeAPI.Controllers
 {
-    [AllowCors]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class FAQController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();

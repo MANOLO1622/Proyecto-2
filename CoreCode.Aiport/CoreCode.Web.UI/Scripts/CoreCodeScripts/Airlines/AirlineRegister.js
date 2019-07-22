@@ -68,7 +68,7 @@ function registerAirline() {
             button: "Ok",
         }).then(function () {
           
-            window.location.href = "http://dev.corecode.com/CreateAirline ";
+            window.location.href = "http://localhost:57312/CreateAirline ";
         });
     }
 }

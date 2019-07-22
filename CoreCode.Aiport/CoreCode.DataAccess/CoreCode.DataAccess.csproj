@@ -44,6 +44,7 @@
     <Compile Include="Crud\AirlineReportCrudFactory.cs" />
     <Compile Include="Crud\ApplicationMessagesCrudFactory.cs" />
     <Compile Include="Crud\GeneralAdminReportCrudFactory.cs" />
+    <Compile Include="Crud\UserCrudFactory.cs" />
     <Compile Include="Crud\PassengerCrudFactory.cs" />
     <Compile Include="Crud\TicketCrudFactory.cs" />
     <Compile Include="Crud\FlightCrudFactory.cs" />

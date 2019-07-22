@@ -97,7 +97,7 @@ function validate() {
 }
 
 function redirectToListAirline() {
-    window.location.href = 'http://dev.corecode.com/ListAirline';
+    window.location.href = 'http://localhost:57312/ListAirline';
 }
 
 

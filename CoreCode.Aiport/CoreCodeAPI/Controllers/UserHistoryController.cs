@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using CoreCode.API.Core;
 using CoreCode.API.Core.Managers;
 using CoreCode.Entities.POJO;
@@ -11,6 +12,7 @@ using CoreCodeAPI.Models;
 
 namespace CoreCodeAPI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserHistoryController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();

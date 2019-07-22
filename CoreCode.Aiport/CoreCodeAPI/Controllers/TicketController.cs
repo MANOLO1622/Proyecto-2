@@ -9,12 +9,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using CoreCodeAPI.ActionFilter;
+using System.Web.Http.Cors;
 
 namespace CoreCodeAPI.Controllers
 {
-
-    [AllowCors]
-
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TicketController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();

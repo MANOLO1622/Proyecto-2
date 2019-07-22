@@ -60,7 +60,7 @@ namespace CoreCode.DataAccess.Crud
             return lstPassenger;
         }
 
-        /*
+        
         public T RetrieveAdminAirportByAirportId<T>(BaseEntity entity)
         {
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveStatement(entity));
@@ -74,7 +74,7 @@ namespace CoreCode.DataAccess.Crud
 
             return default(T);
         }
-        */
+        
         public override void Update(BaseEntity entity)
         {
             var passenger = (Passenger)entity;

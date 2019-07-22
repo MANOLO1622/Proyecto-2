@@ -13,7 +13,7 @@ namespace CoreCode.DataAccess.Mapper
 {
     public class GateMapper : EntityMapper, ISqlStatements, IObjectMapper
     {
-            private const string DB_COL_GATE_ID = "GATE_ID";
+            private const string DB_COL_ID_GATE = "ID_GATE";
             private const string DB_COL_ID_AIRPORT = "ID_AIRPORT";
             private const string DB_COL_STATUS = "STATUS";
         private const string DB_COL_NUMBER = "NUMBER";
@@ -25,7 +25,7 @@ namespace CoreCode.DataAccess.Mapper
            
             var gate = new Gate
             {
-                IDGate = GetStringValue(row, DB_COL_GATE_ID),
+                IDGate = GetStringValue(row, DB_COL_ID_GATE),
                 IDAirport = GetStringValue(row, DB_COL_AIRPORT_ID),
                 Status = GetBoolValue(row, DB_COL_STATUS),
                 Number = GetIntValue(row, DB_COL_NUMBER)
@@ -37,7 +37,7 @@ namespace CoreCode.DataAccess.Mapper
         {
             var gate = new Gate
             {
-                IDGate = row.Field<string>(DB_COL_GATE_ID),
+                IDGate = row.Field<string>(DB_COL_ID_GATE),
                 IDAirport = row.Field<string>(DB_COL_AIRPORT_ID),
                 Status = row.Field<bool>(DB_COL_STATUS),
                 Number = row.Field<int>(DB_COL_NUMBER)
@@ -61,7 +61,7 @@ namespace CoreCode.DataAccess.Mapper
             {
                 var operation = new SqlOperation { ProcedureName = "CRE_GATE_PR" };
                 var c = (Gate)entity;
-                operation.AddVarcharParam(DB_COL_GATE_ID, c.IDGate);
+                operation.AddVarcharParam(DB_COL_ID_GATE, c.IDGate);
                 operation.AddVarcharParam(DB_COL_ID_AIRPORT, c.IDAirport);
                 operation.AddIntParam(DB_COL_STATUS, c.Status ? 1 : 0);
                operation.AddIntParam(DB_COL_NUMBER, c.Number);
@@ -80,7 +80,7 @@ namespace CoreCode.DataAccess.Mapper
             {
                 var operation = new SqlOperation { ProcedureName = "UPD_GATE_PR" };
                 var c = (Gate)entity;
-                operation.AddVarcharParam(DB_COL_GATE_ID, c.IDGate);
+                operation.AddVarcharParam(DB_COL_ID_GATE, c.IDGate);
                 operation.AddVarcharParam(DB_COL_ID_AIRPORT, c.IDAirport);
                 operation.AddIntParam(DB_COL_STATUS, c.Status ? 1 : 0);
                 operation.AddIntParam(DB_COL_NUMBER, c.Number);
@@ -93,7 +93,7 @@ namespace CoreCode.DataAccess.Mapper
             {
                 var operation = new SqlOperation { ProcedureName = "DEL_GATE_PR" };
                 var c = (Gate)entity;
-                operation.AddVarcharParam(DB_COL_GATE_ID, c.IDGate);
+                operation.AddVarcharParam(DB_COL_ID_GATE, c.IDGate);
                 return operation;
             }
 
@@ -101,7 +101,7 @@ namespace CoreCode.DataAccess.Mapper
             {
                 var operation = new SqlOperation { ProcedureName = "RET_GATE_PR" };
                 var c = (Gate)entity;
-                operation.AddVarcharParam(DB_COL_GATE_ID, c.IDGate);
+                operation.AddVarcharParam(DB_COL_ID_GATE, c.IDGate);
                 return operation;
             }
 

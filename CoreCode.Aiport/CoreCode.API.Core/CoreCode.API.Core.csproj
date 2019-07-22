@@ -44,6 +44,7 @@
     <Compile Include="ApplicationMessageManagement.cs" />
     <Compile Include="Managers\AirlineReportManager.cs" />
     <Compile Include="Managers\GeneralAdminReportManager.cs" />
+    <Compile Include="Managers\UserManager.cs" />
     <Compile Include="PassengerManagement.cs" />
     <Compile Include="TicketManagement.cs" />
     <Compile Include="FlightManagement.cs" />

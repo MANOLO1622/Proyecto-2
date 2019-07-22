@@ -63,7 +63,7 @@
                                         button: "OK"
                                     }).then(function () {
                                         instance.CleanForm();
-                                        //    window.location.href = 'http://dev.corecode.com/vCreateAirlineAdmin';
+                                        //    window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
                                     });
                                 });
                             }

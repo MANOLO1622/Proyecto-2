@@ -162,7 +162,7 @@
                     //Refresca la tabla
                     instance.CleanForm();
                     instance.ReloadTable();
-                    // window.location.href = 'http://dev.corecode.com/vFlight';
+                    // window.location.href = 'http://localhost:57312/vFlight';
                 });
             });
 

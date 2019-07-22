@@ -14,7 +14,7 @@ using RouteAttribute = System.Web.Http.RouteAttribute;
 namespace CoreCodeAPI.Controllers
 {
 
-    [AllowCors]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AirportManagerController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();

@@ -171,6 +171,7 @@
     <Compile Include="Controllers\GateController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\PassengerController.cs" />
     <Compile Include="Controllers\PaypalController.cs" />
     <Compile Include="Controllers\RecoverPasswordController.cs" />
@@ -374,9 +375,11 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Pay.css" />
     <Content Include="Scripts\TableHide.css" />
+    <Content Include="Scripts\Views\AdminVerificator.js" />
     <Content Include="Scripts\Views\ControlActions.js" />
     <Content Include="Scripts\Views\EditProfile.js" />
     <Content Include="Scripts\Views\Index.js" />
+    <Content Include="Scripts\Views\vCreateUser.js" />
     <Content Include="Scripts\Views\vCreatePassenger.js" />
     <Content Include="Scripts\Views\vEditAirlineAdmin.js" />
     <Content Include="Scripts\Views\vEditAirportAdmin.js" />
@@ -474,6 +477,8 @@
     <Content Include="Views\Ticket\Index.cshtml" />
     <Content Include="Views\Passenger\vCreatePassenger.cshtml" />
     <Content Include="Views\Passenger\vListFlightsPassengers.cshtml" />
+    <Content Include="Views\PartialViews\CustomComponentContent\RegisterUser.cshtml" />
+    <Content Include="Views\Employee\vCreateEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

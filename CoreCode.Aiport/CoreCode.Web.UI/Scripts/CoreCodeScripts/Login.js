@@ -2,13 +2,15 @@
     let users;
 
     $.get("http://localhost:54982/api/getUsers",
-        function(data) {
+        function (data) {
             users = data.Data;
             console.log(users);
         });
     $('#loginButton').click(function () {
         let username = $('#loginEmail').val();
         let password = $('#loginPassword').val();
+        console.log('loginButton --> username', username);
+        console.log('loginButton --> password', password);
         let loggedUser;
         let userFound = false;
         for (let i = 0; i < users.length; i++) {
@@ -20,6 +22,7 @@
             if (userFound) {
                 loggedUser.Password = '#####';
                 sessionStorage.setItem('user', JSON.stringify(loggedUser));
+                console.log('loginButton --> loggedUser', loggedUser);
                 switch (loggedUser.Rol) {
                     case '1':
                         window.location.href = "http://localhost:57312/dashboard/general";
@@ -30,6 +33,9 @@
                         break;
                     case '3':
                         window.location.href = "http://localhost:57312/dashboard/airline/" + loggedUser.AssignedID;
+                        break;
+                    case '4':
+                        window.location.href = "http://localhost:57312/dashboard/airport" + loggedUser.AssignedID;
                         break;
                 }
             } else {

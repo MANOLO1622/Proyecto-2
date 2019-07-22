@@ -1,14 +1,14 @@
-﻿ <aside class="sidenav">
+﻿<aside class="sidenav">
     <div class="sidenav__brand">
-        <i class="fas fa-feather-alt sidenav__brand-icon"></i>
-        <a class="sidenav__brand-link" href="/">Core<span class="text-light">Code</span></a>
+        <i class="fas fa-home sidenav__brand-icon"></i>
+        <a class="sidenav__brand-link" href="http://localhost:57312/dashboard/general/">Home</a>
         <i class="fas fa-times sidenav__brand-close"></i>
     </div>
-    @*<div class="sidenav__profile">
+    <div class="sidenav__profile">
             <div class="sidenav__profile-avatar"></div>
-            <div class="sidenav__profile-title text-light">Matthew H</div>
-        </div>*@
-    <div class="row row--align-v-center row--align-h-center">
+            <div class="sidenav__profile-title text-light">Manuel E.</div>
+        </div>
+    @*<div class="row row--align-v-center row--align-h-center">
         <ul class="navList">
             <li class="navList__heading">Reportes<i class="far fa-file-alt"></i></li>
             <li id="general-report-navbtn">
@@ -17,95 +17,112 @@
                 </div>
             </li>
         </ul>
-    </div>
+    </div>*@
     <div class="row row--align-v-center row--align-h-center">
         <ul class="navList">
             <li id="generalReportNavBtn" class="navList__heading">General<i class="far fa-file-alt"></i></li>
-            <li id="airportNavBtn" style="display: none">
+            <li id="airportNavBtn">
                 <div class="navList__subheading row row--align-v-center">
                     <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
                     <span class="navList__subheading-title">Aeropuerto</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="createAirportsNavBtn" class="subList__item" style="display: none"><a href="/vCreateAirport">Crear aeropuerto</a></li>
-                    <li id="seeAirportsNavBtn" class="subList__item" style="display: none"><a href="/vListAirports">Ver aeropuertos</a></li>
-                    <li id="seeAirportsRequests" class="subList__item" style="display: none"><a href="/vRequestAdminAirlineToAirport">Aeropuertos y solicitudes</a></li>
-                    <li id="editAirportNavBtn" class="subList__item" style="display: none"><a href="/vListAirports">Modificar aeropuerto</a></li>
-                    <li id="inactivateAirportNavBtn" class="subList__item" style="display: none">Desactivar aeropuerto</li>
-                    <li id="activateAirportNavBtn" class="subList__item" style="display: none">Activar aeropuerto</li>
-                    <li id="deleteAirportNavBtn" class="subList__item" style="display: none">Eliminar aeropuerto</li>
+                    <li id="createAirportsNavBtn" class="subList__item"><a href="/vCreateAirport">Crear aeropuerto</a></li>
+                    <li id="seeAirportsNavBtn" class="subList__item"><a href="/vListAirports">Ver aeropuertos</a></li>
+                    <li id="seeAirportsRequests" class="subList__item"><a href="/vRequestAdminAirlineToAirport">Aeropuertos y solicitudes</a></li>
+                    <li id="editAirportNavBtn" class="subList__item"><a href="/vListAirports">Modificar aeropuerto</a></li>
+                  
                 </ul>
             </li>
-            <li id="storesNavBtn" style="display: none">
+            <li id="storesNavBtn">
                 <div class="navList__subheading row row--align-v-center">
-                    <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                    <span class="navList__subheading-icon"><i class="fas fa-store"></i></span>
                     <span class="navList__subheading-title">Tiendas</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="createStoreNavBtn" class="subList__item" style="display: none"><a href="/CreateStore">Añadir tienda</a></li>
-                    <li id="viewStores" class="subList__item" style="display: none"><a href="/ListStore">Ver tiendas</a></li>
-                    <li id="modifyStoreNavBtn" class="subList__item" style="display: none">Modificar tienda</li>
-                    <li id="deleteStoreNavBtn" class="subList__item" style="display: none">Eliminar tienda</li>
+                    <li id="createStoreNavBtn" class="subList__item"><a href="/CreateStore">Registrar tienda</a></li>
+                    <li id="viewStores" class="subList__item"><a href="/ListStore">Ver tiendas</a></li>
+                    <li id="modifyStoreNavBtn" class="subList__item">Modificar tienda</li>
+                    <li id="deleteStoreNavBtn" class="subList__item">Eliminar tienda</li>
+                    <li id="viewCategoryNavBtn" class="subList__item" style="display: none"><a href="/vCategories">Categorías Tienda</a></li>
                 </ul>
             </li>
-            <li id="gatesNavBtn" style="display: none">
+            <li id="gatesNavBtn">
                 <div class="navList__subheading row row--align-v-center">
-                    <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                    <span class="navList__subheading-icon"><i class="fas fa-door-closed"></i></span>
                     <span class="navList__subheading-title">Puertas</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="addGateNavBtn" class="subList__item" style="display: none"><a href="">Añadir puerta</a></li>
-                    <li id="seeGatesNavBtn" class="subList__item" style="display: none"><a href="/vGates">Ver puertas</a></li>
-                    <li id="modifyGateNavBtn" class="subList__item" style="display: none">Modificar puerta</li>
-                    <li id="inactivateGateNavBtn" class="subList__item" style="display: none">Desactivar puerta</li>
-                    <li id="activateGateNavBtn" class="subList__item" style="display: none">Activar puerta</li>
-                    <li id="deleteGateNavBtn" class="subList__item" style="display: none">Eliminar puerta</li>
+                    <li id="addGateNavBtn" class="subList__item"><a href="/vGates">Añadir puerta</a></li>
+                    @*<li id="seeGatesNavBtn" class="subList__item"><a href="/vGates">Ver puertas</a></li>*@
+                    @*<li id="modifyGateNavBtn" class="subList__item">Modificar puerta</li>
+                    <li id="inactivateGateNavBtn" class="subList__item">Desactivar puerta</li>
+                    <li id="activateGateNavBtn" class="subList__item">Activar puerta</li>
+                    <li id="deleteGateNavBtn" class="subList__item">Eliminar puerta</li>*@
                 </ul>
             </li>
-            <li id="categoryStore" style="display: none">
+            @*<li id="categoryStore">
                 <div class="navList__subheading row row--align-v-center">
                     <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
                     <span class="navList__subheading-title">Categoria de Tienda</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="viewCategoryNavBtn" class="subList__item" style="display: none"><a href="/vCategories">Ver Categorías</a></li>
+                   
                 </ul>
-            </li>
-            <li id="airlineNavBtn" style="display: none">
+            </li>*@
+            <li id="airlineNavBtn">
                 <div class="navList__subheading row row--align-v-center">
-                    <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                    <span class="navList__subheading-icon"><i class="fas fa-plane"></i></span>
                     <span class="navList__subheading-title">Aerolíneas</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="addAirlinesNavBtn" class="subList__item" style="display: none">Añadir aerolínea</li>
-                    <li id="viewAirlinesNavBtn" class="subList__item" style="display: none"> <a href="/vListAirlinesRequest">Ver aerolíneas</a></li>
-                    <li id="viewAirlineRequests" class="subList__item" style="display: none"> <a href="/vRequestAdminAirportFromAirline">Aerolíneas y solicitudes</a></li>
-                    
-                    <li id="modifyAirlinesNavBtn" class="subList__item" style="display: none">Modificar aerolínea</li>
-                    <li id="deleteAirlineNavBtn" class="subList__item" style="display: none">Eliminar aerolínea</li>
+                    <li id="airline-register-nav" class="subList__item"><a href="/vCreateAirline"> Registrar Aerolínea</a></li>
+                    <li id="viewAirlinesNavBtn" class="subList__item"> <a href="/vListAirlinesRequest">Ver aerolíneas</a></li>
+                    <li id="viewAirlineRequests" class="subList__item"> <a href="/vRequestAdminAirportFromAirline">Aerolíneas y solicitudes</a></li>
+
+                    <li id="viewAirlinesNavBtn" class="subList__item"> <a href="/vListAirlinesRequest">Modificar aerolíneas</a></li>
+                    @*<li id="deleteAirlineNavBtn" class="subList__item">Eliminar aerolínea</li>*@
                 </ul>
             </li>
-            <li id="administratorsNavBtn" style="display: none">
+            <li id="administratorsNavBtn">
                 <div class="navList__subheading row row--align-v-center">
-                    <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
-                    <span class="navList__subheading-title">Administrators</span>
+                    <span class="navList__subheading-icon"><i class="fas fa-users"></i></span>
+                    <span class="navList__subheading-title">Registro de Admins</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="adminAirportNavBtn" class="subList__item" style="display: none"><a href="/airportManager">Admin. Aeropuertos</a></li>
-                    <li id="adminAirlineNavBtn" class="subList__item" style="display: none"><a href="/airlineManager">Admin. Aerolíneas</a></li>
-
+                    <li id="adminAirportNavBtn" class="subList__item"><a href="">Admin. Aeropuertos</a></li>
+                    <li id="adminAirlineNavBtn" class="subList__item"><a href="http://localhost:57312/vCreateAirlineAdmin">Admin. Aerolíneas</a></li>
                 </ul>
             </li>
-            <li id="faqNavBtn" style="display: none">
+            <li id="employeeNavBtn">
                 <div class="navList__subheading row row--align-v-center">
-                    <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
-                    <span class="navList__subheading-title">FAQ</span>
+                    <span class="navList__subheading-icon"><i class="fas fa-user-tie"></i></span>
+                    <span class="navList__subheading-title">Registro Empleados</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="viewFaqNavBtn" class="subList__item" style="display: none"><a href="/vFaqs">Ver FAQ</a></li>
-
-
+                    <li id="employeeNavBtn" class="subList__item"><a href="http://localhost:57312/vCreateAirlineAdmin">Registrar</a></li>
                 </ul>
+            </li>
+            @*<li id="administratorsNavBtn">
+            <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                <span class="navList__subheading-title">Administrators</span>
+            </div>
+            <ul class="subList subList--hidden">
+                <li id="adminAirportNavBtn" class="subList__item" ><a href="/airportManager">Admin. Aeropuertos</a></li>
+                <li id="adminAirlineNavBtn" class="subList__item" ><a href="/airlineManager">Admin. Aerolíneas</a></li>
+            </ul>
+        </li>*@
+
+            @*<li id="faqNavBtn" style="display: none">
+        <div class="navList__subheading row row--align-v-center">
+            <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+            <span class="navList__subheading-title">FAQ</span>
+        </div>*@
+            @*<ul class="subList subList--hidden">
+            <li id="viewFaqNavBtn" class="subList__item"><a href="/vFaqs">Ver FAQ</a></li>
+
+        </ul>*@
             </li>
             <li id="flightsNavBtn" style="display: none">
                 <div class="navList__subheading row row--align-v-center">
@@ -113,10 +130,13 @@
                     <span class="navList__subheading-title">Vuelos</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="viewFlightsNavBtn" class="subList__item" style="display: none"><a href="/vFlight">Ver Vuelos</a></li>
-                    <li id="viewTickets" class="subList__item" style="display: none"><a href="/vTicket">Ver Tiquetes</a></li>
+                    <li id="viewFlightsNavBtn" class="subList__item"><a href="/vFlight">Registrar Vuelos</a></li>
+                    <li id="viewTickets" class="subList__item"><a href="/vTicket">Ver Tiquetes</a></li>
                 </ul>
+
             </li>
+
+
             @*<li>
             <div class="navList__subheading row row--align-v-center">
                 <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
@@ -134,3 +154,4 @@
         </ul>
     </div>
 </aside>
+

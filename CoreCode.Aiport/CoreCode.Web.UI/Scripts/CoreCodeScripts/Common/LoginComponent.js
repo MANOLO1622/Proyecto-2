@@ -17,7 +17,7 @@
             });
         }
     }
-    instance.loginEvent = function() {
+    instance.loginEvent = function () {
         //Get the user name
         var instance = this;
         var fieldsAreNotEmpty = true;
@@ -53,10 +53,13 @@
                     userName: userNameElement.value,
                     password: loginPasswordElement.value
                 }
+                
+
                 //Call the API to retrieve user
                 instance.ctrlActions.GetFromAPI("getUser",
                     currentUserData,
-                    function(response) {
+                    function (response) {
+                        console.log("response", response);
                         if (response.Data) {
                             var userObjectElement = response.Data;
                             var sourceUrl = window.location.protocol + "//" + window.location.host; 
@@ -66,7 +69,7 @@
                             }
                             //If the response is available, store to SessionStorage and redirect.        
                             sessionStorage.setItem("userObject", JSON.stringify(userObjectElement));
-
+                            console.log("userObjectElement", userObjectElement);
                             //Redirect the user to a specific page.
                             switch (userObjectElement.Rol) {
                             case 1: //UserAdmin
@@ -99,9 +102,10 @@
                                 });
                                 console.log("Airline User");
                                 break;
-                            case 4: //PassengerUser
-                                window.location.reload();
-                                console.log("Passenger User");
+                            case 4: //User
+                                //window.location.reload();
+                                    window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
+                                console.log("User");
                                 break;
                             }
                         } else {

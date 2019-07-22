@@ -89,7 +89,7 @@ namespace CoreCode.DataAccess.Crud
                     dao.ExecuteProcedure(mapper.GetUpdateAirlineAdmin(currentUser));
                     break;
                 case 4:
-                    dao.ExecuteProcedure(mapper.GetUpdatePassengerAdmin(currentUser));
+                    dao.ExecuteProcedure(mapper.GetUpdateUserAdmin(currentUser));
                     break;
                 default:
                     break;

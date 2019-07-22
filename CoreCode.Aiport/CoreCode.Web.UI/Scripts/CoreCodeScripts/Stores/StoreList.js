@@ -434,7 +434,7 @@ function showAirports() {
 
 
 function redirectToStoreRegister() {
-    window.location.href = 'http://dev.corecode.com/CreateStore';
+    window.location.href = 'http://localhost:57312/CreateStore';
 }
 
 
