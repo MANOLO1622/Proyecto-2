@@ -18,42 +18,42 @@
 
 
 
-<form id="frmEdition"  class="main-right-content-container">
+<form id="frmEditionAirline"  class="main-right-content-container">
     <div style="margin: 0 auto; width: 30%;">
         <h2>Registro de aerolínea</h2>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
 
-            @Html.GetInputWithLabel("txtId", "text", "Cédula jurídica:*", "form-control", "(Obligatorio)", "ID", true)
+            @Html.GetInputWithLabel("txtId", "text", "Cédula jurídica:*", "form-control", "(Obligatorio)", "Id", true)
 
         </div>
 
         <div class="form-group col-md-6">
 
-            @Html.GetInputWithLabel("txtComercialName", "text", "Nombre comercial:*", "form-control", "(Obligatorio)", "COMERCIAL_NAME", true)
+            @Html.GetInputWithLabel("txtComercialName", "text", "Nombre comercial:*", "form-control", "(Obligatorio)", "Comercial_name", true)
 
         </div>
 
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtBusinessName", "text", "Nombre de negocio:*", "form-control", "(Obligatorio)", "BUSINESS_NAME", true)
+            @Html.GetInputWithLabel("txtBusinessName", "text", "Nombre de negocio:*", "form-control", "(Obligatorio)", "Business_name", true)
 
         </div>
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtCreationYear", "date", "Año de fundación:*", "form-control", "(Obligatorio)", "CREATION_YEAR", true)
+            @Html.GetInputWithLabel("txtCreationYear", "date", "Año de fundación:*", "form-control", "(Obligatorio)", "Creation_year", true)
             <label>        *La fecha tiene que ser anterior al día de hoy</label>
 
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtDescription", "text", "Descripción:*", "form-control", "(Obligatorio)", "DESCRIPTION", true)
+            @Html.GetInputWithLabel("txtDescription", "text", "Descripción:*", "form-control", "(Obligatorio)", "Description", true)
 
         </div>
         <div class="col-md-6">
-            @Html.GetInputWithLabel("txtEmail", "email", "Correo electrónico:*", "form-control", "(Obligatorio)", "EMAIL", true)
+            @Html.GetInputWithLabel("txtEmail", "email", "Correo electrónico:*", "form-control", "(Obligatorio)", "Email", true)
 
         </div>
     </div>

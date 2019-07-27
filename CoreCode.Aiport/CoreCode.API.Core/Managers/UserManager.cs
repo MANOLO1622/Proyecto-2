@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoreCode.API.Core.Helpers;
 using CoreCode.DataAccess.Crud;
 using CoreCode.Entities.POJO;
 using CoreCode.Exceptions;
@@ -40,6 +41,7 @@ namespace CoreCode.API.Core.Managers
 
         public void Create(User user)
         {
+            
             _crudFactory.Create(user);
         }
         

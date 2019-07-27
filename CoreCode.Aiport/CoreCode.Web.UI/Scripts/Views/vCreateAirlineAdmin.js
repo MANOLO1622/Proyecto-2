@@ -11,7 +11,7 @@
         if (!this.Validate()) {
             var user;
             var airlineAdminData = {};
-            airlineAdminData = this.ctrlActions.GetDataForm('frmCreateUser');
+            airlineAdminData = this.ctrlActions.GetDataForm('frmCreateAdminAirline');
             let callback = function (response) {
                 user = response.Data;
                 if (!user) {
@@ -22,7 +22,7 @@
                     instance.ctrlActions.PostToAPI('postAirlineManager', airlineAdminData, function () {
                         swal({
                             title: "¡Administrador de aerolínea registrado!",
-                            text: "Proceda a esperar correo de confirmación al siguiente correo: " + airlineAdminData.Email + " en caso de ser aceptada",
+                            text: "Proceda a esperar correo de confirmación al siguiente correo: " + airlineAdminData.Email + " Bienvenido!",
                             icon: "success",
                             button: "OK"
                         }).then(function () {

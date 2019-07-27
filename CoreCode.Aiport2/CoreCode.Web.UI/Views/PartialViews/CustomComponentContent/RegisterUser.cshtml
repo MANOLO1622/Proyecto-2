@@ -1,0 +1,93 @@
+﻿@using CoreCode.Web.UI.Models.Helpers
+<script src="~/Scripts/Views/vCreateUser.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<div class="modal fade" id="usersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form id="frmCreateUser" class="main-right-content-container">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Registro de Usuario</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtId", "text", "Cédula*", "form-control", "Ingrese # de identificación", "ID", true)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.GetInputWithLabel("txtEmail", "email", "Correo electrónico*", "form-control", "(Obligatorio)", "Email", true)
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtFirstName", "text", "Primer nombre*", "form-control", "(Obligatorio)", "FirstName", true)
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtFirstLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "FirstLastName", true)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtSecondName", "text", "Segundo nombre", "form-control", "(Opcional)", "SecondName", false)
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtSecondLastName", "text", "Segundo apellido", "form-control", "(Opcional)", "SecondLastName", false)
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtBirthDate", "date", "Fecha de nacimiento*", "form-control", "Detalle", "BirthDate", true)
+                            <label>   *Usuario tiene que ser mayor de edad</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtProvince", "text", "Provincia*", "form-control", "(Obligatorio)", "Province", true)
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtCanton", "text", "Canton*", "form-control", "(Obligatorio)", "Canton", true)
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtDistrict", "text", "Distrito*", "form-control", "(Obligatorio)", "District", true)
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtNationality", "text", "Nacionalidad*", "form-control", "(Obligatorio)", "Nationality", true)
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.GetInputWithLabel("txtAge", "text", "Edad*", "form-control", "(Obligatorio)", "Age", true)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="selectCivilStatus">Estado civil*</label>
+                            <select class="form-control" id="selectCivilStatus" columnDataName="CivilStatus" required>
+                                <option value="">Seleccione opción (Obligatorio)</option>
+                                <option value="casado">Casado/a</option>
+                                <option value="soltero">Soltero/a</option>
+                                <option value="union-libre">Unión libre</option>
+                            </select>
+                            @*@Html.GetSelectDropdown("selectCivilStatus","vCreateAirportAdmin", "",
+                                new Dictionary<string, string> { { "Casado",  "casado" }, { "Soltero", "soltero" },{"Otro", "otro" } })*@
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="selectGenre">Género*</label>
+                            <select class="form-control" columnDataName="Genre" id="selectGenre" required>
+                                <option value="">Seleccione opción (Obligatorio)</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    @Html.GetConfirmButton("btnRegister", "Create", "vCreateUser", "", "Registrar")
+                    @Html.GetConfirmButton("btnClean", "CleanForm", "vCreateUser", "", "Limpiar")
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -23,6 +23,6 @@ namespace CoreCode.Entities.POJO
         public bool Status { get; set; }
         public string Rol { get; set; }
         
-        public string FormattedYear => BirthDate.ToString("yyyy-MM-dd");
+        //public string FormattedYear => BirthDate.ToString("yyyy-MM-dd");
     }
 }

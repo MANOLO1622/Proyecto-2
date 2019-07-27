@@ -19,7 +19,7 @@ namespace CoreCode.Entities.POJO
         public String SecondName { get; set; }
         public String FirstLastName { get; set; }
         public String SecondLastName { get; set; }
-       // public DateTime BirthDate { get; set; }
+      //  public DateTime BirthDate { get; set; }
         public String BirthDate { get; set; }
         public String Genre { get; set; }
         public String Email { get; set; }

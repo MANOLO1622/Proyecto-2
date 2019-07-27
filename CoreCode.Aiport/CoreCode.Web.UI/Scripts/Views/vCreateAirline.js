@@ -11,7 +11,8 @@
         if (!this.Validate()) {
 
             var airlineData = {};
-            airlineData = this.ctrlActions.GetDataForm('frmEdition');
+            airlineData = this.ctrlActions.GetDataForm('frmEditionAirline');
+            console.log(airlineData);
             let repeatedId = false;
             let airlines;
             let emailRepeated = false;
@@ -74,7 +75,7 @@
                             localStorage.setItem('emailAirportLS', document.querySelector("#txtEmail").value);
 
 
-                            instance.ctrlActions.PostToAPI('CreateAirline', airlineData, function () {
+                            instance.ctrlActions.PostToAPI('createAirline', airlineData, function () {
 
 
                                 swal({

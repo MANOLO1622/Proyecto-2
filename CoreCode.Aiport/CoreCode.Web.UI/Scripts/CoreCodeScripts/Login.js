@@ -35,7 +35,7 @@
                         window.location.href = "http://localhost:57312/dashboard/airline/" + loggedUser.AssignedID;
                         break;
                     case '4':
-                        window.location.href = "http://localhost:57312/dashboard/airport" + loggedUser.AssignedID;
+                        window.location.href = "http://localhost:57312/dashboard/general" + loggedUser.AssignedID;
                         break;
                 }
             } else {

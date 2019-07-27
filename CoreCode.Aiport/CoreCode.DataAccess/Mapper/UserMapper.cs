@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace CoreCode.DataAccess.Mapper
 {
     //clase creada para funcionalidad del login
@@ -114,8 +116,8 @@ namespace CoreCode.DataAccess.Mapper
 
             foreach (var row in lstRows)
             {
-                var User = BuildObject(row);
-                lstResults.Add(User);
+                var user = BuildObject(row);
+                lstResults.Add(user);
             }
 
             return lstResults;
@@ -166,7 +168,9 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetRetrieveAllStatement()
         {
-            var operation = new SqlOperation { ProcedureName = "RET_ALL_USERS" };
+            var operation = new SqlOperation { ProcedureName = "GET_ALL_USERS" };
+            
+
             return operation;
         }
             
@@ -261,7 +265,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_SECOND_NAME, c.SecondName);
             operation.AddVarcharParam(DB_COL_FIRST_LAST_NAME, c.FirstLastName);
             operation.AddVarcharParam(DB_COL_SECOND_LAST_NAME, c.SecondLastName);
-            //operation.AddDateParam(DB_COL_BIRTHDATE, c.BirthDate);
+          //  operation.AddDateParam(DB_COL_BIRTHDATE, c.BirthDate);
             operation.AddVarcharParam(DB_COL_BIRTHDATE, c.BirthDate);
             operation.AddVarcharParam(DB_COL_GENRE, c.Genre);
             operation.AddVarcharParam(DB_COL_PHONE, c.Phone);
@@ -300,6 +304,8 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_ID, userId);
             return operation;
         }
+
+       
     }
 }
 

@@ -31,7 +31,7 @@ namespace CoreCode.DataAccess.Mapper
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
             
-            var operation = new SqlOperation { ProcedureName = "sp_CreateAirlineManager" };
+            var operation = new SqlOperation { ProcedureName = "sp_CreateUsers" };
 
             var m = (AirlineManager)entity;
             operation.AddVarcharParam(DB_COL_ID, m.ID);
@@ -46,8 +46,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_PHONE, m.Phone);
             operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
             operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
-            operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
-            operation.AddVarcharParam(DB_COL_ID_AIRLINE, m.AirlineID);  
+            operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);  
             return operation;
         }
 
@@ -70,7 +69,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
             operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
             operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
-            operation.AddVarcharParam(DB_COL_ID_AIRLINE, m.AirlineID);
+          
             return operation;
         }
 
@@ -113,7 +112,7 @@ namespace CoreCode.DataAccess.Mapper
                 SecondName = GetStringValue(row, DB_COL_SECOND_NAME),
                 LastName = GetStringValue(row, DB_COL_LAST_NAME),
                 SecondLastName = GetStringValue(row, DB_COL_SECOND_LAST_NAME),
-                BirthDate =  Convert.ToDateTime(GetDateValue(row, DB_COL_BIRTHDATE)),
+                BirthDate = GetDateValue(row, DB_COL_BIRTHDATE),
                 Genre = GetStringValue(row, DB_COL_GENRE),
                 Email = GetStringValue(row, DB_COL_EMAIL),
                 Password = GetStringValue(row, DB_COL_PASSWORD),
@@ -121,8 +120,7 @@ namespace CoreCode.DataAccess.Mapper
                 CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
                 Status = Convert.ToBoolean(GetIntValue(row, DB_COL_STATUS)),
                 Rol = GetStringValue(row, DB_COL_ID_ROL),
-                AirlineID = GetStringValue(row, DB_COL_ID_AIRLINE),
-                AirlineName = airline.Comercial_name
+                
             };
 
             return AirlineManager;

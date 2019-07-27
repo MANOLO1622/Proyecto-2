@@ -478,10 +478,11 @@
     <Content Include="Views\Passenger\vCreatePassenger.cshtml" />
     <Content Include="Views\Passenger\vListFlightsPassengers.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\RegisterUser.cshtml" />
-    <Content Include="Views\Employee\vCreateEmployee.cshtml" />
+    <Content Include="Views\AiportManager\vCreateEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Employee\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

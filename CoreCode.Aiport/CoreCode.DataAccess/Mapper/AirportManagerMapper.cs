@@ -30,7 +30,7 @@ namespace CoreCode.DataAccess.Mapper
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
             //este stored proc inserta en la tabla persona y en la tabla admin aeropuerto
-            var operation = new SqlOperation { ProcedureName = "sp_CreateAirportManager" };
+            var operation = new SqlOperation { ProcedureName = "sp_CreateUsers" };
 
             var m = (AirportManager)entity;
 
@@ -48,7 +48,6 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
             operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
             operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
-            operation.AddVarcharParam(DB_COL_ID_AIRPORT, m.AirportID);
 
             return operation;
         }
@@ -67,7 +66,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
             operation.AddVarcharParam(DB_COL_FIRST_LAST_NAME, m.LastName);
             operation.AddVarcharParam(DB_COL_SECOND_LAST_NAME, m.SecondLastName);
-            operation.AddVarcharParam(DB_COL_BIRTHDATE, m.BirthDate.ToString("dd/MM/yyyy"));
+            operation.AddDateParam(DB_COL_BIRTHDATE, m.BirthDate);
 
             operation.AddVarcharParam(DB_COL_GENRE, m.Genre);
             operation.AddVarcharParam(DB_COL_EMAIL, m.Email);
@@ -76,7 +75,6 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
             operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
             operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
-            operation.AddVarcharParam(DB_COL_ID_AIRPORT, m.AirportID);
 
             return operation;
         }
@@ -129,8 +127,6 @@ namespace CoreCode.DataAccess.Mapper
                 CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
                 Status = Convert.ToBoolean(GetIntValue(row, DB_COL_STATUS)),
                 Rol = GetStringValue(row, DB_COL_ID_ROL),
-                AirportID = GetStringValue(row, DB_COL_ID_AIRPORT),
-                AirportName = airport.Name
             };
 
             return AirportManager;
