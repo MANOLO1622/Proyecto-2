@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeManagement.cs" />
     <Compile Include="ApplicationMessageManagement.cs" />
     <Compile Include="Managers\AirlineReportManager.cs" />
     <Compile Include="Managers\GeneralAdminReportManager.cs" />
+    <Compile Include="Managers\EmployeeManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="PassengerManagement.cs" />
     <Compile Include="TicketManagement.cs" />

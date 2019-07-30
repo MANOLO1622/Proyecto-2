@@ -35,7 +35,7 @@ namespace CoreCode.API.Core
             var createdUser = new User
             {
                 Email = userName,
-                Password = EncryptionHelper.GetEncryptedMd5Value(password)
+                Password = EncryptionHelper.Encrypt(password)
             };
             return crudLoginManager.Retrieve<User>(createdUser);
         }

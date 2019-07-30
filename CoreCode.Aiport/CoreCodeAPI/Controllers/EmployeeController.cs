@@ -10,23 +10,22 @@ using CoreCode.Entities.POJO;
 using CoreCode.Exceptions;
 using CoreCodeAPI.Helpers;
 using CoreCodeAPI.Models;
-using CoreCode.API.Core.Helpers;
 
 namespace CoreCodeAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class UserController : ApiController
+    public class EmployeeController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
 
-        [Route("api/getUsers")]
+        [Route("api/getEmployees")]
         public IHttpActionResult Get(string userId)
         {
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new UserManager();
-                apiResp.Data = mng.RetrieveUser(userId);
+                var mng = new EmployeeManager();
+                apiResp.Data = mng.RetrieveEmployee(userId);
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
@@ -49,19 +48,17 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
-        [Route("api/Users/post")]
-        public IHttpActionResult Post(User user)
+        [Route("api/Employees/post")]
+        public IHttpActionResult Post(Employee employee)
         {
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new UserManager();
-                string Mensaje = "Estimado " + user.FirstName + "  " + user.FirstLastName + " Se ha registrado en nuestra plataforma <br/><br/> " + "Su contraseña de inicio es: " + user.Password;
-                ToolsHelper.SendMail(user.Email, "Confirmación de cuenta", Mensaje);
-                user.Password = EncryptionHelper.Encrypt(user.Password);
-                mng.Create(user);
+                var mng = new EmployeeManager();
+                mng.Create(employee);
 
-                
+                string Mensaje = "Estimado " + employee.FirstName + "  " + employee.FirstLastName + " Se ha registrado en nuestra plataforma <br/><br/> " + "Su contraseña de inicio es: " + employee.Password;
+                ToolsHelper.SendMail(employee.Email, "Confirmación de cuenta", Mensaje);
 
 
                 return Ok(apiResp);
@@ -86,14 +83,14 @@ namespace CoreCodeAPI.Controllers
             }
         }
         //CREATE USERS
-        [Route("api/Users/put")]
-        public IHttpActionResult Put(User user)
+        [Route("api/Employeess/put")]
+        public IHttpActionResult Put(Employee employee)
         {
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new UserManager();
-                mng.Update(user);
+                var mng = new EmployeeManager();
+                mng.Update(employee);
 
                 return Ok(apiResp);
             }
@@ -117,14 +114,14 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
-        [Route("api/Users/delete")]
-        public IHttpActionResult Delete(User user)
+        [Route("api/Employees/delete")]
+        public IHttpActionResult Delete(Employee employee)
         {
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new UserManager();
-                mng.Delete(user);
+                var mng = new EmployeeManager();
+                mng.Delete(employee);
                 return Ok(apiResp);
             }
             catch (BussinessException bex)

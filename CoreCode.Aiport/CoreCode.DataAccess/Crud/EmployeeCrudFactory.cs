@@ -10,21 +10,20 @@ using System.Threading.Tasks;
 
 namespace CoreCode.DataAccess.Crud
 {
-    public class UserCrudFactory : CrudFactory
+    public class EmployeeCrudFactory : CrudFactory
     {
 
-        private readonly UserMapper mapper;
+        private readonly EmployeeMapper mapper;
 
-        public UserCrudFactory()
+        public EmployeeCrudFactory()
         {
-            mapper = new UserMapper();
+            mapper = new EmployeeMapper();
             dao = SqlDao.GetInstance();
         }
         public override void Create(BaseEntity entity)
         {
-            var user = (User)entity;
-
-            var sqlOperation = mapper.GetCreateStatement(user);
+            var employee = (Employee)entity;
+            var sqlOperation = mapper.GetCreateStatement(employee);
             dao.ExecuteProcedure(sqlOperation);
         }
 
@@ -49,19 +48,19 @@ namespace CoreCode.DataAccess.Crud
 
         public override List<T> RetrieveAll<T>()
         {
-            var lstUsers = new List<T>();
+            var lstemployees = new List<T>();
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveAllStatement());
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {
                 var objs = mapper.BuildObjects(lstResult);
-                foreach (var c in objs) lstUsers.Add((T)Convert.ChangeType(c, typeof(T)));
+                foreach (var c in objs) lstemployees.Add((T)Convert.ChangeType(c, typeof(T)));
             }
 
-            return lstUsers;
+            return lstemployees;
         }
 
-        
+
         public T RetrieveAdminAirportByAirportId<T>(BaseEntity entity)
         {
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveStatement(entity));
@@ -75,16 +74,16 @@ namespace CoreCode.DataAccess.Crud
 
             return default(T);
         }
-        
+
         public override void Update(BaseEntity entity)
         {
             var user = (User)entity;
             dao.ExecuteProcedure(mapper.GetUpdateStatement(user));
         }
 
-        public T RetrieveByUserId<T>(string userId)
+        public T RetrieveByEmployeeId<T>(string userId)
         {
-            var lstResult = dao.ExecuteQueryProcedure(mapper.GetUserByUserId(userId));
+            var lstResult = dao.ExecuteQueryProcedure(mapper.GetUserByEmployeeId(userId));
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {

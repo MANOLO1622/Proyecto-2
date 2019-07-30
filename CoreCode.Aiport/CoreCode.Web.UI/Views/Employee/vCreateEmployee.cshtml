@@ -7,12 +7,12 @@
 
 
 <script src="~/Scripts/Views/ControlActions.js"></script>
-<script src="~/Scripts/Views/vCreateUser.js"></script>
+<script src="~/Scripts/Views/vCreateEmployee.js"></script>
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
-<form id="frmCreateUser" class="main-right-content-container">
-    <div style="margin: 0 auto; width: 30%;">
+<form id="frmCreateEmployee" class="main-right-content-container">
+    <div style="margin: 0 auto; width: 40%;">
         <h2>Registro de Empleados</h2>
     </div>
     <div class="row">
@@ -88,8 +88,8 @@
  
     <div id="btnControl">
 
-        @Html.GetConfirmButton("btnRegister", "Create", "vCreateAirportAdmin", "", "Registrar")
-        @Html.GetConfirmButton("btnClean", "CleanForm", "vCreateAirportAdmin", "", "Limpiar")
+        @Html.GetConfirmButton("btnRegister", "Create", "vCreateEmployee", "", "Registrar")
+        @Html.GetConfirmButton("btnClean", "CleanForm", "vCreateEmployee", "", "Limpiar")
     </div>
 
 </form>

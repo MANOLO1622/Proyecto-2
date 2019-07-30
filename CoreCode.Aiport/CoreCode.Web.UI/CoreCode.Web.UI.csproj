@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AirlineController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\AirlineManagerController.cs" />
@@ -379,6 +380,7 @@
     <Content Include="Scripts\Views\ControlActions.js" />
     <Content Include="Scripts\Views\EditProfile.js" />
     <Content Include="Scripts\Views\Index.js" />
+    <Content Include="Scripts\Views\vCreateEmployee.js" />
     <Content Include="Scripts\Views\vCreateUser.js" />
     <Content Include="Scripts\Views\vCreatePassenger.js" />
     <Content Include="Scripts\Views\vEditAirlineAdmin.js" />
@@ -478,11 +480,10 @@
     <Content Include="Views\Passenger\vCreatePassenger.cshtml" />
     <Content Include="Views\Passenger\vListFlightsPassengers.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\RegisterUser.cshtml" />
-    <Content Include="Views\AiportManager\vCreateEmployee.cshtml" />
+    <Content Include="Views\Employee\vCreateEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Employee\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
