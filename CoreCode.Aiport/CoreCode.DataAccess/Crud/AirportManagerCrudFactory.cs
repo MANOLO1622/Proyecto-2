@@ -44,7 +44,7 @@ namespace CoreCode.DataAccess.Crud
 
         public T RetrieveAdminAirportByAirportId<T>(BaseEntity entity)
         {
-            var lstResult = dao.ExecuteQueryProcedure(mapper.RetrieveAdminAirportByAirportIdStatement(entity));
+            var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveAirportAdminByAirportIdStatement(entity));
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {

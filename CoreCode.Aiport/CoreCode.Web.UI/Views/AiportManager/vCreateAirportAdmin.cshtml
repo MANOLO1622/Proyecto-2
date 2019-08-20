@@ -26,8 +26,6 @@
         </div>
     </div>
     <div class="row">
-
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtFirstName", "text", "Primer nombre*", "form-control", "(Obligatorio)", "FirstName", true)
         </div>
@@ -67,6 +65,10 @@
                 <option value="soltero">Soltero/a</option>
                 <option value="union-libre">Unión libre</option>
             </select>
+
+
+
+
             @*@Html.GetSelectDropdown("selectCivilStatus","vCreateAirportAdmin", "",
                 new Dictionary<string, string> { { "Casado",  "casado" }, { "Soltero", "soltero" },{"Otro", "otro" } })*@
         </div>

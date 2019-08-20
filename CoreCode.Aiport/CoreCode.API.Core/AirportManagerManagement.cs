@@ -16,8 +16,9 @@ namespace CoreCode.API.Core
 
         public void Create(AirportManager manager)
         {
-            manager.Password = EncryptionHelper.GetEncryptedMd5Value(manager.Password);
+            //manager.Password = EncryptionHelper.GetEncryptedMd5Value(manager.Password);
             crudAirportManager.Create(manager);
+
         }
 
         public List<AirportManager> RetrieveAll()

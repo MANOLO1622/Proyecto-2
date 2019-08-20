@@ -13,7 +13,7 @@
 }
 
 <div id="DropdownAndTable" style="margin: 0 auto; width: 98%;"> 
-    <label>        *Costo de puerta, pista e impuesto es en dólares $</label>
+    <label>*Costo de puerta, pista e impuesto es en dólares $</label>
     @Html.GetSelectDropdown("statusFilter", "vListAirports", "AirportStatusDropdownChange", "", "", new Dictionary<string, string> { { "Aeropuertos habilitados", "true" }, { "Aeropuertos deshabilitados", "false" } })
 
     @Html.GetTable("tblAirport", "vListAirports", "BindFields", "scrollinAirportList", new List<string> { "ID", "Name", "Address", "Phone", "ZipCode", "GateTariff", "RunwayTariff", "Tax", "Latitude", "Longitude" },

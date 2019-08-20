@@ -2,7 +2,7 @@
 
 
     this.ctrlActions = new ControlActions();
-    this.AirportId = localStorage.getItem('idAirportLS');
+    //this.AirportId = localStorage.getItem('idAirportLS');
     this.userEmailHtmlElementId = "txtEmail ";
     this.userIdHtmlElementId = "txtId";
     this.Create = function () {

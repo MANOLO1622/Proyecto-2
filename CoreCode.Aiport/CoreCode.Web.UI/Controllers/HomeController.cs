@@ -17,7 +17,7 @@ namespace CoreCode.Web.UI.Controllers
             return View();
         }
 
-        [Route("pruebaDiego")]
+        [Route("pruebaManuel")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

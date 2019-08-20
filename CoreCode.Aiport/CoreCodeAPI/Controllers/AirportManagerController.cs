@@ -88,11 +88,9 @@ namespace CoreCodeAPI.Controllers
         {
             try
             {
-                var CorreoElectronico = manager.Email;
-                var pass = manager.Password;
                 mng.Create(manager);
-                string Mensaje = "Estimado " + manager.FirstName + "  " + manager.LastName + " <br/><br/> " + "Su contraseña de inicio es: " + pass;
-                ToolsHelper.SendMail(CorreoElectronico, "Confirmación de cuenta", Mensaje);
+
+
                 apiResp = new ApiResponse
                 {
                     Message = "Action was executed"
