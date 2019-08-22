@@ -10,48 +10,38 @@ namespace CoreCode.API.Core
 {
     public class EmployeeManagement
     {
-        private readonly EmployeeCrudFactory crudFaq;
+        private readonly EmployeeCrudFactory crudEmployee;
 
         public EmployeeManagement()
         {
-            crudFaq = new EmployeeCrudFactory();
-
+            crudEmployee = new EmployeeCrudFactory();
         }
+
+
 
         public void Create(Employee employee)
         {
-
-            var c = crudFaq.Retrieve<Employee>(employee);
-
-            if (c != null)
-            {
-                //FAQ already exist
-
-            }
-            else { crudFaq.Create(employee); }
-
-
-
+            crudEmployee.Create(employee);
         }
 
         public List<Employee> RetrieveAll()
         {
-            return crudFaq.RetrieveAll<Employee>();
+            return crudEmployee.RetrieveAll<Employee>();
         }
 
         public Employee RetrieveById(Employee employee)
         {
-            return crudFaq.Retrieve<Employee>(employee);
+            return crudEmployee.Retrieve<Employee>(employee);
         }
 
         public void Update(Employee employee)
         {
-            crudFaq.Update(employee);
+            crudEmployee.Update(employee);
         }
 
         public void Delete(Employee employee)
         {
-            crudFaq.Delete(employee);
+            crudEmployee.Delete(employee);
         }
     }
 }

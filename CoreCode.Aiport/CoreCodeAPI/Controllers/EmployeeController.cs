@@ -17,15 +17,14 @@ namespace CoreCodeAPI.Controllers
     public class EmployeeController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
-
+        EmployeeManagement mng = new EmployeeManagement();
         [Route("api/getEmployees")]
-        public IHttpActionResult Get(string userId)
+        public IHttpActionResult Get()
         {
             try
             {
-                apiResp = new ApiResponse();
-                var mng = new EmployeeManager();
-                apiResp.Data = mng.RetrieveEmployee(userId);
+                apiResp.Data = mng.RetrieveAll();
+
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
@@ -48,18 +47,18 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
-        [Route("api/Employees/post")]
+        [Route("api/postEmployee")]
         public IHttpActionResult Post(Employee employee)
         {
             try
             {
-                apiResp = new ApiResponse();
-                var mng = new EmployeeManager();
                 mng.Create(employee);
 
-                string Mensaje = "Estimado " + employee.FirstName + "  " + employee.FirstLastName + " Se ha registrado en nuestra plataforma <br/><br/> " + "Su contraseña de inicio es: " + employee.Password;
-                ToolsHelper.SendMail(employee.Email, "Confirmación de cuenta", Mensaje);
 
+                apiResp = new ApiResponse
+                {
+                    Message = "Action was executed"
+                };
 
                 return Ok(apiResp);
             }
@@ -82,7 +81,7 @@ namespace CoreCodeAPI.Controllers
                 return InternalServerError(new Exception(ex.Message));
             }
         }
-        //CREATE USERS
+        //CREATE EMPLOYEES
         [Route("api/Employeess/put")]
         public IHttpActionResult Put(Employee employee)
         {

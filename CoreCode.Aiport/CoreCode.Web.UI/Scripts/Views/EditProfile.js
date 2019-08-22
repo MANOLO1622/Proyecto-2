@@ -57,7 +57,13 @@
             case 3:
                 instance.setFormForAirlineAdmin();
                 break;
-            default:
+            case 4:
+                instance.setFormForUser();
+                break;
+            case 5:
+                instance.setFormForEmployee();
+                break;
+                  default:
                 //redirect
                 break;
             }

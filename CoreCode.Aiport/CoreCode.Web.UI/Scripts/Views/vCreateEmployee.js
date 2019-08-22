@@ -12,62 +12,24 @@
             var user;
             var employeeData = {};
             employeeData = this.ctrlActions.GetDataForm('frmCreateEmployee');
-            
             let callback = function (response) {
                 user = response.Data;
                 if (!user) {
-                    var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                        if (!regEmail.test(document.querySelector('#txtEmail').value)) {
-                            document.querySelector('#txtEmail').classList.add('input-error');
-                            swal({
-                                title: "Error al registrar empleado",
-                                text: "Correo electrónico no cuenta con formato correcto",
-                                icon: "error",
-                                button: "Ok",
-                            });
-
-                        }
-                        else {
-                            var birthday = new Date(document.querySelector('#txtBirthDate').value.split('-'));
-                            var today = new Date();
-                            var age = today.getFullYear() - birthday.getFullYear();
-                            var m = today.getMonth() - birthday.getMonth();
-
-                            if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
-                                age--;
-                            }
-                            console.log(age, typeof (age));
-                            if (age < 18) {
-                                document.querySelector('#txtBirthDate').classList.add('input-error');
-                                swal({
-                                    title: "Error al registrar empleado",
-                                    text: "Usuario debe ser mayor de edad",
-                                    icon: "error",
-                                    button: "Ok",
-                                });
-                            }
-
-                            else {
-
-                                employeeData.Status = true;
-                                employeeData.Rol = "5";
-                                employeeData.EmployeeID = instance.EmployeeId;
-                                employeeData.Password = instance.GenerateRandomPassword();
-
-                                instance.ctrlActions.PostToAPI('postEmployee', EmployeeData, function () {
-
-                                    swal({
-                                        title: "¡Empleado registrado!",
-                                        text: "Proceda a esperar su correo de confirmación al correo: " + employeeData.Email,
-                                        icon: "success",
-                                        button: "OK"
-                                    }).then(function () {
-                                        instance.CleanForm();;
-                                    });
-                                });
-                            }
-                        }
-
+                    employeeData.Status = false;//quitar input password
+                    employeeData.Rol = "5";
+                    //employeeData.EmployeeID = instance.EmployeeId;
+                    employeeData.Password = "empleado";
+                    instance.ctrlActions.PostToAPI('postEmployee', employeeData, function () {
+                        swal({
+                            title: "¡Empleado Registrado!",
+                            text: "Proceda a esperar correo de confirmación al siguiente correo: " + employeeData.Email + " Bienvenido!",
+                            icon: "success",
+                            button: "OK"
+                        }).then(function () {
+                            instance.CleanForm();
+                            //  window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
+                        });
+                    });
                 } else if (user.ID === document.querySelector('#txtId').value) {
                     document.querySelector('#txtId').classList.add('input-error');
 
@@ -75,39 +37,32 @@
                         title: "Error al registrar empleado",
                         text: "Cédula de identidad ya se encuentra registrada",
                         icon: "error",
-                        button: "Ok",
+                        button: "Ok"
                     });
-                } else if (user.Email === document.querySelector('#txtEmail').value) {
+                }
+                else if (user.Email === document.querySelector('#txtEmail').value) {
                     document.querySelector('#txtEmail').classList.add('input-error');
-
                     swal({
                         title: "Error al registrar empleado",
                         text: "Correo electrónico ya se encuentra registrado",
                         icon: "error",
                         button: "Ok",
                     });
-
-                } 
+                }
             }
             instance.ctrlActions.GetFromAPI("checkIfUserExistsByUserNameOrId?userName=" + $("#" + instance.userEmailHtmlElementId).val() + "&id=" + $("#" + instance.userIdHtmlElementId).val() + "", "", callback);
-
         }
         else {
+
             swal({
                 title: "¡Ocurrió un error!",
                 text: "Revisar campos vacíos",
                 icon: "error",
                 button: "OK",
             });
-        }
-    }
 
-    this.GenerateRandomPassword = function () {
-        var caracteres = "!@abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789!@";
-        var pass = "";
-        var longitud = 8;
-        for (i = 0; i < longitud; i++) pass += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-        return pass;
+        }
+
     }
 
 

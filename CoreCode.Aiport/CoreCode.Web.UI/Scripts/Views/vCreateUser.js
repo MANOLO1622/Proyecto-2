@@ -9,7 +9,6 @@
         var instance = this;
         if (this.Validate()) {
             var user;
-           
             var UserData = {};
             UserData = this.ctrlActions.GetDataForm('frmCreateUser');
 

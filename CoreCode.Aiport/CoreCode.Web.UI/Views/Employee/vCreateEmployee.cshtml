@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "LastName", true)
+            @Html.GetInputWithLabel("txtFirstLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "FirstLastName", true)
         </div>
     </div>
     <div class="row">
@@ -54,8 +54,41 @@
         </div>
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtPhone", "tel", "Teléfono*", "form-control", "(Obligatorio)", "Phone", true)
-
         </div>
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtExperience", "text", "Años de experiencia*", "form-control", "(Obligatorio)", "Experience", true)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtGraduationYear", "date", "Fecha de graducación*", "form-control", "Detalle", "GraduationYear", true)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtLicense", "text", "Número de licencia o autorización*", "form-control", "(Obligatorio)", "License", true)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtNationality", "text", "Nacionalidad*", "form-control", "(Obligatorio)", "Nationality", true)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtProvince", "text", "Provincia*", "form-control", "(Obligatorio)", "Province", true)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtCanton", "text", "Canton*", "form-control", "(Obligatorio)", "Canton", true)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtDistrict", "text", "Distrito*", "form-control", "(Obligatorio)", "District", true)
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="selectPut">Puesto*</label>
+            <select class="form-control" id="selectPut" columnDataName="Put" required>
+                <option value="">Seleccione opción (Obligatorio)</option>
+                <option value="asistentedevuelo">Asistente de vuelo</option>
+                <option value="piloto">Piloto/a</option>
+                <option value="copiloto">Copiloto/a</option>
+            </select>
+        </div>
+
 
     </div>
     <div class="row">
@@ -89,7 +122,7 @@
     <div id="btnControl">
 
         @Html.GetConfirmButton("btnRegister", "Create", "vCreateEmployee", "", "Registrar")
-        @Html.GetConfirmButton("btnClean", "CleanForm", "vCreateEmployee", "", "Limpiar")
+        @Html.GetConfirmButton("btnControl", "CleanForm", "vCreateEmployee", "", "Limpiar")
     </div>
 
 </form>
