@@ -4,7 +4,7 @@
     this.tblCategoryId = 'tblCategory';
     this.service = 'category';
     this.ctrlActions = new ControlActions();
-    this.columns = "IDCategory,Description";
+    this.columns = "IDCategory,Description,Abbreviation";
 
     this.CategoryStatusDropdownChange = function () {
 
@@ -45,10 +45,12 @@
 
 
         if (document.querySelector('#txtId').value == '' &&
-            document.querySelector('#txtDescription').value != '') {
+            document.querySelector('#txtDescription').value != '')
+            document.querySelector('#txtAbbreviation').value != ''){
 
             document.querySelector('#txtId').classList.remove('input-error');
             document.querySelector('#txtDescription').classList.remove('input-error');
+            document.querySelector('#txtAbbreviation').classList.remove('input-error');
 
             var instance = this;
             if (!this.Validate()) {
@@ -66,12 +68,12 @@
                     cont = cont + 1;
                     //Hace el post al create
 
-                    categoryData.IDCategory = "CAT-" + cont.toString();
+                    categoryData.IDCategory = "COD-" + cont.toString();
 
                     instance.ctrlActions.PostToAPI('postCategory', categoryData, function () {
                         //Refresca la tabla
                         swal({
-                            title: "¡Categoría registrada!",
+                            title: "¡País registrado!",
                             text: "",
                             icon: "success",
                             button: "OK",
@@ -102,10 +104,11 @@
 
             document.querySelector('#txtId').classList.add('input-error');
             document.querySelector('#txtDescription').classList.add('input-error');
+            document.querySelector('#txtAbbreviation').classList.add('input-error');
 
             swal({
                 title: "¡Error en el registro!",
-                text: "No se puede registrar una categoría que ya se encuentra en el sistema",
+                text: "No se puede registrar el país que ya se encuentra en el sistema",
                 icon: "error",
                 button: "OK",
             });
@@ -133,7 +136,7 @@
             instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡Categoría actualizada!",
+                    title: "¡País actualizado!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -148,8 +151,8 @@
         }
         else {
             swal({
-                title: "¡Error al modificar categoría!",
-                text: "Por favor, seleccionar una categoría a modificar en la tabla",
+                title: "¡Error al modificar el país!",
+                text: "Por favor, seleccionar un país a modificar en la tabla",
                 icon: "error",
                 button: "OK",
             });
@@ -175,7 +178,7 @@
             instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡Categoría habilitada!",
+                    title: "¡Pais habilitado!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -190,8 +193,8 @@
         }
         else {
             swal({
-                title: "¡Error al habilitar categoría!",
-                text: "Por favor, seleccionar una categoría de la tabla",
+                title: "¡Error al habilitar el país!",
+                text: "Por favor, seleccionar un país de la tabla",
                 icon: "error",
                 button: "OK",
             });
@@ -215,7 +218,7 @@
             instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡Categoría deshabilitada!",
+                    title: "¡País deshabilitada!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -230,8 +233,8 @@
         }
         else {
             swal({
-                title: "¡Error al deshabilitar categoría!",
-                text: "Por favor, seleccionar una categoría de la tabla",
+                title: "¡Error al deshabilitar el país!",
+                text: "Por favor, seleccionar un país de la tabla",
                 icon: "error",
                 button: "OK",
             });
@@ -270,8 +273,10 @@
     this.CleanForm = function(){
         document.querySelector('#txtId').value = '';
         document.querySelector('#txtDescription').value = '';
+        document.querySelector('#txtAbbreviation').value = '';
         document.querySelector('#txtId').classList.remove('input-error');
         document.querySelector('#txtDescription').classList.remove('input-error');
+        document.querySelector('#txtAbbreviation').classList.remove('input-error');
       
 
     }

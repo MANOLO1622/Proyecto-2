@@ -10,6 +10,7 @@ namespace CoreCode.Entities.POJO
     {
         public string IDCategory { get; set; }
         public string Description { get; set; }
+        public string Abbreviation { get; set; }
         public bool Status { get; set; }
 
         

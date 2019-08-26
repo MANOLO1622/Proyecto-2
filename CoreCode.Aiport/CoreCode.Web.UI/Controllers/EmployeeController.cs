@@ -20,7 +20,7 @@ namespace CoreCode.Web.UI.Controllers
         [Route("vListEmployee")]
         public ActionResult vListEmployee()
         {
-            return View();
+            return View("~/Views/Employee/vListEmployee.cshtml");
         }
 
         [Route("vEmployee")]

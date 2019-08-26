@@ -18,7 +18,7 @@ namespace CoreCodeAPI.Controllers
     {
         ApiResponse apiResp = new ApiResponse();
         EmployeeManagement mng = new EmployeeManagement();
-        [Route("api/getEmployees")]
+        [Route("api/getEmployee")]
         public IHttpActionResult Get()
         {
             try
@@ -81,15 +81,19 @@ namespace CoreCodeAPI.Controllers
                 return InternalServerError(new Exception(ex.Message));
             }
         }
-        //CREATE EMPLOYEES
-        [Route("api/Employeess/put")]
+        //UPDATE
+        [Route("api/updateEmployee")]
         public IHttpActionResult Put(Employee employee)
         {
             try
             {
-                apiResp = new ApiResponse();
-                var mng = new EmployeeManager();
+                var mng = new EmployeeManagement();
                 mng.Update(employee);
+
+                apiResp = new ApiResponse
+                {
+                    Message = "Action was executed."
+                };
 
                 return Ok(apiResp);
             }

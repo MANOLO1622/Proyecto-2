@@ -169,6 +169,7 @@
     <Compile Include="Controllers\AirlineManagerController.cs" />
     <Compile Include="Controllers\AirportManagerController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\AsignationController.cs" />
     <Compile Include="Controllers\GateController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -385,6 +386,8 @@
     <Content Include="Scripts\Views\vCreatePassenger.js" />
     <Content Include="Scripts\Views\vEditAirlineAdmin.js" />
     <Content Include="Scripts\Views\vEditAirportAdmin.js" />
+    <Content Include="Scripts\Views\vAsignation.js" />
+    <Content Include="Scripts\Views\vListEmployeesRequest.js" />
     <Content Include="Scripts\Views\vRequestAdminAirportFromAirline .js" />
     <Content Include="Scripts\Views\vRequestAdminAirlineToAirport.js" />
     <Content Include="Scripts\Views\vTicket.js" />
@@ -481,6 +484,8 @@
     <Content Include="Views\Passenger\vListFlightsPassengers.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\RegisterUser.cshtml" />
     <Content Include="Views\Employee\vCreateEmployee.cshtml" />
+    <Content Include="Views\Employee\vListEmployee.cshtml" />
+    <Content Include="Views\Asignation\vAsignation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

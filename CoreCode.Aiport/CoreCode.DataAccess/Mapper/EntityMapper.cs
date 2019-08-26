@@ -60,9 +60,16 @@ namespace DataAccess.Mapper
 
         protected DateTime GetDateValue(Dictionary<string, object> dic, string attName)
         {
-            var val = dic[attName];
-            if (dic.ContainsKey(attName) && val is DateTime)
-                return (DateTime) dic[attName];
+            try
+            {
+                var val = dic[attName];
+                if (dic.ContainsKey(attName) && val is DateTime)
+                    return (DateTime)dic[attName];
+            }
+            catch(Exception e)
+            {
+                return DateTime.Now;
+            }
 
             return DateTime.Now;
         }

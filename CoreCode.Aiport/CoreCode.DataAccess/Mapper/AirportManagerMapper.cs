@@ -97,13 +97,22 @@ namespace CoreCode.DataAccess.Mapper
 
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            AirportCrudFactory acf = new AirportCrudFactory();
-            var entity = new Airport
-            {
-                ID = GetStringValue(row, DB_COL_ID_AIRPORT)
-            };
+            //Airport Airport = null;
 
-            Airport Airport = acf.Retrieve<Airport>(entity);
+            //try
+            //{
+            //    AirportCrudFactory acf = new AirportCrudFactory();
+            //    var entity = new Airport
+            //    {
+            //        ID = GetStringValue(row, DB_COL_ID_AIRPORT)
+            //    };
+
+            //    Airport = acf.Retrieve<Airport>(entity);
+            //}
+            //catch(Exception e)
+            //{
+            //    Airport = null;
+            //}
 
             var AirportManager = new AirportManager
             {

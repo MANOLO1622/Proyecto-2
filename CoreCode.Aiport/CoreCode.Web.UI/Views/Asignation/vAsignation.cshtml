@@ -1,0 +1,58 @@
+﻿@using CoreCode.Web.UI.Models.Helpers
+@section pageCss{
+    <link rel="stylesheet" href="~/Scripts/TableHide.css" />
+}
+
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/Views/vAsignation.js"></script>
+@{
+    /**/
+
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+
+}
+
+<div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
+    <div class="card-header">
+        <div class="row pull-right">
+            <div class="col-md-8">Información de aeropuerto</div>
+            <div class="col-xs-6 col-sm-4">
+                <button class="btn btn-primary" type="button" onclick="save()">
+                    Asignar
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <form id="frmEdition">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p>
+                                    Aeropuerto
+                                </p>
+                                <select class="form-control" id="listAirports">
+                                    <option>
+                                        Seleccione una opción
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <p>
+                                    Administrador
+                                </p>
+                                <select class="form-control" id="listUsers">
+                                    <option>
+                                        Seleccione una opción
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
