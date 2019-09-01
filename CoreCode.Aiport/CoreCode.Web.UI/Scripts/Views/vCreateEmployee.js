@@ -17,6 +17,7 @@
                 if (!user) {
                     employeeData.Status = false;//quitar input password
                     employeeData.Rol = "5";
+                    localStorage.setItem("idEmployeeLS", employeeData.Rol);
                     //employeeData.EmployeeID = instance.EmployeeId;
                     employeeData.Password = "empleado";
                     instance.ctrlActions.PostToAPI('postEmployee', employeeData, function () {

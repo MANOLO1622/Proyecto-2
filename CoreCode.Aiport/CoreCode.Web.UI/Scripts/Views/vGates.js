@@ -4,8 +4,8 @@
     this.tblGateId = 'tblGate';
     this.service = 'gate';
     this.ctrlActions = new ControlActions();
-    this.columns = "IDGate,Number";
-    this.AirportId = UserSession.getAirportInstance().ID;//AGARRA IDASSIGNED DE SESSION STORAGE //"ARPT-1";
+    this.columns = "IDAirport,IDGate,Number";
+    //this.AirportId = UserSession.getAirportInstance().ID;//AGARRA IDASSIGNED DE SESSION STORAGE //"ARPT-1";
     this.rolUser = UserSession.getCurrentUserInstance().Rol;
 
     this.GateStatusDropdownChange = function () {
@@ -35,11 +35,11 @@
     }
 
     this.RetrieveAvailable = function () {
-        this.ctrlActions.FillTable('getAvailableArptGates', this.tblGateId, false, 'Buscar:', 'Código ó # de puerta', { id: this.AirportId });
+        this.ctrlActions.FillTable('getAvailableArptGates', this.tblGateId, false, 'Buscar:', 'Código ó # de puerta');
         this.ReloadTable();
     }
     this.RetrieveUnavailable = function () {
-        this.ctrlActions.FillTable('getUnavailableArptGates', this.tblGateId, false, 'Buscar:', 'Código ó # de puerta', { id: this.AirportId });
+        this.ctrlActions.FillTable('getUnavailableArptGates', this.tblGateId, false, 'Buscar:', 'Código ó # de puerta');
         this.ReloadTable();
     }
 
@@ -47,14 +47,17 @@
         this.ctrlActions.ReloadTable(this.tblGateId);
     }
 
+    //CREATE
+
     this.Create = function () {
 
         if (document.querySelector('#txtId').value == ''
-            && document.querySelector('#nbmNumber').value == '') {
+            && document.querySelector('#nbmNumber').value == ''
+            && document.querySelector('#txtIdAirport').value == '') {
 
             document.querySelector('#txtId').classList.remove('input-error');
             document.querySelector('#nbmNumber').classList.remove('input-error');
-
+            document.querySelector('#txtIdAirport').classList.remove('input-error');
 
             var instance = this;
 
@@ -101,6 +104,7 @@
 
             document.querySelector('#txtId').classList.add('input-error');
             document.querySelector('#nbmNumber').classList.add('input-error');
+            document.querySelector('#txtIdAirport').classList.add('input-error');
 
             swal({
                 title: "¡Error al registrar puerta!",
@@ -122,7 +126,7 @@
             var gateData = {};
             gateData = this.ctrlActions.GetDataForm('frmEdition');
             //Hace el post al create
-            gateData.IDAirport = instance.AirportId
+            //gateData.IDAirport = instance.AirportId
             gateData.Status = true;
 
             this.ctrlActions.PostToAPI('updateGate', gateData, function () {
@@ -153,14 +157,15 @@
 
 
     this.Disable = function () {
+
         var instance = this;
+
         if (!this.Validate()) {
+
             var gateData = {};
             gateData = this.ctrlActions.GetDataForm('frmEdition');
-            //Hace el post al create
-            gateData.IDAirport = instance.AirportId
             gateData.Status = false;
-
+            //Hace el post al create
             this.ctrlActions.PostToAPI('updateGate', gateData, function () {
                 //Refresca la tabla
                 swal({
@@ -193,14 +198,18 @@
     this.BindFields = function (data) {
         this.ctrlActions.BindFields('frmEdition', data);
         document.getElementById("txtId").setAttribute("disabled", "disabled");
+        document.getElementById("nbmNumber").setAttribute("disabled", "disabled");
+        document.getElementById("txtIdAirport").setAttribute("disabled", "disabled");
     }
 
 
     this.CleanForm = function () {
         document.querySelector('#txtId').value = '';
         document.querySelector('#nbmNumber').value = '';
-        document.querySelector('#txtId').disabled = true;
-        document.querySelector('#nbmNumber').disabled = true;
+        document.querySelector('#txtIdAirport').value = '';
+        document.querySelector('#txtId').disabled = false;
+        document.querySelector('#nbmNumber').disabled = false;
+        document.querySelector('#txtIdAirport').disabled = false;
 
         let aInputs = document.querySelectorAll(':required');
         for (let i = 0; i < aInputs.length; i++) {
@@ -237,6 +246,7 @@ $(document).ready(function () {
 
     document.querySelector("#txtId").disabled = true;
     document.querySelector("#nbmNumber").disabled = true;
+    document.querySelector("#txtIdAirport").disabled = true;
     document.querySelector("#btnEnable").classList.add('hide');
 
     var vgate = new vGates();

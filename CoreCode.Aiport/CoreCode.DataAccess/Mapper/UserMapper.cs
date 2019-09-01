@@ -305,7 +305,14 @@ namespace CoreCode.DataAccess.Mapper
             return operation;
         }
 
-       
+        public SqlOperation GetUserByRolId(int rolId)
+        {
+            var operation = new SqlOperation { ProcedureName = "RET_ALL_EMPLOYEES" };
+            operation.AddIntParam(DB_COL_ID_ROL, rolId);
+            return operation;
+        }
+
+
     }
 }
 

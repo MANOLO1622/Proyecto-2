@@ -17,9 +17,7 @@
         <div class="row pull-right">
             <div class="col-md-8">Información de aeropuerto</div>
             <div class="col-xs-6 col-sm-4">
-                <button class="btn btn-primary" type="button" onclick="save()">
-                    Asignar
-                </button>
+                @Html.GetConfirmButton("btnAsignation", "Create", "vAsignation", "", "Asignar")
             </div>
         </div>
     </div>
@@ -33,21 +31,15 @@
                                 <p>
                                     Aeropuerto
                                 </p>
-                                <select class="form-control" id="listAirports">
-                                    <option>
-                                        Seleccione una opción
-                                    </option>
-                                </select>
+                                @Html.GetSelectDropdown("dropdownOriginAirport", "vAsignation", "", "loadAirportDropdown", "Id_Airport",
+                                   new Dictionary<string, string>() {{"Seleccione el aeropuerto:", ""}})
                             </div>
                             <div class="col-lg-6">
                                 <p>
                                     Administrador
                                 </p>
-                                <select class="form-control" id="listUsers">
-                                    <option>
-                                        Seleccione una opción
-                                    </option>
-                                </select>
+                                @Html.GetSelectDropdown("dropdownOriginUser", "vAsignation", "", "loadUserDropdown", "Id_User",
+                                   new Dictionary<string, string>() {{"Seleccione el usuario:", ""}})
                             </div>
                         </div>
                     </form>

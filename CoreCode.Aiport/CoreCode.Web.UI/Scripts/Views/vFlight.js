@@ -94,8 +94,8 @@
             var flightData = {};
             var instance = this;
             flightData = this.ctrlActions.GetDataForm('frmEdition');
+            console.log('flightData', flightData);
             flightData.Status = "a tiempo";
-            
             //Hace el post al create
             let flights;
             let cont = 0;

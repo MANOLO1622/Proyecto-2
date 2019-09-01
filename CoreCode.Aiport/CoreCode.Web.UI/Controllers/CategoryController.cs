@@ -12,10 +12,10 @@ namespace CoreCode.Web.UI.Controllers
     public class CategoryController : Controller
     {
 
-        [Route("vCategories")]
-        public ActionResult vCategories()
+        [Route("vCountries")]
+        public ActionResult vCountries()
         {
-            return View();
+            return View("~/Views/Country/vCountries.cshtml");
         }
         
 

@@ -12,5 +12,6 @@ namespace CoreCode.Entities.POJO
         public string IDGate { get; set; }
         public int Number { get; set; }
         public bool Status { get; set; }
+
     }
 }

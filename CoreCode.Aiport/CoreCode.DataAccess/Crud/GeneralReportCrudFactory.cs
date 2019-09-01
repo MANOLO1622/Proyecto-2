@@ -63,7 +63,7 @@ namespace CoreCode.DataAccess.Crud
                         IDCategory = row.Field<string>(StoreCategoryIdColName),
                         Status = row.Field<bool>(StoreStatusColName)
                     },
-                    ManagerName = "Cesar Lopez",
+                    ManagerName = "Manuel Elizondo",
                     Rent = row.Field<decimal>(StoreRentColName)
                 }).ToList();
                 List<Gate> gates = gateTable.AsEnumerable().Select(row => GateMapperInstance.BuildObjectFromDataRow(row)).ToList();

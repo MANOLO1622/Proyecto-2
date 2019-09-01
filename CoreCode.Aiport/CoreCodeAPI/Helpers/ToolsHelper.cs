@@ -17,14 +17,14 @@ namespace CoreCodeAPI.Helpers
             {
                 MailMessage mail = new MailMessage();
                 mail.To.Add(correo);
-                mail.From = new MailAddress("internationalaholding@gmail.com");
+                mail.From = new MailAddress("sonyairlines@gmail.com");
                 mail.Subject = titulo;
                 mail.Body = mensaje;
                 mail.IsBodyHtml = true;
 
                 var smtp = new SmtpClient()
                 {
-                    Credentials = new System.Net.NetworkCredential("internationalaholding@gmail.com", "coreCode12345"),
+                    Credentials = new System.Net.NetworkCredential("sonyairlines@gmail.com", "Sony2019"),
                     Host= "smtp.gmail.com",
                     Port = 587,
                     EnableSsl = true

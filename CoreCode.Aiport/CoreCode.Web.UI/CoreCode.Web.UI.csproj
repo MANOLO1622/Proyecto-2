@@ -397,7 +397,7 @@
     <Content Include="Scripts\Views\vCreateAirports.js" />
     <Content Include="Scripts\Views\vFlight.js" />
     <Content Include="Scripts\Views\vFaqs.js" />
-    <Content Include="Scripts\Views\vCategories.js" />
+    <Content Include="Scripts\Views\vCountries.js" />
     <Content Include="Scripts\Views\vListAirlinesRequest.js" />
     <Content Include="Scripts\Views\vListAirports.js" />
     <Content Include="Scripts\Views\vGates.js" />
@@ -459,7 +459,7 @@
     <Content Include="Views\Dashboard\ShowAirlineDashboard.cshtml" />
     <Content Include="Views\Dashboard\ShowGeneralDashboard.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\CreateCategoryPartial.cshtml" />
-    <Content Include="Views\Category\vCategories.cshtml" />
+    <Content Include="Views\Country\vCountries.cshtml" />
     <Content Include="Views\Gate\vGates.cshtml" />
     <Content Include="Views\Flight\vFlight.cshtml" />
     <Content Include="Views\Faq\vFaqs.cshtml" />

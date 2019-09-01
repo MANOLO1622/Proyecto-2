@@ -71,11 +71,11 @@ namespace CoreCode.DataAccess.Crud
             return listGates;
         }
 
-        public List<T> RetrieveAvailableGates<T>(string id)
+        public List<T> RetrieveAvailableGates<T>()
         {
             GateMapper gateMapper = new GateMapper();
             var listGates = new List<T>();
-            var lstResult = dao.ExecuteQueryProcedure(gateMapper.GetRetrieveStatementAvailableGatesByAirportId(id));
+            var lstResult = dao.ExecuteQueryProcedure(gateMapper.GetRetrieveStatementAvailableGatesByAirportId());
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {
@@ -84,11 +84,11 @@ namespace CoreCode.DataAccess.Crud
             }
             return listGates;
         }
-        public List<T> RetrieveUnavailableGates<T>(string id)
+        public List<T> RetrieveUnavailableGates<T>()
         {
             GateMapper gateMapper = new GateMapper();
             var listGates = new List<T>();
-            var lstResult = dao.ExecuteQueryProcedure(gateMapper.GetRetrieveStatementUnavailableGatesByAirportId(id));
+            var lstResult = dao.ExecuteQueryProcedure(gateMapper.GetRetrieveStatementUnavailableGatesByAirportId());
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {

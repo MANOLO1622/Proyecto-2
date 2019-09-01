@@ -84,9 +84,14 @@ a:hover {
   text-decoration: none;
 }
 
+.carousel-example-2 {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://content.r9cdn.net/rimg/dimg/ec/8b/24249db4-city-2270-167f6c08db1.jpg?s14=1&width=677&height=400&crop=true&xhint=2173&yhint=926);
+    
+}
+
 .curve {
-  position: absolute;
-  z-index: 7;
+    position: absolute;
+    z-index: 7;
 }
 .curve.curve-center:after {
   border-left: 50vw solid transparent;

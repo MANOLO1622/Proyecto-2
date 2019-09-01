@@ -17,7 +17,7 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_STATUS = "STATUS";
         private const string DB_COL_PRICE = "PRICE";
         private const string DB_COL_BUY_DATE = "BUY_DATE";
-        private const string DB_COL_ID_PERSON = "ID_PERSON";
+        private const string DB_COL_ID_USER = "ID_USER";
         private const string DB_COL_PERSON_NAME = "PERSON_NAME";
 
         public BaseEntity BuildObject(Dictionary<string, object> row)
@@ -31,7 +31,7 @@ namespace CoreCode.DataAccess.Mapper
                 Status = GetStringValue(row, DB_COL_STATUS),
                 Price = GetDecimalValue(row, DB_COL_PRICE),
                 Buy_Date = Convert.ToDateTime(GetDateValue(row, DB_COL_BUY_DATE)),
-                Id_Person = GetStringValue(row, DB_COL_ID_PERSON),
+                Id_User = GetStringValue(row, DB_COL_ID_USER),
                 Person_Name = GetStringValue(row, DB_COL_PERSON_NAME)
             };
             return ticket;
@@ -59,7 +59,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_STATUS, a.Status);
             operation.AddDecimalParam(DB_COL_PRICE, a.Price);
             operation.AddDateParam(DB_COL_BUY_DATE, a.Buy_Date);
-            operation.AddVarcharParam(DB_COL_ID_PERSON, a.Id_Person);
+            operation.AddVarcharParam(DB_COL_ID_USER, a.Id_User);
             operation.AddVarcharParam(DB_COL_PERSON_NAME, a.Person_Name);
 
             return operation;

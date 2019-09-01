@@ -45,14 +45,14 @@ namespace CoreCode.API.Core
         {
             return crudAirport.RetrieveGates<Gate>(airport.ID);
         }
-        public List<Gate> RetrieveAvailableGates(Airport airport)
+        public List<Gate> RetrieveAvailableGates()
         {
-            return crudAirport.RetrieveAvailableGates<Gate>(airport.ID);
+            return crudAirport.RetrieveAvailableGates<Gate>();
         }
 
-        public List<Gate> RetrieveUnavailableGates(Airport airport)
+        public List<Gate> RetrieveUnavailableGates()
         {
-            return crudAirport.RetrieveUnavailableGates<Gate>(airport.ID);
+            return crudAirport.RetrieveUnavailableGates<Gate>();
         }
 
 

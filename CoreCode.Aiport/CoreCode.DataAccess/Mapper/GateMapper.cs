@@ -120,19 +120,19 @@ namespace CoreCode.DataAccess.Mapper
             return operation;
         }
 
-        public SqlOperation GetRetrieveStatementAvailableGatesByAirportId(string idAirport) 
+        public SqlOperation GetRetrieveStatementAvailableGatesByAirportId() 
         {
 
             var operation = new SqlOperation { ProcedureName = "RET_AVAILABLE_ARPT_GATES_PR" };
-            operation.AddVarcharParam(DB_COL_ID_AIRPORT, idAirport);
+           
             return operation;
         }
 
-        public SqlOperation GetRetrieveStatementUnavailableGatesByAirportId(string idAirport)
+        public SqlOperation GetRetrieveStatementUnavailableGatesByAirportId()
         {
 
             var operation = new SqlOperation { ProcedureName = "RET_UNAVAILABLE_ARPT_GATES_PR" };
-            operation.AddVarcharParam(DB_COL_ID_AIRPORT, idAirport);
+            
             return operation;
         }
 

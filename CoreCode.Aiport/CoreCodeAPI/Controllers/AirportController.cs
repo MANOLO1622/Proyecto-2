@@ -312,17 +312,14 @@ namespace CoreCodeAPI.Controllers
         }
 
         [Route("api/getAvailableArptGates")]
-        public IHttpActionResult GetAvailableAirportGates(string id)
+        public IHttpActionResult GetAvailableAirportGates()
         {
             try
             {
                 var mng = new AirportManagement();
-                var airport = new Airport
-                {
-                    ID = id
-                };
+                
 
-                List<Gate> list = mng.RetrieveAvailableGates(airport);
+                List<Gate> list = mng.RetrieveAvailableGates();
                 apiResp = new ApiResponse();
                 apiResp.Data = list;
                 return Ok(apiResp);
@@ -348,17 +345,14 @@ namespace CoreCodeAPI.Controllers
         }
 
         [Route("api/getUnavailableArptGates")]
-        public IHttpActionResult GetUnavailableAirportGates(string id)
+        public IHttpActionResult GetUnavailableAirportGates()
         {
             try
             {
                 var mng = new AirportManagement();
-                var airport = new Airport
-                {
-                    ID = id
-                };
+               
 
-                List<Gate> list = mng.RetrieveUnavailableGates(airport);
+                List<Gate> list = mng.RetrieveUnavailableGates();
                 apiResp = new ApiResponse();
                 apiResp.Data = list;
                 return Ok(apiResp);

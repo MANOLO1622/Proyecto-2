@@ -10,7 +10,6 @@ namespace CoreCode.API.Core
 {
     public class GateManagement
     {
-
         private readonly GateCrudFactory crudGate;
 
         public GateManagement()
@@ -26,6 +25,16 @@ namespace CoreCode.API.Core
         public List<Gate> RetrieveAll()
         {
             return crudGate.RetrieveAll<Gate>();
+        }
+
+        public List<Gate> RetrieveAvailable()
+        {
+            return crudGate.RetrieveAvailable<Gate>();
+        }
+
+        public List<Gate> RetrieveUnavailable()
+        {
+            return crudGate.RetrieveUnavailable<Gate>();
         }
 
         public Gate RetrieveById(Gate gate)

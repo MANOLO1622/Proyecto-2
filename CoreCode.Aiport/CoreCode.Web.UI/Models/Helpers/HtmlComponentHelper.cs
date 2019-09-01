@@ -99,7 +99,7 @@ namespace CoreCode.Web.UI.Models.Helpers
             var modalHtmlComponent = new ModalHtmlComponent
             {
                 ModalContent = new HtmlString(@"
-                <div>Cesar</div>")
+                <div>Manuel</div>")
             };
             return new HtmlString(helper.Partial("~/Views/PartialViews/ButtonModal.cshtml", modalHtmlComponent).ToString());
         }

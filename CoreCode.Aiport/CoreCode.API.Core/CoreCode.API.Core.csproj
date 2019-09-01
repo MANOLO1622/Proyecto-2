@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="EmployeeManagement.cs" />
     <Compile Include="ApplicationMessageManagement.cs" />
+    <Compile Include="AsignationManagement.cs" />
     <Compile Include="Managers\AirlineReportManager.cs" />
     <Compile Include="Managers\GeneralAdminReportManager.cs" />
     <Compile Include="Managers\EmployeeManager.cs" />

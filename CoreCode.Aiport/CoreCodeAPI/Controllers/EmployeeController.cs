@@ -147,5 +147,41 @@ namespace CoreCodeAPI.Controllers
             }
 
         }
+        [Route("api/getUserByRolId")]
+        public IHttpActionResult Get(int rolId)
+        {
+            try
+            {
+                var mng = new EmployeeManagement();
+                var employee = new Employee
+                {
+                    Rol = rolId
+                };
+
+                employee = mng.RetrieveById(employee);
+                apiResp = new ApiResponse();
+                apiResp.Data = employee;
+                return Ok(apiResp);
+            }
+            catch (BussinessException bex)
+            {
+
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(bex.AppMessage);
+                return InternalServerError(new Exception(bex.ExceptionId + "-"
+                    + bex.AppMessage.Message));
+            }
+            catch (Exception ex)
+            {
+                ApplicationMessage msg = new ApplicationMessage
+                {
+                    Message = ex.Message
+                };
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(msg);
+                return InternalServerError(new Exception(ex.Message));
+            }
+
+        }
     }
 }

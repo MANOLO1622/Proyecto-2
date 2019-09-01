@@ -7,7 +7,7 @@
 
 
 <script src="~/Scripts/Views/ControlActions.js"></script>
-<script src="~/Scripts/Views/vCategories.js"></script>
+<script src="~/Scripts/Views/vCountries.js"></script>
 
 
 @{
@@ -16,11 +16,11 @@
 
 <div id="DropdownAndTable"style="margin: 0 auto; width: 98%";>
 
-    @Html.GetSelectDropdown("statusFilter","vCategories", "CategoryStatusDropdownChange", "", "",
-        new Dictionary<string, string> { { "Categorias habilitadas",  "true" }, { "Categorias deshabilitadas", "false" } })
+    @Html.GetSelectDropdown("statusFilter", "vCountries", "CategoryStatusDropdownChange", "", "",
+        new Dictionary<string, string> { { "Países habilitadas",  "true" }, { "Países deshabilitadas", "false" } })
 
-    @Html.GetTable("tblCategory", "vCategories", "BindFields", "", new List<string> { "IDCategory", "Description", "Abbreviation" },
-    new List<string> { "Código", "Descripción", "Abreviatura" })
+    @Html.GetTable("tblCategory", "vCountries", "BindFields", "", new List<string> { "IDCategory", "Description", "Abbreviation" },
+    new List<string> { "Código", "País", "Abreviatura" })
 
 </div>
 
@@ -30,11 +30,11 @@
         <div class="row pull-right">
             <div class="col-md-8">Modificación de país</div>
             <div class="col-md-4">
-                @Html.GetConfirmButton("btnRegisterCategory", "Create", "vCategories", "", "Registrar")
-                @Html.GetConfirmButton("btnEditCategory", "Update", "vCategories", "", "Modificar")
-                @Html.GetConfirmButton("btnDisable", "Disable", "vCategories", "", "Deshabilitar")
-                @Html.GetConfirmButton("btnEnable", "Enable", "vCategories", "", "Habilitar")
-                @Html.GetConfirmButton("btnClean", "CleanForm", "vCategories", "", "Limpiar")
+                @Html.GetConfirmButton("btnRegisterCategory", "Create", "vCountries", "", "Registrar")
+                @Html.GetConfirmButton("btnEditCategory", "Update", "vCountries", "", "Modificar")
+                @Html.GetConfirmButton("btnDisable", "Disable", "vCountries", "", "Deshabilitar")
+                @Html.GetConfirmButton("btnEnable", "Enable", "vCountries", "", "Habilitar")
+                @Html.GetConfirmButton("btnClean", "CleanForm", "vCountries", "", "Limpiar")
 
 
             </div>
@@ -45,12 +45,11 @@
             <div class="col-lg-6">
                 <div class="bs-component">
                     <form id="frmEdition">
-
                         <div class="form-group col-md-4">
                             @Html.GetInputWithLabel("txtId", "text", "Código", "", "", "IDCategory", false)
                         </div>
                         <div class="form-group col-md-4">
-                            @Html.GetInputWithLabel("txtDescription", "text", "Descripción", "", "", "Description", true)
+                            @Html.GetInputWithLabel("txtDescription", "text", "País", "", "", "Description", true)
                         </div>
                         <div class="form-group col-md-6">
                             @Html.GetInputWithLabel("txtAbbreviation", "text", "Abreviatura", "", "", "Abbreviation", true)

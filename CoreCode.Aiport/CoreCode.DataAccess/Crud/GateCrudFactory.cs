@@ -10,9 +10,8 @@ using System.Threading.Tasks;
 
 namespace CoreCode.DataAccess.Crud
 {
-   public class GateCrudFactory : CrudFactory
+    public class GateCrudFactory : CrudFactory
     {
-
         private readonly GateMapper mapper;
 
         public GateCrudFactory()
@@ -21,12 +20,17 @@ namespace CoreCode.DataAccess.Crud
             dao = SqlDao.GetInstance();
         }
 
-
         public override void Create(BaseEntity entity)
         {
             var gate = (Gate)entity;
             var sqlOperation = mapper.GetCreateStatement(gate);
             dao.ExecuteProcedure(sqlOperation);
+        }
+
+        public override void Delete(BaseEntity entity)
+        {
+            var gate = (Gate)entity;
+            dao.ExecuteProcedure(mapper.GetDeleteStatement(gate));
         }
 
         public override T Retrieve<T>(BaseEntity entity)
@@ -57,17 +61,39 @@ namespace CoreCode.DataAccess.Crud
             return listGates;
         }
 
+        public List<T> RetrieveAvailable<T>()
+        {
+            var listGates = new List<T>();
+            var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveStatementAvailableGatesByAirportId());
+            var dic = new Dictionary<string, object>();
+            if (lstResult.Count > 0)
+            {
+                var objs = mapper.BuildObjects(lstResult);
+                foreach (var c in objs) listGates.Add((T)Convert.ChangeType(c, typeof(T)));
+            }
+
+            return listGates;
+        }
+
+        public List<T> RetrieveUnavailable<T>()
+        {
+            var listGates = new List<T>();
+            var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveStatementUnavailableGatesByAirportId());
+            var dic = new Dictionary<string, object>();
+            if (lstResult.Count > 0)
+            {
+                var objs = mapper.BuildObjects(lstResult);
+                foreach (var c in objs) listGates.Add((T)Convert.ChangeType(c, typeof(T)));
+            }
+
+            return listGates;
+        }
+
+
         public override void Update(BaseEntity entity)
         {
             var gate = (Gate)entity;
             dao.ExecuteProcedure(mapper.GetUpdateStatement(gate));
         }
-
-        public override void Delete(BaseEntity entity)
-        {
-            var gate = (Gate)entity;
-            dao.ExecuteProcedure(mapper.GetDeleteStatement(gate));
-        }
-
     }
 }
