@@ -46,13 +46,18 @@ namespace CoreCodeAPI.Controllers
             }
 
         }
-
+        [Route("api/getAdminById")]
         public IHttpActionResult Get(string id)
         {
             try
             {
-                apiResp.Data = mng.RetrieveAllManagers(id);
+                var airlineManager = new AirlineManager
+                {
+                    ID = id
+                };
 
+                airlineManager = mng.RetrieveById(airlineManager);
+                apiResp.Data = airlineManager;
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
@@ -82,9 +87,11 @@ namespace CoreCodeAPI.Controllers
         {
             try
             {
+                var CorreoElectronico = manager.Email;
+                var pass = manager.Password;
                 mng.Create(manager);
-
-
+                string Mensaje = "Estimado " + manager.FirstName + "  " + manager.LastName + " <br/><br/> " + "Su contraseña de inicio es: " + pass;
+                ToolsHelper.SendMail(CorreoElectronico, "Confirmación de cuenta", Mensaje);
                 apiResp = new ApiResponse
                 {
                     Message = "Action was executed"
@@ -261,18 +268,18 @@ namespace CoreCodeAPI.Controllers
         }
 
 
-        [Route("api/getAirlineAdminByAirlineId")]
-        public IHttpActionResult GetAirlineAdminByAirlineId(string ID)
+        [Route("api/getAdminAirlineByAirlineId")]
+        public IHttpActionResult GetAdminAirlinetByAirlinetId(string ID)
         {
             try
             {
-                var AirlineManager = new AirlineManager
+                var airlineManager = new AirlineManager
                 {
-                    ID = ID
+                    AirlineID = ID
                 };
 
-                AirlineManager = mng.RetrieveAirlineAdminByAirlineId(AirlineManager);
-                apiResp.Data = AirlineManager;
+                airlineManager = mng.RetrieveAdminAirlineByAirAirlineId(airlineManager);
+                apiResp.Data = airlineManager;
                 return Ok(apiResp);
             }
             catch (BussinessException bex)

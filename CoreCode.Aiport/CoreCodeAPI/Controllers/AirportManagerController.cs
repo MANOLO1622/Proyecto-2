@@ -25,6 +25,8 @@ namespace CoreCodeAPI.Controllers
         {
             try
             {
+                apiResp = new ApiResponse();
+                var mng = new AirportManagerManagement();
                 apiResp.Data = mng.RetrieveAll();
 
                 return Ok(apiResp);
@@ -49,7 +51,7 @@ namespace CoreCodeAPI.Controllers
             }
 
         }
-
+        [Route("api/getAdminById")]
         public IHttpActionResult Get(string id)
         {
             try
@@ -88,9 +90,11 @@ namespace CoreCodeAPI.Controllers
         {
             try
             {
+                var CorreoElectronico = manager.Email;
+                var pass = manager.Password;
                 mng.Create(manager);
-
-
+                string Mensaje = "Estimado " + manager.FirstName + "  " + manager.LastName + " <br/><br/> " + "Su contraseña de inicio es: " + pass;
+                ToolsHelper.SendMail(CorreoElectronico, "Confirmación de cuenta", Mensaje);
                 apiResp = new ApiResponse
                 {
                     Message = "Action was executed"
@@ -118,11 +122,13 @@ namespace CoreCodeAPI.Controllers
             }
         }
         [Route("api/updateAirportManager")]
-        public IHttpActionResult Update(AirportManager manager)
+        public IHttpActionResult Update(AirportManager airportManager)
         {
             try
             {
-                mng.Update(manager);
+                var mng = new AirportManagerManagement();
+                mng.Update(airportManager);
+
                 apiResp = new ApiResponse
                 {
                     Message = "Action was executed."

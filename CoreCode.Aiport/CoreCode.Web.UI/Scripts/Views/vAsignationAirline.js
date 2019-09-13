@@ -1,10 +1,10 @@
-﻿function vAsignation() {
+﻿function vAsignationAirline() {
 
     this.ctrlActions = new ControlActions();
 
 
 
-        this.destinyAirportDropdownId = "dropdownOriginAirport";
+        this.destinyAirlineDropdownId = "dropdownOriginAirline";
         this.originUserDropdownId = "dropdownOriginUser";
 
 
@@ -16,35 +16,27 @@
         //        $("#Id_Airport").append(option);
         //    }
         //});
-        this.loadAirportDropdown = function () {
+        this.loadAirlineDropdown = function () {
             var instance = this;
-            this.ctrlActions.GetFromAPI('getAirports', "", function (response) {
-                var destinyAirportElement = $("#" + instance.destinyAirportDropdownId);
+            this.ctrlActions.GetFromAPI('getAirlines', "", function (response) {
+                var destinyAirlineElement = $("#" + instance.destinyAirlineDropdownId);
 
                 if (response.Data) {
                     for (var counter = 0; counter < response.Data.length; counter++) {
-                        destinyAirportElement.append(new Option(response.Data[counter].Name, response.Data[counter].ID));
+                        destinyAirlineElement.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].Id));
                     }
                 }
             });
         }
 
-    this.loadUserDropdown = function () {
-        console.log("ENTRO");
-        //$.get("http://localhost:54982/api/getUsersByRol/", function (data) {
-        //    existingAirports = data.Data;
-        //    console.log(existingAirports);
-        //    for (let i = 0; i < existingAirports.length; i++) {
-        //        originUserDropdownId.append(new Option(existingAirports[i].FirstName, existingAirports[i].ID_ROL));
-        //    }
-        //});
+        this.loadUserDropdown = function () {
             var instance = this;
-        this.ctrlActions.GetFromAPI('getUsersByRol', "", function (response) {
+            this.ctrlActions.GetFromAPI('getUsers', "", function (response) {
                 var originUserDropdownId = $("#" + instance.originUserDropdownId);
 
                 if (response.Data) {
                     for (var counter = 0; counter < response.Data.length; counter++) {
-                        originUserDropdownId.append(new Option(response.Data[counter].FirstName, response.Data[counter].ID_ROL));
+                        originUserDropdownId.append(new Option(response.Data[counter].FirstName, response.Data[counter].ID));
                     }
                 }
             });
@@ -63,15 +55,15 @@
     this.Create = function () {
         if (!this.Validate()) {
 
-            var asignationData = {};
-            asignationData = this.ctrlActions.GetDataForm('frmEdition');
-            console.log('entrp1', asignationData );
+            var asignationAirlineData = {};
+            asignationAirlineData = this.ctrlActions.GetDataForm('frmEdition');
+            console.log('entrp1', asignationAirlineData );
 
-            asignationData.idAirport = $('#listAirports').children("option:selected").val();
-            asignationData.idUser = $('#listUsers').children("option:selected").val();
+            asignationAirlineData.idAirport = $('#listAirports').children("option:selected").val();
+            asignationAirlineData.idUser = $('#listUsers').children("option:selected").val();
             //Hace el post al create
  
-            this.ctrlActions.PostToAPI('createAsignation', asignationData, function (response) {
+            this.ctrlActions.PostToAPI('createAsignationAirline', asignationAirlineData, function (response) {
                 swal({
                     title: "¡Asignación Exitosa!",
                     text: "",
@@ -86,8 +78,8 @@
 
         this.DisplayInsertForm = function () {
 
-            document.getElementById("btnRegisterAsignation").style.display = 'block';
-            document.getElementById("listAirports").style.display = 'block';
+            document.getElementById("btnRegisterAsignationAirline").style.display = 'block';
+            document.getElementById("listAirlines").style.display = 'block';
             document.getElementById("listUsers").style.display = 'block';
         }
 
@@ -119,6 +111,6 @@
 //ON DOCUMENT READY
 $(document).ready(function () {
     
-    var vasignation = new vAsignation();
+    var vasignationAirline = new vAsignationAirline();
     
 });

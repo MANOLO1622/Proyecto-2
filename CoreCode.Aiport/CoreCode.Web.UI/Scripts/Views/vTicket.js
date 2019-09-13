@@ -4,9 +4,9 @@
     this.tblTicketId = 'tblTickets';
     this.service = 'ticket';
     this.ctrlActions = new ControlActions();
-    this.columns = "Id,Id_Flight, Ticket_Class, Status, Price, Buy_Date, Id_Person, Person_Name";
+    this.columns = "Id,Id_Flight, Ticket_Class, Status, Price, Buy_Date, Id_User, Person_Name";
 
-    this.FlightStatusDropdownChange = function () {
+    this.TicketStatusDropdownChange = function () {
 
         if (document.querySelector('#statusFilter').value === "a tiempo") {
             this.ctrlActions.ClearTable(this.tblTicketId);
@@ -55,15 +55,19 @@
             var instance = this;
             TicketData = this.ctrlActions.GetDataForm('frmEdition');
             TicketData.Status = "a tiempo";
-            TicketData.Id_Person = "1";  //tiene que jalar el id del usuario del session storage
+            //TicketData.Id_User = 1;  //tiene que jalar el id del usuario del session storage
+           // TicketData.Email = "";
+            
+           
 
             var note = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0];
 
             var prueba = note.toString("'yyyy-MM-dd'T'HH:mm'");
 
-            var email = "jobrenesr@gmail.com";
+            var email = "melizondob@ucenfotec.ac.cr";
 
-            TicketData.add.email = email;
+           // TicketData.Email = email;
+            
 
             //Fecha para poner la hora exacta a la hora de comprar el tiquete
             TicketData.Buy_Date = note.toString("'yyyy-MM-dd'T'HH:mm'");
@@ -71,7 +75,7 @@
             // 
             this.ctrlActions.PostToAPI('createTicket', TicketData, function (response) {
                 swal({
-                    title: "¡Compra registrada!",
+                    title: "¡Compra realizada!",
                     text: "Le llegará un correo con los datos de su compra",
                     icon: "success",
                     button: "OK",
@@ -95,20 +99,59 @@
         }
 
     }
-
+    this.ValidateUpdate = function () {
+        var instance = this;
+        var error = false;
+        var selectDropdown = document.getElementById("txtStatus");
+        if (selectDropdown) {
+            if (selectDropdown.value !== "") {
+                error = false;
+            } else {
+                error = true;
+            }
+        }
+        return error;
+    }
     this.Update = function () {
 
-        var TicketData = {};
-        TicketData = this.ctrlActions.GetDataForm('frmEdition');
-        //Hace el post al create
-        TicketData.Status = "a tiempo";
-        this.ctrlActions.PostToAPI('SP_UPDATETICKET', TicketData);
-        //Refresca la tabla
-        this.CleanForm();
-        this.ReloadTable();
+        var instance = this;
+        instance.DisplayInsertForm();
+        if (!instance.ValidateUpdate()) {
+            var ticketData = {};
+            if (window.currentSelectedRow) {
+                window.currentSelectedRow.remove();
+                window.currentSelectedRow = null;
+            }
+            ticketData = instance.ctrlActions.GetDataForm('frmEdition');
+            ticketData.Status = ticketData[""];
+            instance.ctrlActions.PostToAPI('updateTicket', ticketData, function () {
+                swal({
+                    title: "¡Ticket modificado!",
+                    text: "",
+                    icon: "success",
+                    button: "OK"
+                }).then(function () {
+                    //Refresca la tabla
+                    instance.CleanForm();
+                    instance.ReloadTable();
+                    
+                });
+            });
+
+        }
+        else {
+            swal({
+                title: "¡Ocurrió un error!",
+                text: "Revisar campos vacíos",
+                icon: "error",
+                button: "OK",
+            });
+        }
+
+        instance.ReloadTable();
+
+
     }
-
-
 
 
     this.Validate = function () {
@@ -141,11 +184,60 @@
         this.ReloadTable();
 
     }*/
-
-    this.BindFields = function (data) {
+    //esconde los campos
+    this.BindFields = function (data, selectedRow) {
+        var instance = this;
+        document.getElementById("btnEditTicket").style.display = 'block';
+        document.getElementById("btnRegisterTicket").style.display = 'none';
+        window.currentSelectedRow = selectedRow;
+        var txtStatusElement = $("#txtStatos");
         this.ctrlActions.BindFields('frmEdition', data);
         document.getElementById("txtId").setAttribute("disabled", "disabled");
-        document.getElementById("txtId").setAttribute("disabled", "disabled");
+       // document.getElementById("txtStatus").style.display = 'none';
+        document.getElementById("txtId_Flight").style.display = 'none';
+        document.getElementById("txtPrice").style.display = 'none';
+        document.getElementById("txtBuy_Date").style.display = 'none';
+        document.getElementById("txtId_User").style.display = 'none';
+        document.getElementById("txtPerson_Name").style.display = 'none';
+        document.querySelector("label[for='txtId_Flight']").style.display = 'none';
+        //document.querySelector("label[for='txtStatus']").style.display = 'none';
+        document.querySelector("label[for='txtPrice']").style.display = 'none';
+        document.querySelector("label[for='txtBuy_Date']").style.display = 'none';
+        document.querySelector("label[for='txtId_User']").style.display = 'none';
+        document.querySelector("label[for='txtPerson_Name']").style.display = 'none';
+        document.querySelector("label[for='selectCivilStatus']").style.display = 'none';
+        
+        txtStatusElement.show();
+        txtStatusElement.val(data.Status);
+    }
+
+    this.DisplayInsertForm = function () {
+        var instance = this;
+        var txtStatusElement = $("#txtStatos");
+        document.getElementById("btnEditTicket").style.display = 'none';
+        document.getElementById("btnRegisterTicket").style.display = 'block';
+        //instance.ctrlActions.BindFields('frmEdition', data);
+        var txtIdElement = document.getElementById("txtId");
+
+        //document.getElementById("txtStatus").style.display = 'block';
+        document.getElementById("txtId_Flight").style.display = 'block';
+        document.getElementById("txtPrice").style.display = 'block';
+        document.getElementById("txtBuy_Date").style.display = 'block';
+        document.getElementById("txtId_User").style.display = 'block';
+        document.getElementById("txtPerson_Name").style.display = 'block';
+        document.querySelector("label[for='txtStatus']").style.display = 'block';
+        document.querySelector("label[for='txtId_Flight']").style.display = 'block';
+        document.querySelector("label[for='txtStatus']").style.display = 'block';
+        document.querySelector("label[for='txtPrice']").style.display = 'block';
+        document.querySelector("label[for='txtBuy_Date']").style.display = 'block';
+        document.querySelector("label[for='txtId_User']").style.display = 'block';
+        document.querySelector("label[for='txtPerson_Name']").style.display = 'block';
+        
+
+
+        txtIdElement.setAttribute("disabled", "");
+        txtIdElement.setAttribute("enabled", "enabled");
+        txtStatusElement.hide();
     }
 
 
@@ -165,9 +257,9 @@
 
 $(document).ready(function () {
 
-    //document.querySelector("#txtId").disabled = true;
+   document.querySelector("#txtId").disabled = true;
     //document.querySelector("#txtId_Flight").disabled = true;
-    //document.querySelector("#txtStatus").disabled = true;
+    document.querySelector("#txtStatus").disabled = true;
     //document.querySelector("#txtPrice").disabled = true;
    // document.querySelector("#txtBuy_Date").disabled = true;
     //document.querySelector("#txtId_Person").disabled = true;

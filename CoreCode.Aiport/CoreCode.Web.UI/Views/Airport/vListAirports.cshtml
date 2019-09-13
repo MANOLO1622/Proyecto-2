@@ -13,24 +13,24 @@
 }
 
 <div id="DropdownAndTable" style="margin: 0 auto; width: 98%;"> 
-    <label>*Costo de puerta, pista e impuesto es en dólares $</label>
+    
     @Html.GetSelectDropdown("statusFilter", "vListAirports", "AirportStatusDropdownChange", "", "", new Dictionary<string, string> { { "Aeropuertos habilitados", "true" }, { "Aeropuertos deshabilitados", "false" } })
 
     @Html.GetTable("tblAirport", "vListAirports", "BindFields", "scrollinAirportList", new List<string> { "ID", "Name", "Address", "Phone", "ZipCode", "GateTariff", "RunwayTariff", "Tax", "Latitude", "Longitude" },
-     new List<string> { "Código", "Nombre", "Dirección", "# Tel", "Código Postal", "$Puerta", "$Pista", "Impuesto", "Lat", "Long" })
+     new List<string> { "Código", "Nombre", "Dirección", "# Tel", "Código Postal", "# Puerta", "# Pista", "Impuesto", "Lat", "Long" })
    
 </div>
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
         <div class="row pull-right">
-            <div class="col-md-8">Información de aeropuerto</div>
-            <div class="col-md-4">
+            <h5 class="col-md-6">Información de aeropuerto</h5>
+            <div class="col-md-6">
 
                 @Html.GetConfirmButton("btnAdmin", "ShowAdmin", "vListAirports", "", "Ver administrador")
                 @Html.GetConfirmButton("btnDisableAirport", "Disable", "vListAirports", "", "Deshabilitar")
                 @Html.GetConfirmButton("btnEnableAirport", "Enable", "vListAirports", "", "Habilitar")
                 @Html.GetConfirmButton("btnEditAirport", "Update", "vListAirports", "", "Modificar")
-                @Html.GetConfirmButton("btnGates", "ShowGates", "vListAirports", "", "Ver puertas")
+                @*@Html.GetConfirmButton("btnGates", "ShowGates", "vListAirports", "", "Ver puertas")*@
                 @Html.GetConfirmButton("btnClean", "CleanForm", "vListAirports", "", "Limpiar")
 
 
@@ -46,7 +46,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
 
-                                @Html.GetInputWithLabel("txtId", "text", "Codigo", "", " ", "ID", true)
+                                @Html.GetInputWithLabel("txtId", "text", "Codigo", "form-control", "", "ID", true)
 
                             </div>
 

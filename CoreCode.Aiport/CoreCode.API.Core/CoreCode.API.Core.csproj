@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignationAirlineManagement.cs" />
+    <Compile Include="UserManagement.cs" />
     <Compile Include="EmployeeManagement.cs" />
     <Compile Include="ApplicationMessageManagement.cs" />
     <Compile Include="AsignationManagement.cs" />

@@ -24,18 +24,13 @@ namespace CoreCode.API.Core
             return crudAirlineManager.RetrieveAll<AirlineManager>();
         }
 
-        public List<AirlineManager> RetrieveAllManagers(string airportID)
-        {
-            return crudAirlineManager.RetrieveAllManagers<AirlineManager>(airportID);
-        }
-
         public AirlineManager RetrieveById(AirlineManager manager)
         {
             return crudAirlineManager.Retrieve<AirlineManager>(manager);
         }
-        public AirlineManager RetrieveAirlineAdminByAirlineId(AirlineManager manager)
+        public AirlineManager RetrieveAdminAirlineByAirAirlineId(AirlineManager manager)
         {
-            return crudAirlineManager.RetrieveAirlineAdminByAirlineId<AirlineManager>(manager);
+            return crudAirlineManager.RetrieveAdminAirlineByAirlineId<AirlineManager>(manager);
         }
 
         public void Update(AirlineManager manager)

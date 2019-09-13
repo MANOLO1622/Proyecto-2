@@ -2,7 +2,7 @@
 
 
     this.ctrlActions = new ControlActions();
-    //this.AirportId = localStorage.getItem('idAirportLS');
+    this.AirportId = localStorage.getItem('idAirportLS');
     this.userEmailHtmlElementId = "txtEmail ";
     this.userIdHtmlElementId = "txtId";
     this.Create = function () {
@@ -58,7 +58,7 @@
 
                                     swal({
                                         title: "¡Administrador de aeropuerto registrado!",
-                                        text: "Proceda a esperar su correo de confirmación al correo: " + airportAdminData.Email,
+                                        text: "Proceda a esperar su correo de confirmación al correo: " + airportAdminData.Email + " Bienvenido!",
                                         icon: "success",
                                         button: "OK"
                                     }).then(function () {

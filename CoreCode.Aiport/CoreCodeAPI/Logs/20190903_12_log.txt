@@ -1,0 +1,20 @@
+
+Log Entry : 00:18:30 martes, 3 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 00:23:00 martes, 3 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 00:37:44 martes, 3 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 00:38:46 martes, 3 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------

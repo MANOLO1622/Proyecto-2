@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Crud\AirlineReportCrudFactory.cs" />
     <Compile Include="Crud\ApplicationMessagesCrudFactory.cs" />
+    <Compile Include="Crud\AsignationAirlineCrudFactory.cs" />
     <Compile Include="Crud\AsignationCrudFactory.cs" />
     <Compile Include="Crud\GeneralAdminReportCrudFactory.cs" />
     <Compile Include="Crud\EmployeeCrudFactory.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Crud\UserHistoryCrudFactory.cs" />
     <Compile Include="Dao\SqlDao.cs" />
     <Compile Include="Dao\SqlOperation.cs" />
+    <Compile Include="Mapper\AsignationAirlineMapper.cs" />
     <Compile Include="Mapper\EmployeeMapper.cs" />
     <Compile Include="Mapper\AirlineManagerMapper.cs" />
     <Compile Include="Mapper\AirlineReportMapper.cs" />

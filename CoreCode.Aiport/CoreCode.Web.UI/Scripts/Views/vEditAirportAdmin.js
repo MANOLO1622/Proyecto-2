@@ -137,9 +137,9 @@
 //ON DOCUMENT READY
 $(document).ready(function () {
 
-    let idAirport = {
-        ID: localStorage.getItem('idAirportLS')
-    };
+    let idAirport = "ID="+localStorage.getItem('idAirportLS');
+        
+  
     var vAirportAdminEdit = new vEditAirportAdmin();
     document.querySelector("#txtId").disabled = true;
     document.querySelector("#txtEmail").disabled = true;
@@ -147,6 +147,9 @@ $(document).ready(function () {
     let callback = function (response) {
 
         airportAdmin = response.Data;
+        var date = new Date(airportAdmin.BirthDate);
+        var formattedDate = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + ((date.getDate()) < 10 ? "0" + (date.getDate()) : (date.getDate()));
+
 
         document.querySelector("#txtId").value = airportAdmin.ID;
         document.querySelector("#txtEmail").value = airportAdmin.Email;
@@ -154,7 +157,7 @@ $(document).ready(function () {
         document.querySelector("#txtLastName").value = airportAdmin.LastName;
         document.querySelector("#txtSecondName").value = airportAdmin.SecondName;
         document.querySelector("#txtSecondLastName").value = airportAdmin.SecondLastName;
-        document.querySelector("#txtBirthDate").value = airportAdmin.BirthDate;
+        document.querySelector("#txtBirthDate").value = formattedDate;
         document.querySelector("#txtPhone").value = airportAdmin.Phone;
         document.querySelector("#txtPassword").value = airportAdmin.Password;
         document.querySelector("#txtPassword2").value = airportAdmin.Password;

@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AirlineController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
+    <Compile Include="Controllers\AsignationAirlineController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
@@ -381,6 +382,7 @@
     <Content Include="Scripts\Views\ControlActions.js" />
     <Content Include="Scripts\Views\EditProfile.js" />
     <Content Include="Scripts\Views\Index.js" />
+    <Content Include="Scripts\Views\vAsignationAirline.js" />
     <Content Include="Scripts\Views\vCreateEmployee.js" />
     <Content Include="Scripts\Views\vCreateUser.js" />
     <Content Include="Scripts\Views\vCreatePassenger.js" />
@@ -485,7 +487,9 @@
     <Content Include="Views\PartialViews\CustomComponentContent\RegisterUser.cshtml" />
     <Content Include="Views\Employee\vCreateEmployee.cshtml" />
     <Content Include="Views\Employee\vListEmployee.cshtml" />
-    <Content Include="Views\Asignation\vAsignation.cshtml" />
+    <Content Include="Views\Asignation\vFlightsView.cshtml" />
+    <Content Include="Views\Asignation\vAsignationAirline.cshtml" />
+    <Content Include="Views\User\vListUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

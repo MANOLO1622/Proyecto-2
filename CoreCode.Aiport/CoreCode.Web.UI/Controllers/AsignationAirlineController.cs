@@ -8,13 +8,13 @@ using System.Web.Mvc;
 namespace CoreCode.Web.UI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class AsignationController : Controller
+    public class AsignationAirlineController : Controller
     {
 
-        [Route("vFlightsView")]
-        public ActionResult vFlightsView()
+        [Route("vAsignationAirline")]
+        public ActionResult vAsignationAirline()
         {
-            return View();
+            return View("~/Views/Asignation/vAsignationAirline.cshtml");
         }
 
         

@@ -138,9 +138,9 @@
 //ON DOCUMENT READY
 $(document).ready(function () {
 
-    let idAirline = {
-        ID: localStorage.getItem('idAirlineLS')
-    };
+    let idAirline = "ID="+localStorage.getItem('idAirlineLS');
+
+   
     var vAirlineAdminEdit = new vEditAirlineAdmin();
     document.querySelector("#txtId").disabled = true;
     document.querySelector("#txtEmail").disabled = true;
@@ -148,6 +148,9 @@ $(document).ready(function () {
     let callback = function (response) {
 
         airlineAdmin = response.Data;
+        var date = new Date(airlineAdmin.BirthDate);
+        var formattedDate = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + ((date.getDate()) < 10 ? "0" + (date.getDate()) : (date.getDate()));
+
 
         document.querySelector("#txtId").value = airlineAdmin.ID;
         document.querySelector("#txtEmail").value = airlineAdmin.Email;
@@ -155,7 +158,7 @@ $(document).ready(function () {
         document.querySelector("#txtLastName").value = airlineAdmin.LastName;
         document.querySelector("#txtSecondName").value = airlineAdmin.SecondName;
         document.querySelector("#txtSecondLastName").value = airlineAdmin.SecondLastName;
-        document.querySelector("#txtBirthDate").value = airlineAdmin.FormattedYear;
+        document.querySelector("#txtBirthDate").value = formattedDate;
         document.querySelector("#txtPhone").value = airlineAdmin.Phone;
         document.querySelector("#txtPassword").value = airlineAdmin.Password;
         document.querySelector("#txtPassword2").value = airlineAdmin.Password;
@@ -163,7 +166,7 @@ $(document).ready(function () {
         document.querySelector("#selectGenre").value = airlineAdmin.Genre;
 
     }
-    vAirlineAdminEdit.ctrlActions.GetFromAPI("/getAirlineAdminByAirlineId", idAirline, callback);
+    vAirlineAdminEdit.ctrlActions.GetFromAPI("/getAdminAirlineByAirlineId", idAirline, callback);
     
 });
 

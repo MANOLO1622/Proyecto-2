@@ -217,7 +217,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirlineManagement();
                 var airline = new Airline
                 {
-                    Id = id
+                    ID = id
                 };
                 apiResp = new ApiResponse();
                 apiResp.Data = mng.RetrieveAssociatedAirlines(airline);
@@ -256,7 +256,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirlineManagement();
                 var airline = new Airline
                 {
-                    Id = id
+                    ID = id
                 };
                 apiResp = new ApiResponse();
                 apiResp.Data = mng.RetrieveRejectedAirlines(airline);
@@ -295,7 +295,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirlineManagement();
                 var airline = new Airline
                 {
-                    Id = id
+                    ID = id
                 };
                 apiResp = new ApiResponse();
                 apiResp.Data = mng.RetrieveWaitingAirlines(airline);
@@ -339,7 +339,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirlineManagement();
                 var airline = new Airline
                 {
-                    Id = Id
+                    ID = Id
                 };
 
                 airline = mng.RetrieveById(airline);

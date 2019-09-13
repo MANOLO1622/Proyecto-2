@@ -108,12 +108,12 @@
 
                                 swal({
                                     title: "¡Aeropuerto registrado!",
-                                    text: "",
+                                    text: "Proceda a registrar él administrador del aerpouerto creado.",
                                     icon: "success",
-                                    button: "OK"
+                                    button: "Registrar"
                                 }).then(function () {
 
-                                    //window.location.href = 'http://localhost:57312/vCreateAirportAdmin';
+                                    window.location.href = 'http://localhost:57312/vCreateAirportAdmin';
                                 });
                             }
 

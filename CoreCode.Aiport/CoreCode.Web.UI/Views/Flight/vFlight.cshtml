@@ -15,8 +15,8 @@
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
         <div class="row pull-right">
-
-            <div class="col-md-4">
+            @*<h5 class="col-md-10">Información de vuelo</h5>*@
+            <div class="col-md-8">
                 @Html.GetConfirmButton("btnRegisterFlight", "Create", "vFlight", "", "Registrar")
                 @Html.GetButton("btnEditFlight", "Update", "vFlight", "", "hidden btn btn-outline-success", "", "Modificar")
                 @Html.GetConfirmButton("btnClean", "CleanForm", "vFlight", "", "Limpiar")
@@ -28,7 +28,7 @@
             <div class="col-lg-12">
                 <div class="bs-component">
                     <form id="frmEdition">
-                        <div style="margin: 0 auto; width: 30%;">
+                        <div style="margin: 0 auto; width: 25%;">
                             <h2>Información de vuelo</h2>
                         </div>
                         <div class="form-row">

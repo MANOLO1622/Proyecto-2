@@ -13,10 +13,12 @@ namespace CoreCode.DataAccess.Crud
     public class LoginCrudFactory: CrudFactory
     {
         private readonly UserMapper mapper;
+        private readonly UserLoginMapper loginMapper;
 
         public LoginCrudFactory()
         {
             mapper = new UserMapper();
+            loginMapper = new UserLoginMapper();
             dao = SqlDao.GetInstance();
         }
 
@@ -71,7 +73,7 @@ namespace CoreCode.DataAccess.Crud
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {
-                var objs = mapper.BuildObjects(lstResult);
+                var objs = loginMapper.BuildObjects(lstResult);
                 foreach (var c in objs) lstUsers.Add((T)Convert.ChangeType(c, typeof(T)));
             }
             return lstUsers;

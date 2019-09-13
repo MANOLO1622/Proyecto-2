@@ -28,7 +28,6 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_CIVIL_STATUS = "CIVIL_STATUS";
         private const string DB_COL_STATUS = "STATUS";
         private const string DB_COL_ID_ROL = "ID_ROL";
-        private const string DB_COL_ID_ASSIGNED = "ID_ASSIGNED";
         private const string DB_COL_AGE = "AGE";
         private const string DB_COL_ADDRESS = "ADDRESS";
         private const string DB_COL_NATIONALITY = "NATIONALITY";
@@ -60,7 +59,6 @@ namespace CoreCode.DataAccess.Mapper
                 CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
                 Status = GetBoolValue(row, DB_COL_STATUS),
                 Rol = GetIntValue(row, DB_COL_ID_ROL),
-                AssignedID = GetStringValue(row, DB_COL_ID_ASSIGNED),
                 Age = GetStringValue(row, DB_COL_AGE),
                 Address = GetStringValue(row, DB_COL_ADDRESS),
                 Nationality = GetStringValue(row, DB_COL_NATIONALITY),
@@ -95,7 +93,6 @@ namespace CoreCode.DataAccess.Mapper
                 CivilStatus = row.Field<string>(DB_COL_CIVIL_STATUS),
                 Status = row.Field<bool>(DB_COL_STATUS),
                 Rol = row.Field<int>(DB_COL_ID_ROL),
-                AssignedID = row.Field<string>(DB_COL_ID_ASSIGNED),
                 Age = row.Field<string>(DB_COL_AGE),
                 Address = row.Field<string>(DB_COL_ADDRESS),
                 Nationality = row.Field<string>(DB_COL_NATIONALITY),

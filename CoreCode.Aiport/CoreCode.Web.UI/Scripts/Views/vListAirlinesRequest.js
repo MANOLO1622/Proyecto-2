@@ -276,6 +276,14 @@
 
 
     this.CleanForm = function () {
+        document.querySelector("#txtId").value = "";
+        document.querySelector("#txtComercialName").value = "";
+        document.querySelector("#txtDescription").value = "";
+        document.querySelector("#txtBusinessName").value = "";
+        document.querySelector("#txtCreationYear").value = "";
+        document.querySelector("#txtEmail").value = "";
+
+
         let aInputs = document.querySelectorAll(':required');
 
         for (let i = 0; i < aInputs.length; i++) {
@@ -303,7 +311,7 @@
     }
 
     this.ShowAdmin = function () {
-        if (document.querySelector("#txtId").value = '') {
+        if (document.querySelector("#txtId").value == '') {
             document.querySelector("#txtId").classList.add('input-error');
             swal({
                 title: "¡Error al ver administrador!",
@@ -326,15 +334,15 @@
 //ON DOCUMENT READY
 $(document).ready(function () {
 
-    document.querySelector("#btnAdmin").classList.add('hide');
+    document.querySelector("#btnAdmin").classList.add('none');
     document.querySelector('#txtId').disabled = true;
-    document.querySelector('#txtEmail').disabled = true;
+    document.querySelector('#txtEmail').disabled = false;
     var vlistairlinerequest = new vListAirlinesRequest();
 
 
 
     if (vlistairlinerequest.rolUser == "1") {
-        document.querySelector("#btnEdit").classList.add('hide');
+        document.querySelector("#btnEdit").classList.add('none');
         document.querySelector("#DropdownAndTable").classList.remove('hide');
         document.querySelector("#btnClean").classList.remove('hide');
         document.querySelector("#btnAccept").classList.remove('hide');

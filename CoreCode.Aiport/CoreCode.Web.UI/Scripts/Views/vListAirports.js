@@ -50,7 +50,7 @@
 
 
 
-        if (document.querySelector("#txtId").value = '') {
+        if (document.querySelector("#txtId").value == '') {
             document.querySelector("#txtId").classList.add('input-error');
             swal({
                 title: "¡Error al ver administrador!",
@@ -60,7 +60,7 @@
             });
         }
         else {
-            localStorage.setItem('idAirport', document.getElementById("txtId").value);
+            localStorage.setItem('idAirportLS', document.getElementById("txtId").value);
             window.location.href = 'http://localhost:57312/vEditAirportAdmin';
 
         }
@@ -360,9 +360,8 @@
         // Controlador de carga para iniciar la aplicación.
         google.maps.event.addDomListener(window, 'load', inicializar);
         if (document.readyState === "complete") {
-            inicializar();
+            setTimeout(function () { inicializar(); }, 3000);          
         }
-
     }
 
 

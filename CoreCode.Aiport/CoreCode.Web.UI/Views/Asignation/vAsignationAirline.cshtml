@@ -4,7 +4,7 @@
 }
 
 <script src="~/Scripts/Views/ControlActions.js"></script>
-<script src="~/Scripts/Views/vAsignation.js"></script>
+<script src="~/Scripts/Views/vAsignationAirline.js"></script>
 @{
     /**/
 
@@ -15,9 +15,9 @@
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
         <div class="row pull-right">
-            <div class="col-md-8">Información de aeropuerto</div>
+            <div class="col-md-8">Información de aerolínea</div>
             <div class="col-xs-6 col-sm-4">
-                @Html.GetConfirmButton("btnAsignation", "Create", "vAsignation", "", "Asignar")
+                @Html.GetConfirmButton("btnAsignationAirline", "Create", "vAsignationAirline", "", "Asignar")
             </div>
         </div>
     </div>
@@ -29,17 +29,17 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <p>
-                                    Aeropuerto
+                                    Aerolínea
                                 </p>
-                                @Html.GetSelectDropdown("dropdownOriginAirport", "vAsignation", "", "loadAirportDropdown", "Id_Airport",
-                                   new Dictionary<string, string>() {{"Seleccione el aeropuerto:", ""}})
+                                @Html.GetSelectDropdown("dropdownOriginAirline", "vAsignationAirline", "", "loadAirlineDropdown", "Id_Airline",
+                                   new Dictionary<string, string>() {{ "Seleccione la aerolínea:", ""}})
                             </div>
                             <div class="col-lg-6">
                                 <p>
                                     Administrador
                                 </p>
-                                @Html.GetSelectDropdown("dropdownOriginUser", "vAsignation", "", "loadUserDropdown", "Id_User",
-                                   new Dictionary<string, string>() {{"Seleccione el usuario:", ""}})
+                                @Html.GetSelectDropdown("dropdownOriginUser", "vAsignationAirline", "", "loadUserDropdown", "Id_User",
+                                   new Dictionary<string, string>() {{"Seleccione el administrador:", ""}})
                             </div>
                         </div>
                     </form>

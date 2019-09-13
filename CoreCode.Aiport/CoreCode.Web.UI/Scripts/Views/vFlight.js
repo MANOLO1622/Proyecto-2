@@ -9,7 +9,9 @@
     this.gateDropdownId = "dropdownGate";
     //this.gatesDropdownId = "dropdownGates";
     this.columns = "Id,Airline_Id,Origin_Airport_Id,Destiny_Airport_Id,Departure_Time,Arrival_Datetime,Id_Airplane,Id_Gate";
-    this.loadAirlineDropdown = function() {
+
+    //Airline dropdown
+    this.loadAirlineDropdown = function () {
         var instance = this;
         this.ctrlActions.GetFromAPI('getAirlines', "", function (response) {
             var airlinesDropdown = $("#" + instance.airlinesDropdownId);
@@ -20,7 +22,7 @@
             }
         });
     }
-
+    //airport dropdown
     this.loadAirportDropdown = function() {
         var instance = this;
         this.ctrlActions.GetFromAPI('getAirports', "", function (response) {

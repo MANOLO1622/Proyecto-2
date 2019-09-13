@@ -1,7 +1,7 @@
 ﻿function vCreateAirline() {
 
 
-    this.tblAirportId = 'tblAirport';
+    this.tblAirlineId = 'tblAirline';
 
     this.ctrlActions = new ControlActions();
 
@@ -72,7 +72,7 @@
                             airlineData.Request = "waiting";
                             localStorage.setItem('idAirlineLS', airlineData.ID);
 
-                            localStorage.setItem('emailAirportLS', document.querySelector("#txtEmail").value);
+                            localStorage.setItem('emailAirlineLS', document.querySelector("#txtEmail").value);
 
 
                             instance.ctrlActions.PostToAPI('createAirline', airlineData, function () {
@@ -80,12 +80,12 @@
 
                                 swal({
                                     title: "¡Aerolínea registrada!",
-                                    text: "",
+                                    text: "Proceda a registrar él administrador de la aerolínea creado.",
                                     icon: "success",
                                     button: "OK"
                                 }).then(function () {
 
-                                    //window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
+                                    window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
 
 
                                 });

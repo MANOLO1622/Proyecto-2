@@ -80,10 +80,10 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetUpdateStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation { ProcedureName = "SP_UPDATE_TICKET_NAME" };
+            var operation = new SqlOperation { ProcedureName = "SP_UPDATE_TICKET_STATUS" };
             var a = (Ticket)entity;
             operation.AddVarcharParam(DB_COL_ID, a.Id);
-            operation.AddVarcharParam(DB_COL_PERSON_NAME, a.Person_Name);
+            operation.AddVarcharParam(DB_COL_STATUS, a.Status);
             return operation;
         }
 

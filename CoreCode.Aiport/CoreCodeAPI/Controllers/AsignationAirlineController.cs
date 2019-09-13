@@ -1,43 +1,38 @@
-﻿using System;
+﻿using CoreCode.API.Core;
+using CoreCode.Entities.POJO;
+using CoreCodeAPI.Models;
+using CoreCode.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using CoreCodeAPI.ActionFilter;
 using System.Web.Http.Cors;
-using CoreCode.API.Core;
-using CoreCode.API.Core.Managers;
-using CoreCode.Entities.POJO;
-using CoreCode.Exceptions;
-using CoreCodeAPI.Helpers;
-using CoreCodeAPI.Models;
-using CoreCode.API.Core.Helpers;
 
 namespace CoreCodeAPI.Controllers
 {
+
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class UserController : ApiController
+
+    public class AsignationAirlineController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
 
-        [Route("api/getUsersByRol")]
-        public IHttpActionResult Get(int id_rol)
+        [Route("api/getAsignationAirlines")]
+        public IHttpActionResult Get()
         {
-
-
-
             try
             {
-                var mng = new UserManagement();
-                var user = new User
-                {
-                    Rol = id_rol
-                };
 
-                user = mng.RetrieveByRol(user);
                 apiResp = new ApiResponse();
-                apiResp.Data = user;
+                var mng = new AsignationAirlineManagement();
+                apiResp.Data = mng.RetrieveAll();
+
                 return Ok(apiResp);
             }
+
             catch (BussinessException bex)
             {
 
@@ -58,82 +53,20 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
-        [Route("api/Users/post")]
-        public IHttpActionResult Post(User user)
+        [Route("api/getAsignationById")]
+        public IHttpActionResult Get(string Id)
         {
             try
             {
-                apiResp = new ApiResponse();
-                var mng = new UserManager();
-                string Mensaje = "Estimado " + user.FirstName + "  " + user.FirstLastName + " Se ha registrado en nuestra plataforma <br/><br/> " + "Su contraseña de inicio es: " + user.Password;
-                ToolsHelper.SendMail(user.Email, "Confirmación de cuenta", Mensaje);
-                user.Password = EncryptionHelper.Encrypt(user.Password);
-                mng.Create(user);
-
-                
-
-
-                return Ok(apiResp);
-            }
-            catch (BussinessException bex)
-            {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
-            }
-            catch (Exception ex)
-            {
-                ApplicationMessage msg = new ApplicationMessage
+                var mng = new AsignationAirlineManagement();
+                var asignationAirline = new AsignationAirline
                 {
-                    Message = ex.Message
+                    Id = Id
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
-                return InternalServerError(new Exception(ex.Message));
-            }
-        }
-        //CREATE USERS
-        [Route("api/Users/put")]
-        public IHttpActionResult Put(User user)
-        {
-            try
-            {
+
+                asignationAirline = mng.RetrieveById(asignationAirline);
                 apiResp = new ApiResponse();
-                var mng = new UserManager();
-                mng.Update(user);
-
-                return Ok(apiResp);
-            }
-            catch (BussinessException bex)
-            {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
-            }
-            catch (Exception ex)
-            {
-                ApplicationMessage msg = new ApplicationMessage
-                {
-                    Message = ex.Message
-                };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
-                return InternalServerError(new Exception(ex.Message));
-            }
-        }
-
-        [Route("api/Users/delete")]
-        public IHttpActionResult Delete(User user)
-        {
-            try
-            {
-                apiResp = new ApiResponse();
-                var mng = new UserManager();
-                mng.Delete(user);
+                apiResp.Data = asignationAirline;
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
@@ -156,5 +89,59 @@ namespace CoreCodeAPI.Controllers
             }
 
         }
+
+        // POST 
+
+        [Route("api/createAsignationAirline")]
+        public IHttpActionResult PostAsignation(AsignationAirline asignationAirline)
+        {
+
+            try
+            {
+                var mng = new AsignationAirlineManagement();
+                mng.Create(asignationAirline);
+
+                apiResp = new ApiResponse
+                {
+                    Message = "Action was executed."
+                };
+
+                return Ok(apiResp);
+            }
+            catch (BussinessException bex)
+            {
+
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(bex.AppMessage);
+                return InternalServerError(new Exception(bex.ExceptionId + "-"
+                    + bex.AppMessage.Message));
+            }
+            catch (Exception ex)
+            {
+                ApplicationMessage msg = new ApplicationMessage
+                {
+                    Message = ex.Message
+                };
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(msg);
+                return InternalServerError(new Exception(ex.Message));
+            }
+        }
+
+     
+
+
+        ///[Route("api/getAirlinesByAirportId")]
+        ///public IHttpActionResult GetAirlinesByAirportId(string airportId)
+        ///{
+        /// var airlineManagement = new AirlineManagement();
+        /// apiResp = new ApiResponse
+        /// {
+        //Data = airlineManagement.GetAirlinesByAirportId(airportId),
+        // Message = "Action was executed."
+        // };
+        //return Ok(apiResp);
+
+        // }
     }
 }

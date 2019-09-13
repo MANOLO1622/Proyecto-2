@@ -21,13 +21,14 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_STATUS = "STATUS";
         private const string DB_COL_REQUEST = "REQUEST";
 
+        private const string DB_COL_AIRLINE_ID = "AIRLINE_ID";
         private const string DB_COL_AIRPORT_ID = "AIRPORT_ID";
 
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
             var airline = new Airline
             {
-                Id = GetStringValue(row, DB_COL_ID),
+                ID = GetStringValue(row, DB_COL_ID),
                 Comercial_name = GetStringValue(row, DB_COL_COMERCIAL_NAME),
                 Business_name = GetStringValue(row, DB_COL_BUSINESS_NAME),
                 Creation_year = Convert.ToDateTime(GetDateValue(row, DB_COL_CREATION_YEAR)),
@@ -44,7 +45,7 @@ namespace CoreCode.DataAccess.Mapper
         {
             var airline = new Airline
             {
-                Id = row.Field<string>(DB_COL_ID),
+                ID = row.Field<string>(DB_COL_ID),
                 Comercial_name = row.Field<string>(DB_COL_COMERCIAL_NAME),
                 Business_name = row.Field<string>(DB_COL_BUSINESS_NAME),
                 Creation_year = row.Field<DateTime>(DB_COL_CREATION_YEAR),
@@ -73,7 +74,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "SP_CREATEAIRLINE" };
             var a = (Airline)entity;
 
-            operation.AddVarcharParam(DB_COL_ID, a.Id);
+            operation.AddVarcharParam(DB_COL_ID, a.ID);
             operation.AddVarcharParam(DB_COL_COMERCIAL_NAME, a.Comercial_name);
             operation.AddVarcharParam(DB_COL_BUSINESS_NAME, a.Business_name);
             operation.AddDateParam(DB_COL_CREATION_YEAR, a.Creation_year);
@@ -128,7 +129,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "RET_ASSOCIATED_AIRLINES" };
             var c = (Airline)entity;
 
-            operation.AddVarcharParam(DB_COL_AIRPORT_ID, c.Id);
+            operation.AddVarcharParam(DB_COL_AIRPORT_ID, c.ID);
 
             return operation; 
         }
@@ -139,7 +140,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "RET_REJECTED_AIRLINES_AIRPORTS" };
             var c = (Airline)entity;
 
-            operation.AddVarcharParam(DB_COL_AIRPORT_ID, c.Id);
+            operation.AddVarcharParam(DB_COL_AIRPORT_ID, c.ID);
 
             return operation;
         }
@@ -150,7 +151,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "RET_WAITING_AIRLINES_AIRPORT" };
             var c = (Airline)entity;
 
-            operation.AddVarcharParam(DB_COL_AIRPORT_ID, c.Id);
+            operation.AddVarcharParam(DB_COL_AIRPORT_ID, c.ID);
 
             return operation; 
         }
@@ -168,7 +169,7 @@ namespace CoreCode.DataAccess.Mapper
         {
             var operation = new SqlOperation { ProcedureName = "SP_UPDATEAIRLINE" };
             var a = (Airline)entity;
-            operation.AddVarcharParam(DB_COL_ID, a.Id);
+            operation.AddVarcharParam(DB_COL_ID, a.ID);
             operation.AddVarcharParam(DB_COL_COMERCIAL_NAME, a.Comercial_name);
             operation.AddVarcharParam(DB_COL_BUSINESS_NAME, a.Business_name);
             operation.AddDateParam(DB_COL_CREATION_YEAR, a.Creation_year);
@@ -183,7 +184,7 @@ namespace CoreCode.DataAccess.Mapper
         {
             var operation = new SqlOperation { ProcedureName = "SP_DELETEAIRLINE" };
             var a = (Airline)entity;
-            operation.AddVarcharParam(DB_COL_ID, a.Id);
+            operation.AddVarcharParam(DB_COL_ID, a.ID);
             return operation;
         }
 
@@ -192,7 +193,7 @@ namespace CoreCode.DataAccess.Mapper
 
             var operation = new SqlOperation { ProcedureName = "SP_GETAIRLINEBYID" };
             var a = (Airline)entity;
-            operation.AddVarcharParam(DB_COL_ID, a.Id);
+            operation.AddVarcharParam(DB_COL_ID, a.ID);
             return operation;
         }
 
@@ -203,7 +204,7 @@ namespace CoreCode.DataAccess.Mapper
 
             var operation = new SqlOperation { ProcedureName = "SP_GETAIRLINEBYID" };
             var a = new Airline();
-            operation.AddVarcharParam(DB_COL_ID, a.Id);
+            operation.AddVarcharParam(DB_COL_ID, a.ID);
          
             return operation;
         }

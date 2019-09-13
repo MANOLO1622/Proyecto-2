@@ -56,12 +56,15 @@
                 
 
                 //Call the API to retrieve user
-                instance.ctrlActions.GetFromAPI("getUser",
-                    currentUserData,
+                instance.ctrlActions.GetFromAPI("getUser", '',
                     function (response) {
                         console.log("response", response);
-                        if (response.Data) {
-                            var userObjectElement = response.Data;
+                        console.log("response", response.Data);
+                        let user = response.Data.find((item) => item.Email == currentUserData.userName && item.Password == currentUserData.password);
+                        console.log('a', user);
+                        if (user != undefined) {
+                            console.log()
+                            var userObjectElement = user;
                             var sourceUrl = window.location.protocol + "//" + window.location.host; 
                             if (response.errorThrown) {
                                 //Swal error message.
@@ -77,29 +80,31 @@
                                 console.log("User Admin");
                                 break;
                             case 2: //AirportUser
-                                var airportIdObject = {
-                                    id: userObjectElement.AssignedID
-                                };
-                                instance.ctrlActions.GetFromAPI("getAirportById", airportIdObject, function(response) {
-                                    if (response) {
-                                        sessionStorage.setItem("airportObject", JSON.stringify(response.Data));
-                                    }
-                                    //Redirect to dashboard
-                                    window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
-                                });
+                                    var airportIdObject = "id=" + userObjectElement.AssignedId;
+
+                                    instance.ctrlActions.GetFromAPI("getAirportById", airportIdObject, function (response) {
+                                        if (response) {
+                                            sessionStorage.setItem("airportObject", JSON.stringify(response.Data));
+                                        }
+                                        //Redirect to dashboard
+                                        window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
+                                    });
+                                    //window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
+                                    //window.location.href = sourceUrl + "/dashboard/airport/" + userObjectElement.ID;
                                 console.log("Airport User");
                                 break;
                             case 3: //AirlineUser
                                 var airlineObject = {
-                                    id: userObjectElement.AssignedID
+                                    id: userObjectElement.AssignedId
                                 };
-                                instance.ctrlActions.GetFromAPI("getAirlineById", airlineObject, function(response) {
-                                    if (response) {
-                                        sessionStorage.setItem("airlineObject", JSON.stringify(response.Data));
-                                    }
-                                    //Redirect to dashboard
+                                //instance.ctrlActions.GetFromAPI("getAirlineById", airlineObject, function(response) {
+                                //    if (response) {
+                                //        sessionStorage.setItem("airlineObject", JSON.stringify(response.Data));
+                                //    }
+                                //    //Redirect to dashboard
+                                    
+                                //});
                                     window.location.href = sourceUrl + "/dashboard/airline/" + response.Data.ID;
-                                });
                                 console.log("Airline User");
                                 break;
                             case 4: //User

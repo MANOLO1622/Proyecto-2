@@ -28,7 +28,6 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_CIVIL_STATUS = "CIVIL_STATUS";
         private const string DB_COL_STATUS = "STATUS";
         private const string DB_COL_ID_ROL = "ID_ROL";
-        private const string DB_COL_ID_ASSIGNED = "ID_ASSIGNED";
         private const string DB_COL_AGE = "AGE";
         private const string DB_COL_ADDRESS = "ADDRESS";
         private const string DB_COL_NATIONALITY = "NATIONALITY";
@@ -58,9 +57,9 @@ namespace CoreCode.DataAccess.Mapper
                 Password = GetStringValue(row, DB_COL_PASSWORD),
                 Phone = GetStringValue(row, DB_COL_PHONE),
                 CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
-                Status = GetBoolValue(row, DB_COL_STATUS),
+                Status = Convert.ToBoolean(GetBoolValue(row, DB_COL_STATUS)),
+                //Status = GetBoolValue(row, DB_COL_STATUS),
                 Rol = GetIntValue(row, DB_COL_ID_ROL),
-                AssignedID= GetStringValue(row, DB_COL_ID_ASSIGNED),
                 Age = GetStringValue(row, DB_COL_AGE),
                 Address = GetStringValue(row, DB_COL_ADDRESS),
                 Nationality = GetStringValue(row, DB_COL_NATIONALITY),
@@ -95,7 +94,6 @@ namespace CoreCode.DataAccess.Mapper
                 CivilStatus = row.Field<string>(DB_COL_CIVIL_STATUS),
                 Status = row.Field<bool>(DB_COL_STATUS),
                 Rol = row.Field<int>(DB_COL_ID_ROL),
-                AssignedID = row.Field<string>(DB_COL_ID_ASSIGNED),
                 Age = row.Field<string>(DB_COL_AGE),
                 Address = row.Field<string>(DB_COL_ADDRESS),
                 Nationality = row.Field<string>(DB_COL_NATIONALITY),
@@ -300,19 +298,106 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetUserByUserId(string userId)
         {
-            var operation = new SqlOperation { ProcedureName = "RET_USERS_PR" };
+            var operation = new SqlOperation { ProcedureName = "RET_ALL_USERS" };
             operation.AddVarcharParam(DB_COL_ID, userId);
             return operation;
         }
 
-        public SqlOperation GetUserByRolId(int rolId)
+        public SqlOperation GetRetrieveByRolStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation { ProcedureName = "RET_ALL_EMPLOYEES" };
-            operation.AddIntParam(DB_COL_ID_ROL, rolId);
+            var operation = new SqlOperation { ProcedureName = "GET_ASIGNATION_ALL_BY_ROL" };
+            var u = (User)entity;
+            operation.AddIntParam(DB_COL_ID_ROL, u.Rol);
             return operation;
         }
 
+        //public SqlOperation GetUserByRolId(int rolId)
+        //{
+        //    var operation = new SqlOperation { ProcedureName = "RET_ALL_EMPLOYEES" };
+        //    operation.AddIntParam(DB_COL_ID_ROL, rolId);
+        //    return operation;
+        //}
 
+
+    }
+
+    //clase creada para funcionalidad del login
+    public class UserLoginMapper : EntityMapper, IObjectMapper, ISqlStatements
+    {
+        private const string DB_COL_ID = "ID";
+        private const string DB_COL_ID_ROL = "ID_ROL";
+        private const string DB_COL_EMAIL = "EMAIL";
+        private const string DB_COL_PASSWORD = "PASSWORD";
+        private const string DB_COL_ASSIGNEDID = "ASSIGNEDID";
+
+
+        //hace una instancia del pojo de user
+        public BaseEntity BuildObject(Dictionary<string, object> row)
+        {           
+            var UserLogin = new UserLogin 
+            {
+                ID = GetStringValue(row, DB_COL_ID),
+                Rol = GetIntValue(row, DB_COL_ID_ROL),
+                Email = GetStringValue(row, DB_COL_EMAIL),
+                Password = GetStringValue(row, DB_COL_PASSWORD),
+                AssignedId = GetStringValue(row, DB_COL_ASSIGNEDID),
+
+            };
+
+            return UserLogin;
+        }
+
+        public UserLogin BuildObjectFromDataRow(DataRow row)
+        {
+            var userLogin = new UserLogin
+            {
+                ID = row.Field<string>(DB_COL_ID),
+                Rol = row.Field<int>(DB_COL_ID_ROL),
+                Email = row.Field<string>(DB_COL_EMAIL),
+                Password = row.Field<string>(DB_COL_PASSWORD),
+                AssignedId = row.Field<string>(DB_COL_ASSIGNEDID)
+            };
+            return userLogin;
+        }
+
+        public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
+        {
+            var lstResults = new List<BaseEntity>();
+
+            foreach (var row in lstRows)
+            {
+                var user = BuildObject(row);
+                lstResults.Add(user);
+            }
+
+            return lstResults;
+        }
+
+        public SqlOperation GetCreateStatement(BaseEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SqlOperation GetDeleteStatement(BaseEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SqlOperation GetRetrieveAllStatement()
+        {
+            var operation = new SqlOperation { ProcedureName = "GET_ALL_USERS" };
+            return operation;
+        }
+
+        public SqlOperation GetRetrieveStatement(BaseEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SqlOperation GetUpdateStatement(BaseEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

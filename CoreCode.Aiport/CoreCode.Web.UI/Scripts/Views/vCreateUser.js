@@ -7,7 +7,7 @@
     this.Create = function () {
 
         var instance = this;
-        if (this.Validate()) {
+        if (!this.Validate()) {
             var user;
             var UserData = {};
             UserData = this.ctrlActions.GetDataForm('frmCreateUser');
@@ -95,7 +95,7 @@
         else {
             swal({
                 title: "¡Ocurrió un error!",
-                text: "Revisar campos vacíos",
+                text: "Revisar campos vacíos paso algo malo",
                 icon: "error",
                 button: "OK",
             });
@@ -116,7 +116,9 @@
         let bError = false;
 
         for (let i = 0; i < aInputs.length; i++) {
+           
             if (aInputs[i].value === '') {
+                
                 bError = true;
                 aInputs[i].classList.add('input-error');
             }

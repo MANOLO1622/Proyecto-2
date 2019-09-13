@@ -9,25 +9,25 @@
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-@Html.ActionLink("Pay Direct With Credit Card", "PaymentWithCreditCard", "Paypal")
-@Html.ActionLink("Pay with Paypal Account", "PaymentWithPaypal", "Paypal")
+@*@Html.ActionLink("Pay Direct With Credit Card", "PaymentWithCreditCard", "Paypal")
+@Html.ActionLink("Pay with Paypal Account", "PaymentWithPaypal", "Paypal")*@
 
-<input type="submit" value="Create" id="Submit" class="btn btn-default" onclick="location.href='@Url.Action("GetStudents", "CreateStudent11")'" />
-
+@*<input type="submit" value="Create" id="Submit" class="btn btn-default" onclick="location.href='@Url.Action("GetStudents", "CreateStudent11")'" />*@
+<div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
 @Html.GetSelectDropdown("statusFilter", "vTicket", "TicketStatusDropdownChange", "", "",
     new Dictionary<string, string> { { "Tiquetes con vuelos a tiempo", "a tiempo" }, { "Tiquetes con vuelos cancelados", "cancelado" }, { "Tiquetes con vuelos retrasados", "retrasado" } })
 
-@Html.GetTable("tblTickets", "vTicket", "BindFields", "", new List<string> { "Id", "Id_Flight", "Ticket_Class", "Status", "Price", "Buy_Date", "Id_Person", "Person_Name" }, new List<string> { "Id", "Número de vuelo", "Clase", "Estado", "Precio", "Fecha de compra", "Cédula comprador", "Nombre del pasajero" })
+@Html.GetTable("tblTickets", "vTicket", "BindFields", "", new List<string> { "Id", "Id_Flight", "Ticket_Class", "Status", "Price", "Buy_Date", "Id_User", "Person_Name" }, new List<string> { "Id", "Número de vuelo", "Clase", "Estado", "Precio", "Fecha de compra", "Cédula comprador", "Nombre del pasajero" })
 
-<div class="card border-secondary" style="margin-top: 50px;">
+</div>
+<div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
         <div class="row pull-right">
-            <div class="col-md-8">Informacion de vuelo</div>
+           
             <div class="col-md-4">
                 @Html.GetConfirmButton("btnRegisterTicket", "Create", "vTicket", "", "Registrar")
-                @Html.GetConfirmButton("btnEditTicket", "Update", "vTicket", "", "Modificar")
+                @Html.GetButton("btnEditTicket", "Update", "vTicket", "", "hidden btn btn-outline-success", "", "Modificar")
                 @Html.GetConfirmButton("btnClean", "CleanForm", "vTicket", "", "Limpiar")
-
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="bs-component">
-                    <form action="/Payment/Charge" method="POST">
+                    @*<form action="/Payment/Charge" method="POST">
                         <article>
                             <label>Amount: $5.00</label>
                         </article>
@@ -46,49 +46,62 @@
                                 data-description="Sample Charge"
                                 data-amount="500">
                         </script>
-                    </form>
-
-                    <script src="https://js.stripe.com/v3/"></script>
-
-                    <form action="/charge" method="post" id="payment-form">
+                    </form>*@
+                    <form id="frmEdition">
+                        @*<div style="margin: 0 auto; width: 30%;">
+                <h2>Registro de Tickets</h2>
+            </div>*@
                         <div class="form-row">
-                            <label for="card-element">
-                                Credit or debit card
-                            </label>
-                            <div id="card-element">
-                                <!-- A Stripe Element will be inserted here. -->
+                            <div class="form-group col-md-3">
+                                @Html.GetInputWithLabel("txtId", "text", "Código de reserva", "", "Código de reserva: ", "Id", true)
                             </div>
-
-                            <!-- Used to display form errors. -->
-                            <div id="card-errors" role="alert"></div>
+                            <div class="form-group col-md-3">
+                                @Html.GetInputWithLabel("txtId_Flight", "text", "Código de vuelo", "", "Código de vuelo ", "Id_Flight", true)
+                            </div>
+                            <div class="form-group col-md-2">
+                                @Html.GetInputWithLabel("txtStatus", "text", "Estado", "", "Estatus: ", "Status", true)
+                            </div>
                         </div>
 
-                        <button>Submit Payment</button>
-                    </form>
-                    <form id="frmEdition">
-                        @Html.GetInputWithLabel("txtId", "text", "Código de reserva", "", "Código de reserva: ", "Id", true)
-                        @Html.GetInputWithLabel("txtId_Flight", "text", "Código de vuelo", "", "Código de vuelo ", "Id_Flight", true)
-                        @*  @Html.GetInputWithLabel("txtTicket_Class", "text", "", "", "seleccione la Clase ", "Ticket_Class", true) *@
-                        @Html.GetInputWithLabel("txtStatus", "text", "Estado", "", "Estatus: ", "Status", true)
-                        @Html.GetInputWithLabel("txtPrice", "text", "Precio", "", "Costo en dólares ", "Price", true)
-                        @Html.GetInputWithLabel("txtBuy_Date", "datetime-local", "Fecha de compra", "", "Fecha de compra ", "Buy_Date", false)
+
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                @Html.GetInputWithLabel("txtPrice", "text", "Precio del ticket", "", "Costo en dólares ", "Price", true)
+                            </div>
+                            <div class="form-group col-md-2">
+                                @Html.GetInputWithLabel("txtBuy_Date", "datetime-local", "Fecha de compra", "", "Fecha de compra ", "Buy_Date", false)
+                            </div>
+                            <div class="form-group col-md-10">
+                                @Html.GetInputWithLabel("txtId_User", "text", "Cédula del cliete", "", "Cédula del cliente", "Id_User", true)
+                                @Html.GetInputWithLabel("txtPerson_Name", "text", "Nombre del pasajero", "", "Nombre del pasajero", "Person_Name", true)
+                            </div>
+
+                        </div>
                         @* @Html.GetInputWithLabel("txtStatus", "text", "", "", "Ingrese el status: ", "Description", true) *@
-                        @Html.GetInputWithLabel("txtId_Person", "text", "Id del comprador", "", "Id del comprador ", "Id_Person", true)
-                        @Html.GetInputWithLabel("txtPerson_Name", "text", "Nombre del pasajero", "", "Nombre del pasajero", "Person_Name", true)
+
+
 
                         <div class="row">
+
                             <div class="form-group col-md-6">
                                 <label for="selectCivilStatus">Seleccione la clase</label>
-                                <select class="form-control" id="Ticket_Class" columnDataName="Class" required>
+                                <select class="form-control" id="Ticket_Class" columnDataName="Ticket_Class" required>
                                     <option value="">Seleccione opción (Obligatorio)</option>
-                                    <option value="primera">Ejecutiva</option>
-                                    <option value="segunda">Turista</option>
+                                    <option value="ejecutiva">Ejecutiva</option>
+                                    <option value="economica">Economica</option>
                                 </select>
-                                @*@Html.GetSelectDropdown("selectCivilStatus","vCreateAirportAdmin", "",
-                    new Dictionary<string, string> { { "Casado",  "casado" }, { "Soltero", "soltero" },{"Otro", "otro" } })*@
+                                @*@Html.GetSelectDropdown("selectCivilStatus","vCreateAirportAdmin", "", new Dictionary<string, string> { { "Casado",  "casado" }, { "Soltero", "soltero" },{"Otro", "otro" } })*@
+
+                            </div>
+                            <div class="form-group col-md-5">
+                                @Html.GetSelectDropdown("txtStatos", "", "", "", "", new Dictionary<string, string>()
+                                {
+                                    {"A Tiempo", "a tiempo"},
+                                    {"Cancelado", "cancelado"},
+                                    {"Retrasado", "retrasado"}
+                                }, "hidden")
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>

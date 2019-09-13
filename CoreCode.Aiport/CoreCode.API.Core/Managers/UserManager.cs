@@ -38,6 +38,25 @@ namespace CoreCode.API.Core.Managers
 
             return reportToReturn;
         }
+        public User RetrieveUsersByRol(BaseEntity entity)
+        {
+            User reportToReturn = null;
+            try
+            {
+                reportToReturn = _crudFactory.Retrieve<User>(entity);
+                if (reportToReturn == null)
+                {
+                    throw new BussinessException(4);
+                }
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.GetInstance().Process(ex);
+            }
+
+            return reportToReturn;
+        }
 
         public void Create(User user)
         {

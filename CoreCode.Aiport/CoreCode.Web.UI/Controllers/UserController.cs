@@ -19,10 +19,10 @@ namespace CoreCode.Web.UI.Controllers
         }
 
         // GET: User
-        [Route("vListTicket")]
-        public ActionResult vListTicket()
+        [Route("vListUser")]
+        public ActionResult vListUser()
         {
-            return View();
+            return View("~/Views/User/vListUser.cshtml");
         }
 
         [Route("vCreateUser")]

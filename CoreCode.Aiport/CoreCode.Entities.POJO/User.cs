@@ -42,4 +42,14 @@ namespace CoreCode.Entities.POJO
         public String License { get; set; }
         public String Put { get; set; }
     }
+
+    public class UserLogin : BaseEntity
+    {
+        public String ID { get; set; }
+        public int Rol { get; set; }
+        public String Email { get; set; }
+        public String Password { get; set; }
+        public String AssignedId { get; set; }
+        
+    }
 }

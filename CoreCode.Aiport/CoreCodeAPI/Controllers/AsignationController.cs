@@ -15,7 +15,6 @@ namespace CoreCodeAPI.Controllers
 {
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-
     public class AsignationController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();

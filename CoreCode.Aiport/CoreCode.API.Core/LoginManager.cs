@@ -20,9 +20,9 @@ namespace CoreCode.API.Core
             crudLoginManager = new LoginCrudFactory();
         }
 
-        public List<User> RetrieveAll()
+        public List<UserLogin> RetrieveAll()
         {
-            return crudLoginManager.RetrieveAll<User>();
+            return crudLoginManager.RetrieveAll<UserLogin>();
         }
 
         public void Update(User user)

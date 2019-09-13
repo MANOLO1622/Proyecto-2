@@ -1,0 +1,67 @@
+﻿@using CoreCode.Web.UI.Models.Helpers
+@using CoreCode.Web.UI.Models.HtmlComponents
+
+@section pageCss{
+    <link rel="stylesheet" href="~/Scripts/TableHide.css" />
+}
+
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/Views/vUser.js"></script>
+@{
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+<div style="margin: 0 auto; width: 25%;">
+    <h2>Lista de Usuarios </h2>
+</div>
+<div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
+        @Html.GetTable("tblUsers", "vListUser", "BindFields", "", new List<string> { "ID", "SecondName", "FirstLastName", "SecondLastName", "BirthDate", "Genre", "Email", "Password", "Phone", "CivilStatus", "Status", "Rol", "Age", "Address", "Nationality", "Province", "Canton", "District", "Experience", "GraduationYear", "License", "Put" },
+                new List<string> { "Cédula", "Nombre", "Segundo Nombre", "Primer Apellido", "Segundo Apellido", "Fecha Nac.", "Genero", "Correo", "Contraseña", "Telefono", "Estado Civil", "Estado", "Rol", "Edad", "Dirección", "Nacionalidad", "Provincia", "Canton", "Distrito", "Experiencia", "Graduación", "Lisencia", "Puesto" })
+    </div>
+
+@*<div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
+        <div class="card-header">
+            <div class="row pull-right">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    @Html.GetConfirmButton("btnEdit", "Update", "vListEmployeesRequest", "", "Modificar")
+                    @Html.GetConfirmButton("btnClean", "CleanForm", "vListEmployeesRequest", "", "Limpiar")
+
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="bs-component">
+                        <form id="frmEditionEmployee" class="main-right-content-container">
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.GetInputWithLabel("txtID", "text", "Cédula:*", "form-control", "", "ID", true)
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.GetInputWithLabel("txtFirstName", "text", "Nombre:*", "form-control", "", "FirstName", true)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.GetInputWithLabel("txtFirstLastName", "text", "Primer Apellido:*", "form-control", "", "FirstLastName", true)
+                                </div>
+                                <div class="form-group col-md-6">
+                                    @Html.GetInputWithLabel("txtSecondLastName", "text", "Segundo Apellido:*", "form-control", "", "SecondLastName", true)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    @Html.GetInputWithLabel("txtPut", "text", "Puesto:*", "form-control", "", "Put", true)
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.GetInputWithLabel("txtEmail", "text", "Correo electrónico:*", "form-control", "", "Email", true)
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
