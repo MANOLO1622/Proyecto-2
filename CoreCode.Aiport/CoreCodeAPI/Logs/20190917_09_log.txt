@@ -1,0 +1,5 @@
+
+Log Entry : 21:06:22 martes, 17 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------

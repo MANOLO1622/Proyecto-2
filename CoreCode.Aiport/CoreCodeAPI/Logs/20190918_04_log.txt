@@ -1,0 +1,90 @@
+
+Log Entry : 16:35:39 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:40:06 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:41:37 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:43:28 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:43:50 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:47:41 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:48:36 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:49:11 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:50:02 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:51:19 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:51:57 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:52:14 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:52:35 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:53:39 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:54:28 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:55:38 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:56:06 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------
+
+Log Entry : 16:57:05 miércoles, 18 de septiembre de 2019
+  :
+  :Se produjo una excepción de tipo 'CoreCode.Exceptions.BussinessException'.
+-------------------------------

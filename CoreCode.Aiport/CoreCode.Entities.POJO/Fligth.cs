@@ -14,10 +14,10 @@ namespace CoreCode.Entities.POJO
         public String Destiny_Airport_Id { get; set; }
         public DateTime Departure_Time {get; set; }
         public DateTime Arrival_DateTime { get; set; }
+        public String Departure_Time_Formatted { get; set; }
+        public String Arrival_DateTime_Formatted { get; set; }
         public String Status {get; set;}
-
         public String Id_Airplane => "1";
-
         public String Id_Gate { get; set; }
     }
 }

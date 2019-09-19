@@ -119,13 +119,12 @@ namespace CoreCodeAPI.Controllers
             }
         }
         [Route("api/updateAirlineManager")]
-        public IHttpActionResult Update(AirlineManager manager)
+        public IHttpActionResult Update(AirlineManager airlineManager)
         {
             try
             {
-
-
-                mng.Update(manager);
+                var mng = new AirlineManagerManagement();
+                mng.Update(airlineManager);
 
                 apiResp = new ApiResponse
                 {

@@ -35,7 +35,6 @@ namespace CoreCode.API.Core
 
         public void Update(AirlineManager manager)
         {
-            manager.Password = EncryptionHelper.GetEncryptedMd5Value(manager.Password);
             crudAirlineManager.Update(manager);
         }
 

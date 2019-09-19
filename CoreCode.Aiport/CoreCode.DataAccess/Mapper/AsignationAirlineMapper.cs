@@ -13,7 +13,7 @@ namespace CoreCode.DataAccess.Mapper
     {
         private const string DB_COL_ID = "ID";
         private const string DB_COL_ID_AIRLINE = "ID_AIRLINE";
-        private const string DB_COL_ID_USER = "ID_USER";
+        private const string DB_COL_ID_AIRPORT = "ID_AIRPORT";
 
 
         public BaseEntity BuildObject(Dictionary<string, object> row)
@@ -23,8 +23,8 @@ namespace CoreCode.DataAccess.Mapper
             {
                 Id = GetStringValue(row, DB_COL_ID),
                 Id_Airline = GetStringValue(row, DB_COL_ID_AIRLINE),
-                Id_User = GetStringValue(row, DB_COL_ID_USER),
-                
+                Id_Airport = GetStringValue(row, DB_COL_ID_AIRPORT),
+
 
             };
             return AsignationAirline;
@@ -51,8 +51,8 @@ namespace CoreCode.DataAccess.Mapper
 
             
             operation.AddVarcharParam(DB_COL_ID_AIRLINE, a.Id_Airline);
-            operation.AddVarcharParam(DB_COL_ID_USER, a.Id_User);
-            
+            operation.AddVarcharParam(DB_COL_ID_AIRPORT, a.Id_Airport);
+
 
 
             return operation;

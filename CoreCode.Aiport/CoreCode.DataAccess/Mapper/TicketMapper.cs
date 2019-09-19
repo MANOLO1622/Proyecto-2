@@ -31,6 +31,7 @@ namespace CoreCode.DataAccess.Mapper
                 Status = GetStringValue(row, DB_COL_STATUS),
                 Price = GetDecimalValue(row, DB_COL_PRICE),
                 Buy_Date = Convert.ToDateTime(GetDateValue(row, DB_COL_BUY_DATE)),
+                Formatted_Buy_Date = Convert.ToDateTime(GetDateValue(row, DB_COL_BUY_DATE)).ToString("dd/MM/yyyy"),
                 Id_User = GetStringValue(row, DB_COL_ID_USER),
                 Person_Name = GetStringValue(row, DB_COL_PERSON_NAME)
             };

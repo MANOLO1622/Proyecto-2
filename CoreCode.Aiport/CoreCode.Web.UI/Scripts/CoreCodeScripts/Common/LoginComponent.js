@@ -93,25 +93,23 @@
                                     //window.location.href = sourceUrl + "/dashboard/airport/" + userObjectElement.ID;
                                 console.log("Airport User");
                                 break;
-                            case 3: //AirlineUser
-                                var airlineObject = {
-                                    id: userObjectElement.AssignedId
-                                };
-                                //instance.ctrlActions.GetFromAPI("getAirlineById", airlineObject, function(response) {
-                                //    if (response) {
-                                //        sessionStorage.setItem("airlineObject", JSON.stringify(response.Data));
-                                //    }
-                                //    //Redirect to dashboard
-                                    
-                                //});
-                                    window.location.href = sourceUrl + "/dashboard/airline/" + response.Data.ID;
-                                console.log("Airline User");
-                                break;
-                            case 4: //User
-                                //window.location.reload();
+                                case 3: //AirlineUser
+                                    var airlineIdObject = "id=" + userObjectElement.AssignedId;
+
+                                    instance.ctrlActions.GetFromAPI("getAirlineById", airlineIdObject, function (response) {
+                                        if (response) {
+                                            sessionStorage.setItem("airlineObject", JSON.stringify(response.Data));
+                                        }
+                                        //Redirect to dashboard
+                                        window.location.href = sourceUrl + "/dashboard/airline/" + response.Data.ID;
+                                    });
+                                    console.log("Airline User");
+                                    break;
+                                case 4: //User
+                                    //window.location.reload();
                                     window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
-                                console.log("User");
-                                break;
+                                    console.log("User");
+                                    break;
                             }
                         } else {
                             swal({

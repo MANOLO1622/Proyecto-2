@@ -62,7 +62,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
             operation.AddVarcharParam(DB_COL_LAST_NAME, m.LastName);
             operation.AddVarcharParam(DB_COL_SECOND_LAST_NAME, m.SecondLastName);
-            operation.AddVarcharParam(DB_COL_BIRTHDATE, m.BirthDate.ToString("dd/MM/yyyy"));
+            operation.AddDateParam(DB_COL_BIRTHDATE, m.BirthDate);
             operation.AddVarcharParam(DB_COL_GENRE, m.Genre);
             operation.AddVarcharParam(DB_COL_EMAIL, m.Email);
             operation.AddVarcharParam(DB_COL_PASSWORD, m.Password);

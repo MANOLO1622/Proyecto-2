@@ -17,7 +17,7 @@
             var airlinesDropdown = $("#" + instance.airlinesDropdownId);
             if (response.Data) {
                 for (var counter = 0; counter < response.Data.length; counter++) {
-                    airlinesDropdown.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].Id));
+                    airlinesDropdown.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].ID));
                 }
             }
         });
@@ -257,16 +257,13 @@
 
 
     this.CleanForm = function () {
-        //document.querySelector('#txtId').value = '';
-        //document.querySelector('#txtDescription').value = '';
-        //document.querySelector('#txtId').disabled = false;
-
-
-        //let aInputs = document.querySelectorAll(':required');
-        //for (let i = 0; i < aInputs.length; i++) {
-        //    aInputs[i].classList.remove('input-error');
-        // }
-
+        document.querySelector('#txtId').value = '';
+        document.querySelector('#txtDeparture_Time').value = '';
+        document.querySelector('#txtArrival_Time').value = '';        
+        document.getElementById("dropdownAirline").selectedIndex = -1;
+        document.getElementById("dropdownGate").selectedIndex = -1;
+        document.getElementById("dropdownDestinyAirport").selectedIndex = -1;
+        document.getElementById("dropdownOriginAirport").selectedIndex = -1;
     }
 }
 

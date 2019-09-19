@@ -15,7 +15,7 @@
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
         <div class="row pull-right">
-            <div class="col-md-8">Información de aerolínea</div>
+            <div class="col-md-8">Asignaciones</div>
             <div class="col-xs-6 col-sm-4">
                 @Html.GetConfirmButton("btnAsignationAirline", "Create", "vAsignationAirline", "", "Asignar")
             </div>
@@ -36,10 +36,10 @@
                             </div>
                             <div class="col-lg-6">
                                 <p>
-                                    Administrador
+                                    Aeropuerto
                                 </p>
-                                @Html.GetSelectDropdown("dropdownOriginUser", "vAsignationAirline", "", "loadUserDropdown", "Id_User",
-                                   new Dictionary<string, string>() {{"Seleccione el administrador:", ""}})
+                                @Html.GetSelectDropdown("dropdownOriginAirport", "vAsignationAirline", "", "loadAirportDropdown", "Id_Airport",
+                                   new Dictionary<string, string>() {{ "Seleccione el aeropuerto:", ""}})
                             </div>
                         </div>
                     </form>

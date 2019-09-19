@@ -10,7 +10,7 @@
 @Html.GetSelectDropdown("statusFilter","vFlight", "FlightStatusDropdownChange", "", "",
     new Dictionary<string, string> { { "Vuelos a tiempo",  "a tiempo" }, { "Vuelos cancelados", "cancelado"}, { "Vuelos retrasados", "retrasado" } })
 
-@Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Id", "Destiny_Airport_Id", "Departure_Time", "Arrival_DateTime", "Id_Gate"}, new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada", "Puerta" })
+@Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Id", "Destiny_Airport_Id", "Departure_Time_Formatted", "Arrival_DateTime_Formatted", "Id_Gate"}, new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada", "Puerta" })
 </div>
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                @Html.GetInputWithLabel("txtDeparture_Time", "date", "Fecha de Salida", "", "Ingrese la fecha de salida: ", "Departure_Time", true)
+                                @Html.GetInputWithLabel("txtDeparture_Time", "datetime-local", "Fecha de Salida", "", "Ingrese la fecha de salida: ", "Departure_Time", true)
                             </div>
                             <div class="form-group col-md-4">
                                 @Html.GetSelectDropdown("dropdownGate", "vFlight", "", "loadGateDropdown", "Id_Gate",
@@ -61,7 +61,7 @@
                                     new Dictionary<string, string>() {{"Seleccione aeropuerto destino:", ""}})
                             </div>
                             <div class="form-group col-md-4">
-                                @Html.GetInputWithLabel("txtArrival_Time", "date", "Fecha de Llegada", "", "Ingrese la fecha de llegada: ", "Arrival_DateTime", true)
+                                @Html.GetInputWithLabel("txtArrival_Time", "datetime-local", "Fecha de Llegada", "", "Ingrese la fecha de llegada: ", "Arrival_DateTime", true)
                             </div>
                             <div class="form-group col-md-5">
                                 @Html.GetSelectDropdown("txtStatus", "", "", "", "", new Dictionary<string, string>()

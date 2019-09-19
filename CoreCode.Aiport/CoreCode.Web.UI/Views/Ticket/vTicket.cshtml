@@ -17,7 +17,7 @@
 @Html.GetSelectDropdown("statusFilter", "vTicket", "TicketStatusDropdownChange", "", "",
     new Dictionary<string, string> { { "Tiquetes con vuelos a tiempo", "a tiempo" }, { "Tiquetes con vuelos cancelados", "cancelado" }, { "Tiquetes con vuelos retrasados", "retrasado" } })
 
-@Html.GetTable("tblTickets", "vTicket", "BindFields", "", new List<string> { "Id", "Id_Flight", "Ticket_Class", "Status", "Price", "Buy_Date", "Id_User", "Person_Name" }, new List<string> { "Id", "Número de vuelo", "Clase", "Estado", "Precio", "Fecha de compra", "Cédula comprador", "Nombre del pasajero" })
+@Html.GetTable("tblTickets", "vTicket", "BindFields", "", new List<string> { "Id", "Id_Flight", "Ticket_Class", "Status", "Price", "Formatted_Buy_Date", "Id_User", "Person_Name" }, new List<string> { "Id", "Número de vuelo", "Clase", "Estado", "Precio", "Fecha de compra", "Cédula comprador", "Nombre del pasajero" })
 
 </div>
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
@@ -69,7 +69,7 @@
                                 @Html.GetInputWithLabel("txtPrice", "text", "Precio del ticket", "", "Costo en dólares ", "Price", true)
                             </div>
                             <div class="form-group col-md-2">
-                                @Html.GetInputWithLabel("txtBuy_Date", "datetime-local", "Fecha de compra", "", "Fecha de compra ", "Buy_Date", false)
+                                @Html.GetInputWithLabel("txtBuy_Date", "date", "Fecha de compra", "", "Fecha de compra ", "Buy_Date", false)
                             </div>
                             <div class="form-group col-md-10">
                                 @Html.GetInputWithLabel("txtId_User", "text", "Cédula del cliete", "", "Cédula del cliente", "Id_User", true)

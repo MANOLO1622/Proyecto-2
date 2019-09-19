@@ -32,6 +32,8 @@ namespace CoreCode.DataAccess.Mapper
                 Destiny_Airport_Id = GetStringValue(row, DB_COL_DESTINY_AIRPORT_ID),
                 Departure_Time = Convert.ToDateTime(GetDateValue(row, DB_COL_DEPARTURE_TIME)),
                 Arrival_DateTime = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_TIME)),
+                Departure_Time_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_DEPARTURE_TIME)).ToString("dd/MM/yyyy h:mm tt"),
+                Arrival_DateTime_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_TIME)).ToString("dd/MM/yyyy h:mm tt"),
                 Status = GetStringValue(row, DB_COL_STATUS),
                 Id_Gate = GetStringValue(row, DB_COL_ID_GATE)
 

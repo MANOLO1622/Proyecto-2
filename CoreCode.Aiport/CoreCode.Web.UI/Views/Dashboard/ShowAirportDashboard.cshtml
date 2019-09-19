@@ -42,26 +42,15 @@
             <div class="overviewCard" id="store-count">
 
             </div>
-            <div class="overviewCard" id="landing-gain">
-
-            </div>
         </div>
-        <div style="column-count: 3; background-color: white; padding-left: 20px;">
+        @*<div style="column-count: 3; background-color: white; padding-left: 450px;">
             <div class="store-card card">
-                @Html.GetTable("airlineList", "Dashboard", "", "", new List<string> { "Name" }, new List<string> { "Nombre Aerolinea" })
-                <a href="/vGates">See More</a>
-            </div>
-            <div class="store-card card">
-                @Html.GetTable("gateList", "Dashboard", "", "", new List<string> { "IDGate" }, new List<string> { "Código Puerta" })
-                <a href="/vGates">See More</a>
-            </div>
-            <div class="store-card card">
-                @Html.GetTable("storeList", "Dashboard", "", "", new List<string> { "Name" }, new List<string> { "Nombre Tienda" })
-                <a href="/vGates">See More</a>
+                @Html.GetTable("airlineList", "Dashboard", "", "", new List<string> { "ID" }, new List<string> { "Nombre Aerolinea" })
+                <a href="/vListAirlinesRequest">See More</a>
             </div>
             
-        </div>
-        <div class="main__cards">
+        </div>*@
+        @*<div class="main__cards">
             <div class="card card--finance">
                 <div class="card__header">
                     <div class="card__header-title text-light">
@@ -84,28 +73,15 @@
 
                 <div id="worldMapChart"></div>
             </div>
+         
             <div class="card card--finance">
-                <div class="card__header">
-                    <div class="card__header-title text-light">
-                        Cantidad de <strong>tiendas por categoria</strong>
-                    </div>
-                    
-                </div>
-                <div id="categoryChartContainer"></div>
-            </div>
-            <div class="card card--finance">
-                <div class="card__header">
-                    <div class="card__header-title text-light">
-                        Cantidad de <strong>vuelos</strong> este mes
-                        <a href="#" class="card__header-link text-bold">View All</a>
-                    </div>
-                </div>
+
 
                 <div id="bigBarChart"></div>
 
             </div>
 
-        </div> <!-- /.main-cards -->
+        </div>*@ <!-- /.main-cards -->
 
 
     </div>

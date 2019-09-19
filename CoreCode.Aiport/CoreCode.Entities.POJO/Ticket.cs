@@ -14,6 +14,7 @@ namespace CoreCode.Entities.POJO
         public String Status { get; set; }
         public Decimal Price { get; set; }
         public DateTime Buy_Date { get; set; }
+        public String Formatted_Buy_Date { get; set; }
         public String Id_User { get; set; }
         public String Person_Name { get; set; }
     }

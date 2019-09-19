@@ -10,7 +10,7 @@ namespace CoreCode.Entities.POJO
     {
         public String Id {get; set; }
         public String Id_Airline { get; set; }
-        public String Id_User { get; set; }
+        public String Id_Airport { get; set; }
 
     }
 }

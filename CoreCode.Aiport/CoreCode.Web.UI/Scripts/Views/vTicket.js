@@ -55,22 +55,7 @@
             var instance = this;
             TicketData = this.ctrlActions.GetDataForm('frmEdition');
             TicketData.Status = "a tiempo";
-            //TicketData.Id_User = 1;  //tiene que jalar el id del usuario del session storage
-           // TicketData.Email = "";
-            
            
-
-            var note = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0];
-
-            var prueba = note.toString("'yyyy-MM-dd'T'HH:mm'");
-
-            var email = "melizondob@ucenfotec.ac.cr";
-
-           // TicketData.Email = email;
-            
-
-            //Fecha para poner la hora exacta a la hora de comprar el tiquete
-            TicketData.Buy_Date = note.toString("'yyyy-MM-dd'T'HH:mm'");
             //Hace el post al create
             // 
             this.ctrlActions.PostToAPI('createTicket', TicketData, function (response) {
@@ -81,6 +66,7 @@
                     button: "OK",
                 });
                 instance.ReloadTable();
+                instance.CleanForm();
             });
 
 
@@ -242,6 +228,19 @@
 
 
     this.CleanForm = function () {
+
+        document.querySelector("txtId_Flight").value = '';
+        document.querySelector("txtPrice").value = '';
+        document.querySelector("txtBuy_Date").value = '';
+        document.querySelector("txtId_User").value = '';
+        document.querySelector("txtPerson_Name").value = '';
+        document.getElementById("Ticket_Class").selectedIndex = -1;
+
+
+        //document.querySelector("Ticket_Class").
+
+        
+
         //document.querySelector('#txtId').value = '';
         //document.querySelector('#txtDescription').value = '';
         //document.querySelector('#txtId').disabled = false;
