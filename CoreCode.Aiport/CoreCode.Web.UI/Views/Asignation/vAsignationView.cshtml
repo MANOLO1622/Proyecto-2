@@ -1,0 +1,25 @@
+﻿@using CoreCode.Web.UI.Models.Helpers
+@section pageCss{
+    <link rel="stylesheet" href="~/Scripts/TableHide.css" />
+}
+
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/Views/vAsignationAirline.js"></script>
+@{
+    /**/
+
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+
+}
+
+<div style="margin: 0 auto; width: 20%;">
+    <h2 class="panel panel-primary">Asignaciones</h2>
+</div>
+<div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
+    <div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
+        
+        @Html.GetTable("tblAsignationAirlines", "vAsignationAirline", "BindFields", "", new List<string> { "Id", "Id_Airline", "Id_Airport"}, new List<string> { "Id", "Aerolinea", "Aeropuerto"})
+    </div>
+
+
+</div>

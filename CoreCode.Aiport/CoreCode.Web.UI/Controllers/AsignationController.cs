@@ -16,9 +16,14 @@ namespace CoreCode.Web.UI.Controllers
         {
             return View();
         }
+        [Route("vAsignationView")]
+        public ActionResult vAsignationView()
+        {
+            return View();
+        }
 
-        
 
-       
+
+
     }
 }

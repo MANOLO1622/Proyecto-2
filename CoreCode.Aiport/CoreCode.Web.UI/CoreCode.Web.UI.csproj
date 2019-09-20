@@ -490,6 +490,9 @@
     <Content Include="Views\Asignation\vFlightsView.cshtml" />
     <Content Include="Views\Asignation\vAsignationAirline.cshtml" />
     <Content Include="Views\User\vListUser.cshtml" />
+    <Content Include="Views\Dashboard\DashboardUserNavigation.cshtml" />
+    <Content Include="Views\PartialViews\CustomComponentContent\ShowUserDashboard.cshtml" />
+    <Content Include="Views\Asignation\vAsignationView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

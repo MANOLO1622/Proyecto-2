@@ -80,9 +80,9 @@
 
                                 swal({
                                     title: "¡Aerolínea registrada!",
-                                    text: "Proceda a registrar él administrador de la aerolínea creado.",
+                                    text: "Proceda a registrar él administrador de la aerolínea creada.",
                                     icon: "success",
-                                    button: "OK"
+                                    button: "Registrar Admin"
                                 }).then(function () {
 
                                     window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';

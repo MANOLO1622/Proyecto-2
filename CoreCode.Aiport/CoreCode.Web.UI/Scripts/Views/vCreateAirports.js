@@ -110,7 +110,7 @@
                                     title: "¡Aeropuerto registrado!",
                                     text: "Proceda a registrar él administrador del aerpouerto creado.",
                                     icon: "success",
-                                    button: "Registrar"
+                                    button: "Registrar Admin"
                                 }).then(function () {
 
                                     window.location.href = 'http://localhost:57312/vCreateAirportAdmin';

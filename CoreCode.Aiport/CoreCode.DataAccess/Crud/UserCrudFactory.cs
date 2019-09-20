@@ -111,7 +111,7 @@ namespace CoreCode.DataAccess.Crud
 
         public override T Retrieve<T>(BaseEntity entity)
         {
-            var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveByRolStatement(entity));
+            var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveStatementById(entity));
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {

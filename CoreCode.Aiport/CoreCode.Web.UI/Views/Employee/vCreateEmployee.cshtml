@@ -19,19 +19,15 @@
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtId", "text", "Cédula*", "form-control", "Ingrese # de identificación", "ID", true)
         </div>
-
         <div class="col-md-6">
             @Html.GetInputWithLabel("txtEmail", "email", "Correo electrónico*", "form-control", "(Obligatorio)", "Email", true)
-
         </div>
     </div>
     <div class="row">
 
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtFirstName", "text", "Primer nombre*", "form-control", "(Obligatorio)", "FirstName", true)
         </div>
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtFirstLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "FirstLastName", true)
         </div>
@@ -40,11 +36,9 @@
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtSecondName", "text", "Segundo nombre", "form-control", "(Opcional)", "SecondName", false)
         </div>
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtSecondLastName", "text", "Segundo apellido", "form-control", "(Opcional)", "SecondLastName", false)
         </div>
-
 
     </div>
     <div class="row">
@@ -79,6 +73,7 @@
             @Html.GetInputWithLabel("txtDistrict", "text", "Distrito*", "form-control", "(Obligatorio)", "District", true)
         </div>
 
+
         <div class="form-group col-md-6">
             <label for="selectPut">Puesto*</label>
             <select class="form-control" id="selectPut" columnDataName="Put" required>
@@ -104,7 +99,6 @@
                 new Dictionary<string, string> { { "Casado",  "casado" }, { "Soltero", "soltero" },{"Otro", "otro" } })*@
         </div>
         <div class="form-group col-md-6">
-
             <label for="selectGenre">Género*</label>
             <select class="form-control" columnDataName="Genre" id="selectGenre" required>
                 <option value="">Seleccione opción (Obligatorio)</option>
@@ -115,6 +109,13 @@
             @*@Html.GetSelectDropdown("selectGenre","vCreateAirportAdmin", "",
                 new Dictionary<string, string> { { "Femenino",  "femenino" }, { "Masculino", "masculino" },{"Otro", "otro" } })*@
         </div>
+    </div>
+    <div class="form-group col-md-6">
+        <p>
+            Aerolínea
+        </p>
+        @Html.GetSelectDropdown("dropdownOriginAirline", "vCreateEmployee", "", "loadAirlineDropdown", "Id_Airline",
+           new Dictionary<string, string>() {{ "Seleccione la aerolínea:", ""}})
     </div>
 </form>
 <form class="main-right-content-container">

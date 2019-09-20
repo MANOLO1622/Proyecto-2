@@ -19,7 +19,11 @@ namespace CoreCode.API.Core.Managers
 
         public GeneralReportAirport RetrieveReport(string airportId)
         {
-            GeneralReportAirport reportAirportToReturn = null;
+            return new GeneralReportAirport();
+
+
+
+            /*GeneralReportAirport reportAirportToReturn = null;
             try
             {
                 reportAirportToReturn = crudGeneralReport.Retrieve<GeneralReportAirport>(airportId);
@@ -35,7 +39,7 @@ namespace CoreCode.API.Core.Managers
                 ExceptionManager.GetInstance().Process(ex);
             }
 
-            return reportAirportToReturn;
+            return reportAirportToReturn;*/
         }
 
         

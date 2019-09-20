@@ -106,8 +106,16 @@
                                     console.log("Airline User");
                                     break;
                                 case 4: //User
-                                    //window.location.reload();
-                                    window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
+                                    var userIdObject = "id=" + userObjectElement.ID;
+
+                                    instance.ctrlActions.GetFromAPI("getUserById", userIdObject, function (response) {
+                                        if (response) {
+                                            sessionStorage.setItem("userObject", JSON.stringify(response.Data));
+                                        }
+                                        //Redirect to dashboard
+                                        window.location.href = sourceUrl + "/dashboard/user";
+                                    });
+                        
                                     console.log("User");
                                     break;
                             }

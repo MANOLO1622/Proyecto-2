@@ -311,6 +311,16 @@ namespace CoreCode.DataAccess.Mapper
             return operation;
         }
 
+        public SqlOperation GetRetrieveStatementById(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "sp_GetUserById" };
+
+            var m = (User)entity;
+            operation.AddVarcharParam(DB_COL_ID, m.ID);
+
+            return operation;
+        }
+
         //public SqlOperation GetUserByRolId(int rolId)
         //{
         //    var operation = new SqlOperation { ProcedureName = "RET_ALL_EMPLOYEES" };

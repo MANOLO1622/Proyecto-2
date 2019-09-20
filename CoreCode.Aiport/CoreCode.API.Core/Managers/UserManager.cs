@@ -57,6 +57,7 @@ namespace CoreCode.API.Core.Managers
 
             return reportToReturn;
         }
+        
 
         public void Create(User user)
         {

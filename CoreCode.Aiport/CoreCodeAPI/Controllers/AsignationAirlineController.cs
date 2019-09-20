@@ -54,7 +54,7 @@ namespace CoreCodeAPI.Controllers
         }
 
         [Route("api/getAsignationById")]
-        public IHttpActionResult Get(string Id)
+        public IHttpActionResult Get(int Id)
         {
             try
             {

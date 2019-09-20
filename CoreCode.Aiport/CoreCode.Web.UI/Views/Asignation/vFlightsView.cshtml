@@ -19,7 +19,8 @@
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
         
-        @Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Id", "Destiny_Airport_Id", "Departure_Time", "Arrival_DateTime", "Id_Gate" }, new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada", "Puerta" })
+        @Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Id", "Destiny_Airport_Id", "Departure_Time", "Arrival_DateTime", "Id_Gate" }, 
+       new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada", "Puerta" })
     </div>
 
 

@@ -30,10 +30,11 @@ namespace CoreCode.API.Core
             return crudUser.RetrieveAll<User>();
         }
 
-        //public User RetrieveById(User user)
-        //{
-        //    return crudUser.Retrieve<User>(user);
-        //}
+        public User RetrieveById(User user)
+        {
+            return crudUser.Retrieve<User>(user);
+        }
+
         public User RetrieveByRol(User user)
         {
             return crudUser.Retrieve<User>(user);

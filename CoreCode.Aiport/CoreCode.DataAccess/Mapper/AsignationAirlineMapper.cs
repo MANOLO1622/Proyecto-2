@@ -21,7 +21,7 @@ namespace CoreCode.DataAccess.Mapper
            
             var AsignationAirline = new AsignationAirline
             {
-                Id = GetStringValue(row, DB_COL_ID),
+                Id = GetIntValue(row, DB_COL_ID),
                 Id_Airline = GetStringValue(row, DB_COL_ID_AIRLINE),
                 Id_Airport = GetStringValue(row, DB_COL_ID_AIRPORT),
 
@@ -77,7 +77,7 @@ namespace CoreCode.DataAccess.Mapper
 
             var operation = new SqlOperation { ProcedureName = "SP_GET_ASIGNATIONID" };
             var a = (AsignationAirline)entity;
-            operation.AddVarcharParam(DB_COL_ID, a.Id);
+            operation.AddIntParam(DB_COL_ID, a.Id);
             return operation;
         }
 
@@ -88,7 +88,7 @@ namespace CoreCode.DataAccess.Mapper
 
             var operation = new SqlOperation { ProcedureName = "SP_GET_ASIGNATIONBYID" };
             var a = new AsignationAirline();
-            operation.AddVarcharParam(DB_COL_ID, a.Id);
+            operation.AddIntParam(DB_COL_ID, a.Id);
          
             return operation;
         }

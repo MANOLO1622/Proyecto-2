@@ -81,8 +81,11 @@
                     icon: "success",
                     button: "OK"
                 }).then(function () {
+                    instance.CleanForm();
+                    instance.ReloadTable();
                     // window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
-                });
+                    });
+
             });
 
         }

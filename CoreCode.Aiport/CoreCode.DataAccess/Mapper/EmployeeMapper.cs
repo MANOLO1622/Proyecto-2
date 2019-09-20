@@ -38,6 +38,7 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_GRADUATION_YEAR = "GRADUATION_YEAR";
         private const string DB_COL_LICENSE = "LICENSE";
         private const string DB_COL_PUT = "PUT";
+        private const string DB_COL_ID_AIRLINE = "ID_AIRLINE";
 
 
         //hace una instancia del pojo de user
@@ -68,7 +69,8 @@ namespace CoreCode.DataAccess.Mapper
                 Experience = GetStringValue(row, DB_COL_EXPERIENCE),
                 GraduationYear = GetStringValue(row, DB_COL_GRADUATION_YEAR),
                 License = GetStringValue(row, DB_COL_LICENSE),
-                Put = GetStringValue(row, DB_COL_PUT)
+                Put = GetStringValue(row, DB_COL_PUT),
+                Id_Airline = GetStringValue(row, DB_COL_ID_AIRLINE)
 
 
             };
@@ -102,7 +104,8 @@ namespace CoreCode.DataAccess.Mapper
                 Experience = row.Field<string>(DB_COL_EXPERIENCE),
                 GraduationYear = row.Field<string>(DB_COL_GRADUATION_YEAR),
                 License = row.Field<string>(DB_COL_LICENSE),
-                Put = row.Field<string>(DB_COL_PUT)
+                Put = row.Field<string>(DB_COL_PUT),
+                Id_Airline = row.Field<string>(DB_COL_ID_AIRLINE)
             };
             return employee;
         }
@@ -122,7 +125,7 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
-            var operation = new SqlOperation { ProcedureName = "sp_CreateUsers" };
+            var operation = new SqlOperation { ProcedureName = "sp_CreateEmployesAirline" };
             var m = (Employee)entity;
 
             operation.AddVarcharParam(DB_COL_ID, m.ID);
@@ -149,6 +152,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_GRADUATION_YEAR, m.GraduationYear);
             operation.AddVarcharParam(DB_COL_LICENSE, m.License);
             operation.AddVarcharParam(DB_COL_PUT, m.Put);
+            operation.AddVarcharParam(DB_COL_ID_AIRLINE, m.Id_Airline);
 
 
             return operation;

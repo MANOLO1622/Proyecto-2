@@ -29,18 +29,16 @@
 </div>
 
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
+    @Html.GetConfirmButton("btnAccept", "Accept", "", "", "")
     <div class="card-header">
         <div class="row pull-right">
             <h5 class="col-md-6">Información de aerolínea</h5>
             <div class="col-md-6">
 
-                @Html.GetConfirmButton("btnAccept", "Accept", "vListAirlinesRequest", "", "Aprobar")
                 @Html.GetConfirmButton("btnEdit", "Update", "vListAirlinesRequest", "", "Modificar")
                 @Html.GetConfirmButton("btnAdmin", "ShowAdmin", "vListAirlinesRequest", "", "Ver administrador")
-                @Html.GetConfirmButton("btnReject", "Reject", "vListAirlinesRequest", "", "Rechazar")   
+                @Html.GetConfirmButton("btnReject", "Reject", "vListAirlinesRequest", "", "Rechazar")
                 @Html.GetConfirmButton("btnClean", "CleanForm", "vListAirlinesRequest", "", "Limpiar")
-
-
 
             </div>
         </div>
@@ -50,42 +48,31 @@
             <div class="col-lg-6">
                 <div class="bs-component">
                     <form id="frmEdition" class="main-right-content-container">
-                    
+
                         <div class="row">
                             <div class="form-group col-md-6">
-
                                 @Html.GetInputWithLabel("txtId", "text", "Cédula jurídica:*", "form-control", "", "ID", true)
-
                             </div>
-
                             <div class="form-group col-md-6">
-
                                 @Html.GetInputWithLabel("txtComercialName", "text", "Nombre comercial:*", "form-control", "", "Comercial_name", false)
-
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 @Html.GetInputWithLabel("txtBusinessName", "text", "Nombre de negocio:*", "form-control", "", "Business_name", false)
-
                             </div>
                             <div class="form-group col-md-6">
                                 @Html.GetInputWithLabel("txtCreationYear", "date", "Año de fundación:*", "form-control", "", "FormattedYear", true)
-
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 @Html.GetInputWithLabel("txtDescription", "text", "Descripción:*", "form-control", "", "Description", false)
-
                             </div>
                             <div class="col-md-6">
                                 @Html.GetInputWithLabel("txtEmail", "text", "Correo electrónico:*", "form-control", "", "Email", false)
-
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>

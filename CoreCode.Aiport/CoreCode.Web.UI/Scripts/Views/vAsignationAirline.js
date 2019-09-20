@@ -1,7 +1,9 @@
 ﻿function vAsignationAirline() {
 
+    this.tblAsignationAirlineId = 'tblAsignationAirlines';
+    this.service = 'asignationAirlin';
     this.ctrlActions = new ControlActions();
-
+    this.columns = "Id,Id_Airline,Id_Airport";
 
 
         this.destinyAirlineDropdownId = "dropdownOriginAirline";
@@ -32,10 +34,12 @@
                 }
             });
         }
-
-
-        
-
+    
+    this.RetrieveAll = function () {
+        console.log('paso');
+        this.ctrlActions.FillTable('getAsignationAirlines', this.tblAsignationAirlineId, false, 'Buscar:', 'Aerolínea o Aeropuerto');
+    }
+    
     this.Create = function () {
         if (!this.Validate()) {
 
@@ -56,7 +60,7 @@
                 });
 
             });
-
+            this.CleanForm();
 
         }
 
@@ -70,6 +74,7 @@
 
 
     }
+
 
     this.Validate = function () {
         let aInputs = document.querySelectorAll(':required');
@@ -89,6 +94,12 @@
 
     }
 
+    this.CleanForm = function () {
+      
+        document.getElementById("dropdownOriginAirline").selectedIndex = 1;
+        document.getElementById("dropdownOriginAirport").selectedIndex = 1;
+    }
+
 
 }
 
@@ -96,5 +107,5 @@
 $(document).ready(function () {
     
     var vasignationAirline = new vAsignationAirline();
-    
+    vasignationAirline.RetrieveAll();
 });

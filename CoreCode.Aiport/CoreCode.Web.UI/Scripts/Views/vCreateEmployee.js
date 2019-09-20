@@ -5,6 +5,22 @@
     this.EmployeeId = localStorage.getItem('idEmployeeLS');
     this.userEmailHtmlElementId = "txtEmail ";
     this.userIdHtmlElementId = "txtId";
+
+    this.destinyAirlineDropdownId = "dropdownOriginAirline";
+
+    this.loadAirlineDropdown = function () {
+        var instance = this;
+        this.ctrlActions.GetFromAPI('getAirlines', "", function (response) {
+            var destinyAirlineElement = $("#" + instance.destinyAirlineDropdownId);
+
+            if (response.Data) {
+                for (var counter = 0; counter < response.Data.length; counter++) {
+                    destinyAirlineElement.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].ID));
+                }
+            }
+        });
+    }
+
     this.Create = function () {
 
         var instance = this;

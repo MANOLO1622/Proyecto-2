@@ -18,6 +18,7 @@ namespace CoreCodeAPI.Controllers
     public class UserController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
+        UserManagement mng = new UserManagement();
 
         [Route("api/getUsersByRol")]
         public IHttpActionResult Get(int id_rol)
@@ -104,6 +105,39 @@ namespace CoreCodeAPI.Controllers
                 var mng = new UserManager();
                 mng.Update(user);
 
+                return Ok(apiResp);
+            }
+            catch (BussinessException bex)
+            {
+
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(bex.AppMessage);
+                return InternalServerError(new Exception(bex.ExceptionId + "-"
+                    + bex.AppMessage.Message));
+            }
+            catch (Exception ex)
+            {
+                ApplicationMessage msg = new ApplicationMessage
+                {
+                    Message = ex.Message
+                };
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(msg);
+                return InternalServerError(new Exception(ex.Message));
+            }
+        }
+        [Route("api/getUserById")]
+        public IHttpActionResult Get(string id)
+        {
+            try
+            {
+                var user = new User
+                {
+                    ID = id
+                };
+
+                user = mng.RetrieveById(user);
+                apiResp.Data = user;
                 return Ok(apiResp);
             }
             catch (BussinessException bex)

@@ -41,5 +41,6 @@ namespace CoreCode.Entities.POJO
         public String GraduationYear { get; set; }
         public String License { get; set; }
         public String Put { get; set; }
+        public String Id_Airline { get; set; }
     }
 }
