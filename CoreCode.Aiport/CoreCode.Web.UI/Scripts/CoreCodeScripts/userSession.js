@@ -14,6 +14,10 @@
         return JSON.parse(sessionStorage.getItem("airlineObject"));
     }
 
+    var getUserSession = function () {
+        return JSON.parse(sessionStorage.getItem("userObject"));
+    }
+
     var setCurrentUser = function(userObject) {
         sessionStorage.setItem("userObject", JSON.stringify(userObject));
     }
@@ -27,6 +31,7 @@
         getAirportInstance: getAirportSession,
         getCurrentUserInstance: getCurrentUser,
         getAirlineSessionInstance: getAirlineSession,
+        getUserSessionInstance: getUserSession,
         setCurrentUserInstance: setCurrentUser,
         cleanUserSession: cleanUserSession
 

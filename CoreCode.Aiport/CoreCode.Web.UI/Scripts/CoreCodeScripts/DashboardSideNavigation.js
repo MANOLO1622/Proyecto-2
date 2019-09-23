@@ -22,6 +22,9 @@ DashboardNav.prototype.init = function() {
         case 3:
             instance.setNavForAirlineAdmin();
             break;
+        case 4:
+            instance.setNavForUserAdmin();
+            break;
         case 2:
             instance.setNavForAirportAdmin();
             break;
@@ -90,6 +93,23 @@ DashboardNav.prototype.setNavForAirlineAdmin = function() {
     //Delete Airline
     //Flights
         $("#flightsNavBtn").fadeIn(4000);
+    $("#viewFlightsNavBtn").removeAttr('style');
+    $("#viewTickets").removeAttr('style');
+};
+DashboardNav.prototype.setNavForUserAdmin = function () {
+    //General Report
+    //Airport 
+    //Airport List
+    $("#airportNavBtn").fadeIn();
+    $("#seeAirportsRequests").removeAttr('style');
+    //When Looking at a Airport Detail
+    //Gates
+    //See All Gates
+    //Airline
+    //Edit Airline
+    //Delete Airline
+    //Flights
+    $("#flightsNavBtn").fadeIn(4000);
     $("#viewFlightsNavBtn").removeAttr('style');
     $("#viewTickets").removeAttr('style');
 };

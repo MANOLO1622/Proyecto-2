@@ -12,7 +12,8 @@ namespace CoreCode.Entities.POJO
         public string Description { get; set; }
         public string Abbreviation { get; set; }
         public bool Status { get; set; }
+        public String Name { get; set; }
 
-        
+
     }
 }

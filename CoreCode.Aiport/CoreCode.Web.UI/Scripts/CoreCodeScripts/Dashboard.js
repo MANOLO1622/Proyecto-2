@@ -28,6 +28,9 @@ var Dashboard = function(parameters) {
             case 3:
                 instance.setAirlineAdminDashboard();
                 break;
+            case 4:
+                instance.setUserAdminDashboard();
+                break;
             default:
                 //redirect
                 break;
@@ -244,6 +247,14 @@ var Dashboard = function(parameters) {
             airlineName.innerText = instance.airlineInstance.Comercial_name;
         }
     }
+    this.setUserAdminDashboard = function () {
+        var instance = this;
+        instance.userInstance = UserSession.getUserSessionInstance();
+        var userName = document.getElementById("userName");
+        if (userName) {
+            userName.innerText = instance.userInstance.FirstName;
+        }
+    }
     this.createScoreCard = function(templateElement, cardValue, cardLabel, cardImage) {
         var instance = this;
         var createdElementFromTemplate = document.createRange().createContextualFragment(templateElement.innerHTML);
@@ -437,6 +448,7 @@ Dashboard.prototype.init = function() {
     var viewGatesBtn = $("#seeGatesNavBtn");
     var seeAirportsBtn = $("#seeAirportsNavBtn");
     var viewAirlinesBtn = $("#viewAirlinesNavBtn");
+    var viewUsersBtn = $("#viewUsersNavBtn");
     var addCategoryBtn = $("#addCategoryNavBtn");
     var viewCategoriesBtn = $("#viewCategoryNavBtn");
     if (generalReportBtn) {
@@ -635,6 +647,27 @@ Dashboard.prototype.init = function() {
                         dashboardRightContainer.append(response);
                         setTimeout(function() {
                             instance.changeCurrentShownSlideImmediatly("view-airlines-container");
+                        }, 1000);
+                    }
+                });
+            }
+        });
+    }
+    ///*Users*/
+    if (viewUsersBtn) {
+        viewUsersBtn.on("click", function () {
+            if (document.getElementById("view-users-container")) {
+                //If the element already exists, just swap
+                instance.changeCurrentShownSlideImmediatly("view-users-container");
+            } else {
+                //If the element doesn't exists, we must retrieve it.
+                // Show Skeleton in the meantime
+                instance.changeCurrentShownSlideImmediatly("loading-skeleton");
+                DomHelper.getHtmlFromRoute("/getViewUsersHtml", "", function (response) {
+                    if (dashboardRightContainer) {
+                        dashboardRightContainer.append(response);
+                        setTimeout(function () {
+                            instance.changeCurrentShownSlideImmediatly("view-users-container");
                         }, 1000);
                     }
                 });

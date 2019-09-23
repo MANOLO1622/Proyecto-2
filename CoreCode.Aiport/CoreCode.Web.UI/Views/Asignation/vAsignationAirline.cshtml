@@ -31,14 +31,14 @@
                                 <p>
                                     Aerolínea
                                 </p>
-                                @Html.GetSelectDropdown("dropdownOriginAirline", "vAsignationAirline", "", "loadAirlineDropdown", "Id_Airline",
+                                @Html.GetSelectDropdown("dropdownOriginAirline", "vAsignationAirline", "", "loadAirlineDropdown", "Comercial_name",
                                    new Dictionary<string, string>() {{ "Seleccione la aerolínea:", ""}})
                             </div>
                             <div class="col-lg-6">
                                 <p>
                                     Aeropuerto
                                 </p>
-                                @Html.GetSelectDropdown("dropdownOriginAirport", "vAsignationAirline", "", "loadAirportDropdown", "Id_Airport",
+                                @Html.GetSelectDropdown("dropdownOriginAirport", "vAsignationAirline", "", "loadAirportDropdown", "Name",
                                    new Dictionary<string, string>() {{ "Seleccione el aeropuerto:", ""}})
                             </div>
                         </div>

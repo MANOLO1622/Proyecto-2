@@ -1,6 +1,6 @@
 ﻿function vCreateUser() {
 
-
+    
     this.ctrlActions = new ControlActions();
     this.userEmailHtmlElementId = "txtEmail ";
     this.userIdHtmlElementId = "txtId";

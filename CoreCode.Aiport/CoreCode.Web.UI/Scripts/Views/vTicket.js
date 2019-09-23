@@ -290,4 +290,8 @@ $(document).ready(function () {
         for (i = 0; i < longitud; i++) reservation += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
         return reservation;
     }
+
+    var dataTable = $('#tblTickets').DataTable();
+    //hide the first and second columns
+    dataTable.columns([0]).visible(false);
 });

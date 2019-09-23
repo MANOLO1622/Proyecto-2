@@ -4,7 +4,25 @@
     this.tblCategoryId = 'tblCategory';
     this.service = 'category';
     this.ctrlActions = new ControlActions();
-    this.columns = "IDCategory,Description";
+    this.columns = "IDCategory,Description","Name";
+
+
+
+    this.destinyAirportDropdownId = "dropdownOriginAirport";
+
+
+    this.loadAirportDropdown = function () {
+        var instance = this;
+        this.ctrlActions.GetFromAPI('getAirports', "", function (response) {
+            var destinyAirportElement = $("#" + instance.destinyAirportDropdownId);
+
+            if (response.Data) {
+                for (var counter = 0; counter < response.Data.length; counter++) {
+                    destinyAirportElement.append(new Option(response.Data[counter].Name, response.Data[counter].NAME));
+                }
+            }
+        });
+    }
 
     this.CategoryStatusDropdownChange = function () {
 
@@ -286,5 +304,9 @@ $(document).ready(function () {
     document.querySelector("#btnEnable").classList.add('hide');
     var vcategory = new vCountries();
     vcategory.RetrieveAvailable();
+
+    var dataTable = $('#tblCategory').DataTable();
+    //hide the first and second columns
+    dataTable.columns([0]).visible(false);
 
 });

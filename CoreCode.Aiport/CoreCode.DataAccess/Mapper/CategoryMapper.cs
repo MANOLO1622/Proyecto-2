@@ -17,6 +17,7 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_DESCRIPTION = "DESCRIPTION";
         private const string DB_COL_ABBREVIATION = "ABBREVIATION";
         private const string DB_COL_STATUS = "STATUS";
+        private const string DB_COL_NAME = "NAME";
 
 
 
@@ -28,7 +29,8 @@ namespace CoreCode.DataAccess.Mapper
                 IDCategory = GetStringValue(row, DB_COL_ID),
                 Description = GetStringValue(row, DB_COL_DESCRIPTION),
                 Abbreviation = GetStringValue(row, DB_COL_ABBREVIATION),
-                Status = GetBoolValue(row, DB_COL_STATUS)
+                Status = GetBoolValue(row, DB_COL_STATUS),
+                Name = GetStringValue(row, DB_COL_NAME)
             };
             return category;
         }
@@ -54,6 +56,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_DESCRIPTION, c.Description);
             operation.AddVarcharParam(DB_COL_ABBREVIATION, c.Abbreviation);
             operation.AddIntParam(DB_COL_STATUS, c.Status ? 1 : 0);
+            operation.AddVarcharParam(DB_COL_NAME, c.Name);
 
 
             return operation;
@@ -100,6 +103,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_DESCRIPTION, c.Description);
             operation.AddVarcharParam(DB_COL_ABBREVIATION, c.Abbreviation);
             operation.AddIntParam(DB_COL_STATUS, c.Status ? 1 : 0);
+            operation.AddVarcharParam(DB_COL_NAME, c.Name);
             return operation;
         }
     }

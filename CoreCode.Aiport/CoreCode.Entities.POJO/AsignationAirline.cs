@@ -9,8 +9,8 @@ namespace CoreCode.Entities.POJO
     public class AsignationAirline : BaseEntity
     {
         public int Id {get; set; }
-        public String Id_Airline { get; set; }
-        public String Id_Airport { get; set; }
+        public String Comercial_name { get; set; }
+        public String Name { get; set; }
 
     }
 }

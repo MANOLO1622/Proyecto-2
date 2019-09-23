@@ -4,7 +4,7 @@
     this.tblGateId = 'tblGate';
     this.service = 'gate';
     this.ctrlActions = new ControlActions();
-    this.columns = "IDAirport,IDGate,Number";
+    this.columns = "Name,IDGate,Number";
     //this.AirportId = UserSession.getAirportInstance().ID;//AGARRA IDASSIGNED DE SESSION STORAGE //"ARPT-1";
     this.rolUser = UserSession.getCurrentUserInstance().Rol;
 

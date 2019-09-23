@@ -387,6 +387,9 @@ a {
 .main-header-airlineAdmin {
     background-image: url('../Resources/Images/BackgroundHeaderDashboardAirlineAdmin.jpg');
 }
+.main-header-userAdmin {
+    background-image: url('../Resources/Images/BackgroundHeaderDashboardUser.jpg');
+}
 .main-header-genUser {
     background-image: url('../Resources/Images/BackgroundHeaderDashboardsGeneralUser.jpg');
 }

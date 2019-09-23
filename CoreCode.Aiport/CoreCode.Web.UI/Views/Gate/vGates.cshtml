@@ -19,8 +19,8 @@
     @Html.GetSelectDropdown("statusFilter","vGates", "GateStatusDropdownChange", "", "",
         new Dictionary<string, string> { { "Puertas habilitadas",  "true" }, { "Puertas deshabilitadas", "false" } })
 
-    @Html.GetTable("tblGate", "vGates", "BindFields", "", new List<string> { "IDAirport","IDGate", "Number" },
-    new List<string> { "Código de los Aeropuertos", "Código", "# Puerta" })
+    @Html.GetTable("tblGate", "vGates", "BindFields", "", new List<string> { "Name","IDGate", "Number" },
+    new List<string> { "Aeropuertos", "Código", "# Puerta" })
 </div>
 
 
@@ -50,7 +50,7 @@
                             @Html.GetInputWithLabel("nbmNumber", "number", "# Puerta", "", "", "Number", false)
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.GetInputWithLabel("txtIdAirport", "text", "Código del Aeropuerto", "", "", "IDAirport", false)
+                            @Html.GetInputWithLabel("txtIdAirport", "text", "Aeropuerto", "", "", "Name", false)
                         </div>
                     </form>
                 </div>

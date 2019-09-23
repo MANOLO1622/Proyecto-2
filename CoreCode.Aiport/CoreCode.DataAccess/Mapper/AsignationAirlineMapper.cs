@@ -12,8 +12,8 @@ namespace CoreCode.DataAccess.Mapper
    public class AsignationAirlineMapper : EntityMapper, ISqlStatements, IObjectMapper
     {
         private const string DB_COL_ID = "ID";
-        private const string DB_COL_ID_AIRLINE = "ID_AIRLINE";
-        private const string DB_COL_ID_AIRPORT = "ID_AIRPORT";
+        private const string DB_COL_COMERCIAL_NAME = "COMERCIAL_NAME";
+        private const string DB_COL_NAME = "NAME";
 
 
         public BaseEntity BuildObject(Dictionary<string, object> row)
@@ -22,8 +22,8 @@ namespace CoreCode.DataAccess.Mapper
             var AsignationAirline = new AsignationAirline
             {
                 Id = GetIntValue(row, DB_COL_ID),
-                Id_Airline = GetStringValue(row, DB_COL_ID_AIRLINE),
-                Id_Airport = GetStringValue(row, DB_COL_ID_AIRPORT),
+                Comercial_name = GetStringValue(row, DB_COL_COMERCIAL_NAME),
+                Name = GetStringValue(row, DB_COL_NAME),
 
 
             };
@@ -49,9 +49,9 @@ namespace CoreCode.DataAccess.Mapper
                var operation = new SqlOperation { ProcedureName = "SP_CREATE_ASIGNATION_AIRLINE" };
             var a = (AsignationAirline)entity;
 
-            
-            operation.AddVarcharParam(DB_COL_ID_AIRLINE, a.Id_Airline);
-            operation.AddVarcharParam(DB_COL_ID_AIRPORT, a.Id_Airport);
+
+            operation.AddVarcharParam(DB_COL_COMERCIAL_NAME, a.Comercial_name);
+            operation.AddVarcharParam(DB_COL_NAME, a.Name);
 
 
 

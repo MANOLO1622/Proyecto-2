@@ -7,9 +7,10 @@
 
 
     this.Create = function () {
+        console.log('entro11111');
         var instance = this;
         if (!this.Validate()) {
-
+            console.log('entro222');
             var airportData = {};
             airportData = this.ctrlActions.GetDataForm('frmEdition');
 
@@ -19,7 +20,7 @@
             let cont = 0;
             let cont2 = 0
             let callback = function (response) {
-
+                console.log('response', response);
                 airports = response.Data;
 
                 for (let i = 0; i < airports.length; i++) {
@@ -48,6 +49,7 @@
                     }
 
                     if (repeatedCoordenates) {
+                        console.log('entro333');
                         document.querySelector('#txtAddress').classList.add('input-error');
                         swal({
                             title: "Ubicación no permitida",
@@ -57,10 +59,12 @@
                         });
                     }
                     else {
+                        console.log('entr4444');
                         for (let i = 0; i < airports.length; i++) {
                             cont++;
 
                         }
+                        console.log('cont', cont);
                         cont = cont + 1;
                         airportData.ID = "ARPT-" + cont.toString();
                         airportData.Status = true;
@@ -72,6 +76,7 @@
                             let numberGates = document.querySelector('#nbmGates').value;
 
                             if (numberGates <= 0) {
+                                console.log('entro');
                                 document.querySelector('#nbmGates').classList.add('input-error');
                                 swal({
                                     title: "Cantidad de puertas no permitida",
@@ -84,7 +89,7 @@
                                 for (let i = 0; i < numberGates; i++) {
                                     let callback2 = function (response) {
                                         gates = response.Data;
-
+                                        console.log('gates', gates);
                                         //for (let i = 0; i < gates.length; i++) {
                                         //    if (gates[i]['IDAirport'] == localStorage.getItem('idAirportLS')) {
                                         //        cont2++;
@@ -98,6 +103,8 @@
                                         gateData.IDAirport = localStorage.getItem('idAirportLS');
                                         gateData.Status = true;
                                         gateData.Number = cont2;
+                                        gateData.Name = gateData.IDAirport;
+                                        console.log('gateData', gateData);
                                         instance.ctrlActions.PostToAPI('postGate', gateData, function () {
 
                                         });

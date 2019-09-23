@@ -272,4 +272,7 @@ $(document).ready(function () {
 
     var vflight = new vFlight();
     vflight.RetrieveATiempo();
+    var dataTable = $('#tblFlights').DataTable();
+    //hide the first and second columns
+    dataTable.columns([0]).visible(false);
 });

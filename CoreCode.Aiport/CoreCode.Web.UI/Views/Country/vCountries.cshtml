@@ -19,8 +19,8 @@
     @Html.GetSelectDropdown("statusFilter", "vCountries", "CategoryStatusDropdownChange", "", "",
         new Dictionary<string, string> { { "Países habilitadas",  "true" }, { "Países deshabilitadas", "false" } })
 
-    @Html.GetTable("tblCategory", "vCountries", "BindFields", "", new List<string> { "IDCategory", "Description", "Abbreviation" },
-    new List<string> { "Código", "País", "Abreviatura" })
+    @Html.GetTable("tblCategory", "vCountries", "BindFields", "", new List<string> { "IDCategory", "Description", "Abbreviation", "Name" },
+    new List<string> { "Código", "País", "Abreviatura","Aeropuerto" })
 
 </div>
 
@@ -53,6 +53,13 @@
                         </div>
                         <div class="form-group col-md-6">
                             @Html.GetInputWithLabel("txtAbbreviation", "text", "Abreviatura", "", "", "Abbreviation", true)
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                Aeropuerto
+                            </p>
+                            @Html.GetSelectDropdown("dropdownOriginAirport", "vCountries", "", "loadAirportDropdown", "Name",
+                               new Dictionary<string, string>() {{ "Seleccione el aeropuerto:", ""}})
                         </div>
                     </form>
                 </div>

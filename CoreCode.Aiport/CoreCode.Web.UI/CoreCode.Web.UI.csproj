@@ -390,6 +390,7 @@
     <Content Include="Scripts\Views\vEditAirportAdmin.js" />
     <Content Include="Scripts\Views\vAsignation.js" />
     <Content Include="Scripts\Views\vListEmployeesRequest.js" />
+    <Content Include="Scripts\Views\vRequestUser.js" />
     <Content Include="Scripts\Views\vRequestAdminAirportFromAirline .js" />
     <Content Include="Scripts\Views\vRequestAdminAirlineToAirport.js" />
     <Content Include="Scripts\Views\vTicket.js" />
@@ -490,7 +491,7 @@
     <Content Include="Views\Asignation\vFlightsView.cshtml" />
     <Content Include="Views\Asignation\vAsignationAirline.cshtml" />
     <Content Include="Views\User\vListUser.cshtml" />
-    <Content Include="Views\Dashboard\DashboardUserNavigation.cshtml" />
+    <Content Include="Views\Dashboard\ShowUserDashboard.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\ShowUserDashboard.cshtml" />
     <Content Include="Views\Asignation\vAsignationView.cshtml" />
   </ItemGroup>

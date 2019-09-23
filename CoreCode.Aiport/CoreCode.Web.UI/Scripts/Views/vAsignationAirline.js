@@ -3,7 +3,7 @@
     this.tblAsignationAirlineId = 'tblAsignationAirlines';
     this.service = 'asignationAirlin';
     this.ctrlActions = new ControlActions();
-    this.columns = "Id,Id_Airline,Id_Airport";
+    this.columns = "Id,Comercial_name,Name";
 
 
         this.destinyAirlineDropdownId = "dropdownOriginAirline";
@@ -17,7 +17,7 @@
 
             if (response.Data) {
                 for (var counter = 0; counter < response.Data.length; counter++) {
-                    destinyAirportElement.append(new Option(response.Data[counter].Name, response.Data[counter].ID));
+                    destinyAirportElement.append(new Option(response.Data[counter].Name, response.Data[counter].NAME));
                 }
             }
         });
@@ -29,7 +29,7 @@
 
                 if (response.Data) {
                     for (var counter = 0; counter < response.Data.length; counter++) {
-                        destinyAirlineElement.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].ID));
+                        destinyAirlineElement.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].COMERCIAL_NAME));
                     }
                 }
             });
@@ -64,6 +64,7 @@
 
         }
 
+
         this.DisplayInsertForm = function () {
 
             document.getElementById("btnRegisterAsignationAirline").style.display = 'block';
@@ -96,8 +97,8 @@
 
     this.CleanForm = function () {
       
-        document.getElementById("dropdownOriginAirline").selectedIndex = 1;
-        document.getElementById("dropdownOriginAirport").selectedIndex = 1;
+        document.getElementById("dropdownOriginAirline").selectedIndex = -1;
+        document.getElementById("dropdownOriginAirport").selectedIndex = -1;
     }
 
 
@@ -108,4 +109,9 @@ $(document).ready(function () {
     
     var vasignationAirline = new vAsignationAirline();
     vasignationAirline.RetrieveAll();
+
+    var dataTable = $('#tblAsignationAirlines').DataTable();
+    //hide the first and second columns
+    dataTable.columns([0]).visible(false);
+
 });
