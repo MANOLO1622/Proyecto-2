@@ -41,12 +41,12 @@ $(function() {
         if(bodyScroll > 100){
 
             navbar.addClass("nav-scroll");
-            logo.attr('src', '/Resources/img/logo-darks.png');
+            logo.attr('src', 'Resources/img/logo-darks.png');
 
         }else{
 
             navbar.removeClass("nav-scroll");
-            logo.attr('src', '/Resources/img/logo-lights.png');
+            logo.attr('src', 'Resources/img/logo-lights.png');
         }
     });
 

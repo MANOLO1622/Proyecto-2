@@ -11,7 +11,7 @@ DashboardNav.prototype.init = function() {
         logOutElement.addEventListener("click",
             function() {
                 sessionStorage.removeItem("userObject");
-                window.location.href = "http://localhost:57312";
+                window.location.href = "http://localhost/SonyAirlines";
             });
     }
     if (instance.userObject) {

@@ -7,9 +7,28 @@
     this.destinyAirportDropdownId = "dropdownDestinyAirport";
     this.originAirportDropdownId = "dropdownOriginAirport";
     this.gateDropdownId = "dropdownGate";
+    this.destinyAirplaneId = "dropdownAirplane";
     //this.gatesDropdownId = "dropdownGates";
-    this.columns = "Id,Airline_Id,Origin_Airport_Id,Destiny_Airport_Id,Departure_Time,Arrival_Datetime,Id_Airplane,Id_Gate";
+    this.columns = "Id,Airline_Id,Origin_Airport_Name,Destiny_Airport_Name,Departure_Time,Arrival_Datetime,Id_Airplane,Id_Gate";
 
+
+
+
+   
+
+
+    this.loadAirplaneDropdown = function () {
+        var instance = this;
+        this.ctrlActions.GetFromAPI('getAirplans', "", function (response) {
+            var destinyAirpalneElement = $("#" + instance.destinyAirplaneId);
+
+            if (response.Data) {
+                for (var counter = 0; counter < response.Data.length; counter++) {
+                    destinyAirpalneElement.append(new Option(response.Data[counter].Name, response.Data[counter].Id_Airplane));
+                }
+            }
+        });
+    }
     //Airline dropdown
     this.loadAirlineDropdown = function () {
         var instance = this;
@@ -225,6 +244,7 @@
         document.getElementById("dropdownAirline").style.display = 'none';
         document.getElementById("dropdownOriginAirport").style.display = 'none';
         document.getElementById("dropdownDestinyAirport").style.display = 'none';
+        document.getElementById("dropdownAirplane").style.display = 'none';
         document.getElementById("txtDeparture_Time").style.display = 'none';
         document.getElementById("txtArrival_Time").style.display = 'none';
         document.getElementById("dropdownGate").style.display = 'none';//.setAttribute("disabled", "disabled");
@@ -246,6 +266,7 @@
         document.getElementById("dropdownAirline").style.display = 'block';
         document.getElementById("dropdownOriginAirport").style.display = 'block';
         document.getElementById("dropdownDestinyAirport").style.display = 'block';
+        document.getElementById("dropdownAirplane").style.display = 'block';
         document.getElementById("txtDeparture_Time").style.display = 'block';
         document.getElementById("txtArrival_Time").style.display = 'block';
         document.querySelector("label[for='txtArrival_Time']").style.display = 'block';
@@ -264,6 +285,7 @@
         document.getElementById("dropdownGate").selectedIndex = -1;
         document.getElementById("dropdownDestinyAirport").selectedIndex = -1;
         document.getElementById("dropdownOriginAirport").selectedIndex = -1;
+        document.getElementById("dropdownAirplane").selectedIndex = -1;
     }
 }
 
@@ -274,5 +296,5 @@ $(document).ready(function () {
     vflight.RetrieveATiempo();
     var dataTable = $('#tblFlights').DataTable();
     //hide the first and second columns
-    dataTable.columns([0]).visible(false);
+    dataTable.columns([0,1]).visible(false);
 });

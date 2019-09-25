@@ -31,7 +31,7 @@
 
     this.loadUserDropdown = function () {
         console.log("ENTRO");
-        //$.get("http://localhost:54982/api/getUsersByRol/", function (data) {
+        //$.get("http://localhost/SonyAirlinesAPI/api/getUsersByRol/", function (data) {
         //    existingAirports = data.Data;
         //    console.log(existingAirports);
         //    for (let i = 0; i < existingAirports.length; i++) {

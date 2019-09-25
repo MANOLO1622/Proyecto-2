@@ -45,6 +45,7 @@
     <Compile Include="Dashboard\AirlineReport.cs" />
     <Compile Include="Dashboard\GeneralAdminReport.cs" />
     <Compile Include="Asignation.cs" />
+    <Compile Include="Airplane.cs" />
     <Compile Include="FullStoreInformation.cs" />
     <Compile Include="Passenger.cs" />
     <Compile Include="Ticket.cs" />

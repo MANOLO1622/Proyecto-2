@@ -196,8 +196,9 @@ a:hover {
 }
 
 .bg-img {
-  background-size: cover;
-  background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../img/bg7.jpg');
 }
 
 .bg-fixed {

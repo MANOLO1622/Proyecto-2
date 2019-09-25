@@ -1,0 +1,57 @@
+﻿@using CoreCode.Web.UI.Models.Helpers
+@{
+    ViewBag.Title = "Registrando aerolinea";
+}
+@section pageCss{
+    <link rel="stylesheet" href="~/Scripts/TableHide.css" />
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/Views/vCreateAirplane.js"></script>
+@{
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<form id="frmEditionAirplane" class="main-right-content-container">
+    <div style="margin: 0 auto; width: 30%;">
+        <h2>Registro de avión</h2>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtId", "text", "Cédula jurídica:*", "form-control", "(Obligatorio)", "ID", true)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtName", "text", "Nombre del avión:*", "form-control", "(Obligatorio)", "Name", true)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtQuotaFirstClass", "text", "Quota_First_Class:*", "form-control", "(Obligatorio)", "Quota_First_Class", true)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtQuotaSecondClass", "text", "Quota_Second_Class:*", "form-control", "(Obligatorio)", "Quota_Second_Class", true)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            @Html.GetInputWithLabel("txtQuota_Load", "text", "Quota_Load:*", "form-control", "(Obligatorio)", "Quota_Load", true)
+        </div>
+        <div class="col-md-6">
+            @Html.GetInputWithLabel("txtType", "text", "Type:*", "form-control", "(Obligatorio)", "Type", true)
+        </div>
+        <div class="form-group col-md-4">
+            <p>Aerolínea</p>
+            @Html.GetSelectDropdown("dropdownOriginAirline", "vCreateAirplane", "", "loadAirlineDropdown", "Id_Airline",
+          new Dictionary<string, string>() {{ "Seleccione la aerolínea:", ""}})
+        </div>
+    </div>
+
+</form>
+<form class="main-right-content-container">
+    <div id="btnControl">
+        @Html.GetConfirmButton("btnRegisterAirplane", "Create", "vCreateAirplane", "", "Registrar")
+        @Html.GetConfirmButton("btnClean", "CleanForm", "vCreateAirplane", "", "Limpiar")
+    </div>
+</form>
+
+

@@ -4,7 +4,21 @@
     this.tblTicketId = 'tblTickets';
     this.service = 'ticket';
     this.ctrlActions = new ControlActions();
+    this.airlinesDropdownId = "dropdownAirline";
     this.columns = "Id,Id_Flight, Ticket_Class, Status, Price, Buy_Date, Id_User, Person_Name";
+
+
+    this.loadAirlineDropdown = function () {
+        var instance = this;
+        this.ctrlActions.GetFromAPI('getAirlines', "", function (response) {
+            var airlinesDropdown = $("#" + instance.airlinesDropdownId);
+            if (response.Data) {
+                for (var counter = 0; counter < response.Data.length; counter++) {
+                    airlinesDropdown.append(new Option(response.Data[counter].ID, response.Data[counter].ID));
+                }
+            }
+        });
+    }
 
     this.TicketStatusDropdownChange = function () {
 

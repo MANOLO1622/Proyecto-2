@@ -9,24 +9,23 @@ using CoreCode.Web.UI.ActionFilter;
 namespace CoreCode.Web.UI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class FlightController : Controller
+    public class AirplaneController : Controller
     {
 
-        [Route("vFlight")]
-        public ActionResult vFlight()
-        {
-            //System.Configuration.ConfigurationManager.AppSettings.
-            return View();
-        }
-
-        [Route("CreateFlight")]
-        public ActionResult CreateFlight()
+        [Route("vAirplane")]
+        public ActionResult vAirplane()
         {
             return View();
         }
 
-        [Route("ListFLight")]
-        public ActionResult ListFlight()
+        [Route("CreateAirplane")]
+        public ActionResult CreateAirplane()
+        {
+            return View();
+        }
+
+        [Route("ListAirplane")]
+        public ActionResult ListAirplane()
         {
             return View();
         }

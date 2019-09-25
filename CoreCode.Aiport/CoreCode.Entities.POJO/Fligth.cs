@@ -11,13 +11,15 @@ namespace CoreCode.Entities.POJO
         public String Id {get; set; }
         public String Airline_Id {get; set; }
         public String Origin_Airport_Id {get; set; }
+        public String Origin_Airport_Name { get; set; }
         public String Destiny_Airport_Id { get; set; }
+        public String Destiny_Airport_Name { get; set; }
         public DateTime Departure_Time {get; set; }
         public DateTime Arrival_DateTime { get; set; }
-        public String Departure_Time_Formatted { get; set; }
-        public String Arrival_DateTime_Formatted { get; set; }
+        //public String Departure_Time_Formatted { get; set; }
+        //public String Arrival_DateTime_Formatted { get; set; }
         public String Status {get; set;}
-        public String Id_Airplane => "1";
+        public String Id_Airplane { get; set; }
         public String Id_Gate { get; set; }
     }
 }

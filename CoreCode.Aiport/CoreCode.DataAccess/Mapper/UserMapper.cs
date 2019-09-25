@@ -202,7 +202,25 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetUpdateStatement(BaseEntity entity)
         {
-            throw new NotImplementedException();
+            //este proc hace el update del perfil del usuario
+            var operation = new SqlOperation { ProcedureName = "sp_UpdateUsers" };
+
+            var m = (User)entity;
+            operation.AddVarcharParam(DB_COL_ID, m.ID);
+            operation.AddVarcharParam(DB_COL_NAME, m.FirstName);
+            operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
+            operation.AddVarcharParam(DB_COL_FIRST_LAST_NAME, m.FirstLastName);
+            operation.AddVarcharParam(DB_COL_SECOND_LAST_NAME, m.SecondLastName);
+            operation.AddVarcharParam(DB_COL_BIRTHDATE, m.BirthDate);
+            operation.AddVarcharParam(DB_COL_GENRE, m.Genre);
+            operation.AddVarcharParam(DB_COL_EMAIL, m.Email);
+            operation.AddVarcharParam(DB_COL_PASSWORD, m.Password);
+            operation.AddVarcharParam(DB_COL_PHONE, m.Phone);
+            operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
+            operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
+            operation.AddIntParam(DB_COL_ID_ROL, m.Rol);
+
+            return operation;
         }
         //--- REINICIO DE CONTRASEÑA DE ADMIN AIPORT
         public SqlOperation UpdatePasswordAdminAirport(BaseEntity entity)
@@ -311,6 +329,15 @@ namespace CoreCode.DataAccess.Mapper
             return operation;
         }
 
+        public SqlOperation GetRetrieveStatementByUserId(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "sp_GetUserById" };
+
+            var m = (User)entity;
+            operation.AddVarcharParam(DB_COL_ID, m.ID);
+
+            return operation;
+        }
         public SqlOperation GetRetrieveStatementById(BaseEntity entity)
         {
             var operation = new SqlOperation { ProcedureName = "sp_GetUserById" };

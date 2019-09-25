@@ -65,7 +65,7 @@
                         if (user != undefined) {
                             console.log()
                             var userObjectElement = user;
-                            var sourceUrl = window.location.protocol + "//" + window.location.host; 
+                            var sourceUrl = window.location.protocol + "//" + window.location.host + "/SonyAirlines"; 
                             if (response.errorThrown) {
                                 //Swal error message.
                                 return;

@@ -30,16 +30,16 @@ namespace CoreCode.API.Core
             return crudUser.RetrieveAll<User>();
         }
 
-        public User RetrieveById(User user)
+        public User RetrieveByUserId(User user)
         {
-            return crudUser.Retrieve<User>(user);
+            return crudUser.RetrieveByUserId<User>(user);
         }
 
         public User RetrieveByRol(User user)
         {
             return crudUser.Retrieve<User>(user);
         }
-        internal void Update(User user)
+        public void Update(User user)
         {
             crudUser.Update(user);
         }

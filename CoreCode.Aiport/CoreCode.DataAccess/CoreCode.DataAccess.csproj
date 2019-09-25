@@ -45,6 +45,7 @@
     <Compile Include="Crud\ApplicationMessagesCrudFactory.cs" />
     <Compile Include="Crud\AsignationAirlineCrudFactory.cs" />
     <Compile Include="Crud\AsignationCrudFactory.cs" />
+    <Compile Include="Crud\AirplaneCrudFactory.cs" />
     <Compile Include="Crud\GeneralAdminReportCrudFactory.cs" />
     <Compile Include="Crud\EmployeeCrudFactory.cs" />
     <Compile Include="Crud\UserCrudFactory.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Mapper\AirlineReportMapper.cs" />
     <Compile Include="Mapper\ApplicationMessageMapper.cs" />
     <Compile Include="Mapper\AsignationMapper.cs" />
+    <Compile Include="Mapper\AiplaneMapper.cs" />
     <Compile Include="Mapper\GeneralAdminReportMapper.cs" />
     <Compile Include="Mapper\PassengerMapper.cs" />
     <Compile Include="Mapper\TicketMapper.cs" />

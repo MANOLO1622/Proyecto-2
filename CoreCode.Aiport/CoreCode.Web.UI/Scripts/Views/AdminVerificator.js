@@ -22,7 +22,7 @@ function verifyAccount() {
     this.getRole = function (pemail) {
         console.log("Verificando ", pemail)
         var con = new connector();
-        var role = con.GetFromAPISync("http://localhost:54982/api/role?email=" + encodeURIComponent(pemail)).Data;
+        var role = con.GetFromAPISync("http://localhost/SonyAirlinesAPI/api/role?email=" + encodeURIComponent(pemail)).Data;
         return role;
     }
 }

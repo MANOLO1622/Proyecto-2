@@ -58,7 +58,7 @@ namespace CoreCodeAPI.Controllers
                 return InternalServerError(new Exception(ex.Message));
             }
         }
-
+        //CREATE USERS
         [Route("api/Users/post")]
         public IHttpActionResult Post(User user)
         {
@@ -95,15 +95,19 @@ namespace CoreCodeAPI.Controllers
                 return InternalServerError(new Exception(ex.Message));
             }
         }
-        //CREATE USERS
-        [Route("api/Users/put")]
-        public IHttpActionResult Put(User user)
+        
+        [Route("api/updateUsers")]
+        public IHttpActionResult Update(User user)
         {
             try
             {
-                apiResp = new ApiResponse();
-                var mng = new UserManager();
+                var mng = new UserManagement();
                 mng.Update(user);
+
+                apiResp = new ApiResponse
+                {
+                    Message = "Action was executed."
+                };
 
                 return Ok(apiResp);
             }
@@ -127,7 +131,7 @@ namespace CoreCodeAPI.Controllers
             }
         }
         [Route("api/getUserById")]
-        public IHttpActionResult Get(string id)
+        public IHttpActionResult GetUserById(string id)
         {
             try
             {
@@ -136,7 +140,7 @@ namespace CoreCodeAPI.Controllers
                     ID = id
                 };
 
-                user = mng.RetrieveById(user);
+                user = mng.RetrieveByUserId(user);
                 apiResp.Data = user;
                 return Ok(apiResp);
             }

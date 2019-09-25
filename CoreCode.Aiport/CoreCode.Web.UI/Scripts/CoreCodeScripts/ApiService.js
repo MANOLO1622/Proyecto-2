@@ -4,7 +4,7 @@
     global.ApiService = factory(global);
 })(window, function(root) {//Calling the IIFE
     "use strict";
-    const API_URL = "http://localhost:54982/api/";
+    const API_URL = "http://localhost/SonyAirlinesAPI/api/";
     var CreateApiServiceUrl = function(method) {
         return API_URL + method;
     };

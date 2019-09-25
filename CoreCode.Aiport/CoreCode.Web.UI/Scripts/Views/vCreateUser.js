@@ -1,6 +1,6 @@
 ﻿function vCreateUser() {
 
-    
+    this.tblUserId = 'tblUser';
     this.ctrlActions = new ControlActions();
     this.userEmailHtmlElementId = "txtEmail ";
     this.userIdHtmlElementId = "txtId";
@@ -48,10 +48,11 @@
 
                         else {
 
-                            UserData.Status = true;
-                            UserData.Rol = "4"; 
-                            UserData.Password = instance.GenerateRandomPassword();
-                            instance.ctrlActions.PostToAPI('Users/post', UserData, function () {
+                            userData.IDUser = localStorage.getItem('idUserLS');
+                            userData.Status = true;
+                            userData.Rol = "4"; 
+                            userData.Password = instance.GenerateRandomPassword();
+                            instance.ctrlActions.PostToAPI('Users/post', userData, function () {
 
 
                                 swal({

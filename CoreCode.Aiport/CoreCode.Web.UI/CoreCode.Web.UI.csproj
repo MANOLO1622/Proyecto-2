@@ -16,7 +16,7 @@
     <AssemblyName>CoreCode.Web.UI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -165,6 +165,7 @@
     <Compile Include="Controllers\AsignationAirlineController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\AirplaneController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\AirlineManagerController.cs" />
@@ -252,13 +253,16 @@
     <Content Include="Resources\img\3.jpg" />
     <Content Include="Resources\img\4.jpg" />
     <Content Include="Resources\img\5.jpg" />
+    <Content Include="Resources\img\7.jpg" />
     <Content Include="Resources\img\arrow.png" />
     <Content Include="favicon.ico" />
     <Content Include="Resources\img\bg1.jpg" />
+    <Content Include="Resources\img\bg11.jpg" />
     <Content Include="Resources\img\bg2 %282%29.jpg" />
     <Content Include="Resources\img\bg2.jpg" />
     <Content Include="Resources\img\bg4.jpg" />
     <Content Include="Resources\img\bg6.jpg" />
+    <Content Include="Resources\img\bg7.jpg" />
     <Content Include="Resources\img\blog\1.jpg" />
     <Content Include="Resources\img\blog\2.jpg" />
     <Content Include="Resources\img\blog\3.jpg" />
@@ -274,7 +278,9 @@
     <Content Include="Resources\img\demos\6.jpg" />
     <Content Include="Resources\img\demos\7.jpg" />
     <Content Include="Resources\img\logo-dark.png" />
+    <Content Include="Resources\img\logo-darks.png" />
     <Content Include="Resources\img\logo-light.png" />
+    <Content Include="Resources\img\logo-lights.png" />
     <Content Include="Resources\img\portfolio\1.jpg" />
     <Content Include="Resources\img\portfolio\2.jpg" />
     <Content Include="Resources\img\portfolio\3.jpg" />
@@ -383,10 +389,12 @@
     <Content Include="Scripts\Views\EditProfile.js" />
     <Content Include="Scripts\Views\Index.js" />
     <Content Include="Scripts\Views\vAsignationAirline.js" />
+    <Content Include="Scripts\Views\vCreateAirplane.js" />
     <Content Include="Scripts\Views\vCreateEmployee.js" />
     <Content Include="Scripts\Views\vCreateUser.js" />
     <Content Include="Scripts\Views\vCreatePassenger.js" />
     <Content Include="Scripts\Views\vEditAirlineAdmin.js" />
+    <Content Include="Scripts\Views\vEditUser.js" />
     <Content Include="Scripts\Views\vEditAirportAdmin.js" />
     <Content Include="Scripts\Views\vAsignation.js" />
     <Content Include="Scripts\Views\vListEmployeesRequest.js" />
@@ -494,6 +502,8 @@
     <Content Include="Views\Dashboard\ShowUserDashboard.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\ShowUserDashboard.cshtml" />
     <Content Include="Views\Asignation\vAsignationView.cshtml" />
+    <Content Include="Views\User\vEditUser.cshtml" />
+    <Content Include="Views\Airplane\vAirplane.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -541,7 +551,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57312</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57312/</IISUrl>
+          <IISUrl>http://localhost/SonyAirlines</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

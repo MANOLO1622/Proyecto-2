@@ -61,6 +61,20 @@
                 <li id="deleteGateNavBtn" class="subList__item">Eliminar puerta</li>*@
                 </ul>
             </li>
+            <li id="airplaneNavBtn">
+                <div class="navList__subheading row row--align-v-center">
+                    <span class="navList__subheading-icon"><i class="fas fa-plane"></i></span>
+                    <span class="navList__subheading-title">Aviones</span>
+                </div>
+                <ul class="subList subList--hidden">
+                    <li id="addAirplaneNavBtn" class="subList__item"><a href="http://localhost/SonyAirlines/vAirplane">Registrar aviones</a></li>
+                    @*<li id="seeGatesNavBtn" class="subList__item"><a href="/vGates">Ver puertas</a></li>*@
+                    @*<li id="modifyGateNavBtn" class="subList__item">Modificar puerta</li>
+                <li id="inactivateGateNavBtn" class="subList__item">Desactivar puerta</li>
+                <li id="activateGateNavBtn" class="subList__item">Activar puerta</li>
+                <li id="deleteGateNavBtn" class="subList__item">Eliminar puerta</li>*@
+                </ul>
+            </li>
             <li id="asignationNavBtn">
                 <div class="navList__subheading row row--align-v-center">
                     <span class="navList__subheading-icon"><i class="fas fa-check"></i></span>
@@ -84,7 +98,7 @@
         </li>*@
             <li id="airlineNavBtn">
                 <div class="navList__subheading row row--align-v-center">
-                    <span class="navList__subheading-icon"><i class="fas fa-plane"></i></span>
+                    <span class="navList__subheading-icon"><i class="fas fa-broadcast-tower"></i></span>
                     <span class="navList__subheading-title">Aerolíneas</span>
                 </div>
                 <ul class="subList subList--hidden">
@@ -97,15 +111,15 @@
                 </ul>
             </li>
             @*<li id="administratorsNavBtn">
-                <div class="navList__subheading row row--align-v-center">
-                    <span class="navList__subheading-icon"><i class="fas fa-users"></i></span>
-                    <span class="navList__subheading-title">Registro Admins</span>
-                </div>
-                <ul class="subList subList--hidden">
-                    <li id="adminAirportNavBtn" class="subList__item"><a href="http://localhost:57312/vCreateAirportAdmin">Admin. aeropuertos</a></li>
-                    <li id="adminAirlineNavBtn" class="subList__item"><a href="http://localhost:57312/vCreateAirlineAdmin">Admin. aerolíneas</a></li>
-                </ul>
-            </li>*@
+            <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="fas fa-users"></i></span>
+                <span class="navList__subheading-title">Registro Admins</span>
+            </div>
+            <ul class="subList subList--hidden">
+                <li id="adminAirportNavBtn" class="subList__item"><a href="http://localhost:57312/vCreateAirportAdmin">Admin. aeropuertos</a></li>
+                <li id="adminAirlineNavBtn" class="subList__item"><a href="http://localhost:57312/vCreateAirlineAdmin">Admin. aerolíneas</a></li>
+            </ul>
+        </li>*@
             <li id="employeeNavBtn">
                 <div class="navList__subheading row row--align-v-center">
                     <span class="navList__subheading-icon"><i class="fas fa-user-tie"></i></span>
@@ -113,8 +127,9 @@
                 </div>
                 <ul class="subList subList--hidden">
                     <li id="employeeNavBtn" class="subList__item"><a href="http://localhost:57312/vCreateEmployee">Registrar empleado</a></li>
+                    <li id="employeeNavBtn" class="subList__item"><a href="http://localhost:57312/vEditUser">Perfil usuario</a></li>
                     @*<li id="viewEmployeeNavBtn" class="subList__item"> <a href="/vListEmployee">Lista de empleados</a></li>
-                    <li id="viewUserNavBtn" class="subList__item"> <a href="/vListUser">Lista de usuarios</a></li>*@
+                <li id="viewUserNavBtn" class="subList__item"> <a href="/vListUser">Lista de usuarios</a></li>*@
                 </ul>
             </li>
             @*<li id="administratorsNavBtn">
@@ -144,9 +159,9 @@
                     <span class="navList__subheading-title">Vuelos</span>
                 </div>
                 <ul class="subList subList--hidden">
-                    <li id="viewFlights" class="subList__item"><a href="/vFlightsView">Ver vuelos</a></li>
-                    <li id="viewFlightsNavBtn" class="subList__item"><a href="/vFlight">Registrar vuelos</a></li>
-                    <li id="viewTickets" class="subList__item"><a href="/vTicket">Compra tiquetes</a></li>
+                    <li id="viewFlights" class="subList__item"><a href="http://localhost/SonyAirlines/vFlightsView">Ver vuelos</a></li>
+                    <li id="viewFlightsNavBtn" class="subList__item"><a href="http://localhost/SonyAirlines/vFlight">Registrar vuelos</a></li>
+                    <li id="viewTickets" class="subList__item"><a href="http://localhost/SonyAirlines/vTicket">Compra tiquetes</a></li>
                 </ul>
 
             </li>

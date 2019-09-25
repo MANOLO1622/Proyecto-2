@@ -14,9 +14,11 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_ID = "ID";
         private const string DB_COL_AIRLINE_ID = "AIRLINE_ID";
         private const string DB_COL_ORIGIN_AIRPORT_ID = "ORIGIN_AIRPORT_ID";
+        private const string DB_COL_ORIGIN_AIRPORT_NAME = "ORIGIN_AIRPORT_NAME";
         private const string DB_COL_DESTINY_AIRPORT_ID = "DESTINY_AIRPORT_ID";
+        private const string DB_COL_DESTINY_AIRPORT_NAME = "DESTINY_AIRPORT_NAME";
         private const string DB_COL_DEPARTURE_TIME = "DEPARTURE_TIME";
-        private const string DB_COL_ARRIVAL_TIME = "ARRIVAL_DATETIME";
+        private const string DB_COL_ARRIVAL_DATETIME = "ARRIVAL_DATETIME";
         private const string DB_COL_STATUS = "STATUS";
         private const string DB_COL_ID_AIRPLANE = "ID_AIRPLANE";
         private const string DB_COL_ID_GATE = "ID_GATE";
@@ -24,21 +26,23 @@ namespace CoreCode.DataAccess.Mapper
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
            
-            var FLight = new Flight
+            var fLight = new Flight
             {
                 Id = GetStringValue(row, DB_COL_ID),
                 Airline_Id = GetStringValue(row, DB_COL_AIRLINE_ID),
                 Origin_Airport_Id = GetStringValue(row, DB_COL_ORIGIN_AIRPORT_ID),
+                Origin_Airport_Name = GetStringValue(row, DB_COL_ORIGIN_AIRPORT_NAME),
                 Destiny_Airport_Id = GetStringValue(row, DB_COL_DESTINY_AIRPORT_ID),
+                Destiny_Airport_Name = GetStringValue(row, DB_COL_DESTINY_AIRPORT_NAME),
                 Departure_Time = Convert.ToDateTime(GetDateValue(row, DB_COL_DEPARTURE_TIME)),
-                Arrival_DateTime = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_TIME)),
-                Departure_Time_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_DEPARTURE_TIME)).ToString("dd/MM/yyyy h:mm tt"),
-                Arrival_DateTime_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_TIME)).ToString("dd/MM/yyyy h:mm tt"),
+                Arrival_DateTime = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_DATETIME)),
+                //Departure_Time_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_DEPARTURE_TIME)).ToString("dd/MM/yyyy h:mm tt"),
+                //Arrival_DateTime_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_TIME)).ToString("dd/MM/yyyy h:mm tt"),
                 Status = GetStringValue(row, DB_COL_STATUS),
                 Id_Gate = GetStringValue(row, DB_COL_ID_GATE)
 
             };
-            return FLight;
+            return fLight;
         }
 
         public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
@@ -63,7 +67,7 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_ORIGIN_AIRPORT_ID, a.Origin_Airport_Id);
             operation.AddVarcharParam(DB_COL_DESTINY_AIRPORT_ID, a.Destiny_Airport_Id);
             operation.AddDateParam(DB_COL_DEPARTURE_TIME, a.Departure_Time);
-            operation.AddDateParam(DB_COL_ARRIVAL_TIME, a.Arrival_DateTime);
+            operation.AddDateParam(DB_COL_ARRIVAL_DATETIME, a.Arrival_DateTime);
             operation.AddVarcharParam(DB_COL_STATUS, a.Status);
             operation.AddVarcharParam(DB_COL_ID_AIRPLANE, a.Id_Airplane);
             operation.AddVarcharParam(DB_COL_ID_GATE, a.Id_Gate);

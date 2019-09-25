@@ -36,7 +36,11 @@ namespace CoreCode.Web.UI.Controllers
             return View();
         }
 
-
+        [Route("vEditUser")]
+        public ActionResult vEditUser()
+        {
+            return View();
+        }
 
 
     }
