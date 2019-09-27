@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsignationAirline.cs" />
+    <Compile Include="Reservation.cs" />
     <Compile Include="Dashboard\AirlineReport.cs" />
     <Compile Include="Dashboard\GeneralAdminReport.cs" />
     <Compile Include="Asignation.cs" />

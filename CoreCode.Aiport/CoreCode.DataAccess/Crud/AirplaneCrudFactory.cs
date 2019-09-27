@@ -24,8 +24,8 @@ namespace CoreCode.DataAccess.Crud
 
         public override void Create(BaseEntity entity)
         {
-            var airline = (Airline)entity;
-            var sqlOperation = mapper.GetCreateStatement(airline);
+            var airplane = (Airplane)entity;
+            var sqlOperation = mapper.GetCreateStatement(airplane);
             dao.ExecuteProcedure(sqlOperation);
         }
 

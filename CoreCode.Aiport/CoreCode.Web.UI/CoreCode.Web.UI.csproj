@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AirlineController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
     <Compile Include="Controllers\AsignationAirlineController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\AirplaneController.cs" />
@@ -389,6 +390,7 @@
     <Content Include="Scripts\Views\EditProfile.js" />
     <Content Include="Scripts\Views\Index.js" />
     <Content Include="Scripts\Views\vAsignationAirline.js" />
+    <Content Include="Scripts\Views\vReservation.js" />
     <Content Include="Scripts\Views\vCreateAirplane.js" />
     <Content Include="Scripts\Views\vCreateEmployee.js" />
     <Content Include="Scripts\Views\vCreateUser.js" />
@@ -504,6 +506,8 @@
     <Content Include="Views\Asignation\vAsignationView.cshtml" />
     <Content Include="Views\User\vEditUser.cshtml" />
     <Content Include="Views\Airplane\vAirplane.cshtml" />
+    <Content Include="Views\Airplane\vAirplansView.cshtml" />
+    <Content Include="Views\Country\vReservations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

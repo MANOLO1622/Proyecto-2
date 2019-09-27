@@ -1,4 +1,6 @@
-﻿using CoreCode.Entities.POJO;
+﻿
+  
+using CoreCode.Entities.POJO;
 using DataAccess.Dao;
 using DataAccess.Mapper;
 using System;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CoreCode.DataAccess.Mapper
 {
-   public class FlightMapper : EntityMapper, ISqlStatements, IObjectMapper
+    public class FlightMapper : EntityMapper, ISqlStatements, IObjectMapper
     {
         private const string DB_COL_ID = "ID";
         private const string DB_COL_AIRLINE_ID = "AIRLINE_ID";
@@ -25,7 +27,7 @@ namespace CoreCode.DataAccess.Mapper
 
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-           
+
             var fLight = new Flight
             {
                 Id = GetStringValue(row, DB_COL_ID),
@@ -39,6 +41,7 @@ namespace CoreCode.DataAccess.Mapper
                 //Departure_Time_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_DEPARTURE_TIME)).ToString("dd/MM/yyyy h:mm tt"),
                 //Arrival_DateTime_Formatted = Convert.ToDateTime(GetDateValue(row, DB_COL_ARRIVAL_TIME)).ToString("dd/MM/yyyy h:mm tt"),
                 Status = GetStringValue(row, DB_COL_STATUS),
+                Id_Airplane = GetStringValue(row, DB_COL_ID_AIRPLANE),
                 Id_Gate = GetStringValue(row, DB_COL_ID_GATE)
 
             };
@@ -50,8 +53,8 @@ namespace CoreCode.DataAccess.Mapper
             var lstResults = new List<BaseEntity>();
             foreach (var row in lstRows)
             {
-                var airline = BuildObject(row);
-                lstResults.Add(airline);
+                var fLight = BuildObject(row);
+                lstResults.Add(fLight);
             }
 
             return lstResults;
@@ -95,7 +98,7 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetRetrieveAllStatement()
         {
-            var operation = new SqlOperation { ProcedureName = "SP_LIST_FLIGHTS"};
+            var operation = new SqlOperation { ProcedureName = "SP_LIST_FLIGHTS" };
             return operation;
         }
 
@@ -147,7 +150,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "SP_GETFLIGHTBYID" };
             var a = new Flight();
             operation.AddVarcharParam(DB_COL_ID, a.Id);
-         
+
             return operation;
         }
 

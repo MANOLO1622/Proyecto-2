@@ -57,6 +57,10 @@ DashboardNav.prototype.setNavForGeneralAdmin = function() {
 
     $("#flightsNavBtn").fadeIn(2200);
     $("#viewFlightsNavBtn").removeAttr('style');
+
+
+    $("#airlineNavBtn").fadeIn(2200);
+    $("#viewAirlinesNavBtn").removeAttr('style');
 };
 
 DashboardNav.prototype.setNavForAirportAdmin = function() {
@@ -77,13 +81,14 @@ DashboardNav.prototype.setNavForAirportAdmin = function() {
     //Airlines List
    $("#airlineNavBtn").fadeIn(2000);
     $("#viewAirlineRequests").removeAttr('style');
+
 };
 
 DashboardNav.prototype.setNavForAirlineAdmin = function() {
     //General Report
     //Airport 
     //Airport List
-    $("#airportNavBtn").fadeIn();
+    $("#airportNavBtn").fadeIn(2000);
     $("#seeAirportsRequests").removeAttr('style');
     //When Looking at a Airport Detail
     //Gates
@@ -92,9 +97,32 @@ DashboardNav.prototype.setNavForAirlineAdmin = function() {
     //Edit Airline
     //Delete Airline
     //Flights
-        $("#flightsNavBtn").fadeIn(4000);
+    $("#flightsNavBtn").fadeIn(4000);
     $("#viewFlightsNavBtn").removeAttr('style');
+    $("#viewAirlinesNavBtn").removeAttr('style');
     $("#viewTickets").removeAttr('style');
+
+
+    //Airports
+    $("#createAirportsNavBtn").fadeIn(2000);
+    $("#seeAirportsNavBtn").removeAttr('style');
+
+    //GATES
+    $("#addGateNavBtn").fadeIn(2000);
+    $("#addGateNavBtn").removeAttr('style');
+
+    //AVIONES
+    $("#addAirplaneNavBtn").fadeIn(2000);
+    $("#addAirplaneNavBtn").removeAttr('style');
+
+
+    //ASIGNACIONES
+    $("#addAsignationAirlineNavBtn").fadeIn(2000);
+    $("#addAsignationAirlineNavBtn").removeAttr('style');
+
+    //PAIS
+    $("#viewCategoryNavBtn").fadeIn(2000);
+    $("#viewCategoryNavBtn").removeAttr('style');
 };
 DashboardNav.prototype.setNavForUserAdmin = function () {
     //General Report
@@ -111,6 +139,7 @@ DashboardNav.prototype.setNavForUserAdmin = function () {
     //Flights
     $("#flightsNavBtn").fadeIn(4000);
     $("#viewFlightsNavBtn").removeAttr('style');
+    $("#viewAirlinesNavBtn").removeAttr('style');
     $("#viewTickets").removeAttr('style');
 };
 

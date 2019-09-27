@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AsignationAirlineManagement.cs" />
     <Compile Include="AirplaneManagement.cs" />
+    <Compile Include="ReservationManagement.cs" />
     <Compile Include="UserManagement.cs" />
     <Compile Include="EmployeeManagement.cs" />
     <Compile Include="ApplicationMessageManagement.cs" />

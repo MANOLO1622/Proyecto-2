@@ -218,7 +218,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirplaneManagement();
                 var airplane = new Airplane
                 {
-                    Id_Airplane = id
+                    Id = id
                 };
                 apiResp = new ApiResponse();
                 //apiResp.Data = mng.RetrieveAssociatedAirplans(airplane);
@@ -257,7 +257,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirplaneManagement();
                 var airplane = new Airplane
                 {
-                    Id_Airplane = id
+                    Id = id
                 };
                 apiResp = new ApiResponse();
                 //apiResp.Data = mng.RetrieveRejectedAirplans(airplane);
@@ -296,7 +296,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirplaneManagement();
                 var airplane = new Airplane
                 {
-                    Id_Airplane = id
+                    Id = id
                 };
                 apiResp = new ApiResponse();
                 //apiResp.Data = mng.RetrieveWaitingAirplans(airplane);
@@ -340,7 +340,7 @@ namespace CoreCodeAPI.Controllers
                 var mng = new AirplaneManagement();
                 var airplane = new Airplane
                 {
-                    Id_Airplane = Id
+                    Id = Id
                 };
 
                 //airplane = mng.RetrieveById(airplane);
@@ -376,7 +376,7 @@ namespace CoreCodeAPI.Controllers
 
             try
             {
-                var mng = new AirplaneManagement();
+                var mng = new AirplaneManagement(); 
                 mng.Create(airplane);
 
                 apiResp = new ApiResponse

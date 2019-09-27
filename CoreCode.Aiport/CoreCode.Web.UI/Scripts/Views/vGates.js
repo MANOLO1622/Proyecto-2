@@ -251,7 +251,11 @@ $(document).ready(function () {
 
     var vgate = new vGates();
 
-        vgate.RetrieveAvailable();
+    vgate.RetrieveAvailable();
+
+    var dataTable = $('#tblGate').DataTable();
+    //hide the first and second columns
+    dataTable.columns([1]).visible(false);
     
 
 

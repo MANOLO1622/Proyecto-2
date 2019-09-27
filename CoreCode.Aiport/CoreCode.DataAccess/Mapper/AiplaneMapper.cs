@@ -15,10 +15,10 @@ namespace CoreCode.DataAccess.Mapper
     {
         private const string DB_COL_ID = "ID";
         private const string DB_COL_NAME = "NAME";
-        private const string DB_COL_QUOTA_FIRST_CLASS = "QUOTA_FIRST_CLASS";
-        private const string DB_COL_QUOTA_SECOND_CLASS = "QUOTA_SECOND_CLASS";
-        private const string DB_COL_QUOTA_LOAD = "QUOTA_LOAD";
-        private const string DB_COL_TYPE = "TYPE";
+        private const string DB_COL_LICENSE_PLATE = "LICENSE_PLATE";
+        private const string DB_COL_CAPACITY = "CAPACITY";
+        private const string DB_COL_MODEL = "MODEL";
+        private const string DB_COL_BRAND = "BRAND";
         private const string DB_COL_ID_AIRLINE = "ID_AIRLINE";
         private const string DB_COL_STATUS = "STATUS";
 
@@ -27,12 +27,12 @@ namespace CoreCode.DataAccess.Mapper
 
             var Airplane = new Airplane
             {
-                Id_Airplane = GetStringValue(row, DB_COL_ID),
+                Id = GetStringValue(row, DB_COL_ID),
                 Name = GetStringValue(row, DB_COL_NAME),
-                Quota_First_Class = GetIntValue(row, DB_COL_QUOTA_FIRST_CLASS),
-                Quota_Second_Class = GetIntValue(row, DB_COL_QUOTA_SECOND_CLASS),
-                Quota_Load = GetIntValue(row, DB_COL_QUOTA_LOAD),
-                Type = GetStringValue(row, DB_COL_TYPE),
+                License_Plate = GetIntValue(row, DB_COL_LICENSE_PLATE),
+                Capacity = GetIntValue(row, DB_COL_CAPACITY),
+                Model = GetStringValue(row, DB_COL_MODEL),
+                Brand = GetStringValue(row, DB_COL_BRAND),
                 Id_Airline = GetStringValue(row, DB_COL_ID_AIRLINE),
                 Status = GetBoolValue(row, DB_COL_STATUS),
 
@@ -58,12 +58,12 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "SP_CREATE_AIRPLANE" };
             var a = (Airplane)entity;
 
-            operation.AddVarcharParam(DB_COL_ID, a.Id_Airplane);
+            operation.AddVarcharParam(DB_COL_ID, a.Id);
             operation.AddVarcharParam(DB_COL_NAME, a.Name);
-            operation.AddIntParam(DB_COL_QUOTA_FIRST_CLASS, a.Quota_First_Class);
-            operation.AddIntParam(DB_COL_QUOTA_SECOND_CLASS, a.Quota_Second_Class);
-            operation.AddIntParam(DB_COL_QUOTA_LOAD, a.Quota_Load);
-            operation.AddVarcharParam(DB_COL_TYPE, a.Type);
+            operation.AddIntParam(DB_COL_LICENSE_PLATE, a.License_Plate);
+            operation.AddIntParam(DB_COL_CAPACITY, a.Capacity);
+            operation.AddVarcharParam(DB_COL_MODEL, a.Model);
+            operation.AddVarcharParam(DB_COL_BRAND, a.Brand);
             operation.AddIntParam(DB_COL_STATUS, a.Status ? 1 : 0);
             operation.AddVarcharParam(DB_COL_ID_AIRLINE, a.Id_Airline);
 
@@ -76,12 +76,12 @@ namespace CoreCode.DataAccess.Mapper
         {
             var airplane = new Airplane
             {
-                Id_Airplane = row.Field<string>(DB_COL_ID),
+                Id = row.Field<string>(DB_COL_ID),
                 Name = row.Field<string>(DB_COL_NAME),
-                Quota_First_Class = row.Field<int>(DB_COL_QUOTA_FIRST_CLASS),
-                Quota_Second_Class = row.Field<int>(DB_COL_QUOTA_SECOND_CLASS),
-                Quota_Load = row.Field<int>(DB_COL_QUOTA_LOAD),
-                Type = row.Field<string>(DB_COL_TYPE),
+                License_Plate = row.Field<int>(DB_COL_LICENSE_PLATE),
+                Capacity = row.Field<int>(DB_COL_CAPACITY),
+                Model = row.Field<string>(DB_COL_MODEL),
+                Brand = row.Field<string>(DB_COL_BRAND),
                 Status = row.Field<bool>(DB_COL_STATUS),
                 Id_Airline = row.Field<string>(DB_COL_ID_AIRLINE)
             };
@@ -172,12 +172,12 @@ namespace CoreCode.DataAccess.Mapper
         {
             var operation = new SqlOperation { ProcedureName = "SP_UPDATEAIRPLANE" };
             var a = (Airplane)entity;
-            operation.AddVarcharParam(DB_COL_ID, a.Id_Airplane);
+            operation.AddVarcharParam(DB_COL_ID, a.Id);
             operation.AddVarcharParam(DB_COL_NAME, a.Name);
-            operation.AddIntParam(DB_COL_QUOTA_FIRST_CLASS, a.Quota_First_Class);
-            operation.AddIntParam(DB_COL_QUOTA_SECOND_CLASS, a.Quota_Second_Class);
-            operation.AddIntParam(DB_COL_QUOTA_LOAD, a.Quota_Load);
-            operation.AddVarcharParam(DB_COL_TYPE, a.Type);
+            operation.AddIntParam(DB_COL_LICENSE_PLATE, a.License_Plate);
+            operation.AddIntParam(DB_COL_CAPACITY, a.Capacity);
+            operation.AddVarcharParam(DB_COL_MODEL, a.Model);
+            operation.AddVarcharParam(DB_COL_BRAND, a.Brand);
             operation.AddIntParam(DB_COL_STATUS, a.Status ? 1 : 0);
             operation.AddVarcharParam(DB_COL_ID_AIRLINE, a.Id_Airline);
             return operation;
@@ -187,7 +187,7 @@ namespace CoreCode.DataAccess.Mapper
         {
             var operation = new SqlOperation { ProcedureName = "SP_DELETEAIRPLANE" };
             var a = (Airplane)entity;
-            operation.AddVarcharParam(DB_COL_ID, a.Id_Airplane);
+            operation.AddVarcharParam(DB_COL_ID, a.Id);
             return operation;
         }
 
@@ -196,7 +196,7 @@ namespace CoreCode.DataAccess.Mapper
 
             var operation = new SqlOperation { ProcedureName = "SP_GETAIRPLANEBYID" };
             var a = (Airplane)entity;
-            operation.AddVarcharParam(DB_COL_ID, a.Id_Airplane);
+            operation.AddVarcharParam(DB_COL_ID, a.Id);
             return operation;
         }
 
@@ -207,7 +207,7 @@ namespace CoreCode.DataAccess.Mapper
 
             var operation = new SqlOperation { ProcedureName = "SP_GETAIRPLANEBYID" };
             var a = new Airplane();
-            operation.AddVarcharParam(DB_COL_ID, a.Id_Airplane);
+            operation.AddVarcharParam(DB_COL_ID, a.Id);
 
             return operation;
         }

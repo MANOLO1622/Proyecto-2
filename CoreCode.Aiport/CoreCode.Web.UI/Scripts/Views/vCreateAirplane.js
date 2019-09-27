@@ -1,11 +1,16 @@
 ﻿function vCreateAirplane() {
 
 
-    this.tblAirplaneId = 'tblAirplane';
-
+    this.tblAirplaneId = 'tblAirplans';
     this.ctrlActions = new ControlActions();
-
     this.destinyAirlineDropdownId = "dropdownOriginAirline";
+    this.columns = "Id", "Name", "License_Plate","Capacity","Model","Brand","Id_Airline";
+
+    this.RetrieveAll = function () {
+        this.ctrlActions.FillTable('getAirplans', this.tblAirplaneId, false, 'Buscar:', 'Código o # de avión');
+        //this.RetrieveAll();
+    }
+
 
     this.loadAirlineDropdown = function () {
         var instance = this;
@@ -52,12 +57,12 @@
                 }
                 else {
                     for (let i = 0; i < airplans.length; i++) {
-                        if (airplans[i]['text'] == document.querySelector('#txtType').value) {
+                        if (airplans[i]['text'] == document.querySelector('#txtBrand').value) {
                             emailRepeated = true;
                         }
                     }
                     if (emailRepeated) {
-                        document.querySelector('#txtType').classList.add('input-error');
+                        document.querySelector('#txtBrand').classList.add('input-error');
                         swal({
                             title: "Error al registrar avión",
                             text: "El tipo ya se encuentra en el sistema",
@@ -85,7 +90,7 @@
                             airplaneData.Request = "waiting";
                             localStorage.setItem('idAirplaneLS', airplaneData.ID);
 
-                            localStorage.setItem('typeAirplaneLS', document.querySelector("#txtType").value);
+                            localStorage.setItem('typeAirplaneLS', document.querySelector("#txtBrand").value);
 
 
                             instance.ctrlActions.PostToAPI('createAirplane', airplaneData, function (response) {
@@ -95,7 +100,7 @@
                                     icon: "success",
                                     button: "OK"
                                 }).then(function () {
-
+                                    instance.CleanForm();
                                     //window.location.href = 'http://localhost:57312/vCreateAirlineAdmin';
 
 
@@ -152,7 +157,7 @@
 
             aInputs[i].value = '';
 
-
+            document.getElementById("dropdownOriginAirline").selectedIndex = 0;
         }
 
     }
@@ -162,5 +167,11 @@
 $(document).ready(function () {
 
     var vairplane = new vCreateAirplane();
+    vairplane.RetrieveAll();
+
+    var dataTable = $('#tblAirplans').DataTable();
+    //hide the first and second columns
+    dataTable.columns([0,6]).visible(false);
+
 
 });

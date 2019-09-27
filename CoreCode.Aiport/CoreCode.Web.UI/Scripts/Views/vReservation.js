@@ -1,10 +1,10 @@
 ﻿function vCountries() {
 
 
-    this.tblCategoryId = 'tblCategory';
-    this.service = 'category';
+    this.tblReservationId = 'tblReservation';
+    this.service = 'reservation';
     this.ctrlActions = new ControlActions();
-    this.columns = "IDCategory,Description","Name";
+    this.columns = "IDReservation,Name", "FirstLastName", "Destiny", "Price", "Buy_Date";
 
 
 
@@ -45,51 +45,51 @@
     }
 
     this.RetrieveAll = function () {
-        this.ctrlActions.FillTable('getCategories', this.tblCategoryId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getReservations', this.tblReservationId, false, 'Buscar:', 'Código o país');
     }
 
     this.RetrieveAvailable = function () {
-        this.ctrlActions.FillTable('getAvailableCategories', this.tblCategoryId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getAvailableReservations', this.tblReservationId, false, 'Buscar:', 'Código o país');
     }
     this.RetrieveUnavailable = function () {
-        this.ctrlActions.FillTable('getUnavailableCategories', this.tblCategoryId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getUnavailableReservations', this.tblReservationId, false, 'Buscar:', 'Código o país');
     }
 
     this.ReloadTable = function () {
-        this.ctrlActions.ReloadTable(this.tblCategoryId);
+        this.ctrlActions.ReloadTable(this.tblReservationId);
     }
 
     this.Create = function () {
 
 
         if (document.querySelector('#txtId').value == '' &&
-            document.querySelector('#txtDescription').value != '') {
+            document.querySelector('#txtName').value != '') {
 
             document.querySelector('#txtId').classList.remove('input-error');
-            document.querySelector('#txtDescription').classList.remove('input-error');
+            document.querySelector('#txtName').classList.remove('input-error');
 
             var instance = this;
             if (!this.Validate()) {
-                var categoryData = {};
-                categoryData = this.ctrlActions.GetDataForm('frmEdition');
-                categoryData.Status = true;
+                var reservationData = {};
+                reservationData = this.ctrlActions.GetDataForm('frmEdition');
+                reservationData.Status = true;
 
-                let categories;
+                let reservations;
                 let cont = 0;
                 let callback = function (response) {
-                    categories = response.Data;
-                    for (let i = 0; i < categories.length; i++) {
+                    reservations = response.Data;
+                    for (let i = 0; i < reservations.length; i++) {
                         cont++;
                     }
                     cont = cont + 1;
                     //Hace el post al create
 
-                    categoryData.IDCategory = "PA- " + cont.toString();
+                    reservationData.IDReservation = "RE- " + cont.toString();
 
-                    instance.ctrlActions.PostToAPI('postCategory', categoryData, function () {
+                    instance.ctrlActions.PostToAPI('postReservation', reservationData, function () {
                         //Refresca la tabla
                         swal({
-                            title: "¡País registrado!",
+                            title: "¡Reservación exitosa!",
                             text: "",
                             icon: "success",
                             button: "OK",
@@ -99,7 +99,7 @@
                         });
                     });
                 }
-                instance.ctrlActions.GetFromAPI("/getCategories", "", callback);
+                instance.ctrlActions.GetFromAPI("/getReservations", "", callback);
 
             }
             else {
@@ -119,11 +119,11 @@
         else {
 
             document.querySelector('#txtId').classList.add('input-error');
-            document.querySelector('#txtDescription').classList.add('input-error');
+            document.querySelector('#txtName').classList.add('input-error');
 
             swal({
                 title: "¡Error en el registro!",
-                text: "No se puede registrar el país que ya se encuentra en el sistema",
+                text: "No se puede hacer la reservación porque ya se encuentra reservada",
                 icon: "error",
                 button: "OK",
             });
@@ -142,16 +142,16 @@
 
         if (!this.Validate()) {
 
-            var categoryData = {};
-            categoryData = this.ctrlActions.GetDataForm('frmEdition');
-            categoryData.Status = true;
-            this.ctrlActions.PostToAPI('updateCategory', categoryData);
+            var reservationData = {};
+            reservationData = this.ctrlActions.GetDataForm('frmEdition');
+            reservationData.Status = true;
+            this.ctrlActions.PostToAPI('updateReservation', reservationData);
 
 
-            instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
+            instance.ctrlActions.PostToAPI('updateReservation', reservationData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡País actualizado!",
+                    title: "¡Reservación actualizada!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -166,8 +166,8 @@
         }
         else {
             swal({
-                title: "¡Error al modificar país!",
-                text: "Por favor, seleccionar el país a modificar en la tabla",
+                title: "¡Error al modificar la reservación!",
+                text: "Por favor, seleccionar la reservación primero",
                 icon: "error",
                 button: "OK",
             });
@@ -184,16 +184,16 @@
 
         if (!this.Validate()) {
 
-            var categoryData = {};
-            categoryData = this.ctrlActions.GetDataForm('frmEdition');
-            categoryData.Status = true;
-            this.ctrlActions.PostToAPI('updateCategory', categoryData);
+            var reservationData = {};
+            reservationData = this.ctrlActions.GetDataForm('frmEdition');
+            reservationData.Status = true;
+            this.ctrlActions.PostToAPI('updateReservation', reservationData);
 
 
-            instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
+            instance.ctrlActions.PostToAPI('updateReservation', reservationData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡País habilitado!",
+                    title: "¡Reservación habilitada!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -208,8 +208,8 @@
         }
         else {
             swal({
-                title: "¡Error al habilitar país!",
-                text: "Por favor, seleccionar un país de la tabla",
+                title: "¡Error al habilitar la reservación!",
+                text: "Por favor, seleccione primero la reservación",
                 icon: "error",
                 button: "OK",
             });
@@ -225,15 +225,15 @@
 
         if (!this.Validate()) {
 
-            var categoryData = {};
-            categoryData = this.ctrlActions.GetDataForm('frmEdition');
-            categoryData.Status = false;
-            this.ctrlActions.PostToAPI('updateCategory', categoryData);
+            var reservationData = {};
+            reservationData = this.ctrlActions.GetDataForm('frmEdition');
+            reservationData.Status = false;
+            this.ctrlActions.PostToAPI('updateReservation', reservationData);
 
-            instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
+            instance.ctrlActions.PostToAPI('updateReservation', reservationData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡País deshabilitado!",
+                    title: "¡Reservación deshabilitada!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -248,8 +248,8 @@
         }
         else {
             swal({
-                title: "¡Error al deshabilitar país!",
-                text: "Por favor, seleccionar un país de la tabla",
+                title: "¡Error al deshabilitar la reservación!",
+                text: "Por favor, seleccionar la reservación primero",
                 icon: "error",
                 button: "OK",
             });
@@ -286,12 +286,20 @@
 
 
     this.CleanForm = function () {
+        //limpia los campos
         document.querySelector('#txtId').value = '';
-        document.querySelector('#txtDescription').value = '';
-        document.querySelector('#txtAbbreviation').value = '';
+        document.querySelector('#txtName').value = '';
+        document.querySelector('#txtFirstLastName').value = '';
+        document.querySelector('#txtDestiny').value = '';
+        ddocument.querySelector("txtPrice").value = '';
+        document.querySelector("txtBuy_Date").value = '';
+        //valida los campos
         document.querySelector('#txtId').classList.remove('input-error');
-        document.querySelector('#txtDescription').classList.remove('input-error');
-        document.querySelector('#txtAbbreviation').classList.remove('input-error');
+        document.querySelector('#txtName').classList.remove('input-error');
+        document.querySelector('#txtFirstLastName').classList.remove('input-error');
+        document.querySelector('#txtDestiny').classList.remove('input-error');
+        document.querySelector('#txtPrice').classList.remove('input-error');
+        document.querySelector('#txtBuy_Date').classList.remove('input-error');
         document.getElementById("dropdownOriginAirport").selectedIndex = 0;
 
     }
@@ -303,10 +311,10 @@ $(document).ready(function () {
     //  document.querySelector("#tblCategory").classList.add('fixed_header');
     document.querySelector("#txtId").disabled = true;
     document.querySelector("#btnEnable").classList.add('hide');
-    var vcategory = new vCountries();
-    vcategory.RetrieveAvailable();
+    var vreservation = new vReservations();
+    vreservation.RetrieveAvailable();
 
-    var dataTable = $('#tblCategory').DataTable();
+    var dataTable = $('#tblReservation').DataTable();
     //hide the first and second columns
     dataTable.columns([0]).visible(false);
 

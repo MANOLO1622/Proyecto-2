@@ -30,5 +30,10 @@ namespace CoreCode.Web.UI.Controllers
             return View();
         }
 
+        [Route("vAirplansView")]
+        public ActionResult vAirplansView()
+        {
+            return View();
+        }
     }
 }

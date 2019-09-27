@@ -1,5 +1,4 @@
 ﻿function vFlight() {
-
     this.tblFlightId = 'tblFlights';
     this.service = 'flight';
     this.ctrlActions = new ControlActions();
@@ -12,10 +11,7 @@
     this.columns = "Id,Airline_Id,Origin_Airport_Name,Destiny_Airport_Name,Departure_Time,Arrival_Datetime,Id_Airplane,Id_Gate";
 
 
-
-
    
-
 
     this.loadAirplaneDropdown = function () {
         var instance = this;
@@ -24,11 +20,12 @@
 
             if (response.Data) {
                 for (var counter = 0; counter < response.Data.length; counter++) {
-                    destinyAirpalneElement.append(new Option(response.Data[counter].Name, response.Data[counter].Id_Airplane));
+                    destinyAirpalneElement.append(new Option(response.Data[counter].Name, response.Data[counter].Id));
                 }
             }
         });
     }
+
     //Airline dropdown
     this.loadAirlineDropdown = function () {
         var instance = this;
@@ -281,11 +278,11 @@
         document.querySelector('#txtId').value = '';
         document.querySelector('#txtDeparture_Time').value = '';
         document.querySelector('#txtArrival_Time').value = '';        
-        document.getElementById("dropdownAirline").selectedIndex = -1;
-        document.getElementById("dropdownGate").selectedIndex = -1;
-        document.getElementById("dropdownDestinyAirport").selectedIndex = -1;
-        document.getElementById("dropdownOriginAirport").selectedIndex = -1;
-        document.getElementById("dropdownAirplane").selectedIndex = -1;
+        document.getElementById("dropdownAirline").selectedIndex = 0;
+        document.getElementById("dropdownGate").selectedIndex = 0;
+        document.getElementById("dropdownDestinyAirport").selectedIndex = 0;
+        document.getElementById("dropdownOriginAirport").selectedIndex = 0;
+        document.getElementById("dropdownAirplane").selectedIndex = 0;
     }
 }
 

@@ -137,8 +137,12 @@
 //ON DOCUMENT READY
 $(document).ready(function () {
 
+
     let idUser = "ID=" + localStorage.getItem('idUserLS');
-        
+    let userObject = JSON.parse(sessionStorage.getItem('userObject'));
+    // let a = userObject.ID;
+    console.log('u',userObject.ID);
+    //console.log('a', a);
   
     var vUserEdit = new vEditUser();
     document.querySelector("#txtId").disabled = true;
@@ -147,14 +151,16 @@ $(document).ready(function () {
     let callback = function (response) {
 
         user = response.Data;
+        console.log(response.Data);
         var date = new Date(user.BirthDate);
+        console.log('date', user.BirthDate);
         var formattedDate = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + ((date.getDate()) < 10 ? "0" + (date.getDate()) : (date.getDate()));
-
+        console.log('date1', formattedDate);
 
         document.querySelector("#txtId").value = user.ID;
         document.querySelector("#txtEmail").value = user.Email;
         document.querySelector("#txtFirstName").value = user.FirstName;
-        document.querySelector("#txtLastName").value = user.LastName;
+        document.querySelector("#txtLastName").value = user.FirstLastName;
         document.querySelector("#txtSecondName").value = user.SecondName;
         document.querySelector("#txtSecondLastName").value = user.SecondLastName;
         document.querySelector("#txtBirthDate").value = formattedDate;
@@ -165,7 +171,7 @@ $(document).ready(function () {
         document.querySelector("#selectGenre").value = user.Genre;
 
     }
-    vUserEdit.ctrlActions.GetFromAPI("/getUserById", idUser, callback);
+    vUserEdit.ctrlActions.GetFromAPI("/getUserById", `ID=${userObject.ID}`, callback);
 
 });
 

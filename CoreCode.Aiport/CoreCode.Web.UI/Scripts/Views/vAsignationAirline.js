@@ -29,7 +29,7 @@
 
                 if (response.Data) {
                     for (var counter = 0; counter < response.Data.length; counter++) {
-                        destinyAirlineElement.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].COMERCIAL_NAME));
+                        destinyAirlineElement.append(new Option(response.Data[counter].Comercial_name, response.Data[counter].ID));
                     }
                 }
             });
@@ -97,8 +97,8 @@
 
     this.CleanForm = function () {
       
-        document.getElementById("dropdownOriginAirline").selectedIndex = -1;
-        document.getElementById("dropdownOriginAirport").selectedIndex = -1;
+        document.getElementById("dropdownOriginAirline").selectedIndex = 0;
+        document.getElementById("dropdownOriginAirport").selectedIndex = 0;
     }
 
 

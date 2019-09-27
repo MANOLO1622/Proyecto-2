@@ -4,21 +4,7 @@
     this.tblTicketId = 'tblTickets';
     this.service = 'ticket';
     this.ctrlActions = new ControlActions();
-    this.airlinesDropdownId = "dropdownAirline";
     this.columns = "Id,Id_Flight, Ticket_Class, Status, Price, Buy_Date, Id_User, Person_Name";
-
-
-    this.loadAirlineDropdown = function () {
-        var instance = this;
-        this.ctrlActions.GetFromAPI('getAirlines', "", function (response) {
-            var airlinesDropdown = $("#" + instance.airlinesDropdownId);
-            if (response.Data) {
-                for (var counter = 0; counter < response.Data.length; counter++) {
-                    airlinesDropdown.append(new Option(response.Data[counter].ID, response.Data[counter].ID));
-                }
-            }
-        });
-    }
 
     this.TicketStatusDropdownChange = function () {
 
@@ -65,27 +51,26 @@
 
     this.Create = function () {
         if (!this.Validate()) {
-            var TicketData = {};
+            var ticketData = {};
             var instance = this;
-            TicketData = this.ctrlActions.GetDataForm('frmEdition');
-            TicketData.Status = "a tiempo";
+            ticketData = this.ctrlActions.GetDataForm('frmEdition');
+            ticketData.Status = "a tiempo";
            
             //Hace el post al create
             // 
-            this.ctrlActions.PostToAPI('createTicket', TicketData, function (response) {
+            instance.ctrlActions.PostToAPI('createTicket', ticketData, function () {
+                //Refresca la tabla
                 swal({
-                    title: "¡Compra realizada!",
-                    text: "Le llegará un correo con los datos de su compra",
+                    title: "¡Ticket registrado!",
+                    text: "",
                     icon: "success",
                     button: "OK",
+                }).then(function () {
+                    instance.CleanForm();
+                    instance.ReloadTable();
                 });
-                instance.ReloadTable();
-                instance.CleanForm();
             });
-
-
-            this.CleanForm();
-
+           
         }
         else {
 
@@ -251,19 +236,19 @@
         document.getElementById("Ticket_Class").selectedIndex = -1;
 
 
-        //document.querySelector("Ticket_Class").
+        document.querySelector("Ticket_Class").
 
         
 
-        //document.querySelector('#txtId').value = '';
-        //document.querySelector('#txtDescription').value = '';
-        //document.querySelector('#txtId').disabled = false;
+        document.querySelector('#txtId').value = '';
+        document.querySelector('#txtDescription').value = '';
+        document.querySelector('#txtId').disabled = false;
 
 
-        //let aInputs = document.querySelectorAll(':required');
-        //for (let i = 0; i < aInputs.length; i++) {
-        //    aInputs[i].classList.remove('input-error');
-        // }
+        let aInputs = document.querySelectorAll(':required');
+        for (let i = 0; i < aInputs.length; i++) {
+            aInputs[i].classList.remove('input-error');
+         }
 
     }
 }

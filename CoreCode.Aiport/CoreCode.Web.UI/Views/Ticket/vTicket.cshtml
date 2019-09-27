@@ -17,7 +17,7 @@
 @Html.GetSelectDropdown("statusFilter", "vTicket", "TicketStatusDropdownChange", "", "",
     new Dictionary<string, string> { { "Tiquetes con vuelos a tiempo", "a tiempo" }, { "Tiquetes con vuelos cancelados", "cancelado" }, { "Tiquetes con vuelos retrasados", "retrasado" } })
 
-@Html.GetTable("tblTickets", "vTicket", "BindFields", "", new List<string> { "Id", "Id_Flight", "Ticket_Class", "Status", "Price", "Formatted_Buy_Date", "Id_User", "Person_Name" }, new List<string> { "Id", "Número de vuelo", "Clase", "Estado", "Precio", "Fecha de compra", "Cédula comprador", "Nombre del pasajero" })
+@Html.GetTable("tblTickets", "vTicket", "BindFields", "", new List<string> { "Id", "Id_Flight", "Ticket_Class", "Status", "Price", "Formatted_Buy_Date", "Id_User", "Person_Name" }, new List<string> { "Id", "Número de vuelo", "Clase", "Estado", "Precio", "Fecha de vuelo", "Cédula comprador", "Nombre del pasajero" })
 
 </div>
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
@@ -55,9 +55,8 @@
                             <div class="form-group col-md-3">
                                 @Html.GetInputWithLabel("txtId", "text", "Código de reserva", "", "Código de reserva: ", "Id", true)
                             </div>
-                            <div class="form-group col-md-4">
-                                @Html.GetSelectDropdown("dropdownAirline", "vTicket", "", "loadAirlineDropdown", "ID",
-                                    new Dictionary<string, string>() {{"Seleccione la aerolínea:", ""}})
+                            <div class="form-group col-md-3">
+                                @Html.GetInputWithLabel("txtId_Flight", "text", "Código de vuelo", "", "Código de vuelo ", "Id_Flight", true)
                             </div>
                             <div class="form-group col-md-2">
                                 @Html.GetInputWithLabel("txtStatus", "text", "Estado", "", "Estatus: ", "Status", true)
