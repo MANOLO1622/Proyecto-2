@@ -86,6 +86,37 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
+        [Route("api/getPrices")]
+        public IHttpActionResult GetPrices()
+        {
+            try
+            {
+                apiResp = new ApiResponse();
+                var mng = new PriceManagement();
+                apiResp.Data = mng.RetrieveAll();
+
+                return Ok(apiResp);
+            }
+            catch (BussinessException bex)
+            {
+
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(bex.AppMessage);
+                return InternalServerError(new Exception(bex.ExceptionId + "-"
+                    + bex.AppMessage.Message));
+            }
+            catch (Exception ex)
+            {
+                ApplicationMessage msg = new ApplicationMessage
+                {
+                    Message = ex.Message
+                };
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(msg);
+                return InternalServerError(new Exception(ex.Message));
+            }
+        }
+
         [Route("api/getAvailableReservations")]
         public IHttpActionResult GetAvailableReservations()
         {

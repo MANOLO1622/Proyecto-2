@@ -7,7 +7,7 @@
 
 
 <script src="~/Scripts/Views/ControlActions.js"></script>
-<script src="~/Scripts/Views/vCountries.js"></script>
+<script src="~/Scripts/Views/vReservation.js"></script>
 
 
 @{
@@ -15,23 +15,23 @@
 }
 
 <div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
-    @Html.GetSelectDropdown("statusFilter", "vReservations", "ReservationStatusDropdownChange", "", "",
+    @Html.GetSelectDropdown("statusFilter", "vReservation", "ReservationStatusDropdownChange", "", "",
         new Dictionary<string, string> { { "Habilitar reservación",  "true" }, { "Deshabilitar reservación", "false" } })
-    @Html.GetTable("tblReservation", "vReservations", "BindFields", "", new List<string> { "IDReservation", "Name", "FirstLastName", "Destiny", "Price", "Buy_Date" },
-    new List<string> { "Código", "Nombre", "Apellido","Destino", "Precio", "Fecha de vuelo" })
+    @Html.GetTable("tblReservation", "vReservations", "BindFields", "", new List<string> { "IDReservation", "FirstName", "FirstLastName", "Destiny", "Price", "Buy_Date" },
+    new List<string> { "Cédula", "Nombre", "Apellido","Destino", "Precio", "Fecha de vuelo" })
 </div>
 
 
 <div class="card border-secondary" style="margin: 0 auto; width: 98%";">
     <div class="card-header">
         <div class="row pull-right">
-            <h5 class="col-md-6">Modificación de país</h5>
+            <h5 class="col-md-6">Modificación de reservación</h5>
             <div class="col-md-6">
-                @Html.GetConfirmButton("btnRegisterReservation", "Create", "vReservations", "", "Registrar")
-                @Html.GetConfirmButton("btnRegisterReservation", "Update", "vCountries", "", "Modificar")
-                @Html.GetConfirmButton("btnDisable", "Disable", "vReservations", "", "Deshabilitar")
-                @Html.GetConfirmButton("btnEnable", "Enable", "vReservations", "", "Habilitar")
-                @Html.GetConfirmButton("btnClean", "CleanForm", "vReservations", "", "Limpiar")
+                @Html.GetConfirmButton("btnRegisterReservation", "Create", "vReservation", "", "Registrar")
+                @Html.GetConfirmButton("btnRegisterReservation", "Update", "vReservation", "", "Modificar")
+                @Html.GetConfirmButton("btnDisable", "Disable", "vReservation", "", "Deshabilitar")
+                @Html.GetConfirmButton("btnEnable", "Enable", "vReservation", "", "Habilitar")
+                @Html.GetConfirmButton("btnClean", "CleanForm", "vReservation", "", "Limpiar")
 
             </div>
         </div>
@@ -42,10 +42,10 @@
                 <div class="bs-component">
                     <form id="frmEdition">
                         <div class="form-group col-md-10">
-                            @Html.GetInputWithLabel("txtId", "text", "Código", "", "", "IDReservation", false)
+                            @Html.GetInputWithLabel("txtId", "text", "Cédula", "", "", "IDReservation", false)
                         </div>
                         <div class="form-group col-md-10">
-                            @Html.GetInputWithLabel("txtName", "text", "Nombre", "", "", "Name", true)
+                            @Html.GetInputWithLabel("txtFirstName", "text", "Nombre", "", "", "FirstName", true)
                         </div>
                         <div class="form-group col-md-10">
                             @Html.GetInputWithLabel("txtFirstLastName", "text", "Apellido", "", "", "FirstLastName", true)
@@ -53,9 +53,7 @@
                         <div class="form-group col-md-10">
                             @Html.GetInputWithLabel("txtDestiny", "text", "Destino", "", "", "Destiny", true)
                         </div>
-                        <div class="form-group col-md-3">
-                            @Html.GetInputWithLabel("txtPrice", "text", "Precio del ticket", "", "Costo en dólares ", "Price", true)
-                        </div>
+               
                         <div class="form-group col-md-10">
                             @Html.GetInputWithLabel("txtBuy_Date", "date", "Fecha de vuelo", "", "Fecha de compra ", "Buy_Date", false)
                         </div>
@@ -63,8 +61,8 @@
                             <p>
                                 Precios
                             </p>
-                            @Html.GetSelectDropdown("dropdownOriginAirport", "vReservations", "", "loadAirportDropdown", "Name",
-                               new Dictionary<string, string>() {{ "Seleccione el aeropuerto:", ""}})
+                            @Html.GetSelectDropdown("dropdownOriginTicket", "vReservation", "", "loadTicketDropdown", "Price",
+                               new Dictionary<string, string>() {{ "Seleccione el precio del ticket:", ""}})
                         </div>
                     </form>
                 </div>

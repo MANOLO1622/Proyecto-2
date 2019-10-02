@@ -9,8 +9,8 @@
         var instance = this;
         if (!this.Validate()) {
             var user;
-            var UserData = {};
-            UserData = this.ctrlActions.GetDataForm('frmCreateUser');
+            var userData = {};
+            userData = this.ctrlActions.GetDataForm('frmCreateUser');
 
             let callback = function (response) {
                 user = response.Data;
@@ -57,7 +57,7 @@
 
                                 swal({
                                     title: "¡Usuario registrado!",
-                                    text: "Se envio un correo con la contraseña temporal a la dirección: " + UserData.Email + " Bienvenido!",
+                                    text: "Se envio un correo con la contraseña temporal a la dirección: " + userData.Email + " Bienvenido!",
                                     icon: "success",
                                     button: "OK"
                                 }).then(function () {

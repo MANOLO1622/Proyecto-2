@@ -9,7 +9,7 @@ namespace CoreCode.Entities.POJO
     public class Reservation : BaseEntity
     {
         public string IDReservation { get; set; }
-        public string Name { get; set; }//nombre del usuario
+        public string FirstName { get; set; }//nombre del usuario
         public string FirstLastName { get; set; }//apellidos
         public bool Status { get; set; }//Estado
         public string Destiny { get; set; }//nombre de la ciudad o pais

@@ -10,7 +10,7 @@ namespace CoreCode.DataAccess.Mapper
 {
     class AirportManagerMapper : EntityMapper, ISqlStatements, IObjectMapper
     {
-        private const string DB_COL_ID = "ID";
+        private const string DB_COL_ID = "ID_USER";
         private const string DB_COL_FIRST_NAME = "FIRST_NAME";
         private const string DB_COL_SECOND_NAME = "SECOND_NAME";
         private const string DB_COL_FIRST_LAST_NAME = "FIRST_LAST_NAME";
@@ -18,7 +18,7 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_BIRTHDATE = "BIRTHDATE";
         private const string DB_COL_GENRE = "GENRE";
         private const string DB_COL_EMAIL = "EMAIL";
-        private const string DB_COL_PASSWORD = "PASSWORD";
+        private const string DB_COL_PASSWORD = "PASSWORD"; 
         private const string DB_COL_PHONE = "PHONE";
         private const string DB_COL_CIVIL_STATUS = "CIVIL_STATUS";
         private const string DB_COL_STATUS = "STATUS";
@@ -35,19 +35,19 @@ namespace CoreCode.DataAccess.Mapper
             var m = (AirportManager)entity;
 
             operation.AddVarcharParam(DB_COL_ID, m.ID);
-            operation.AddVarcharParam(DB_COL_FIRST_NAME, m.FirstName);
-            operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
-            operation.AddVarcharParam(DB_COL_FIRST_LAST_NAME, m.LastName);
-            operation.AddVarcharParam(DB_COL_SECOND_LAST_NAME, m.SecondLastName);
-            operation.AddDateParam(DB_COL_BIRTHDATE, m.BirthDate);
+            //operation.AddVarcharParam(DB_COL_FIRST_NAME, m.FirstName);
+            //operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
+            //operation.AddVarcharParam(DB_COL_FIRST_LAST_NAME, m.LastName);
+            //operation.AddVarcharParam(DB_COL_SECOND_LAST_NAME, m.SecondLastName);
+            //operation.AddDateParam(DB_COL_BIRTHDATE, m.BirthDate);
 
-            operation.AddVarcharParam(DB_COL_GENRE, m.Genre);
-            operation.AddVarcharParam(DB_COL_EMAIL, m.Email);
-            operation.AddVarcharParam(DB_COL_PASSWORD, m.Password);
-            operation.AddVarcharParam(DB_COL_PHONE, m.Phone);
-            operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
-            operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
-            operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
+            //operation.AddVarcharParam(DB_COL_GENRE, m.Genre);
+            //operation.AddVarcharParam(DB_COL_EMAIL, m.Email);
+            //operation.AddVarcharParam(DB_COL_PASSWORD, m.Password);
+            //operation.AddVarcharParam(DB_COL_PHONE, m.Phone);
+            //operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
+            //operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
+            //operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
             operation.AddVarcharParam(DB_COL_ID_AIRPORT, m.AirportID);
 
             return operation;

@@ -61,7 +61,7 @@
         }
         else {
             localStorage.setItem('idAirportLS', document.getElementById("txtId").value);
-            window.location.href = 'http://localhost:57312/vEditAirportAdmin';
+            window.location.href = 'http://localhost/SonyAirlines/vEditAirportAdmin';
 
         }
 

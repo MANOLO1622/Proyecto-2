@@ -22,7 +22,7 @@ namespace CoreCodeAPI.Controllers
         ApiResponse apiResp = new ApiResponse();
 
 
-        [Route("api/getUser")]
+        [Route("api/getUsers")]
         public IHttpActionResult Get()
         {
             try

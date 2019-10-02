@@ -38,6 +38,10 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_GRADUATION_YEAR = "GRADUATION_YEAR";
         private const string DB_COL_LICENSE = "LICENSE";
         private const string DB_COL_PUT = "PUT";
+        private const string DB_COL_IDASSIGNED = "ID_ASSIGNED";
+
+
+        
 
 
         //hace una instancia del pojo de user
@@ -54,11 +58,9 @@ namespace CoreCode.DataAccess.Mapper
                 BirthDate = GetStringValue(row, DB_COL_BIRTHDATE),
                 Genre = GetStringValue(row, DB_COL_GENRE),
                 Email = GetStringValue(row, DB_COL_EMAIL),
-                Password = GetStringValue(row, DB_COL_PASSWORD),
                 Phone = GetStringValue(row, DB_COL_PHONE),
                 CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
                 Status = Convert.ToBoolean(GetBoolValue(row, DB_COL_STATUS)),
-                //Status = GetBoolValue(row, DB_COL_STATUS),
                 Rol = GetIntValue(row, DB_COL_ID_ROL),
                 Age = GetStringValue(row, DB_COL_AGE),
                 Address = GetStringValue(row, DB_COL_ADDRESS),
@@ -69,9 +71,8 @@ namespace CoreCode.DataAccess.Mapper
                 Experience = GetStringValue(row, DB_COL_EXPERIENCE),
                 GraduationYear = GetStringValue(row, DB_COL_GRADUATION_YEAR),
                 License = GetStringValue(row, DB_COL_LICENSE),
-                Put = GetStringValue(row, DB_COL_PUT)
-
-
+                Put = GetStringValue(row, DB_COL_PUT),
+                AssignedID = GetStringValue(row, DB_COL_IDASSIGNED)
             };
 
             return User;

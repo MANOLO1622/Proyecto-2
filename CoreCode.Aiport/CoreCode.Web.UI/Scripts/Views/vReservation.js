@@ -1,24 +1,25 @@
-﻿function vCountries() {
+﻿function vReservation() {
 
 
     this.tblReservationId = 'tblReservation';
     this.service = 'reservation';
     this.ctrlActions = new ControlActions();
-    this.columns = "IDReservation,Name", "FirstLastName", "Destiny", "Price", "Buy_Date";
+    this.destinyTicketDropdownId = "dropdownOriginTicket";
+    this.columns = "IDReservation,FirstName","FirstLastName","Destiny","Price","Buy_Date";
 
 
 
-    this.destinyAirportDropdownId = "dropdownOriginAirport";
+    
 
 
-    this.loadAirportDropdown = function () {
+    this.loadTicketDropdown = function () {
         var instance = this;
-        this.ctrlActions.GetFromAPI('getAirports', "", function (response) {
-            var destinyAirportElement = $("#" + instance.destinyAirportDropdownId);
+        this.ctrlActions.GetFromAPI('getPrices', "", function (response) {
+            var destinyTicketElement = $("#" + instance.destinyTicketDropdownId);
 
             if (response.Data) {
                 for (var counter = 0; counter < response.Data.length; counter++) {
-                    destinyAirportElement.append(new Option(response.Data[counter].Name, response.Data[counter].NAME));
+                    destinyTicketElement.append(new Option(response.Data[counter].Price, response.Data[counter].Id));
                 }
             }
         });
@@ -45,14 +46,14 @@
     }
 
     this.RetrieveAll = function () {
-        this.ctrlActions.FillTable('getReservations', this.tblReservationId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getReservations', this.tblReservationId, false, 'Buscar:', 'Código o reservación');
     }
 
     this.RetrieveAvailable = function () {
-        this.ctrlActions.FillTable('getAvailableReservations', this.tblReservationId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getAvailableReservations', this.tblReservationId, false, 'Buscar:', 'Código o reservación');
     }
     this.RetrieveUnavailable = function () {
-        this.ctrlActions.FillTable('getUnavailableReservations', this.tblReservationId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getUnavailableReservations', this.tblReservationId, false, 'Buscar:', 'Código o reservación');
     }
 
     this.ReloadTable = function () {
@@ -63,10 +64,10 @@
 
 
         if (document.querySelector('#txtId').value == '' &&
-            document.querySelector('#txtName').value != '') {
+            document.querySelector('#txtFirstName').value != '') {
 
             document.querySelector('#txtId').classList.remove('input-error');
-            document.querySelector('#txtName').classList.remove('input-error');
+            document.querySelector('#txtFirstName').classList.remove('input-error');
 
             var instance = this;
             if (!this.Validate()) {
@@ -119,7 +120,7 @@
         else {
 
             document.querySelector('#txtId').classList.add('input-error');
-            document.querySelector('#txtName').classList.add('input-error');
+            document.querySelector('#txtFirstName').classList.add('input-error');
 
             swal({
                 title: "¡Error en el registro!",
@@ -309,13 +310,10 @@
 $(document).ready(function () {
 
     //  document.querySelector("#tblCategory").classList.add('fixed_header');
-    document.querySelector("#txtId").disabled = true;
+    document.querySelector("#txtId").disabled = false;
     document.querySelector("#btnEnable").classList.add('hide');
-    var vreservation = new vReservations();
+    var vreservation = new vReservation();
     vreservation.RetrieveAvailable();
 
-    var dataTable = $('#tblReservation').DataTable();
-    //hide the first and second columns
-    dataTable.columns([0]).visible(false);
 
 });

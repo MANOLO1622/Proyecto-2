@@ -53,14 +53,13 @@
                     userName: userNameElement.value,
                     password: loginPasswordElement.value
                 }
-                
 
                 //Call the API to retrieve user
-                instance.ctrlActions.GetFromAPI("getUser", '',
+                instance.ctrlActions.GetFromAPI("getUser", currentUserData,
                     function (response) {
                         console.log("response", response);
                         console.log("response", response.Data);
-                        let user = response.Data.find((item) => item.Email == currentUserData.userName && item.Password == currentUserData.password);
+                        let user = response.Data;
                         console.log('a', user);
                         if (user != undefined) {
                             console.log()
@@ -80,7 +79,7 @@
                                 console.log("User Admin");
                                 break;
                             case 2: //AirportUser
-                                    var airportIdObject = "id=" + userObjectElement.AssignedId;
+                                    var airportIdObject = "id=" + userObjectElement.AssignedID;
 
                                     instance.ctrlActions.GetFromAPI("getAirportById", airportIdObject, function (response) {
                                         if (response) {

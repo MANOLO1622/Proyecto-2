@@ -73,7 +73,7 @@
                             icon: "success",
                             button: "OK"
                         }).then(function () {
-                            window.location.href = 'http://localhost:57312/vListAirports';
+                            window.location.href = 'http://localhost/SonyAirlines/vListAirports';
                         });
                     });
 
@@ -130,7 +130,7 @@
 
 
     this.Cancel = function () {
-        window.location.href = 'http://localhost:57312/vListAirports';
+        window.location.href = 'http://localhost/SonyAirlines/vListAirports';
     }
 }
 

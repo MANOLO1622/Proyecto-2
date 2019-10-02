@@ -27,6 +27,7 @@ namespace CoreCode.API.Core
             return crudReservation.RetrieveAll<Reservation>();
         }
 
+
         public List<Reservation> RetrieveAvailable()
         {
             return crudReservation.RetrieveAvailable<Reservation>();

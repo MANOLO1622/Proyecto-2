@@ -14,7 +14,7 @@ namespace CoreCode.DataAccess.Mapper
     {
 
         private const string DB_COL_ID = "ID";
-        private const string DB_COL_NAME = "FIRST_NAME";
+        private const string DB_COL_FIRST_NAME = "FIRST_NAME";
         private const string DB_COL_FIRST_LAST_NAME = "FIRST_LAST_NAME";
         private const string DB_COL_STATUS = "STATUS";
         private const string DB_COL_DESTINY = "DESTINY";
@@ -29,7 +29,7 @@ namespace CoreCode.DataAccess.Mapper
             var reservation = new Reservation
             {
                 IDReservation = GetStringValue(row, DB_COL_ID),
-                Name = GetStringValue(row, DB_COL_NAME),
+                FirstName = GetStringValue(row, DB_COL_FIRST_NAME),
                 FirstLastName = GetStringValue(row, DB_COL_FIRST_LAST_NAME),
                 Status = GetBoolValue(row, DB_COL_STATUS),
                 Destiny = GetStringValue(row, DB_COL_DESTINY),
@@ -57,7 +57,7 @@ namespace CoreCode.DataAccess.Mapper
             var c = (Reservation)entity;
 
             operation.AddVarcharParam(DB_COL_ID, c.IDReservation);
-            operation.AddVarcharParam(DB_COL_NAME, c.Name);
+            operation.AddVarcharParam(DB_COL_FIRST_NAME, c.FirstName);
             operation.AddVarcharParam(DB_COL_FIRST_LAST_NAME, c.FirstLastName);
             operation.AddIntParam(DB_COL_STATUS, c.Status ? 1 : 0);
             operation.AddVarcharParam(DB_COL_DESTINY, c.Destiny);
@@ -106,7 +106,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "UPD_RESERVATION_PR" };
             var c = (Reservation)entity;
             operation.AddVarcharParam(DB_COL_ID, c.IDReservation);
-            operation.AddVarcharParam(DB_COL_NAME, c.Name);
+            operation.AddVarcharParam(DB_COL_FIRST_NAME, c.FirstName);
             operation.AddVarcharParam(DB_COL_FIRST_LAST_NAME, c.FirstLastName);
             operation.AddIntParam(DB_COL_STATUS, c.Status ? 1 : 0);
             operation.AddVarcharParam(DB_COL_DESTINY, c.Destiny);
