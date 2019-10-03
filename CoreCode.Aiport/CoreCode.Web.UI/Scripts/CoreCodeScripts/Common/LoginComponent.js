@@ -93,7 +93,7 @@
                                 console.log("Airport User");
                                 break;
                                 case 3: //AirlineUser
-                                    var airlineIdObject = "id=" + userObjectElement.AssignedId;
+                                    var airlineIdObject = "id=" + userObjectElement.AssignedID;
 
                                     instance.ctrlActions.GetFromAPI("getAirlineById", airlineIdObject, function (response) {
                                         if (response) {

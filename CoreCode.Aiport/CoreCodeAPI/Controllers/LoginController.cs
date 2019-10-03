@@ -114,7 +114,7 @@ namespace CoreCodeAPI.Controllers
         {
             try
             {
-                apiResp.Data = mng.CheckIfUserExistsByUserOrId(id, userName);
+                apiResp.Data = mng.CheckIfUserExistsByUserOrId(userName, id);
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
