@@ -349,7 +349,7 @@ $(document).ready(function () {
         document.querySelector("#DropdownAndTable").classList.remove('hide');
         document.querySelector("#btnClean").classList.remove('hide');
         document.querySelector("#btnAccept").classList.remove('hide');
-        document.querySelector("#btnReject").classList.remove('hide');
+        document.querySelector("#btnReject").classList.remove('hide+');
         let aInputs = document.querySelectorAll(':required');
 
         for (let i = 0; i < aInputs.length; i++) {

@@ -66,7 +66,7 @@ namespace CoreCodeAPI.Controllers
             {
                 apiResp = new ApiResponse();
                 var mng = new UserManager();
-                string Mensaje = "Estimado " + user.FirstName + "  " + user.FirstLastName + " Se ha registrado en nuestra plataforma <br/><br/> " + "Su contraseña de inicio es: " + user.Password;
+                string Mensaje = "Estimad@ " + user.FirstName + "  " + user.FirstLastName + " Se ha registrado en nuestra plataforma <br/><br/> " + "Su contraseña de inicio es: " + user.Password;
                 ToolsHelper.SendMail(user.Email, "Confirmación de cuenta", Mensaje);
                 user.Password = EncryptionHelper.Encrypt(user.Password);
                 mng.Create(user);

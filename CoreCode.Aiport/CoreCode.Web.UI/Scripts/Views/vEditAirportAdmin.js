@@ -30,61 +30,60 @@
             if (age < 18) {
                 document.querySelector('#txtBirthDate').classList.add('input-error');
                 swal({
-                    title: "Error al registrar administrador",
+                    title: "Error al modificar administrador",
                     text: "Usuario debe ser mayor de edad",
                     icon: "error",
                     button: "Ok",
                 });
-            }
 
-            var regPass = /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/;
-            if (!regPass.test(document.querySelector("#txtPassword").value)) {
-                document.querySelector("#txtPassword").classList.add("input-error");
-                swal({
-                    title: "Error en la contraseña",
-                    text: "Por favor, cumplir con el formato requerido",
-                    icon: "error",
-                    button: "Ok",
-                });
-            }
-            else {
+            } else {
 
-                if (document.querySelector("#txtPassword").value != document.querySelector("#txtPassword2").value) {
+                var regPass = /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/;
+                if (regPass.test(document.querySelector("#txtPassword").value)) {
                     document.querySelector("#txtPassword").classList.add("input-error");
-                    document.querySelector("#txtPassword2").classList.add("input-error");
                     swal({
                         title: "Error en la contraseña",
-                        text: "Las contraseñas no son idénticas",
+                        text: "Por favor, cumplir con el formato requerido",
                         icon: "error",
                         button: "Ok",
                     });
-                }
-                else {
+                } else {
 
-                    airportAdminData.Status = true;
-                    airportAdminData.Rol = "2";
-                    airportAdminData.AirportID = instance.AirportId;
-
-                    instance.ctrlActions.PostToAPI('updateAirportManager', airportAdminData, function () {
-
+                    if (document.querySelector("#txtPassword").value != document.querySelector("#txtPassword2").value) {
+                        document.querySelector("#txtPassword").classList.add("input-error");
+                        document.querySelector("#txtPassword2").classList.add("input-error");
                         swal({
-                            title: "¡Administrador de aeropuerto modificado!",
-                            text: "",
-                            icon: "success",
-                            button: "OK"
-                        }).then(function () {
-                            window.location.href = 'http://localhost/SonyAirlines/vListAirports';
+                            title: "Error en la contraseña",
+                            text: "Las contraseñas no son idénticas",
+                            icon: "error",
+                            button: "Ok",
                         });
-                    });
+                    } else {
+
+                        airportAdminData.Status = true;
+                        airportAdminData.Rol = "2";
+                        airportAdminData.AirportID = instance.AirportId;
+
+                        instance.ctrlActions.PostToAPI('updateAirportManager', airportAdminData, function () {
+
+                            swal({
+                                title: "¡Administrador de aeropuerto modificado!",
+                                text: "",
+                                icon: "success",
+                                button: "OK"
+                            }).then(function () {
+                                window.location.href = 'http://localhost/SonyAirlines/vListAirports';
+                            });
+                        });
 
 
+
+                    }
 
                 }
-
             }
 
-        }
-        else {
+        } else {
 
             swal({
                 title: "¡Ocurrió un error!",
@@ -165,7 +164,7 @@ $(document).ready(function () {
         document.querySelector("#selectGenre").value = airportAdmin.Genre;
 
     }
-    vAirportAdminEdit.ctrlActions.GetFromAPI("/getAdminAirportByAirportId", idAirport, callback);
+    vAirportAdminEdit.ctrlActions.GetFromAPI("getAdminAirportByAirportId", idAirport, callback);
 
 });
 

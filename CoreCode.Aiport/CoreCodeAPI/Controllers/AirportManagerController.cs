@@ -118,7 +118,7 @@ namespace CoreCodeAPI.Controllers
 
                 };
                 apiResp = new ApiResponse();                
-                string Mensaje = "Estimado " + User.FirstName + "  " + User.FirstLastName + " Se ha registrado en nuestra plataforma como administrador de Aeropuerto <br/><br/> " + "Su contraseña de inicio es: " + User.Password;
+                string Mensaje = "Estimad@ " + User.FirstName + "  " + User.FirstLastName + " Se ha registrado en nuestra plataforma como administrador de Aeropuerto ¡Bienvenido!<br/><br/> " + "Su contraseña de inicio es: " + User.Password;
                 ToolsHelper.SendMail(User.Email, "Confirmación de cuenta", Mensaje);
                 User.Password = EncryptionHelper.Encrypt(User.Password);
                 usermng.Create(User);
@@ -155,6 +155,7 @@ namespace CoreCodeAPI.Controllers
             try
             {
                 var mng = new AirportManagerManagement();
+                airportManager.Password = airportManager.Password != "" && airportManager.Password != null ? EncryptionHelper.Encrypt(airportManager.Password) : string.Empty;
                 mng.Update(airportManager);
 
                 apiResp = new ApiResponse

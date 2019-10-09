@@ -64,7 +64,13 @@ namespace DataAccess.Mapper
             {
                 var val = dic[attName];
                 if (dic.ContainsKey(attName) && val is DateTime)
+                {
                     return (DateTime)dic[attName];
+                }
+                else if (dic.ContainsKey(attName) && val is String)
+                {
+                    return Convert.ToDateTime(dic[attName]);
+                }                
             }
             catch(Exception e)
             {
