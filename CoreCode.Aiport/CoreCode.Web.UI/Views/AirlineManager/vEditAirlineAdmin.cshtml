@@ -19,19 +19,15 @@
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtId", "text", "Cédula*", "form-control", "Ingrese # de identificación", "ID", true)
         </div>
-
         <div class="col-md-6">
             @Html.GetInputWithLabel("txtEmail", "email", "Correo electrónico*", "form-control", "(Obligatorio)", "Email", true)
-
         </div>
     </div>
     <div class="row">
 
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtFirstName", "text", "Primer nombre*", "form-control", "(Obligatorio)", "FirstName", true)
         </div>
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "LastName", true)
         </div>
@@ -40,11 +36,9 @@
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtSecondName", "text", "Segundo nombre", "form-control", "(Opcional)", "SecondName", false)
         </div>
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtSecondLastName", "text", "Segundo apellido", "form-control", "(Opcional)", "SecondLastName", false)
         </div>
-
 
     </div>
     <div class="row">
@@ -54,23 +48,17 @@
         </div>
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtPhone", "tel", "Teléfono*", "form-control", "(Obligatorio)", "Phone", true)
-
         </div>
-
     </div>
-
     <div class="row">
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtPassword", "text", "Contraseña*", "form-control", "(Obligatorio)", "Password", true)
+            @Html.GetInputWithLabel("txtPassword", "text", "Contraseña*", "form-control", "(Obligatorio)", "Password", false)
             <label> "Mínimo de 8 caracteres, una letra minúscula, una mayúscula, un número y un caracter especial</label>
         </div>
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtPassword2", "text", "Confirmación de contraseña*", "form-control", "(Obligatorio)", "Password2", true)
-
         </div>
-
     </div>
-
 
     <div class="row">
         <div class="form-group col-md-6">
@@ -85,7 +73,6 @@
                 new Dictionary<string, string> { { "Casado",  "casado" }, { "Soltero", "soltero" },{"Otro", "otro" } })*@
         </div>
         <div class="form-group col-md-6">
-
             <label for="selectGenre">Género*</label>
             <select class="form-control" columnDataName="Genre" id="selectGenre" required>
                 <option value="">Seleccione opción (Obligatorio)</option>

@@ -30,62 +30,57 @@
             if (age < 18) {
                 document.querySelector('#txtBirthDate').classList.add('input-error');
                 swal({
-                    title: "Error al registrar administrador",
+                    title: "Error al modificar administrador",
                     text: "Usuario debe ser mayor de edad",
                     icon: "error",
                     button: "Ok",
                 });
-            }
 
-            var regPass = /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/;
-            if (!regPass.test(document.querySelector("#txtPassword").value)) {
-                document.querySelector("#txtPassword").classList.add("input-error");
-                swal({
-                    title: "Error en la contraseña",
-                    text: "Por favor, cumplir con el formato requerido",
-                    icon: "error",
-                    button: "Ok",
-                });
-            }
-            else {
+            } else {
 
-                if (document.querySelector("#txtPassword").value != document.querySelector("#txtPassword2").value) {
+                var regPass = /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/;
+                if (regPass.test(document.querySelector("#txtPassword").value)) {
                     document.querySelector("#txtPassword").classList.add("input-error");
-                    document.querySelector("#txtPassword2").classList.add("input-error");
                     swal({
                         title: "Error en la contraseña",
-                        text: "Las contraseñas no son idénticas",
+                        text: "Por favor, cumplir con el formato requerido",
                         icon: "error",
                         button: "Ok",
                     });
-                }
-                else {
+                } else {
 
-                    airlineAdminData.Status = true;
-                    airlineAdminData.Rol = "3";
-                    airlineAdminData.AirlineID = instance.AirlineId;
-
-                    instance.ctrlActions.PostToAPI('updateAirlineManager', airlineAdminData, function () {
-
+                    if (document.querySelector("#txtPassword").value != document.querySelector("#txtPassword2").value) {
+                        document.querySelector("#txtPassword").classList.add("input-error");
+                        document.querySelector("#txtPassword2").classList.add("input-error");
                         swal({
-                            title: "¡Administrador de aerolinea modificado!",
-                            text: "",
-                            icon: "success",
-                            button: "OK"
-                        }).then(function () {
-
-                            window.location.href = 'http://localhost/SonyAirlines/vListAirlinesRequest';
+                            title: "Error en la contraseña",
+                            text: "Las contraseñas no son idénticas",
+                            icon: "error",
+                            button: "Ok",
                         });
-                    });
+                    } else {
 
+                        airlineAdminData.Status = true;
+                        airlineAdminData.Rol = "3";
+                        airlineAdminData.AirlineID = instance.AirlineId;
 
+                        instance.ctrlActions.PostToAPI('updateAirlineManager', airlineAdminData, function () {
+
+                            swal({
+                                title: "¡Administrador de aerolinea modificado!",
+                                text: "",
+                                icon: "success",
+                                button: "OK"
+                            }).then(function () {
+                                window.location.href = 'http://localhost/SonyAirlines/vListAirlinesRequest';
+                            });
+                        });
+                    }
 
                 }
-
             }
 
-        }
-        else {
+        } else {
 
             swal({
                 title: "¡Ocurrió un error!",
@@ -97,7 +92,6 @@
         }
 
     }
-
 
     this.Validate = function () {
         let aInputs = document.querySelectorAll(':required');
@@ -141,7 +135,7 @@ $(document).ready(function () {
     let idAirline = "ID="+localStorage.getItem('idAirlineLS');
 
    
-    var vAirlineAdminEdit = new vEditAirlineAdmin();
+    var vAirlineAdminEdit = new vEditAirlineAdmin();    
     document.querySelector("#txtId").disabled = true;
     document.querySelector("#txtEmail").disabled = true;
     var airlineAdmin;
@@ -166,7 +160,7 @@ $(document).ready(function () {
         document.querySelector("#selectGenre").value = airlineAdmin.Genre;
 
     }
-    vAirlineAdminEdit.ctrlActions.GetFromAPI("/getAdminAirlineByAirlineId", idAirline, callback);
+    vAirlineAdminEdit.ctrlActions.GetFromAPI("getAdminAirlineByAirlineId", idAirline, callback);
     
 });
 

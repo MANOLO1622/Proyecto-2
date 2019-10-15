@@ -11,6 +11,7 @@ namespace CoreCode.DataAccess.Mapper
     class AirlineManagerMapper : EntityMapper, ISqlStatements, IObjectMapper
     {
         private const string DB_COL_ID = "ID_USER";
+        private const string DB_COL_IDUSER_UPDATE = "ID";
         private const string DB_COL_FIRST_NAME = "FIRST_NAME";
         private const string DB_COL_SECOND_NAME = "SECOND_NAME";
         private const string DB_COL_LAST_NAME = "FIRST_LAST_NAME";
@@ -30,23 +31,10 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
-
+            //este stored proc inserta en la tabla persona y en la tabla admin aerolínea
             var operation = new SqlOperation { ProcedureName = "sp_CreateAirlineManager" };
-
             var m = (AirlineManager)entity;
             operation.AddVarcharParam(DB_COL_ID, m.ID);
-            //operation.AddVarcharParam(DB_COL_FIRST_NAME, m.FirstName);
-            //operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
-            //operation.AddVarcharParam(DB_COL_LAST_NAME, m.LastName);
-            //operation.AddVarcharParam(DB_COL_SECOND_LAST_NAME, m.SecondLastName);
-            //operation.AddDateParam(DB_COL_BIRTHDATE, m.BirthDate);
-            //operation.AddVarcharParam(DB_COL_GENRE, m.Genre);
-            //operation.AddVarcharParam(DB_COL_EMAIL, m.Email);
-            //operation.AddVarcharParam(DB_COL_PASSWORD, m.Password);
-            //operation.AddVarcharParam(DB_COL_PHONE, m.Phone);
-            //operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
-            //operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
-            //operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
             operation.AddVarcharParam(DB_COL_ID_AIRLINE, m.AirlineID);
             return operation;
         }
@@ -54,10 +42,10 @@ namespace CoreCode.DataAccess.Mapper
 
         public SqlOperation GetUpdateStatement(BaseEntity entity)
         {
+            //este proc hace el update en la tabla persona y en la tabla admin de Aerolínea
             var operation = new SqlOperation { ProcedureName = "sp_UpdateAirlineManager" };
-
             var m = (AirlineManager)entity;
-            operation.AddVarcharParam(DB_COL_ID, m.ID);
+            operation.AddVarcharParam(DB_COL_IDUSER_UPDATE, m.ID);
             operation.AddVarcharParam(DB_COL_FIRST_NAME, m.FirstName);
             operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
             operation.AddVarcharParam(DB_COL_LAST_NAME, m.LastName);
@@ -68,9 +56,6 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_PASSWORD, m.Password);
             operation.AddVarcharParam(DB_COL_PHONE, m.Phone);
             operation.AddVarcharParam(DB_COL_CIVIL_STATUS, m.CivilStatus);
-            operation.AddIntParam(DB_COL_STATUS, m.Status ? 1 : 0);
-            operation.AddVarcharParam(DB_COL_ID_ROL, m.Rol);
-            operation.AddVarcharParam(DB_COL_ID_AIRLINE, m.AirlineID);
             return operation;
         }
 
@@ -79,7 +64,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "sp_DeleteAirlineManager" };
 
             var m = (AirlineManager)entity;
-            operation.AddVarcharParam(DB_COL_ID, m.ID);
+            operation.AddVarcharParam(DB_COL_IDUSER_UPDATE, m.ID);
             return operation;
         }
 
@@ -113,10 +98,9 @@ namespace CoreCode.DataAccess.Mapper
                 SecondName = GetStringValue(row, DB_COL_SECOND_NAME),
                 LastName = GetStringValue(row, DB_COL_LAST_NAME),
                 SecondLastName = GetStringValue(row, DB_COL_SECOND_LAST_NAME),
-                BirthDate = Convert.ToDateTime(GetDateValue(row, DB_COL_BIRTHDATE)),
+                BirthDate = GetDateValue(row, DB_COL_BIRTHDATE),
                 Genre = GetStringValue(row, DB_COL_GENRE),
                 Email = GetStringValue(row, DB_COL_EMAIL),
-                Password = GetStringValue(row, DB_COL_PASSWORD),
                 Phone = GetStringValue(row, DB_COL_PHONE),
                 CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
                 Status = Convert.ToBoolean(GetIntValue(row, DB_COL_STATUS)),
@@ -149,7 +133,7 @@ namespace CoreCode.DataAccess.Mapper
             var operation = new SqlOperation { ProcedureName = "RET_ADMINAIRLINE_BY_AIRLINE_ID" };
 
             var m = (AirlineManager)entity;
-            operation.AddVarcharParam(DB_COL_ID, m.AirlineID);
+            operation.AddVarcharParam(DB_COL_ID_AIRLINE, m.AirlineID);
             return operation;
         }
     }

@@ -10,7 +10,7 @@
     @Html.GetSelectDropdown("statusFilter","vFlight", "FlightStatusDropdownChange", "", "",
         new Dictionary<string, string> { { "Vuelos a tiempo",  "a tiempo" }, { "Vuelos cancelados", "cancelado"}, { "Vuelos retrasados", "retrasado" } })
 
-    @Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Name", "Destiny_Airport_Name", "Departure_Time", "Arrival_DateTime", "Id_Airplane", "Id_Gate" }, new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada","Avión", "Puerta" })
+    @Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Name", "Destiny_Airport_Name", "Departure_Time", "Arrival_DateTime", "Id_Airplane", "Id_Gate" }, new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada","Empresa del Avión", "Puerta" })
 </div>
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">

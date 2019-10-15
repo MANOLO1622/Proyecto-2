@@ -63,8 +63,8 @@
     this.Create = function () {
 
 
-        if (document.querySelector('#txtId').value == '' &&
-            document.querySelector('#txtFirstName').value != '') {
+        if (document.querySelector('#txtId').value !== '' &&
+            document.querySelector('#txtFirstName').value !== '') {
 
             document.querySelector('#txtId').classList.remove('input-error');
             document.querySelector('#txtFirstName').classList.remove('input-error');
@@ -85,7 +85,7 @@
                     cont = cont + 1;
                     //Hace el post al create
 
-                    reservationData.IDReservation = "RE- " + cont.toString();
+                    //reservationData.IDReservation = "RE- " + cont.toString();
 
                     instance.ctrlActions.PostToAPI('postReservation', reservationData, function () {
                         //Refresca la tabla
@@ -289,19 +289,17 @@
     this.CleanForm = function () {
         //limpia los campos
         document.querySelector('#txtId').value = '';
-        document.querySelector('#txtName').value = '';
+        document.querySelector('#txtFirstName').value = '';
         document.querySelector('#txtFirstLastName').value = '';
         document.querySelector('#txtDestiny').value = '';
-        ddocument.querySelector("txtPrice").value = '';
-        document.querySelector("txtBuy_Date").value = '';
+        document.querySelector("#txtBuy_Date").value = '';
         //valida los campos
         document.querySelector('#txtId').classList.remove('input-error');
-        document.querySelector('#txtName').classList.remove('input-error');
+        document.querySelector('#txtFirstName').classList.remove('input-error');
         document.querySelector('#txtFirstLastName').classList.remove('input-error');
         document.querySelector('#txtDestiny').classList.remove('input-error');
-        document.querySelector('#txtPrice').classList.remove('input-error');
         document.querySelector('#txtBuy_Date').classList.remove('input-error');
-        document.getElementById("dropdownOriginAirport").selectedIndex = 0;
+        document.getElementById("dropdownOriginTicket").selectedIndex = 0;
 
     }
 }

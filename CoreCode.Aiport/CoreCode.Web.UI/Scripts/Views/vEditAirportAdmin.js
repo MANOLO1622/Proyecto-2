@@ -75,9 +75,6 @@
                                 window.location.href = 'http://localhost/SonyAirlines/vListAirports';
                             });
                         });
-
-
-
                     }
 
                 }
@@ -95,7 +92,6 @@
         }
 
     }
-
 
     this.Validate = function () {
         let aInputs = document.querySelectorAll(':required');

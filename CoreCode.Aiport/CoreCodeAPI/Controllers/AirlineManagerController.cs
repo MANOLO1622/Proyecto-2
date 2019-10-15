@@ -158,6 +158,7 @@ namespace CoreCodeAPI.Controllers
             try
             {
                 var mng = new AirlineManagerManagement();
+                airlineManager.Password = airlineManager.Password != "" && airlineManager.Password != null ? EncryptionHelper.Encrypt(airlineManager.Password) : string.Empty;
                 mng.Update(airlineManager);
 
                 apiResp = new ApiResponse

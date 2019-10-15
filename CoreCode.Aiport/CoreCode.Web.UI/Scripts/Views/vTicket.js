@@ -235,11 +235,7 @@
         document.querySelector("txtPerson_Name").value = '';
         document.getElementById("Ticket_Class").selectedIndex = -1;
 
-
         document.querySelector("Ticket_Class").
-
-        
-
         document.querySelector('#txtId').value = '';
         document.querySelector('#txtDescription').value = '';
         document.querySelector('#txtId').disabled = false;
@@ -253,7 +249,7 @@
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function () { //Esto es para bloquear los espacios de los inpus
 
    document.querySelector("#txtId").disabled = true;
     //document.querySelector("#txtId_Flight").disabled = true;
