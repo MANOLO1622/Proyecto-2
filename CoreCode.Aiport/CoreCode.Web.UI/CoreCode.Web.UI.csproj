@@ -390,6 +390,7 @@
     <Content Include="Scripts\Views\EditProfile.js" />
     <Content Include="Scripts\Views\Index.js" />
     <Content Include="Scripts\Views\vAsignationAirline.js" />
+    <Content Include="Scripts\Views\vListReservation.js" />
     <Content Include="Scripts\Views\vReservation.js" />
     <Content Include="Scripts\Views\vCreateAirplane.js" />
     <Content Include="Scripts\Views\vCreateEmployee.js" />
@@ -507,7 +508,8 @@
     <Content Include="Views\User\vEditUser.cshtml" />
     <Content Include="Views\Airplane\vAirplane.cshtml" />
     <Content Include="Views\Airplane\vAirplansView.cshtml" />
-    <Content Include="Views\Country\vReservations.cshtml" />
+    <Content Include="Views\Reservation\vReservations.cshtml" />
+    <Content Include="Views\Reservation\vListReservations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -56,7 +56,10 @@
                                 @Html.GetInputWithLabel("txtId", "text", "Código de reserva", "", "Código de reserva: ", "Id", true)
                             </div>
                             <div class="form-group col-md-3">
-                                @Html.GetInputWithLabel("txtId_Flight", "text", "Código de vuelo", "", "Código de vuelo ", "Id_Flight", true)
+                                @Html.GetSelectDropdown("dropdownFlightsId", "vTicket", "", "loadFlightsIdDropdown", "Id_Flight",
+                               new Dictionary<string, string>() {{ "Seleccione el codigo del vuelo:", ""}})
+
+                                @*@Html.GetInputWithLabel("txtId_Flight", "text", "Código de vuelo", "", "Código de vuelo ", "Id_Flight", true)*@
                             </div>
                             <div class="form-group col-md-2">
                                 @Html.GetInputWithLabel("txtStatus", "text", "Estado", "", "Estatus: ", "Status", true)

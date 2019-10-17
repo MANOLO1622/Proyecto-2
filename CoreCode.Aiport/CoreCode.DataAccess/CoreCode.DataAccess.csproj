@@ -46,6 +46,7 @@
     <Compile Include="Crud\AsignationAirlineCrudFactory.cs" />
     <Compile Include="Crud\AsignationCrudFactory.cs" />
     <Compile Include="Crud\AirplaneCrudFactory.cs" />
+    <Compile Include="Crud\IdCrudFactory.cs" />
     <Compile Include="Crud\PriceCrudFactory.cs" />
     <Compile Include="Crud\ReservationCrudFactory.cs" />
     <Compile Include="Crud\GeneralAdminReportCrudFactory.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Dao\SqlDao.cs" />
     <Compile Include="Dao\SqlOperation.cs" />
     <Compile Include="Mapper\AsignationAirlineMapper.cs" />
+    <Compile Include="Mapper\IdMapper.cs" />
     <Compile Include="Mapper\PriceMapper.cs" />
     <Compile Include="Mapper\ReservationMapper.cs" />
     <Compile Include="Mapper\EmployeeMapper.cs" />

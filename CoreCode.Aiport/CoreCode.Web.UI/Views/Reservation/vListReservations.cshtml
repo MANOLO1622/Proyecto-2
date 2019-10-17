@@ -1,0 +1,45 @@
+﻿@using CoreCode.Web.UI.Models.Helpers
+
+
+@section pageCss{
+    <link rel="stylesheet" href="~/Scripts/TableHide.css" />
+}
+
+
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/Views/vListReservation.js"></script>
+
+
+
+@{
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+    <div style="margin: 0 auto; width: 35%;">
+        <h2>Lista de Reservaciones</h2>
+    </div>
+<div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
+   
+    @Html.GetTable("tblReservation", "vReservations", "BindFields", "", new List<string> { "IDReservation", "FirstName", "FirstLastName", "Destiny", "Price", "Buy_Date" },
+    new List<string> { "Cédula", "Nombre", "Apellido","Destino", "Precio de tickete", "Fecha y hora de vuelo" })
+
+</div>
+
+
+<div class="card border-secondary" style="margin: 0 auto; width: 98%";">
+    <div class="card-header">
+        <div class="row pull-right">
+            
+            <div class="col-md-6">
+                @*@Html.GetConfirmButton("btnRegisterReservation", "Create", "vReservation", "", "Reservar")*@
+               @* @Html.GetConfirmButton("btnEditReservation", "Update", "vReservation", "", "Modificar")*@
+               @* @Html.GetConfirmButton("btnDisable", "Disable", "vReservation", "", "Deshabilitar")*@
+                @Html.GetConfirmButton("btnEnable", "Enable", "vReservation", "", "Habilitar")
+               
+
+            </div>
+        </div>
+    </div>
+
+            @Html.GetInputWithLabel("txtId", "", "", "", "", "", false)
+    
+</div>

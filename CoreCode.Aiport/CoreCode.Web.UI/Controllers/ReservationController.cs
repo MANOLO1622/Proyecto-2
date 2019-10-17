@@ -14,7 +14,7 @@ namespace CoreCode.Web.UI.Controllers
         [Route("vReservations")]
         public ActionResult vReservations()
         {
-            return View("~/Views/Country/vReservations.cshtml");
+            return View("~/Views/Reservation/vReservations.cshtml");
         }
         [Route("CreateReservation")]
         public ActionResult CreateReservation()
@@ -22,10 +22,10 @@ namespace CoreCode.Web.UI.Controllers
             return View();
         }
 
-        [Route("ListReservations")]
+        [Route("vListReservations")]
         public ActionResult ListReservations()
         {
-            return View();
+            return View("~/Views/Reservation/vListReservations.cshtml");
         }
 
 

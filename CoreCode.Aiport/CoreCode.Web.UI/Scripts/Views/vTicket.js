@@ -4,7 +4,23 @@
     this.tblTicketId = 'tblTickets';
     this.service = 'ticket';
     this.ctrlActions = new ControlActions();
+    this.destinyFlightsIdDropdown = "dropdownFlightsId";
     this.columns = "Id,Id_Flight, Ticket_Class, Status, Price, Buy_Date, Id_User, Person_Name";
+
+
+
+    this.loadFlightsIdDropdown = function () {
+        var instance = this;
+        this.ctrlActions.GetFromAPI('getId', "", function (response) {
+            var destinyFlightsIdElement = $("#" + instance.destinyFlightsIdDropdown);
+
+            if (response.Data) {
+                for (var counter = 0; counter < response.Data.length; counter++) {
+                    destinyFlightsIdElement.append(new Option(response.Data[counter].Id, response.Data[counter].Id));
+                }
+            }
+        });
+    }
 
     this.TicketStatusDropdownChange = function () {
 
@@ -205,13 +221,13 @@
         var txtIdElement = document.getElementById("txtId");
 
         //document.getElementById("txtStatus").style.display = 'block';
-        document.getElementById("txtId_Flight").style.display = 'block';
+        document.getElementById("dropdownFlightsId").style.display = 'block';
         document.getElementById("txtPrice").style.display = 'block';
         document.getElementById("txtBuy_Date").style.display = 'block';
         document.getElementById("txtId_User").style.display = 'block';
         document.getElementById("txtPerson_Name").style.display = 'block';
         document.querySelector("label[for='txtStatus']").style.display = 'block';
-        document.querySelector("label[for='txtId_Flight']").style.display = 'block';
+        document.querySelector("label[for='dropdownFlightsId']").style.display = 'block';
         document.querySelector("label[for='txtStatus']").style.display = 'block';
         document.querySelector("label[for='txtPrice']").style.display = 'block';
         document.querySelector("label[for='txtBuy_Date']").style.display = 'block';
@@ -228,16 +244,14 @@
 
     this.CleanForm = function () {
 
-        document.querySelector("txtId_Flight").value = '';
-        document.querySelector("txtPrice").value = '';
-        document.querySelector("txtBuy_Date").value = '';
-        document.querySelector("txtId_User").value = '';
-        document.querySelector("txtPerson_Name").value = '';
-        document.getElementById("Ticket_Class").selectedIndex = -1;
+        document.getElementById("dropdownFlightsId").selectedIndex = 0;
+        document.querySelector("#txtPrice").value = '';
+        document.querySelector("#txtBuy_Date").value = '';
+        document.querySelector("#txtId_User").value = '';
+        document.querySelector("#txtPerson_Name").value = '';
+        document.getElementById("Ticket_Class").selectedIndex = 0;
 
-        document.querySelector("Ticket_Class").
         document.querySelector('#txtId').value = '';
-        document.querySelector('#txtDescription').value = '';
         document.querySelector('#txtId').disabled = false;
 
 

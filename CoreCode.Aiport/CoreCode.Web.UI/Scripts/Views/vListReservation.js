@@ -7,6 +7,11 @@
     this.destinyTicketDropdownId = "dropdownOriginTicket";
     this.columns = "IDReservation,FirstName","FirstLastName","Destiny","Price","Buy_Date";
 
+
+
+    
+
+
     this.loadTicketDropdown = function () {
         var instance = this;
         this.ctrlActions.GetFromAPI('getPrices', "", function (response) {
@@ -14,7 +19,7 @@
 
             if (response.Data) {
                 for (var counter = 0; counter < response.Data.length; counter++) {
-                    destinyTicketElement.append(new Option(response.Data[counter].Price, response.Data[counter].Price));
+                    destinyTicketElement.append(new Option(response.Data[counter].Price, response.Data[counter].Id));
                 }
             }
         });
@@ -119,7 +124,7 @@
 
             swal({
                 title: "¡Error en el registro!",
-                text: "Por favor complete los campos requeridos",
+                text: "No se puede hacer la reservación porque ya se encuentra reservada",
                 icon: "error",
                 button: "OK",
             });
@@ -303,7 +308,7 @@
 $(document).ready(function () {
 
     //  document.querySelector("#tblCategory").classList.add('fixed_header');
-    document.querySelector("#txtId").disabled = false;
+    document.querySelector("#txtId").disabled = true;
     document.querySelector("#btnEnable").classList.add('hide');
     var vreservation = new vReservation();
     vreservation.RetrieveAvailable();
