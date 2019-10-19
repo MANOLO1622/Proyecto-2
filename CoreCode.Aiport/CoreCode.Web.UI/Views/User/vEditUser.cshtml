@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "LastName", true)
+            @Html.GetInputWithLabel("txtLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "FirstLastName", true)
         </div>
     </div>
     <div class="row">
@@ -61,11 +61,11 @@
 
     <div class="row">
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtPassword", "text", "Contraseña*", "form-control", "(Obligatorio)", "Password", true)
+            @Html.GetInputWithLabel("txtPassword", "text", "Contraseña*", "form-control", "(Obligatorio)", "Password", false)
             <label> "Mínimo de 8 caracteres, una letra minúscula, una mayúscula y un número</label>
         </div>
         <div class="form-group col-md-6">
-            @Html.GetInputWithLabel("txtPassword2", "text", "Confirmación de contraseña*", "form-control", "(Obligatorio)", "Password2", true)
+            @Html.GetInputWithLabel("txtPassword2", "text", "Confirmación de contraseña*", "form-control", "(Obligatorio)", "Password2", false)
 
         </div>
 

@@ -14,6 +14,7 @@
 
             let callback = function (response) {
                 user = response.Data;
+
                 if (!user) {
                     var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                     if (!regEmail.test(document.querySelector('#txtEmail').value)) {
@@ -44,14 +45,19 @@
                                 icon: "error",
                                 button: "Ok",
                             });
-                        }
-
-                        else {
+                        } else {
 
                             userData.IDUser = localStorage.getItem('idUserLS');
                             userData.Status = true;
                             userData.Rol = "4"; 
                             userData.Password = instance.GenerateRandomPassword();
+
+                            var date = new Date(userData.BirthDate);
+                            console.log('date', userData.BirthDate);
+                            var formattedDate = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + ((date.getDate()) < 10 ? "0" + (date.getDate()) : (date.getDate()));
+                            console.log('date1', formattedDate);
+                            userData.BirthDate = formattedDate;
+
                             instance.ctrlActions.PostToAPI('Users/post', userData, function () {
 
 

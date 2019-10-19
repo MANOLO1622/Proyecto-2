@@ -35,56 +35,50 @@
                     icon: "error",
                     button: "Ok",
                 });
-            }
+            } else {
 
-            var regPass = /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/;
-            if (!regPass.test(document.querySelector("#txtPassword").value)) {
-                document.querySelector("#txtPassword").classList.add("input-error");
-                swal({
-                    title: "Error en la contraseña",
-                    text: "Por favor, cumplir con el formato requerido",
-                    icon: "error",
-                    button: "Ok",
-                });
-            }
-            else {
-
-                if (document.querySelector("#txtPassword").value != document.querySelector("#txtPassword2").value) {
+                var regPass = /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/;
+                if (regPass.test(document.querySelector("#txtPassword").value)) {
                     document.querySelector("#txtPassword").classList.add("input-error");
-                    document.querySelector("#txtPassword2").classList.add("input-error");
                     swal({
                         title: "Error en la contraseña",
-                        text: "Las contraseñas no son idénticas",
+                        text: "Por favor, cumplir con el formato requerido",
                         icon: "error",
                         button: "Ok",
                     });
-                }
-                else {
+                } else {
 
-                    userData.Status = true;
-                    userData.Rol = "4";
-                    userData.UserID = instance.UserId;
-
-                    instance.ctrlActions.PostToAPI('updateUsers', userData, function () {
-
+                    if (document.querySelector("#txtPassword").value != document.querySelector("#txtPassword2").value) {
+                        document.querySelector("#txtPassword").classList.add("input-error");
+                        document.querySelector("#txtPassword2").classList.add("input-error");
                         swal({
-                            title: "¡Administrador modificado!",
-                            text: "",
-                            icon: "success",
-                            button: "OK"
-                        }).then(function () {
-                            window.location.href = 'http://localhost:57312/dashboard/general/';
+                            title: "Error en la contraseña",
+                            text: "Las contraseñas no son idénticas",
+                            icon: "error",
+                            button: "Ok",
                         });
-                    });
+                    }
+                    else {
 
+                        userData.Status = true;
+                        userData.Rol = "4";
+                        userData.UserID = instance.UserId;
 
+                        instance.ctrlActions.PostToAPI('updateUsers', userData, function () {
 
+                            swal({
+                                title: "¡Modificación Exitosa!",
+                                text: "",
+                                icon: "success",
+                                button: "OK"
+                            }).then(function () {
+                                window.location.href = 'http://localhost/SonyAirlines/dashboard/general/';
+                            });
+                        });
+                    }
                 }
-
             }
-
-        }
-        else {
+        } else {
 
             swal({
                 title: "¡Ocurrió un error!",
@@ -130,7 +124,7 @@
 
 
     this.Cancel = function () {
-        window.location.href = 'http://localhost:57312/dashboard/general/';
+        window.location.href = 'http://localhost/SonyAirlines/dashboard/general/';
     }
 }
 
@@ -171,7 +165,7 @@ $(document).ready(function () {
         document.querySelector("#selectGenre").value = user.Genre;
 
     }
-    vUserEdit.ctrlActions.GetFromAPI("/getUserById", `ID=${userObject.ID}`, callback);
+    vUserEdit.ctrlActions.GetFromAPI("getUserById", `ID=${userObject.ID}`, callback);
 
 });
 

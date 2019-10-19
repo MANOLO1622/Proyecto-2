@@ -102,6 +102,7 @@ namespace CoreCodeAPI.Controllers
             try
             {
                 var mng = new UserManagement();
+                user.Password = user.Password != "" && user.Password != null ? EncryptionHelper.Encrypt(user.Password) : string.Empty;
                 mng.Update(user);
 
                 apiResp = new ApiResponse
