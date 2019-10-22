@@ -71,7 +71,8 @@ namespace CoreCode.DataAccess.Mapper
                 Experience = GetStringValue(row, DB_COL_EXPERIENCE),
                 GraduationYear = GetStringValue(row, DB_COL_GRADUATION_YEAR),
                 License = GetStringValue(row, DB_COL_LICENSE),
-                Put = GetStringValue(row, DB_COL_PUT)
+                Put = GetStringValue(row, DB_COL_PUT),
+                AssignedID = GetStringValue(row, DB_COL_IDASSIGNED)
             };
 
             return User;

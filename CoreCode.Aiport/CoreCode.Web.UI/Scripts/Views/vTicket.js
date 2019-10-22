@@ -207,6 +207,7 @@
         document.querySelector("label[for='txtId_User']").style.display = 'none';
         document.querySelector("label[for='txtPerson_Name']").style.display = 'none';
         document.querySelector("label[for='selectCivilStatus']").style.display = 'none';
+    
         
         txtStatusElement.show();
         txtStatusElement.val(data.Status);
@@ -227,7 +228,6 @@
         document.getElementById("txtId_User").style.display = 'block';
         document.getElementById("txtPerson_Name").style.display = 'block';
         document.querySelector("label[for='txtStatus']").style.display = 'block';
-        document.querySelector("label[for='dropdownFlightsId']").style.display = 'block';
         document.querySelector("label[for='txtStatus']").style.display = 'block';
         document.querySelector("label[for='txtPrice']").style.display = 'block';
         document.querySelector("label[for='txtBuy_Date']").style.display = 'block';
@@ -266,7 +266,7 @@
 $(document).ready(function () { //Esto es para bloquear los espacios de los inpus
 
    document.querySelector("#txtId").disabled = true;
-    //document.querySelector("#txtId_Flight").disabled = true;
+    document.querySelector("#txtId_Flight").disabled = true;
     document.querySelector("#txtStatus").disabled = true;
     //document.querySelector("#txtPrice").disabled = true;
    // document.querySelector("#txtBuy_Date").disabled = true;

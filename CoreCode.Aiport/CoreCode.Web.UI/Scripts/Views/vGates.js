@@ -41,6 +41,7 @@
     this.RetrieveUnavailable = function () {
         this.ctrlActions.FillTable('getUnavailableArptGates', this.tblGateId, false, 'Buscar:', 'Código ó # de puerta');
         this.ReloadTable();
+
     }
 
     this.ReloadTable = function () {

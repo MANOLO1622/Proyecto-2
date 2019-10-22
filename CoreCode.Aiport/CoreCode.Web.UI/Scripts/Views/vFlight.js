@@ -249,6 +249,7 @@
         document.querySelector("label[for='txtDeparture_Time']").style.display = 'none';
         txtStatusElement.show();
         txtStatusElement.val(data.Status);
+        //document.querySelector("#btnCancel").addEventListener('click', redirectToListFight);
     }
 
     this.DisplayInsertForm = function () {

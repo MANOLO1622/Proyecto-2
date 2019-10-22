@@ -145,6 +145,72 @@
     instance.recoverPasswordEvent = function() {
         //Get user name
         //Send to API recover the password with user name
+
+        $('#btnRecover').click(function () {
+
+            function generar() {
+                var caracteres = "!@abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789!@";
+                var password = "";
+                var longitud = 8;
+                for (i = 0; i < longitud; i++) password += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+                return contraseña;
+            }
+
+            let username = $('#loginEmail').val();
+
+            if (users === null) {
+
+
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].Email === username) {
+                        userRecovered = users[i];
+                        opcion = users[i].Rol;
+                        pwdGeneric = generar();
+
+                        var user = {
+                            ID: users.ID,
+                            name: users.name,
+                            lastName: users.lastName
+
+                        }
+
+
+
+                        //switch (opcion) {
+                        //    case '2':
+                        //        ApiService.postToAPI('postFAQ', user, function (response) { });
+                        //        break;
+
+                        //    case '3':
+                        //        ApiService.postToAPI('postFAQ', user, function (response) { });
+                        //        break;
+
+
+                        //}
+
+                    } else {
+                        swal({
+                            title: "Usuario  incorrecto. Por favor inténtelo de nuevo.",
+                            text: "",
+                            icon: "error",
+                            button: "Ok",
+                        });
+
+                    }
+
+                }
+            } else {
+                swal({
+                    title: "Usuario  incorrecto. Por favor inténtelo de nuevo.",
+                    text: "",
+                    icon: "error",
+                    button: "Ok",
+                });
+                console.log("error")
+            }
+
+
+        })
         
     }
 };

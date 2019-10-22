@@ -5,6 +5,9 @@
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
+<div style="margin: 0 auto; width: 30%;">
+    <h2 class="panel panel-primary">Información de vuelo</h2>
+</div>
 <div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
 
     @Html.GetSelectDropdown("statusFilter","vFlight", "FlightStatusDropdownChange", "", "",
@@ -18,8 +21,10 @@
             @*<h5 class="col-md-10">Información de vuelo</h5>*@
             <div class="col-md-8">
                 @Html.GetConfirmButton("btnRegisterFlight", "Create", "vFlight", "", "Registrar")
+                
                 @Html.GetButton("btnEditFlight", "Update", "vFlight", "", "hidden btn btn-outline-success", "", "Modificar")
-                @Html.GetConfirmButton("btnClean", "CleanForm", "vFlight", "", "Limpiar")
+                @*@Html.GetConfirmButton("btnCancel", "Cancel", "vFlight", "", "Cancelar")*@
+                @*@Html.GetConfirmButton("btnClean", "CleanForm", "vFlight", "", "Limpiar")*@
             </div>
         </div>
     </div>
@@ -29,7 +34,7 @@
                 <div class="bs-component">
                     <form id="frmEdition">
                         <div style="margin: 0 auto; width: 25%;">
-                            <h2>Información de vuelo</h2>
+                            
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
