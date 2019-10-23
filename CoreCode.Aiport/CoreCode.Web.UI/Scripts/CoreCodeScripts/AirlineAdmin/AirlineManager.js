@@ -36,7 +36,7 @@
     defaultOption.value = "";
     select.options.add(defaultOption);
 
-    $.get("http://localhost/SonyAirlinesAPI/api/getAirlines/", function (data) {
+    $.get(siteVariables.webAppUrl + "getAirlines/", function (data) {
         existingAirlines = data.Data;
         console.log(existingAirlines);
         for (let i = 0; i < existingAirlines.length; i++) {
@@ -54,7 +54,7 @@
         responsive: true,
         processing: true,
         "ajax": {
-            "url": 'http://localhost/SonyAirlinesAPI/api/getAirlineManagers',
+            "url": siteVariables.webAppUrl + 'getAirlineManagers',
             "type": "get",
             "datatype": "json",
             dataSrc: "Data"
@@ -169,7 +169,7 @@
                 button: "Ok",
             });
         } else {
-            $.post("http://localhost/SonyAirlinesAPI/api/postAirlineManager/", data, function (res) {
+            $.post(siteVariables.webAppUrl + "postAirlineManager/", data, function (res) {
                 console.log(res);
                 swal({
                     title: "Administrador registrado",
@@ -211,7 +211,7 @@
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                $.delete("http://localhost/SonyAirlinesAPI/api/deleteAirlineManager/", manager, function (res) {
+                $.delete(siteVariables.webAppUrl + "deleteAirlineManager/", manager, function (res) {
                     swal({
                         title: "Administrador eliminado",
                         text: "",
@@ -307,7 +307,7 @@
                     button: "Ok",
                 });
             } else {
-                $.post("http://localhost/SonyAirlinesAPI/api/updateAirlineManager/", manager, function () {
+                $.post(siteVariables.webAppUrl + "updateAirlineManager/", manager, function () {
                     swal({
                         title: "Administrador modificado",
                         text: "",

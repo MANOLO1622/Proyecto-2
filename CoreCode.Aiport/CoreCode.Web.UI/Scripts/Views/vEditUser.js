@@ -72,7 +72,7 @@
                                 icon: "success",
                                 button: "OK"
                             }).then(function () {
-                                window.location.href = 'http://localhost/SonyAirlines/dashboard/general/';
+                                window.location.href = siteVariables.webAppUrl + 'dashboard/general/';
                             });
                         });
                     }
@@ -124,7 +124,7 @@
 
 
     this.Cancel = function () {
-        window.location.href = 'http://localhost/SonyAirlines/dashboard/general/';
+        window.location.href = siteVariables.webAppUrl + 'dashboard/general/';
     }
 }
 

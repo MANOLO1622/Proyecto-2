@@ -24,8 +24,8 @@ namespace CoreCodeAPI.Controllers
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new FAQManagement();
-                apiResp.Data = mng.RetrieveAll();
+                //var mng = new FAQManagement();
+                //apiResp.Data = mng.RetrieveAll();
 
                 return Ok(apiResp);
 
