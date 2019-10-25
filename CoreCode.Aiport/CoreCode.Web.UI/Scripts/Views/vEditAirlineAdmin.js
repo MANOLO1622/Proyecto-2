@@ -72,7 +72,7 @@
                                 icon: "success",
                                 button: "OK"
                             }).then(function () {
-                                window.location.href = 'http://localhost/SonyAirlines/vListAirlinesRequest';
+                                window.location.href = siteVariables.webAppUrl + 'vListAirlinesRequest';
                             });
                         });
                     }
@@ -125,7 +125,7 @@
 
 
     this.Cancel = function () {
-        window.location.href = 'http://localhost/SonyAirlines/vListAirlinesRequest';
+        window.location.href = siteVariables.webAppUrl + 'vListAirlinesRequest';
     }
 }
 

@@ -36,7 +36,7 @@
     defaultOption.value = "";
     select.options.add(defaultOption);
 
-    $.get(siteVariables.webAppUrl + "getAirlines/", function (data) {
+    $.get(siteVariables.webAPIUrl + "getAirlines/", function (data) {
         existingAirlines = data.Data;
         console.log(existingAirlines);
         for (let i = 0; i < existingAirlines.length; i++) {
@@ -54,7 +54,7 @@
         responsive: true,
         processing: true,
         "ajax": {
-            "url": siteVariables.webAppUrl + 'getAirlineManagers',
+            "url": siteVariables.webAPIUrl + 'getAirlineManagers',
             "type": "get",
             "datatype": "json",
             dataSrc: "Data"
@@ -100,7 +100,7 @@
             ID: $ID.val(),
             FirstName: $firstName.val(),
             SecondName: $secondName.val() || "-",
-            LastName: $firstLastName.val(),
+            FirstLastName: $firstLastName.val(),
             SecondLastName: $secondLastName.val(),
             BirthDate: $birthDate.val(),
             Genre: $genre.val(),
@@ -261,7 +261,7 @@
             "ID": $ID.val(),
             "FirstName": $firstName.val(),
             "SecondName": $secondName.val(),
-            "LastName": $firstLastName.val(),
+            "FirstLastName": $firstLastName.val(),
             "SecondLastName": $secondLastName.val(),
             "BirthDate": $birthDate.val(),
             "Genre": $genre.val(),

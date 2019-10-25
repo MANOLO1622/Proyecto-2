@@ -46,14 +46,17 @@ namespace CoreCode.DataAccess.Crud
             return default(T);
         }
 
-        public bool UserExists(BaseEntity entity)
+        public T UserExists<T>(BaseEntity entity)
         {
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveStatementByUser(entity));
             if (lstResult.Count > 0)
             {
-                return true;
+                var dic = new Dictionary<string, object>();
+                dic = lstResult[0];
+                var objs = mapper.BuildObjectWithPassword(dic);
+                return (T)Convert.ChangeType(objs, typeof(T));
             }
-            return false;
+            return default(T);
         }
 
         public T UserExistsByUserNameOrId<T>(BaseEntity entity)

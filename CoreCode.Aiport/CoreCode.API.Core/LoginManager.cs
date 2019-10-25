@@ -40,13 +40,13 @@ namespace CoreCode.API.Core
             return crudLoginManager.Retrieve<User>(createdUser);
         }
 
-        public bool CheckIfUserExists(string userName)
+        public User CheckIfUserExists(string userName)
         {
             var createdUser = new User
             {
                 Email = userName
             };
-            return crudLoginManager.UserExists(createdUser);
+            return crudLoginManager.UserExists<User>(createdUser);
         }
 
         

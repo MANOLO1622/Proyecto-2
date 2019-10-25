@@ -120,7 +120,7 @@
                                     button: "Registrar Admin"
                                 }).then(function () {
 
-                                    window.location.href = 'http://localhost/SonyAirlines/vCreateAirportAdmin';
+                                    window.location.href = siteVariables.webAppUrl + 'vCreateAirportAdmin';
                                 });
                             }
 

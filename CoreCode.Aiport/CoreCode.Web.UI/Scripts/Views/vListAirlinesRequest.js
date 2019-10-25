@@ -325,7 +325,7 @@
         }
         else {
             localStorage.setItem('idAirlineLS', document.querySelector("#txtId").value);
-            window.location.href = 'http://localhost/SonyAirlines/vEditAirlineAdmin';
+            window.location.href = siteVariables.webAppUrl + 'vEditAirlineAdmin';
         }
 
 

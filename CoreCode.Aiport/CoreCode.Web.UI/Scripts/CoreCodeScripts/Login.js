@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     let users;
 
-    $.get("http://localhost/SonyAirlinesAPI/api/getUsers",
+    $.get(siteVariables.webAPIUrl + "getUsers",
         function (data) {
             users = data.Data;
             console.log(users);
@@ -25,17 +25,17 @@
                 console.log('loginButton --> loggedUser', loggedUser);
                 switch (loggedUser.Rol) {
                     case '1':
-                        window.location.href = "http://localhost/SonyAirlines/dashboard/general";
+                        window.location.href = siteVariables.webAppUrl + "dashboard/general";
                         break;
                     case '2':
-                        window.location.href = "http://localhost/SonyAirlines/dashboard/airport/" + loggedUser.AssignedID;
+                        window.location.href = siteVariables.webAppUrl + "dashboard/airport/" + loggedUser.AssignedID;
                         //add hiding clases to corresponding items in the nav bar
                         break;
                     case '3':
-                        window.location.href = "http://localhost/SonyAirlines/dashboard/airline/" + loggedUser.AssignedID;
+                        window.location.href = siteVariables.webAppUrl + "dashboard/airline/" + loggedUser.AssignedID;
                         break;
                     case '4':
-                        window.location.href = "http://localhost/SonyAirlines/dashboard/user/" + loggedUser.ID;
+                        window.location.href = siteVariables.webAppUrl + "dashboard/user/" + loggedUser.ID;
                         break;
                 }
             } else {

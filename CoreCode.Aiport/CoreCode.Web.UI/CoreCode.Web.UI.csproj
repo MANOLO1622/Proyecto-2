@@ -367,7 +367,6 @@
     <Content Include="Scripts\CoreCodeScripts\ApiService.js" />
     <Content Include="Scripts\CoreCodeScripts\Dashboard.js" />
     <Content Include="Scripts\CoreCodeScripts\DashboardSideNavigation.js" />
-    <Content Include="Scripts\CoreCodeScripts\HomePage.js" />
     <Content Include="Scripts\CoreCodeScripts\ModalService.js" />
     <Content Include="Scripts\CoreCodeScripts\Stores\StoreRegisterCtrl.js" />
     <Content Include="Scripts\CoreCodeScripts\userSession.js" />
@@ -439,9 +438,7 @@
     <Content Include="Views\Shared\DashboardLayout.cshtml" />
     <Content Include="Views\Dashboard\DashboardAsideNavigation.cshtml" />
     <Content Include="Views\AiportManager\vCreateAirportAdmin.cshtml" />
-    <Content Include="Views\Airline\CreateAirline.cshtml" />
     <Content Include="Views\Shared\PageLayout.cshtml" />
-    <Content Include="Views\Airline\ListAirline.cshtml" />
     <Content Include="Views\Shared\GeneralLayout.cshtml" />
     <Content Include="Views\PartialViews\ConfirmButton.cshtml" />
     <Content Include="Views\PartialViews\Table.cshtml" />

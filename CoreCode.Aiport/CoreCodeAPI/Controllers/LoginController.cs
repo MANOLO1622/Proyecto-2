@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 using CoreCode.Exceptions;
 using System.Web.Http.Cors;
+using CoreCode.API.Core.Helpers;
 
 namespace CoreCodeAPI.Controllers
 {
@@ -81,12 +82,25 @@ namespace CoreCodeAPI.Controllers
         }
 
         [Route("api/checkIfUserExists")]
+        [System.Web.Http.HttpGet]
         public IHttpActionResult CheckIfUserExists(string userName)
         {
             try
             {
-                apiResp.Data = mng.CheckIfUserExists(userName);
-                return Ok(apiResp);
+                var user = mng.CheckIfUserExists(userName);
+                if (user != null)
+                {
+                    var CorreoElectronico = user.Email;
+                    var pass = EncryptionHelper.GetEncryptedMd5Value(user.Password);
+
+                    string Mensaje = "Estimad@ " + user.FirstName + "  " + user.FirstLastName + " Su contraseña actual es: <br/><br/> " + pass + "";
+                    ToolsHelper.SendMail(CorreoElectronico, "Recuperación de contraseña", Mensaje);
+                    apiResp.Data = "Action was executed.";
+
+                } else {
+                    apiResp.Data = null;
+                }
+                return Ok(apiResp);                
             }
             catch (BussinessException bex)
             {
@@ -176,7 +190,7 @@ namespace CoreCodeAPI.Controllers
                 mng.RecoverPasswordAdminAirline(user);
                 var CorreoElectronico = user.Email;
                 var pass = user.Password;
-                string Mensaje = "Hola" + user.FirstName + "  " + user.FirstLastName + " Se ha reiniciado su contraseña <br/><br/> " + pass + " es su nueva contraseña para ingresar";
+                string Mensaje = "Hola" + user.FirstName + "  " + user.FirstLastName + " Su contraseña reenviada es: <br/><br/> " + pass + " Bienvenido!";
                 ToolsHelper.SendMail(CorreoElectronico, "Nueva contraseña de ingreso", Mensaje);
 
                 apiResp = new ApiResponse

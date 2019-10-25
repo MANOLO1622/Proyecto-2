@@ -36,7 +36,7 @@
     defaultOption.value = "";
     select.options.add(defaultOption);
 
-    $.get("http://localhost/SonyAirlinesAPI/api/getAirports/", function (data) {
+    $.get(siteVariables.webAPIUrl + "getAirports/", function (data) {
         existingAirports = data.Data;
         console.log(existingAirports);
         for (let i = 0; i < existingAirports.length; i++) {
@@ -54,14 +54,14 @@
         responsive: true,
         processing: true,
         "ajax": {
-            "url": 'http://localhost/SonyAirlinesAPI/api/getAirportManagers',
+            "url": siteVariables.webAPIUrl + 'getAirportManagers',
             "type": "get",
             "datatype": "json",
             dataSrc: "Data"
         },
         "columns": [
             { "data": "FirstName" },
-            { "data": "LastName" },
+            { "data": "FirstLastName" },
             { "data": "SecondLastName" },
             { "data": "Email" },
             { "data": "Phone" },
@@ -100,7 +100,7 @@
             ID: $ID.val(),
             FirstName: $firstName.val(),
             SecondName: $secondName.val() || "-",
-            LastName: $firstLastName.val(),
+            FirstLastName: $firstLastName.val(),
             SecondLastName: $secondLastName.val(),
             BirthDate: $birthDate.val(),
             Genre: $genre.val(),
@@ -169,7 +169,7 @@
                 button: "Ok",
             });
         } else {
-            $.post("http://localhost/SonyAirlinesAPI/api/postAirportManager/", data, function (res) {
+            $.post(siteVariables.webAPIUrl + "postAirportManager/", data, function (res) {
                 console.log(res);
                 swal({
                     title: "Administrador registrado",
@@ -211,7 +211,7 @@
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                $.delete("http://localhost/SonyAirlinesAPI/api/deleteAirportManager/", manager, function (res) {
+                $.delete(siteVariables.webAPIUrl + "deleteAirportManager/", manager, function (res) {
                     swal({
                         title: "Administrador eliminado",
                         text: "",
@@ -261,7 +261,7 @@
             "ID": $ID.val(),
             "FirstName": $firstName.val(),
             "SecondName": $secondName.val(),
-            "LastName": $firstLastName.val(),
+            "FirstLastName": $firstLastName.val(),
             "SecondLastName": $secondLastName.val(),
             "BirthDate": $birthDate.val(),
             "Genre": $genre.val(),
@@ -307,7 +307,7 @@
                     button: "Ok",
                 });
             } else {
-                $.post("http://localhost/SonyAirlinesAPI/api/updateAirportManager/", manager, function () {
+                $.post(siteVariables.webAPIUrl + "updateAirportManager/", manager, function () {
                     swal({
                         title: "Administrador modificado",
                         text: "",

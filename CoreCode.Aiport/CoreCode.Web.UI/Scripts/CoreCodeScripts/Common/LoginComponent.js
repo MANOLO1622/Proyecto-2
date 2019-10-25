@@ -142,75 +142,57 @@
         }
     };
 
-    instance.recoverPasswordEvent = function() {
+    instance.recoverPasswordEvent = function(e) {
         //Get user name
         //Send to API recover the password with user name
 
-        $('#btnRecover').click(function () {
+        $('#btnRecover').click(function (e) { //checkIfUserExists
 
-            function generar() {
-                var caracteres = "!@abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789!@";
-                var password = "";
-                var longitud = 8;
-                for (i = 0; i < longitud; i++) password += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-                return contraseña;
-            }
+            let username = $('#userName').val();
+            $("#btnRecover").attr("disabled", true);
+            e.stopImmediatePropagation();
 
-            let username = $('#loginEmail').val();
+            if (username !== undefined && username !== "") {
 
-            if (users === null) {
+                var user = { userName: username };
 
+                instance.ctrlActions.GetFromAPI("checkIfUserExists", user, function (data) {
+                    let userExist = data.Data !== null;
+                    if (userExist) {
 
-                for (let i = 0; i < users.length; i++) {
-                    if (users[i].Email === username) {
-                        userRecovered = users[i];
-                        opcion = users[i].Rol;
-                        pwdGeneric = generar();
-
-                        var user = {
-                            ID: users.ID,
-                            name: users.name,
-                            lastName: users.lastName
-
-                        }
-
-
-
-                        //switch (opcion) {
-                        //    case '2':
-                        //        ApiService.postToAPI('postFAQ', user, function (response) { });
-                        //        break;
-
-                        //    case '3':
-                        //        ApiService.postToAPI('postFAQ', user, function (response) { });
-                        //        break;
-
-
-                        //}
+                        swal({
+                            title: "¡Contraseña reenviada!",
+                            text: "Estimado usuario, se le informa que se envió a su correo electrónico la contraseña actual.",
+                            icon: "success",
+                            button: "Ok"
+                        });
+                        $("#btnRecover").attr("disabled", false);
 
                     } else {
                         swal({
-                            title: "Usuario  incorrecto. Por favor inténtelo de nuevo.",
+                            title: "Usuario no encontrado. Por favor inténtelo de nuevo.",
                             text: "",
                             icon: "error",
                             button: "Ok",
                         });
-
+                        $("#btnRecover").attr("disabled", false);
                     }
 
-                }
+                });
+
             } else {
+
                 swal({
-                    title: "Usuario  incorrecto. Por favor inténtelo de nuevo.",
+                    title: "Por favor introduzca su correo electrónico.",
                     text: "",
                     icon: "error",
                     button: "Ok",
                 });
-                console.log("error")
+                $("#btnRecover").attr("disabled", false);
             }
 
 
-        })
+        });
         
     }
 };

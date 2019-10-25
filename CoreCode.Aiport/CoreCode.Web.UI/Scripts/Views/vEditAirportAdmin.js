@@ -72,7 +72,7 @@
                                 icon: "success",
                                 button: "OK"
                             }).then(function () {
-                                window.location.href = 'http://localhost/SonyAirlines/vListAirports';
+                                window.location.href = siteVariables.webAppUrl + 'vListAirports';
                             });
                         });
                     }
@@ -125,7 +125,7 @@
 
 
     this.Cancel = function () {
-        window.location.href = 'http://localhost/SonyAirlines/vListAirports';
+        window.location.href = siteVariables.webAppUrl + 'vListAirports';
     }
 }
 
@@ -149,7 +149,7 @@ $(document).ready(function () {
         document.querySelector("#txtId").value = airportAdmin.ID;
         document.querySelector("#txtEmail").value = airportAdmin.Email;
         document.querySelector("#txtFirstName").value = airportAdmin.FirstName;
-        document.querySelector("#txtLastName").value = airportAdmin.LastName;
+        document.querySelector("#txtFirstLastName").value = airportAdmin.FirstLastName;
         document.querySelector("#txtSecondName").value = airportAdmin.SecondName;
         document.querySelector("#txtSecondLastName").value = airportAdmin.SecondLastName;
         document.querySelector("#txtBirthDate").value = formattedDate;

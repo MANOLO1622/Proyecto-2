@@ -39,15 +39,10 @@ namespace CoreCode.DataAccess.Mapper
         private const string DB_COL_LICENSE = "LICENSE";
         private const string DB_COL_PUT = "PUT";
         private const string DB_COL_IDASSIGNED = "ID_ASSIGNED";
-
-
         
-
-
         //hace una instancia del pojo de user
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            int x = 0;
             var User = new User
             {
                 ID = GetStringValue(row, DB_COL_ID),
@@ -58,6 +53,40 @@ namespace CoreCode.DataAccess.Mapper
                 BirthDate = GetStringValue(row, DB_COL_BIRTHDATE),
                 Genre = GetStringValue(row, DB_COL_GENRE),
                 Email = GetStringValue(row, DB_COL_EMAIL),
+                Phone = GetStringValue(row, DB_COL_PHONE),
+                CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
+                Status = Convert.ToBoolean(GetBoolValue(row, DB_COL_STATUS)),
+                Rol = GetIntValue(row, DB_COL_ID_ROL),
+                Age = GetStringValue(row, DB_COL_AGE),
+                Address = GetStringValue(row, DB_COL_ADDRESS),
+                Nationality = GetStringValue(row, DB_COL_NATIONALITY),
+                Province = GetStringValue(row, DB_COL_PROVINCE),
+                Canton = GetStringValue(row, DB_COL_CANTON),
+                District = GetStringValue(row, DB_COL_DISTRICT),
+                Experience = GetStringValue(row, DB_COL_EXPERIENCE),
+                GraduationYear = GetStringValue(row, DB_COL_GRADUATION_YEAR),
+                License = GetStringValue(row, DB_COL_LICENSE),
+                Put = GetStringValue(row, DB_COL_PUT),
+                AssignedID = GetStringValue(row, DB_COL_IDASSIGNED)
+            };
+
+            return User;
+        }
+
+        //hace una instancia del pojo de user
+        public BaseEntity BuildObjectWithPassword(Dictionary<string, object> row)
+        {
+            var User = new User
+            {
+                ID = GetStringValue(row, DB_COL_ID),
+                FirstName = GetStringValue(row, DB_COL_NAME),
+                SecondName = GetStringValue(row, DB_COL_SECOND_NAME),
+                FirstLastName = GetStringValue(row, DB_COL_FIRST_LAST_NAME),
+                SecondLastName = GetStringValue(row, DB_COL_SECOND_LAST_NAME),
+                BirthDate = GetStringValue(row, DB_COL_BIRTHDATE),
+                Genre = GetStringValue(row, DB_COL_GENRE),
+                Email = GetStringValue(row, DB_COL_EMAIL),
+                Password = GetStringValue(row, DB_COL_PASSWORD),
                 Phone = GetStringValue(row, DB_COL_PHONE),
                 CivilStatus = GetStringValue(row, DB_COL_CIVIL_STATUS),
                 Status = Convert.ToBoolean(GetBoolValue(row, DB_COL_STATUS)),
