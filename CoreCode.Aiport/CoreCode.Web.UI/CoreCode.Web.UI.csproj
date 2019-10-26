@@ -355,6 +355,7 @@
     <Content Include="Scripts\CoreCodeScripts\Airlines\AirlineRegister.js" />
     <Content Include="Scripts\CoreCodeScripts\Airlines\AirlineEdit.js" />
     <Content Include="Scripts\CoreCodeScripts\AirportManager\AirportManager.js" />
+    <Content Include="Scripts\CoreCodeScripts\Common\ControlUserActions.js" />
     <Content Include="Scripts\CoreCodeScripts\Common\FormControl.js" />
     <Content Include="Scripts\CoreCodeScripts\Common\LoginComponent.js" />
     <Content Include="Scripts\CoreCodeScripts\DomHelper.js" />

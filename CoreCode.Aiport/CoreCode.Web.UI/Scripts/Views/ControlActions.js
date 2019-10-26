@@ -1,10 +1,8 @@
 ﻿
 function ControlActions() {
 
-    this.URL_API = "http://localhost/SonyAirlinesAPI/api/";
-
     this.GetUrlApiService = function (service) {
-        return this.URL_API + service;
+        return siteVariables.webAPIUrl + service;
     }
 
     this.GetTableColumsDataName = function (tableId) {

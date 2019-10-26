@@ -86,10 +86,8 @@
                                             sessionStorage.setItem("airportObject", JSON.stringify(response.Data));
                                         }
                                         //Redirect to dashboard
-                                        window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
+                                        window.location.href = sourceUrl + "dashboard/airport/" + response.Data.ID;
                                     });
-                                    //window.location.href = sourceUrl + "/dashboard/airport/" + response.Data.ID;
-                                    //window.location.href = sourceUrl + "/dashboard/airport/" + userObjectElement.ID;
                                 console.log("Airport User");
                                 break;
                                 case 3: //AirlineUser
@@ -100,7 +98,7 @@
                                             sessionStorage.setItem("airlineObject", JSON.stringify(response.Data));
                                         }
                                         //Redirect to dashboard
-                                        window.location.href = sourceUrl + "/dashboard/airline/" + response.Data.ID;
+                                        window.location.href = sourceUrl + "dashboard/airline/" + response.Data.ID;
                                     });
                                     console.log("Airline User");
                                     break;

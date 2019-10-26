@@ -72,7 +72,8 @@
                                 icon: "success",
                                 button: "OK"
                             }).then(function () {
-                                window.location.href = siteVariables.webAppUrl + 'dashboard/general/';
+                                checkUserMapping();
+                                
                             });
                         });
                     }

@@ -1,7 +1,11 @@
-﻿<aside class="sidenav">
+﻿<script src="~/environmentVariables.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
+
+<aside class="sidenav">
     <div class="sidenav__brand">
         <i class="fas fa-home sidenav__brand-icon"></i>
-        <a class="sidenav__brand-link" onclick="" href="http://localhost/SonyAirlines/dashboard/general/">Inicio</a>
+        <a class="sidenav__brand-link" href="javascript:void(0);" onclick="checkUserMapping();return false;">Inicio</a>
         <i class="fas fa-times sidenav__brand-close"></i>
     </div>
     <div class="sidenav__profile">
