@@ -61,7 +61,8 @@
         }
         else {
             localStorage.setItem('idAirportLS', document.getElementById("txtId").value);
-            window.location.href = siteVariables.webAppUrl + 'vEditAirportAdmin';
+            checkUserMapping();
+            //window.location.href = siteVariables.webAppUrl + 'vEditAirportAdmin';
 
         }
 
@@ -219,7 +220,8 @@
         }
         else {
             localStorage.setItem('idAirportLS', document.querySelector("#txtId").value);
-            window.location.href = siteVariables.webAppUrl + 'vGates';
+            checkUserMapping();
+            //window.location.href = siteVariables.webAppUrl + 'vGates';
         }
 
 

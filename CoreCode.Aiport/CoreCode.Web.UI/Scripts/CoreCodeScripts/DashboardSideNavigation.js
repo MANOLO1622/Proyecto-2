@@ -19,14 +19,14 @@ DashboardNav.prototype.init = function() {
         case 1:
             instance.setNavForGeneralAdmin();
             break;
+        case 2:
+            instance.setNavForAirportAdmin();
+            break;
         case 3:
             instance.setNavForAirlineAdmin();
             break;
         case 4:
-            instance.setNavForUserAdmin();
-            break;
-        case 2:
-            instance.setNavForAirportAdmin();
+            instance.setNavForUser();
             break;
         default:
             //Redirect to home page.
@@ -38,7 +38,7 @@ DashboardNav.prototype.init = function() {
 }
 
 
-DashboardNav.prototype.setNavForGeneralAdmin = function() {
+DashboardNav.prototype.setNavForGeneralAdmin = function() { //Vista del SUPER ADMIN
     //Airport List
     $("#airportNavBtn").fadeIn();
     $("#seeAirportsNavBtn").removeAttr('style');
@@ -48,19 +48,37 @@ DashboardNav.prototype.setNavForGeneralAdmin = function() {
     $("#categoryStore").fadeIn(1000);
     $("#addCategoryNavBtn").removeAttr('style');
     $("#viewCategoryNavBtn").removeAttr('style');
-    
-    $("#airlineNavBtn").fadeIn(1400);
-    $("#viewAirlinesNavBtn").removeAttr('style');
+   
 
     $("#faqNavBtn").fadeIn(1800);
     $("#viewFaqNavBtn").removeAttr('style');
 
+    //Vuelos
     $("#flightsNavBtn").fadeIn(2200);
+    $("#viewFlights").removeAttr('style');
     $("#viewFlightsNavBtn").removeAttr('style');
+    $("#viewTickets").removeAttr('style');
 
+    //Reservacion
+    $("#reservationNavBtn").fadeIn(2200);
+    $("#viewReservationNavBtn").removeAttr('style');
 
+    //Empleados
+    $("#employeeNavBtn").fadeIn(2200);
+    $("#viewEmployeeNavBtn").removeAttr('style');
+
+    //Aerolineas
     $("#airlineNavBtn").fadeIn(2200);
     $("#viewAirlinesNavBtn").removeAttr('style');
+
+    //Asignaciones
+    $("#asignationNavBtn").fadeIn(2200);
+    $("#viewAsignationNavBtn").removeAttr('style');
+
+    //Aviones
+    $("#airplaneNavBtn").fadeIn(2200);
+    $("#addAirplaneNavBtn").removeAttr('style');
+    $("#viewAairplaneNavBtn").removeAttr('style');
 };
 
 DashboardNav.prototype.setNavForAirportAdmin = function() {
@@ -79,66 +97,65 @@ DashboardNav.prototype.setNavForAirportAdmin = function() {
     $("#seeGatesNavBtn").removeAttr('style');
 
     //Airlines List
-   $("#airlineNavBtn").fadeIn(2000);
-    $("#viewAirlineRequests").removeAttr('style');
+   //$("#airlineNavBtn").fadeIn(2000);
+   // $("#viewAirlinesNavBtn").removeAttr('style');
 
 };
 
-DashboardNav.prototype.setNavForAirlineAdmin = function() {
-    //General Report
-    //Airport 
-    //Airport List
-    $("#airportNavBtn").fadeIn(2000);
-    $("#seeAirportsRequests").removeAttr('style');
-    //When Looking at a Airport Detail
-    //Gates
-    //See All Gates
-    //Airline
-    //Edit Airline
-    //Delete Airline
-    //Flights
+DashboardNav.prototype.setNavForAirlineAdmin = function() {//Optiones que puede ver el Amid de aerolinea
+
+    //Aerolíneas
+    $("#airlineNavBtn").fadeIn(4000);
+    $("#viewAirlineNavBtn").removeAttr('style');
+    //Empleados
+    $("#employeeNavBtn").fadeIn(4000);
+    $("#viewEmployeeNavBtn").removeAttr('style');
+    //Vuelos
     $("#flightsNavBtn").fadeIn(4000);
     $("#viewFlightsNavBtn").removeAttr('style');
-    $("#viewAirlinesNavBtn").removeAttr('style');
-    $("#viewTickets").removeAttr('style');
+    //Aviones
+    $("#airplaneNavBtn").fadeIn(4000);
+    $("#viewAirplans").removeAttr('style');
 
-
-    //Airports
-    $("#createAirportsNavBtn").fadeIn(2000);
-    $("#seeAirportsNavBtn").removeAttr('style');
-
-    //GATES
-    $("#addGateNavBtn").fadeIn(2000);
-    $("#addGateNavBtn").removeAttr('style');
-
-    //AVIONES
-    $("#addAirplaneNavBtn").fadeIn(2000);
-    $("#addAirplaneNavBtn").removeAttr('style');
-
-
-    //ASIGNACIONES
-    $("#addAsignationAirlineNavBtn").fadeIn(2000);
-    $("#addAsignationAirlineNavBtn").removeAttr('style');
-
-    //PAIS
-    $("#viewCategoryNavBtn").fadeIn(2000);
-    $("#viewCategoryNavBtn").removeAttr('style');
+   
 };
-DashboardNav.prototype.setNavForUserAdmin = function () {
-    //General Report
-    //Airport 
-    //Airport List
+
+DashboardNav.prototype.setNavForUser = function () {//Optiones que puede ver el Cliente
+
+    //Aerolíneas
+    $("#reservationNavBtn").fadeIn(4000);
+    $("#viewReservationNavBtn").removeAttr('style');
+
+    //Vuelos
+    $("#flightsNavBtn").fadeIn(4000);
+    $("#viewFlights").removeAttr('style');
+
+
+};
+DashboardNav.prototype.setNavForUserAdmin = function () { //Optiones que puede ver el Amid de Admin Airport
+
+    //Aeropuertos
     $("#airportNavBtn").fadeIn();
-    $("#seeAirportsRequests").removeAttr('style');
-    //When Looking at a Airport Detail
-    //Gates
-    //See All Gates
-    //Airline
-    //Edit Airline
-    //Delete Airline
-    //Flights
+    $("#seeAirportNavBtn").removeAttr('style');
+    //Vuelos
     $("#flightsNavBtn").fadeIn(4000);
     $("#viewFlightsNavBtn").removeAttr('style');
+    //Reservacion
+    $("#reservationNavBtn").fadeIn(4000);
+    $("#viewReservationNavBtn").removeAttr('style');
+    //Empleados
+    $("#employeeNavBtn").fadeIn(4000); 
+    $("#viewEmployeeNavBtn").removeAttr('style');
+    //Aerolíneas
+    $("#airlineNavBtn").fadeIn(4000);
+    $("#viewAirlinesNavBtn").removeAttr('style');
+    //Asignaciones
+    $("#asignationNavBtn").fadeIn(4000);
+    $("#viewAsignationNavBtn").removeAttr('style');
+    //Aviones
+    $("#airplaneNavBtn").fadeIn(4000);
+    $("#viewAairplaneNavBtn").removeAttr('style');
+
     $("#viewAirlinesNavBtn").removeAttr('style');
     $("#viewTickets").removeAttr('style');
 };

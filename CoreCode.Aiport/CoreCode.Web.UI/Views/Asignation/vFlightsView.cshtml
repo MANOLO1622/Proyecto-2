@@ -3,9 +3,10 @@
     <link rel="stylesheet" href="~/Scripts/TableHide.css" />
 }
 
-<script src="~/Scripts/Views/ControlActions.js"></script>
-<script src="~/Scripts/Views/vAsignation.js"></script>
 <script src="~/environmentVariables.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
+<script src="~/Scripts/Views/vAsignation.js"></script>
 <script src="~/Scripts/Views/vFlight.js"></script>
 @{
     /**/
@@ -19,7 +20,7 @@
 </div>
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
-        
+
         @Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Name", "Destiny_Airport_Name", "Departure_Time", "Arrival_DateTime", "Id_Airplane", "Id_Gate" },
        new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada", "Avión", "Puerta" })
     </div>

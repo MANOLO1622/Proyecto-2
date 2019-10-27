@@ -1,15 +1,15 @@
 ﻿@using CoreCode.Web.UI.Models.Helpers
 
-
 @section pageCss{
     <link rel="stylesheet" href="~/Scripts/TableHide.css" />
 }
 
-
-<script src="~/Scripts/Views/ControlActions.js"></script>
+    
 <script src="~/environmentVariables.js"></script>
-<script src="~/Scripts/Views/vCreateEmployee.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
 <script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
+<script src="~/Scripts/Views/vCreateEmployee.js"></script>
+
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
@@ -121,11 +121,9 @@
     </div>
 </form>
 <form class="main-right-content-container">
- 
-    <div id="btnControl">
 
+    <div id="btnControl">
         @Html.GetConfirmButton("btnRegister", "Create", "vCreateEmployee", "", "Registrar")
         @Html.GetConfirmButton("btnControl", "CleanForm", "vCreateEmployee", "", "Limpiar")
     </div>
-
 </form>

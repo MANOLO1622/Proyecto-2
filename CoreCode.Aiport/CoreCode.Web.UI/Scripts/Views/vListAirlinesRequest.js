@@ -325,7 +325,8 @@
         }
         else {
             localStorage.setItem('idAirlineLS', document.querySelector("#txtId").value);
-            window.location.href = siteVariables.webAppUrl + 'vEditAirlineAdmin';
+            checkUserMapping();
+            //window.location.href = siteVariables.webAppUrl + 'vEditAirlineAdmin';
         }
 
 

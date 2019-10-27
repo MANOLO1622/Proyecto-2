@@ -54,7 +54,8 @@
         responsive: true,
         processing: true,
         "ajax": {
-            "url": siteVariables.webAPIUrl + 'getAirlineManagers',
+            "url": checkUserMapping(),
+            //"url": siteVariables.webAPIUrl + 'getAirlineManagers',
             "type": "get",
             "datatype": "json",
             dataSrc: "Data"

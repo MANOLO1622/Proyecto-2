@@ -1,8 +1,9 @@
 ﻿@using CoreCode.Web.UI.Models.Helpers
 
-<script src="~/Scripts/Views/ControlActions.js"></script>
-<script src="~/Scripts/Views/vFlight.js"></script>
 <script src="~/environmentVariables.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
+<script src="~/Scripts/Views/vFlight.js"></script>
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
@@ -14,7 +15,7 @@
     @Html.GetSelectDropdown("statusFilter","vFlight", "FlightStatusDropdownChange", "", "",
         new Dictionary<string, string> { { "Vuelos a tiempo",  "a tiempo" }, { "Vuelos cancelados", "cancelado"}, { "Vuelos retrasados", "retrasado" } })
 
-    @Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Name", "Destiny_Airport_Name", "Departure_Time", "Arrival_DateTime", "Id_Airplane", "Id_Gate" }, new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada","Empresa del Avión", "Puerta" })
+    @Html.GetTable("tblFlights", "vFlight", "BindFields", "", new List<string> { "Id", "Airline_Id", "Origin_Airport_Name", "Destiny_Airport_Name", "Departure_Time", "Arrival_DateTime", "Id_Airplane", "Id_Gate" }, new List<string> { "Id", "Aerolinea", "Aeropuerto Origen", "Aeropuerto Destino", "Tiempo de salida", "Tiempo de llegada", "Empresa del Avión", "Puerta" })
 </div>
 <div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
     <div class="card-header">
@@ -22,7 +23,7 @@
             @*<h5 class="col-md-10">Información de vuelo</h5>*@
             <div class="col-md-8">
                 @Html.GetConfirmButton("btnRegisterFlight", "Create", "vFlight", "", "Registrar")
-                
+
                 @Html.GetButton("btnEditFlight", "Update", "vFlight", "", "hidden btn btn-outline-success", "", "Modificar")
                 @*@Html.GetConfirmButton("btnCancel", "Cancel", "vFlight", "", "Cancelar")*@
                 @*@Html.GetConfirmButton("btnClean", "CleanForm", "vFlight", "", "Limpiar")*@
@@ -35,7 +36,7 @@
                 <div class="bs-component">
                     <form id="frmEdition">
                         <div style="margin: 0 auto; width: 25%;">
-                            
+
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">

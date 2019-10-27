@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="~/Scripts/TableHide.css" />
 }
 
-<script src="~/Scripts/Views/ControlActions.js"></script>
-<script src="~/Scripts/Views/vUser.js"></script>
 <script src="~/environmentVariables.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
+<script src="~/Scripts/Views/vUser.js"></script>
+
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
@@ -15,9 +17,9 @@
     <h2>Lista de Usuarios </h2>
 </div>
 <div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
-        @Html.GetTable("tblUsers", "vListUser", "BindFields", "", new List<string> { "ID", "SecondName", "FirstLastName", "SecondLastName", "BirthDate", "Genre", "Email", "Password", "Phone", "CivilStatus", "Status", "Rol", "Age", "Address", "Nationality", "Province", "Canton", "District", "Experience", "GraduationYear", "License", "Put" },
-                new List<string> { "Cédula", "Nombre", "Segundo Nombre", "Primer Apellido", "Segundo Apellido", "Fecha Nac.", "Genero", "Correo", "Contraseña", "Telefono", "Estado Civil", "Estado", "Rol", "Edad", "Dirección", "Nacionalidad", "Provincia", "Canton", "Distrito", "Experiencia", "Graduación", "Lisencia", "Puesto" })
-    </div>
+    @Html.GetTable("tblUsers", "vListUser", "BindFields", "", new List<string> { "ID", "SecondName", "FirstLastName", "SecondLastName", "BirthDate", "Genre", "Email", "Password", "Phone", "CivilStatus", "Status", "Rol", "Age", "Address", "Nationality", "Province", "Canton", "District", "Experience", "GraduationYear", "License", "Put" },
+            new List<string> { "Cédula", "Nombre", "Segundo Nombre", "Primer Apellido", "Segundo Apellido", "Fecha Nac.", "Genero", "Correo", "Contraseña", "Telefono", "Estado Civil", "Estado", "Rol", "Edad", "Dirección", "Nacionalidad", "Provincia", "Canton", "Distrito", "Experiencia", "Graduación", "Lisencia", "Puesto" })
+</div>
 
 @*<div class="card border-secondary" style="margin-top: 50px; margin: 0 auto; width: 98%;">
         <div class="card-header">

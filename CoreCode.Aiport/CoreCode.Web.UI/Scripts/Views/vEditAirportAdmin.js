@@ -72,7 +72,8 @@
                                 icon: "success",
                                 button: "OK"
                             }).then(function () {
-                                window.location.href = siteVariables.webAppUrl + 'vListAirports';
+                                checkUserMapping();
+                                //window.location.href = siteVariables.webAppUrl + 'vListAirports';
                             });
                         });
                     }
@@ -125,7 +126,8 @@
 
 
     this.Cancel = function () {
-        window.location.href = siteVariables.webAppUrl + 'vListAirports';
+        checkUserMapping();
+        //window.location.href = siteVariables.webAppUrl + 'vListAirports';
     }
 }
 

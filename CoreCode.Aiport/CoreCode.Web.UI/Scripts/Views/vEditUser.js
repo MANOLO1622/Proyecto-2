@@ -73,7 +73,7 @@
                                 button: "OK"
                             }).then(function () {
                                 checkUserMapping();
-                                
+                                //window.location.href = siteVariables.webAppUrl + 'dashboard/general/';
                             });
                         });
                     }
@@ -125,7 +125,8 @@
 
 
     this.Cancel = function () {
-        window.location.href = siteVariables.webAppUrl + 'dashboard/general/';
+        checkUserMapping();
+        //window.location.href = siteVariables.webAppUrl + 'dashboard/general/';
     }
 }
 

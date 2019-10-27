@@ -119,8 +119,8 @@
                                     icon: "success",
                                     button: "Registrar Admin"
                                 }).then(function () {
-
-                                    window.location.href = siteVariables.webAppUrl + 'vCreateAirportAdmin';
+                                    checkUserMapping();
+                                    //window.location.href = siteVariables.webAppUrl + 'vCreateAirportAdmin';
                                 });
                             }
 

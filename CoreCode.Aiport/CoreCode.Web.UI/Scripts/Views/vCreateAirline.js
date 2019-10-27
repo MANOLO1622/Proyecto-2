@@ -84,8 +84,8 @@
                                     icon: "success",
                                     button: "Registrar Admin"
                                 }).then(function () {
-
-                                    window.location.href = siteVariables.webAppUrl + 'vCreateAirlineAdmin';
+                                    checkUserMapping();
+                                    //window.location.href = siteVariables.webAppUrl + 'vCreateAirlineAdmin';
 
 
                                 });

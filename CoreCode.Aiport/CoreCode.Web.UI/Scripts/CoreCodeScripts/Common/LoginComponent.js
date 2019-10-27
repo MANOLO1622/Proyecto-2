@@ -110,7 +110,7 @@
                                             sessionStorage.setItem("userObject", JSON.stringify(response.Data));
                                         }
                                         //Redirect to dashboard
-                                        window.location.href = sourceUrl + "/dashboard/user/" + response.Data.ID;
+                                        window.location.href = sourceUrl + "dashboard/user/" + response.Data.ID;
                                     });
                         
                                     console.log("User");

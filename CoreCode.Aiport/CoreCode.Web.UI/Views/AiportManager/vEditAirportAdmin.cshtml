@@ -1,14 +1,15 @@
 ﻿@using CoreCode.Web.UI.Models.Helpers
 
-
 @section pageCss{
     <link rel="stylesheet" href="~/Scripts/TableHide.css" />
 }
 
 
-<script src="~/Scripts/Views/ControlActions.js"></script>
 <script src="~/environmentVariables.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
 <script src="~/Scripts/Views/vEditAirportAdmin.js"></script>
+
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
@@ -20,19 +21,15 @@
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtId", "text", "Cédula*", "form-control", "Ingrese # de identificación", "ID", true)
         </div>
-
         <div class="col-md-6">
             @Html.GetInputWithLabel("txtEmail", "email", "Correo electrónico*", "form-control", "(Obligatorio)", "Email", true)
-
         </div>
     </div>
     <div class="row">
 
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtFirstName", "text", "Primer nombre*", "form-control", "(Obligatorio)", "FirstName", true)
         </div>
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtLastName", "text", "Primer apellido*", "form-control", "(Obligatorio) ", "LastName", true)
         </div>
@@ -41,11 +38,9 @@
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtSecondName", "text", "Segundo nombre", "form-control", "(Opcional)", "SecondName", false)
         </div>
-
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtSecondLastName", "text", "Segundo apellido", "form-control", "(Opcional)", "SecondLastName", false)
         </div>
-
 
     </div>
     <div class="row">
@@ -55,11 +50,8 @@
         </div>
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtPhone", "tel", "Teléfono*", "form-control", "(Obligatorio)", "Phone", true)
-
         </div>
-
     </div>
-
     <div class="row">
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtPassword", "text", "Contraseña*", "form-control", "(Obligatorio)", "Password", false)
@@ -67,11 +59,8 @@
         </div>
         <div class="form-group col-md-6">
             @Html.GetInputWithLabel("txtPassword2", "text", "Confirmación de contraseña*", "form-control", "(Obligatorio)", "Password2", false)
-
         </div>
-
     </div>
-
 
     <div class="row">
         <div class="form-group col-md-6">
@@ -86,7 +75,6 @@
                 new Dictionary<string, string> { { "Casado",  "casado" }, { "Soltero", "soltero" },{"Otro", "otro" } })*@
         </div>
         <div class="form-group col-md-6">
-
             <label for="selectGenre">Género*</label>
             <select class="form-control" columnDataName="Genre" id="selectGenre" required>
                 <option value="">Seleccione opción (Obligatorio)</option>
@@ -100,11 +88,9 @@
     </div>
 </form>
 <form class="main-right-content-container">
- 
-    <div id="btnControl">
 
+    <div id="btnControl">
         @Html.GetConfirmButton("btnEdit", "Update", "vEditAirportAdmin", "", "Modificar")
         @Html.GetConfirmButton("btnCancel", "Cancel", "vEditAirportAdmin", "", "Cancelar")
     </div>
-
 </form>

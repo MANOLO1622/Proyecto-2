@@ -1,20 +1,18 @@
 ﻿@using CoreCode.Web.UI.Models.Helpers
 <div id="editAirlineContainer" style="display: none;">Edit Airline</div>
 
-
 @{
     ViewBag.Title = "Modificar aerolinea";
 }
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="~/Scripts/CoreCodeScripts/ApiService.js"></script>
-    <script src="~/environmentVariables.js"></script>
-    <script src="~/Scripts/CoreCodeScripts/Airlines/AirlineEdit.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/CoreCodeScripts/ApiService.js"></script>
+<script src="~/environmentVariables.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Airlines/AirlineEdit.js"></script>
 @section pageCss{
     <link rel="stylesheet" href="~/Scripts/TableHide.css" />
 }
-
 <form class="main-right-content-container">
     <div style="margin: 0 auto; width: 40%;">
         <h2>Información de Aerolínea</h2>
@@ -40,19 +38,15 @@
             @Html.GetInputWithLabel("txtEmail", "text", "Email", "form-control", "Email:", true)
         </div>
     </div>
-
     <div>
         <button type="button" id="btnListAirline">Ver aerolineas</button>
     </div>
-    
+
     <div id="btnControl">
         @Html.GetConfirmButton("btnEditAirline", "Modificar")
         @Html.GetCancelButton("btnCancel")
         @*<button type="button" id="btnEditAirline">Modificar</button>
-        <button type="button" id="btnCancel">Cancelar</button>*@
+            <button type="button" id="btnCancel">Cancelar</button>*@
     </div>
-
 </form>
-
-
 
