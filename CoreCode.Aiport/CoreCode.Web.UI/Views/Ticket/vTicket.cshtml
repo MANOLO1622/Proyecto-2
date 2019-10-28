@@ -6,12 +6,16 @@
 <link rel="stylesheet" href="~/Scripts/TableHide.css" />
 <link rel="stylesheet" href="~/Scripts/Pay.css" />
 <script src="~/Scripts/JavaScript.js"></script>
+<script src="~/Scripts/Views/vMoneys.js"></script>
 
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
-<div class="form-group col-md-10">
-    @Html.GetInputWithLabel("txtId_Flight", "", "", "Detalle de tickets", "Detalle de tickets", "", true)
+<div class="form-group col-md-10" style="display: none">
+    @Html.GetInputWithLabel("txtId_Flight", "", "", "", "", "", false)
+</div>
+<div style="margin: 0 auto; width: 30%;">
+    <h2 class="panel panel-primary">Registro de tickets</h2>
 </div>
 @*@Html.ActionLink("Pay Direct With Credit Card", "PaymentWithCreditCard", "Paypal")
     @Html.ActionLink("Pay with Paypal Account", "PaymentWithPaypal", "Paypal")*@
@@ -25,33 +29,78 @@
     <div class="card-header">
         <div class="row pull-right">
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 @Html.GetConfirmButton("btnRegisterTicket", "Create", "vTicket", "", "Registrar")
                 @Html.GetButton("btnEditTicket", "Update", "vTicket", "", "hidden btn btn-outline-success", "", "Modificar")
                 @*@Html.GetConfirmButton("btnClean", "CleanForm", "vTicket", "", "Limpiar")*@
             </div>
+            <div class="row pull-right">
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Precios</button>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div style="margin: 0 auto; width: 100%;">
+                                    <h3 class="panel panel-primary">Lista de precios de tickets</h3>
+                                </div>
+                            </div>
+
+                            <div class="modal-body">
+                                @{
+                                    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+                                }
+
+                                <div id="DropdownAndTable" style="margin: 0 auto; width: 98%" ;>
+                                    @Html.GetTable("tblMoney", "vMoneys", "BindFields", "", new List<string> { "IDMoney", "Origen", "Destino", "Precio" },
+                                    new List<string> { "Código", "País Origen", "País Destino", "Precio del ticket" })
+                                </div>
+                                <div class="card border-secondary" style="display: none">
+                                    <div class="card-header">
+                                        <div class="col-md-6">
+                                            @Html.GetConfirmButton("btnDisable", "none", "", "", "")
+                                            @Html.GetConfirmButton("btnEnable", "", "", "", "")
+                                        </div>
+                                    </div>
+
+                                </div><!-- Modal content-->
+                            </div><!-- aqui-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+
     </div>
     <div class="card-body">
         <div class="row">
             <div class="col-lg-12">
                 <div class="bs-component">
                     @*<form action="/Payment/Charge" method="POST">
-                            <article>
-                                <label>Amount: $5.00</label>
-                            </article>
-                            <script src="//checkout.stripe.com/v2/checkout.js"
-                                    class="stripe-button"
-                                    data-key="pk_test_h3sCi8Oi9viC0eC8G5usRrtA00cFLs48IU"
-                                    data-locale="auto"
-                                    data-description="Sample Charge"
-                                    data-amount="500">
-                            </script>
-                        </form>*@
+                        <article>
+                            <label>Amount: $5.00</label>
+                        </article>
+                        <script src="//checkout.stripe.com/v2/checkout.js"
+                                class="stripe-button"
+                                data-key="pk_test_h3sCi8Oi9viC0eC8G5usRrtA00cFLs48IU"
+                                data-locale="auto"
+                                data-description="Sample Charge"
+                                data-amount="500">
+                        </script>
+                    </form>*@
                     <form id="frmEdition">
                         @*<div style="margin: 0 auto; width: 30%;">
-                                <h2>Registro de Tickets</h2>
-                            </div>*@
+                            <h2>Registro de Tickets</h2>
+                        </div>*@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 @Html.GetInputWithLabel("txtId", "text", "Código de reserva", "", "Código de reserva: ", "Id", true)

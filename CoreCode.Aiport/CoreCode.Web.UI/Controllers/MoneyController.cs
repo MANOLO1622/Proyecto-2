@@ -9,15 +9,20 @@ using CoreCode.Web.UI.ActionFilter;
 namespace CoreCode.Web.UI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class CategoryController : Controller
+    public class MoneyController : Controller
     {
 
-        [Route("vCountries")]
-        public ActionResult vCountries()
+        [Route("vMoneys")]
+        public ActionResult vMoneys()
         {
-            return View("~/Views/Country/vCountries.cshtml");
+            return View();
         }
-        
+        [Route("vListMoneys")]
+        public ActionResult vListMoneys()
+        {
+            return View();
+        }
+
 
     }
 }

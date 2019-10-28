@@ -5,7 +5,7 @@
 
     switch (userObjectElement.Rol) {
         case 1: //UserAdmin
-            window.location.href = siteVariables.webAppUrl + "/dashboard/general/";
+            window.location.href = siteVariables.webAppUrl + "dashboard/general/";
             console.log("User Admin");
             break;
         case 2: //AirportUser

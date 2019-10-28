@@ -181,7 +181,7 @@
     <Compile Include="Controllers\AirlineManagerController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
     <Compile Include="Controllers\AirportManagerController.cs" />
-    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\MoneyController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\GateController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />

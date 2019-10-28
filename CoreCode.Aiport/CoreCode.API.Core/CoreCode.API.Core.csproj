@@ -61,7 +61,7 @@
     <Compile Include="AirlineManagerManagement.cs" />
     <Compile Include="AirportManagement.cs" />
     <Compile Include="AirportManagerManagement.cs" />
-    <Compile Include="CategoryManagement.cs" />
+    <Compile Include="MoneyManagement.cs" />
     <Compile Include="FAQManagement.cs" />
     <Compile Include="Helpers\EncryptionHelper.cs" />
     <Compile Include="LoginManager.cs" />

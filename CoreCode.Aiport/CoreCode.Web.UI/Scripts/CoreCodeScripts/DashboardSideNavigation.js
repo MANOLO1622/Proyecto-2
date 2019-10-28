@@ -44,10 +44,10 @@ DashboardNav.prototype.setNavForGeneralAdmin = function() { //Vista del SUPER AD
     $("#seeAirportsNavBtn").removeAttr('style');
     $("#createAirportsNavBtn").removeAttr('style');
     
-    //Category List
-    $("#categoryStore").fadeIn(1000);
-    $("#addCategoryNavBtn").removeAttr('style');
-    $("#viewCategoryNavBtn").removeAttr('style');
+    //Money List
+    $("#moneyNavBtn").fadeIn(1000);
+    $("#addMoneyNavBtn").removeAttr('style');
+    $("#viewMoneyNavBtn").removeAttr('style');
    
 
     $("#faqNavBtn").fadeIn(1800);
@@ -86,8 +86,8 @@ DashboardNav.prototype.setNavForAirportAdmin = function() {
     $("#airportNavBtn").fadeIn();
     $("#editAirportNavBtn").removeAttr('style');
 
-    //Store List
-    $("#storesNavBtn").fadeIn(1000);
+    //Money List
+    $("#moneyNavBtn").fadeIn(1000);
     $("#createStoreNavBtn").removeAttr('style');
     $("#viewStores").removeAttr('style');
 
@@ -117,6 +117,9 @@ DashboardNav.prototype.setNavForAirlineAdmin = function() {//Optiones que puede 
     $("#airplaneNavBtn").fadeIn(4000);
     $("#viewAirplans").removeAttr('style');
 
+    //Money List
+    $("#moneyNavBtn").fadeIn(1000);
+    $("#viewMoneyNavBtn").removeAttr('style');
    
 };
 
@@ -129,6 +132,10 @@ DashboardNav.prototype.setNavForUser = function () {//Optiones que puede ver el 
     //Vuelos
     $("#flightsNavBtn").fadeIn(4000);
     $("#viewFlights").removeAttr('style');
+
+    //Money List
+    $("#moneyNavBtn").fadeIn(1000);
+    $("#viewMoneyNavBtn").removeAttr('style');
 
 
 };

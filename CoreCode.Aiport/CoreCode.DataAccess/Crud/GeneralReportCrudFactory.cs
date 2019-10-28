@@ -57,10 +57,10 @@ namespace CoreCode.DataAccess.Crud
                 {
                     Name = row.Field<string>(StoreNameColName),
                     IDStore = row.Field<string>(StoreIdColName),
-                    Category = new Category
+                    Category = new Money
                     {
-                        Description = row.Field<string>(StoreDescriptionColName),
-                        IDCategory = row.Field<string>(StoreCategoryIdColName),
+                        Origen = row.Field<string>(StoreDescriptionColName),
+                        IDMoney = row.Field<string>(StoreCategoryIdColName),
                         Status = row.Field<bool>(StoreStatusColName)
                     },
                     ManagerName = "Manuel Elizondo",

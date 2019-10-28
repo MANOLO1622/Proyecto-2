@@ -168,7 +168,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\AirplaneController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
-    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\MoneyController.cs" />
     <Compile Include="Controllers\AirlineManagerController.cs" />
     <Compile Include="Controllers\AirportManagerController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
@@ -412,7 +412,7 @@
     <Content Include="Scripts\Views\vCreateAirports.js" />
     <Content Include="Scripts\Views\vFlight.js" />
     <Content Include="Scripts\Views\vFaqs.js" />
-    <Content Include="Scripts\Views\vCountries.js" />
+    <Content Include="Scripts\Views\vMoneys.js" />
     <Content Include="Scripts\Views\vListAirlinesRequest.js" />
     <Content Include="Scripts\Views\vListAirports.js" />
     <Content Include="Scripts\Views\vGates.js" />
@@ -472,7 +472,7 @@
     <Content Include="Views\Dashboard\ShowAirlineDashboard.cshtml" />
     <Content Include="Views\Dashboard\ShowGeneralDashboard.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\CreateCategoryPartial.cshtml" />
-    <Content Include="Views\Country\vCountries.cshtml" />
+    <Content Include="Views\Money\vMoneys.cshtml" />
     <Content Include="Views\Gate\vGates.cshtml" />
     <Content Include="Views\Flight\vFlight.cshtml" />
     <Content Include="Views\Faq\vFaqs.cshtml" />
@@ -489,10 +489,7 @@
     <Content Include="Views\AirlineManager\vEditAirlineAdmin.cshtml" />
     <Content Include="Views\Passenger\VPassenger.cshtml" />
     <Content Include="Views\Passenger\VListTicket.cshtml" />
-    <Content Include="Views\Ticket\PaymentWithCreditCard.cshtml" />
-    <Content Include="Views\Ticket\PaymentWithPaypal.cshtml" />
     <Content Include="Views\Paypal\Index.cshtml" />
-    <Content Include="Views\Ticket\Index.cshtml" />
     <Content Include="Views\Passenger\vCreatePassenger.cshtml" />
     <Content Include="Views\Passenger\vListFlightsPassengers.cshtml" />
     <Content Include="Views\PartialViews\CustomComponentContent\RegisterUser.cshtml" />
@@ -509,6 +506,7 @@
     <Content Include="Views\Airplane\vAirplansView.cshtml" />
     <Content Include="Views\Reservation\vReservations.cshtml" />
     <Content Include="Views\Reservation\vListReservations.cshtml" />
+    <Content Include="Views\Money\vListMoneys.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

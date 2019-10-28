@@ -14,25 +14,25 @@ using System.Web.Routing;
 namespace CoreCodeAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class CategoryController : ApiController
+    public class MoneyController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
 
 
-        [Route("api/getCategoryById")]
-        public IHttpActionResult GetCategoryById(string id)
+        [Route("api/getMoneyById")]
+        public IHttpActionResult GetMoneyById(string id)
         {
             try
             {
-                var mng = new CategoryManagement();
-                var category = new Category
+                var mng = new MoneyManagement();
+                var money = new Money
                 {
-                    IDCategory = id
+                    IDMoney = id
                 };
 
-                category = mng.RetrieveById(category);
+                money = mng.RetrieveById(money);
                 apiResp = new ApiResponse();
-                apiResp.Data = category;
+                apiResp.Data = money;
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
@@ -55,13 +55,13 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
-        [Route("api/getCategories")]
+        [Route("api/getMoneys")]
         public IHttpActionResult Get()
         {
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new CategoryManagement();
+                var mng = new MoneyManagement();
                 apiResp.Data = mng.RetrieveAll();
 
                 return Ok(apiResp);
@@ -86,13 +86,13 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
-        [Route("api/getAvailableCategories")]
-        public IHttpActionResult GetAvailableCategories()
+        [Route("api/getAvailableMoneys")]
+        public IHttpActionResult GetAvailableMoneys()
         {
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new CategoryManagement();
+                var mng = new MoneyManagement();
                 apiResp.Data = mng.RetrieveAvailable();
 
                 return Ok(apiResp);
@@ -117,13 +117,13 @@ namespace CoreCodeAPI.Controllers
             }
         }
 
-        [Route("api/getUnavailableCategories")]
-        public IHttpActionResult GetUnavailableCategories()
+        [Route("api/getUnavailableMoneys")]
+        public IHttpActionResult GetUnavailableMoneys()
         {
             try
             {
                 apiResp = new ApiResponse();
-                var mng = new CategoryManagement();
+                var mng = new MoneyManagement();
                 apiResp.Data = mng.RetrieveUnavailable();
 
                 return Ok(apiResp);
@@ -152,15 +152,14 @@ namespace CoreCodeAPI.Controllers
 
         // POST 
         // CREATE
-        // Route[{"api/PostCategory"}];
-        [Route("api/postCategory")]
-        public IHttpActionResult Post(Category category)
+        [Route("api/postMoney")]
+        public IHttpActionResult Post(Money money)
         {
 
             try
             {
-                var mng = new CategoryManagement();
-                mng.Create(category);
+                var mng = new MoneyManagement();
+                mng.Create(money);
 
                 apiResp = new ApiResponse
                 {
@@ -191,13 +190,13 @@ namespace CoreCodeAPI.Controllers
 
         // PUT
         // UPDATE
-        [Route("api/updateCategory")]
-        public IHttpActionResult UpdateCategory(Category category)
+        [Route("api/updateMoney")]
+        public IHttpActionResult UpdateMoney(Money money)
         {
             try
             {
-                var mng = new CategoryManagement();
-                mng.Update(category);
+                var mng = new MoneyManagement();
+                mng.Update(money);
 
                 apiResp = new ApiResponse
                 {
@@ -227,17 +226,17 @@ namespace CoreCodeAPI.Controllers
         }
 
         // DELETE ==
-        [Route("api/deleteCategory")]
+        [Route("api/deleteMoney")]
         public IHttpActionResult Delete(string id)
         {
             try
             {
-                var category = new Category
+                var money = new Money
                 {
-                    IDCategory = id
+                    IDMoney = id
                 };
-                var mng = new CategoryManagement();
-                mng.Delete(category);
+                var mng = new MoneyManagement();
+                mng.Delete(money);
 
                 apiResp = new ApiResponse
                 {

@@ -60,7 +60,7 @@
     <Compile Include="ApplicationMessage.cs" />
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Dashboard\GeneralReportAirport.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="Money.cs" />
     <Compile Include="Dashboard\LiveDataReport.cs" />
     <Compile Include="Enums\UserAction.cs" />
     <Compile Include="FAQ.cs" />

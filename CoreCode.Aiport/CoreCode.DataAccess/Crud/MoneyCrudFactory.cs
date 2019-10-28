@@ -10,27 +10,27 @@ using System.Threading.Tasks;
 
 namespace CoreCode.DataAccess.Crud
 {
-    public class CategoryCrudFactory : CrudFactory
+    public class MoneyCrudFactory : CrudFactory
     {
-        private readonly CategoryMapper mapper;
+        private readonly MoneyMapper mapper;
 
-        public CategoryCrudFactory()
+        public MoneyCrudFactory()
         {
-            mapper = new CategoryMapper();
+            mapper = new MoneyMapper();
             dao = SqlDao.GetInstance();
         }
 
         public override void Create(BaseEntity entity)
         {
-            var category = (Category)entity;
-            var sqlOperation = mapper.GetCreateStatement(category);
+            var money = (Money)entity;
+            var sqlOperation = mapper.GetCreateStatement(money);
             dao.ExecuteProcedure(sqlOperation);
         }
 
         public override void Delete(BaseEntity entity)
         {
-            var category = (Category)entity;
-            dao.ExecuteProcedure(mapper.GetDeleteStatement(category));
+            var money = (Money)entity;
+            dao.ExecuteProcedure(mapper.GetDeleteStatement(money));
         }
 
         public override T Retrieve<T>(BaseEntity entity)
@@ -49,51 +49,51 @@ namespace CoreCode.DataAccess.Crud
 
         public override List<T> RetrieveAll<T>()
         {
-            var listCategories = new List<T>();
+            var listMoneys = new List<T>();
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveAllStatement());
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {
                 var objs = mapper.BuildObjects(lstResult);
-                foreach (var c in objs) listCategories.Add((T)Convert.ChangeType(c, typeof(T)));
+                foreach (var c in objs) listMoneys.Add((T)Convert.ChangeType(c, typeof(T)));
             }
 
-            return listCategories;
+            return listMoneys;
         }
 
         public List<T> RetrieveAvailable<T>()
         {
-            var listCategories = new List<T>();
+            var listMoneys = new List<T>();
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveAvailable());
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {
                 var objs = mapper.BuildObjects(lstResult);
-                foreach (var c in objs) listCategories.Add((T)Convert.ChangeType(c, typeof(T)));
+                foreach (var c in objs) listMoneys.Add((T)Convert.ChangeType(c, typeof(T)));
             }
 
-            return listCategories;
+            return listMoneys;
         }
 
         public List<T> RetrieveUnavailable<T>()
         {
-            var listCategories = new List<T>();
+            var listMoneys = new List<T>();
             var lstResult = dao.ExecuteQueryProcedure(mapper.GetRetrieveUnavailable());
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {
                 var objs = mapper.BuildObjects(lstResult);
-                foreach (var c in objs) listCategories.Add((T)Convert.ChangeType(c, typeof(T)));
+                foreach (var c in objs) listMoneys.Add((T)Convert.ChangeType(c, typeof(T)));
             }
 
-            return listCategories;
+            return listMoneys;
         }
 
 
         public override void Update(BaseEntity entity)
         {
-            var category = (Category)entity;
-            dao.ExecuteProcedure(mapper.GetUpdateStatement(category));
+            var money = (Money)entity;
+            dao.ExecuteProcedure(mapper.GetUpdateStatement(money));
         }
     }
 }

@@ -1,0 +1,60 @@
+﻿@using CoreCode.Web.UI.Models.Helpers
+
+
+@section pageCss{
+    <link rel="stylesheet" href="~/Scripts/TableHide.css" />
+}
+
+<script src="~/environmentVariables.js"></script>
+<script src="~/Scripts/Views/ControlActions.js"></script>
+<script src="~/Scripts/CoreCodeScripts/Common/ControlUserActions.js"></script>
+<script src="~/Scripts/Views/vMoneys.js"></script>
+
+
+@{
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+<div style="margin: 0 auto; width: 30%;">
+    <h2 class="panel panel-primary">Precios de tickets</h2>
+</div>
+
+<div id="DropdownAndTable"style="margin: 0 auto; width: 98%";>
+
+
+    @Html.GetTable("tblMoney", "vMoneys", "BindFields", "", new List<string> { "IDMoney", "Origen", "Destino", "Precio" },
+    new List<string> { "Código", "País Origen", "País Destino", "Precio del ticket" })
+
+</div>
+
+
+<div class="card border-secondary"  style="display: none">
+    <div class="card-header">
+        <div class="col-md-6">
+
+            @Html.GetConfirmButton("btnDisable", "none", "", "", "")
+            @Html.GetConfirmButton("btnEnable", "", "", "", "")
+        </div>
+    </div>
+    <div class="card-body" style="display: none">
+
+        <div class="col-lg-2">
+            <div class="bs-component">
+                <form id="frmEdition">
+                    <div class="form-group col-md-4">
+                        @Html.GetInputWithLabel("txtId", "", "", "", "", "", false)
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.GetInputWithLabel("txtOrigen", "", "", "", "", "", true)
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.GetInputWithLabel("txtDestino", "", "", "", "", "", true)
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.GetInputWithLabel("txtPrecio", "", "", "", "", "", true)
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

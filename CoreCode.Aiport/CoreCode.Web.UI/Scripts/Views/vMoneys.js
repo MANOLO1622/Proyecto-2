@@ -1,43 +1,27 @@
-﻿function vCountries() {
+﻿function vMoneys() {
 
 
-    this.tblCategoryId = 'tblCategory';
-    this.service = 'category';
+    this.tblMoneyId = 'tblMoney';
+    this.service = 'money';
     this.ctrlActions = new ControlActions();
-    this.columns = "IDCategory,Description","Name";
+    this.columns = "IDMoney", "Origen", "Destino","Precio";
 
 
 
-    this.destinyAirportDropdownId = "dropdownOriginAirport";
-
-
-    this.loadAirportDropdown = function () {
-        var instance = this;
-        this.ctrlActions.GetFromAPI('getAirports', "", function (response) {
-            var destinyAirportElement = $("#" + instance.destinyAirportDropdownId);
-
-            if (response.Data) {
-                for (var counter = 0; counter < response.Data.length; counter++) {
-                    destinyAirportElement.append(new Option(response.Data[counter].Name, response.Data[counter].NAME));
-                }
-            }
-        });
-    }
-
-    this.CategoryStatusDropdownChange = function () {
+    this.MoneyStatusDropdownChange = function () {
 
         if (document.querySelector('#statusFilter').value === "true") {
 
             document.querySelector("#btnEnable").classList.add('hide');
             document.querySelector("#btnDisable").classList.remove('hide');
-            this.ctrlActions.ClearTable(this.tblCategoryId);
+            this.ctrlActions.ClearTable(this.tblMoneyId);
             this.RetrieveAvailable();
 
         }
         else if (document.querySelector('#statusFilter').value === "false") {
             document.querySelector("#btnEnable").classList.remove('hide');
             document.querySelector("#btnDisable").classList.add('hide');
-            this.ctrlActions.ClearTable(this.tblCategoryId);
+            this.ctrlActions.ClearTable(this.tblMoneyId);
             this.RetrieveUnavailable();
 
         }
@@ -45,51 +29,51 @@
     }
 
     this.RetrieveAll = function () {
-        this.ctrlActions.FillTable('getCategories', this.tblCategoryId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getMoneys', this.tblMoneyId, false, 'Buscar:', 'Origen o destino');
     }
 
     this.RetrieveAvailable = function () {
-        this.ctrlActions.FillTable('getAvailableCategories', this.tblCategoryId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getAvailableMoneys', this.tblMoneyId, false, 'Buscar:', 'Origen o destino');
     }
     this.RetrieveUnavailable = function () {
-        this.ctrlActions.FillTable('getUnavailableCategories', this.tblCategoryId, false, 'Buscar:', 'Código o país');
+        this.ctrlActions.FillTable('getUnavailableMoneys', this.tblMoneyId, false, 'Buscar:', 'Origen o destino');
     }
 
     this.ReloadTable = function () {
-        this.ctrlActions.ReloadTable(this.tblCategoryId);
+        this.ctrlActions.ReloadTable(this.tblMoneyId);
     }
 
     this.Create = function () {
 
 
         if (document.querySelector('#txtId').value == '' &&
-            document.querySelector('#txtDescription').value != '') {
+            document.querySelector('#txtOrigen').value != '') {
 
             document.querySelector('#txtId').classList.remove('input-error');
-            document.querySelector('#txtDescription').classList.remove('input-error');
+            document.querySelector('#txtOrigen').classList.remove('input-error');
 
             var instance = this;
             if (!this.Validate()) {
-                var categoryData = {};
-                categoryData = this.ctrlActions.GetDataForm('frmEdition');
-                categoryData.Status = true;
+                var moneyData = {};
+                moneyData = this.ctrlActions.GetDataForm('frmEdition');
+                moneyData.Status = true;
 
-                let categories;
+                let moneys;
                 let cont = 0;
                 let callback = function (response) {
-                    categories = response.Data;
-                    for (let i = 0; i < categories.length; i++) {
+                    moneys = response.Data;
+                    for (let i = 0; i < moneys.length; i++) {
                         cont++;
                     }
                     cont = cont + 1;
                     //Hace el post al create
 
-                    categoryData.IDCategory = "PA- " + cont.toString();
+                    moneyData.IDMoney = "COD- " + cont.toString();
 
-                    instance.ctrlActions.PostToAPI('postCategory', categoryData, function () {
+                    instance.ctrlActions.PostToAPI('postMoney', moneyData, function () {
                         //Refresca la tabla
                         swal({
-                            title: "¡País registrado!",
+                            title: "¡Precio registrado!",
                             text: "",
                             icon: "success",
                             button: "OK",
@@ -99,7 +83,7 @@
                         });
                     });
                 }
-                instance.ctrlActions.GetFromAPI("/getCategories", "", callback);
+                instance.ctrlActions.GetFromAPI("/getMoneys", "", callback);
 
             }
             else {
@@ -123,7 +107,7 @@
 
             swal({
                 title: "¡Error en el registro!",
-                text: "No se puede registrar el país que ya se encuentra en el sistema",
+                text: "No se puede registrar el precio que ya se encuentra en el sistema",
                 icon: "error",
                 button: "OK",
             });
@@ -142,16 +126,16 @@
 
         if (!this.Validate()) {
 
-            var categoryData = {};
-            categoryData = this.ctrlActions.GetDataForm('frmEdition');
-            categoryData.Status = true;
-            this.ctrlActions.PostToAPI('updateCategory', categoryData);
+            var moneyData = {};
+            moneyData = this.ctrlActions.GetDataForm('frmEdition');
+            moneyData.Status = true;
+            this.ctrlActions.PostToAPI('updateMoney', moneyData);
 
 
-            instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
+            instance.ctrlActions.PostToAPI('updateMoney', moneyData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡País actualizado!",
+                    title: "¡Precio actualizado!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -166,8 +150,8 @@
         }
         else {
             swal({
-                title: "¡Error al modificar país!",
-                text: "Por favor, seleccionar el país a modificar en la tabla",
+                title: "¡Error al modificar el precio!",
+                text: "Por favor, seleccionar el precio del ticket a modificar en la tabla",
                 icon: "error",
                 button: "OK",
             });
@@ -184,16 +168,16 @@
 
         if (!this.Validate()) {
 
-            var categoryData = {};
-            categoryData = this.ctrlActions.GetDataForm('frmEdition');
-            categoryData.Status = true;
-            this.ctrlActions.PostToAPI('updateCategory', categoryData);
+            var moneyData = {};
+            moneyData = this.ctrlActions.GetDataForm('frmEdition');
+            moneyData.Status = true;
+            this.ctrlActions.PostToAPI('updateMoney', moneyData);
 
 
-            instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
+            instance.ctrlActions.PostToAPI('updateMoney', moneyData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡País habilitado!",
+                    title: "¡Precio habilitado!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -208,8 +192,8 @@
         }
         else {
             swal({
-                title: "¡Error al habilitar país!",
-                text: "Por favor, seleccionar un país de la tabla",
+                title: "¡Error al habilitar el precio!",
+                text: "Por favor, seleccionar un precio de la tabla",
                 icon: "error",
                 button: "OK",
             });
@@ -225,15 +209,15 @@
 
         if (!this.Validate()) {
 
-            var categoryData = {};
-            categoryData = this.ctrlActions.GetDataForm('frmEdition');
-            categoryData.Status = false;
-            this.ctrlActions.PostToAPI('updateCategory', categoryData);
+            var moneyData = {};
+            moneyData = this.ctrlActions.GetDataForm('frmEdition');
+            moneyData.Status = false;
+            this.ctrlActions.PostToAPI('updateMoney', moneyData);
 
-            instance.ctrlActions.PostToAPI('updateCategory', categoryData, function () {
+            instance.ctrlActions.PostToAPI('updateMoney', moneyData, function () {
                 //Refresca la tabla
                 swal({
-                    title: "¡País deshabilitado!",
+                    title: "¡Precio deshabilitado!",
                     text: "",
                     icon: "success",
                     button: "OK"
@@ -248,8 +232,8 @@
         }
         else {
             swal({
-                title: "¡Error al deshabilitar país!",
-                text: "Por favor, seleccionar un país de la tabla",
+                title: "¡Error al deshabilitar el precio!",
+                text: "Por favor, seleccionar un precio de la tabla",
                 icon: "error",
                 button: "OK",
             });
@@ -287,12 +271,14 @@
 
     this.CleanForm = function () {
         document.querySelector('#txtId').value = '';
-        document.querySelector('#txtDescription').value = '';
-        document.querySelector('#txtAbbreviation').value = '';
+        document.querySelector('#txtOrigen').value = '';
+        document.querySelector('#txtDestino').value = '';
+        document.querySelector('#txtPrecio').value = '';
         document.querySelector('#txtId').classList.remove('input-error');
-        document.querySelector('#txtDescription').classList.remove('input-error');
-        document.querySelector('#txtAbbreviation').classList.remove('input-error');
-        document.getElementById("dropdownOriginAirport").selectedIndex = 0;
+        document.querySelector('#txtOrigen').classList.remove('input-error');
+        document.querySelector('#txtDestino').classList.remove('input-error');
+        document.querySelector('#txtPrecio').classList.remove('input-error');
+        
 
     }
 }
@@ -303,10 +289,10 @@ $(document).ready(function () {
     //  document.querySelector("#tblCategory").classList.add('fixed_header');
     document.querySelector("#txtId").disabled = true;
     document.querySelector("#btnEnable").classList.add('hide');
-    var vcategory = new vCountries();
-    vcategory.RetrieveAvailable();
+    var vmoney = new vMoneys();
+    vmoney.RetrieveAvailable();
 
-    var dataTable = $('#tblCategory').DataTable();
+    var dataTable = $('#tblMoney').DataTable();
     //hide the first and second columns
     dataTable.columns([0]).visible(false);
 

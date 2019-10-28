@@ -12,7 +12,7 @@ namespace CoreCode.Entities.POJO
         public string Name { get; set; }
         public string ManagerName { get; set; }
         public string Phone { get; set; }
-        public Category Category { get; set; }
+        public Money Category { get; set; }
         public string IDAirport { get; set; }
         public decimal Rent { get; set; }
         public bool Status { get; set; }

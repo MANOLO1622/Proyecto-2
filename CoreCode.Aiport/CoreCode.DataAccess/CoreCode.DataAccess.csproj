@@ -60,7 +60,7 @@
     <Compile Include="Crud\AirlineManagerCrudFactory.cs" />
     <Compile Include="Crud\AirportCrudFactory.cs" />
     <Compile Include="Crud\AirportManagerCrudFactory.cs" />
-    <Compile Include="Crud\CategoryCrudFactory.cs" />
+    <Compile Include="Crud\MoneyCrudFactory.cs" />
     <Compile Include="Crud\CrudFactory.cs" />
     <Compile Include="Crud\FAQCrudFactory.cs" />
     <Compile Include="Crud\GateCrudFactory.cs" />
@@ -88,7 +88,7 @@
     <Compile Include="Mapper\AirlineMapper.cs" />
     <Compile Include="Mapper\AirportManagerMapper.cs" />
     <Compile Include="Mapper\AirportMapper.cs" />
-    <Compile Include="Mapper\CategoryMapper.cs" />
+    <Compile Include="Mapper\MoneyMapper.cs" />
     <Compile Include="Mapper\EntityMapper.cs" />
     <Compile Include="Mapper\FAQMapper.cs" />
     <Compile Include="Mapper\GateMapper.cs" />
