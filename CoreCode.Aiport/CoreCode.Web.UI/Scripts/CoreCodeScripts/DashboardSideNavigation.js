@@ -69,6 +69,7 @@ DashboardNav.prototype.setNavForGeneralAdmin = function() { //Vista del SUPER AD
 
     //Aerolineas
     $("#airlineNavBtn").fadeIn(2200);
+    $("#airline-register-nav").removeAttr('style');
     $("#viewAirlinesNavBtn").removeAttr('style');
 
     //Asignaciones

@@ -359,7 +359,6 @@
     <Content Include="Scripts\CoreCodeScripts\Common\FormControl.js" />
     <Content Include="Scripts\CoreCodeScripts\Common\LoginComponent.js" />
     <Content Include="Scripts\CoreCodeScripts\DomHelper.js" />
-    <Content Include="Scripts\CoreCodeScripts\HomePage.js" />
     <Content Include="Scripts\CoreCodeScripts\Login.js" />
     <Content Include="Scripts\CoreCodeScripts\recoverPassword\RecoverPassword.js" />
     <Content Include="Scripts\CoreCodeScripts\Request\RequestList.js" />
@@ -507,6 +506,7 @@
     <Content Include="Views\Reservation\vReservations.cshtml" />
     <Content Include="Views\Reservation\vListReservations.cshtml" />
     <Content Include="Views\Money\vListMoneys.cshtml" />
+    <Content Include="Views\Dashboard\ShowEmployeeDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -44,6 +44,7 @@
     <Compile Include="AsignationAirlineManagement.cs" />
     <Compile Include="AirplaneManagement.cs" />
     <Compile Include="IdManagement.cs" />
+    <Compile Include="LogExceptionManagement.cs" />
     <Compile Include="PriceManagement.cs" />
     <Compile Include="ReservationManagement.cs" />
     <Compile Include="UserManagement.cs" />

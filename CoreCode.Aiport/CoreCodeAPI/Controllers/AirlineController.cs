@@ -18,6 +18,7 @@ namespace CoreCodeAPI.Controllers
     public class AirlineController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
+        LogExceptionManagement logException = new LogExceptionManagement();
 
         [Route("api/getAirlines")]
         public IHttpActionResult Get()
@@ -27,28 +28,18 @@ namespace CoreCodeAPI.Controllers
                 apiResp = new ApiResponse();
                 var mng = new AirlineManagement();
                 apiResp.Data = mng.RetrieveAll();
-
                 return Ok(apiResp);
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getWaitingAirlines", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-"+ bex.AppMessage.Message));
             }
             catch (Exception ex)
-            {
-                ApplicationMessage msg = new ApplicationMessage
-                {
-                    Message = ex.Message
-                };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+            {                
+                logException.RecordException(0, ex.Message, new DateTime(), "temp", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
-
         }
 
         [Route("api/getWaitingAirlines")]
@@ -64,11 +55,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getWaitingAirlines", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -76,8 +64,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getWaitingAirlines", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
 

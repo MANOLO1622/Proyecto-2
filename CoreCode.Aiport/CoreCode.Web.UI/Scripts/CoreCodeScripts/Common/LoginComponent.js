@@ -115,6 +115,19 @@
                         
                                     console.log("User");
                                     break;
+                                case 5: //Employee
+                                    var userIdObject = "id=" + userObjectElement.ID;
+
+                                    instance.ctrlActions.GetFromAPI("getEmployeeById", userIdObject, function (response) {
+                                        if (response) {
+                                            sessionStorage.setItem("userObject", JSON.stringify(response.Data));
+                                        }
+                                        //Redirect to dashboard
+                                        window.location.href = sourceUrl + "dashboard/employee/" + response.Data.ID;
+                                    });
+
+                                    console.log("User");
+                                    break;
                             }
                         } else {
                             swal({

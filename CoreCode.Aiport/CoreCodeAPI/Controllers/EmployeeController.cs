@@ -55,7 +55,7 @@ namespace CoreCodeAPI.Controllers
                 var CorreoElectronico = employee.Email;
                 var pass = employee.Password;
                 mng.Create(employee);
-                string Mensaje = "Estimado " + employee.FirstName + "  " + employee.FirstLastName + " <br/><br/> " + "Su contraseña de inicio es: " + pass;
+                string Mensaje = "Estimad@ " + employee.FirstName + "  " + employee.FirstLastName + " <br/><br/> " + "Su contraseña de inicio es: " + pass;
                 ToolsHelper.SendMail(CorreoElectronico, "Confirmación de cuenta", Mensaje);
                 apiResp = new ApiResponse
                 {
@@ -185,5 +185,39 @@ namespace CoreCodeAPI.Controllers
             }
 
         }
+        [Route("api/getEmployeeById")]
+        public IHttpActionResult GetEmployeeById(string id)
+        {
+            try
+            {
+                var employee = new Employee
+                {
+                    ID = id
+                };
+
+                employee = mng.RetrieveByEmployeeId(employee);
+                apiResp.Data = employee;
+                return Ok(apiResp);
+            }
+            catch (BussinessException bex)
+            {
+
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(bex.AppMessage);
+                return InternalServerError(new Exception(bex.ExceptionId + "-"
+                    + bex.AppMessage.Message));
+            }
+            catch (Exception ex)
+            {
+                ApplicationMessage msg = new ApplicationMessage
+                {
+                    Message = ex.Message
+                };
+                var MessageManage = new ApplicationMessageManagement();
+                MessageManage.Create(msg);
+                return InternalServerError(new Exception(ex.Message));
+            }
+        }
+
     }
 }

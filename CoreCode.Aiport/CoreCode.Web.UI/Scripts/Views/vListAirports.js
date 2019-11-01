@@ -382,14 +382,14 @@ $(document).ready(function () {
         document.querySelector("#DropdownAndTable").classList.remove('hide');
         document.querySelector("#btnEnableAirport").classList.add('hide');
         vlistarpt.RetrieveAvailable();
-
     }
+
     else if (vlistarpt.rolUser === 2) {
         vlistarpt.DisplayGoogleMap();
         document.querySelector("#DropdownAndTable").classList.add('hide');
         document.querySelector("#btnEnableAirport").classList.add('hide');
         document.querySelector("#btnDisableAirport").classList.add('hide');
-        document.querySelector("#btnClean").classList.add('hide');
+        
 
 
         let idAirport = {

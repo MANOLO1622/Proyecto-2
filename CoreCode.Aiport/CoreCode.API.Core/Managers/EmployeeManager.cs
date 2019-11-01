@@ -19,12 +19,12 @@ namespace CoreCode.API.Core.Managers
             _crudFactory = new EmployeeCrudFactory();
         }
 
-        public Employee RetrieveEmployee(string userId)
+        public Employee RetrieveEmployee(Employee employee)
         {
             Employee reportToReturn = null;
             try
             {
-                reportToReturn = _crudFactory.RetrieveByEmployeeId<Employee>(userId);
+                reportToReturn = _crudFactory.RetrieveByEmployeeId<Employee>(employee);
                 if (reportToReturn == null)
                 {
                     throw new BussinessException(5);

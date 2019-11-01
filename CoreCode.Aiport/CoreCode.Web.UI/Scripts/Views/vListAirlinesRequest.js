@@ -343,33 +343,25 @@ $(document).ready(function () {
     document.querySelector('#txtEmail').disabled = false;
     var vlistairlinerequest = new vListAirlinesRequest();
 
+    if (vlistairlinerequest.rolUser == 1) {
 
-
-    if (vlistairlinerequest.rolUser == "1") {
         document.querySelector("#btnEdit").classList.add('none');
         document.querySelector("#DropdownAndTable").classList.remove('hide');
-        document.querySelector("#btnClean").classList.remove('hide');
-        document.querySelector("#btnAccept").classList.remove('hide');
-        document.querySelector("#btnReject").classList.remove('hide+');
-        let aInputs = document.querySelectorAll(':required');
-
-        for (let i = 0; i < aInputs.length; i++) {
-            aInputs[i].disabled = true;
-        }
+        document.querySelector("#btnAccept").classList.add('hide');
+        document.querySelector("#btnReject").classList.add('hide');
         vlistairlinerequest.RetrieveWaiting();
     }
 
-    if (vlistairlinerequest.rolUser == "3") {
-        document.querySelector("#btnAdmin").classList.add('hide');
+    else if (vlistairlinerequest.rolUser == 3) {
         document.querySelector("#DropdownAndTable").classList.add('hide');
         document.querySelector("#btnEdit").classList.remove('hide');
-        document.querySelector("#btnClean").classList.add('hide');
         document.querySelector("#btnAccept").classList.add('hide');
         document.querySelector("#btnReject").classList.add('hide');
+        document.querySelector("#btnWaiting").classList.add('hide');
 
 
         let idAirline = {
-            id: localStorage.getItem('idAirlineLS')//saca session storage IDAssigned
+            id: UserSession.getAirlineInstance().ID
         };
         let airline;
         let callback = function (response) {

@@ -81,9 +81,10 @@ namespace CoreCode.DataAccess.Crud
             dao.ExecuteProcedure(mapper.GetUpdateStatement(user));
         }
 
-        public T RetrieveByEmployeeId<T>(string userId)
+        public T RetrieveByEmployeeId<T>(BaseEntity entity)
         {
-            var lstResult = dao.ExecuteQueryProcedure(mapper.GetUserByEmployeeId(userId));
+            var lstResult = dao.ExecuteQueryProcedure
+                (mapper.GetRetrieveStatementByEmployeeId(entity));
             var dic = new Dictionary<string, object>();
             if (lstResult.Count > 0)
             {

@@ -52,6 +52,7 @@
     <Compile Include="Crud\ReservationCrudFactory.cs" />
     <Compile Include="Crud\GeneralAdminReportCrudFactory.cs" />
     <Compile Include="Crud\EmployeeCrudFactory.cs" />
+    <Compile Include="Crud\ExceptionCrudFactory.cs" />
     <Compile Include="Crud\UserCrudFactory.cs" />
     <Compile Include="Crud\PassengerCrudFactory.cs" />
     <Compile Include="Crud\TicketCrudFactory.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Crud\RequestAirlineAirportCrud.cs" />
     <Compile Include="Crud\StoreCrudFactory.cs" />
     <Compile Include="Crud\UserHistoryCrudFactory.cs" />
+    <Compile Include="Mapper\ExceptionMapper.cs" />
     <Compile Include="Dao\SqlDao.cs" />
     <Compile Include="Dao\SqlOperation.cs" />
     <Compile Include="Mapper\AsignationAirlineMapper.cs" />

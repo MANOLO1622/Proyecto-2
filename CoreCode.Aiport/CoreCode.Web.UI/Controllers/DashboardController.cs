@@ -22,6 +22,7 @@ namespace CoreCode.Web.UI.Controllers
         private const string AddGatesHtmlRoute = "~/Views/PartialViews/CustomComponentContent/AddGate.cshtml";
         private const string ViewAirlinesHtmlRoute = "~/Views/PartialViews/CustomComponentContent/ViewAirlines.cshtml";
         private const string ViewUsersHtmlRoute = "~/Views/PartialViews/CustomComponentContent/ShowUserDashboard.cshtml";
+        private const string ViewEmployeesHtmlRoute = "~/Views/PartialViews/CustomComponentContent/ShowEmployeeDashboard.cshtml";
         // GET: Dashboard
         [Route("dashboard/airport/{airportId}")]
         public ActionResult ShowAirportDashboard(string airportId)
@@ -43,6 +44,12 @@ namespace CoreCode.Web.UI.Controllers
 
         [Route("dashboard/user/{userId}")]
         public ActionResult ShowUserDashboard(string usertId)
+        {
+            return View();
+        }
+
+        [Route("dashboard/employee/{employeeId}")]
+        public ActionResult ShowEmployeeDashboard(string employeeId)
         {
             return View();
         }
@@ -115,6 +122,11 @@ namespace CoreCode.Web.UI.Controllers
         public ActionResult GetViewUsersHtml()
         {
             return PartialView(ViewUsersHtmlRoute);
+        }
+        [Route("getViewEmployeesHtml")]
+        public ActionResult GetViewEmployeesHtml()
+        {
+            return PartialView(ViewEmployeesHtmlRoute);
         }
     }
 }

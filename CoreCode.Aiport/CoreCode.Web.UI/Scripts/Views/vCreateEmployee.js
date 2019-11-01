@@ -39,7 +39,7 @@
                     instance.ctrlActions.PostToAPI('postEmployee', employeeData, function () {
                         swal({
                             title: "¡Empleado Registrado!",
-                            text: "Proceda a esperar correo de confirmación al siguiente correo: " + employeeData.Email + " Bienvenido!",
+                            text: "Se envio al correo: " + employeeData.Email + "su confirmación de cuenta  !Bienvenido!",
                             icon: "success",
                             button: "OK"
                         }).then(function () {

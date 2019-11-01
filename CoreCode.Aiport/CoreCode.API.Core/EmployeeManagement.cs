@@ -17,6 +17,10 @@ namespace CoreCode.API.Core
             crudEmployee = new EmployeeCrudFactory();
         }
 
+        public Employee RetrieveByEmployeeId(Employee employee)
+        {
+            return crudEmployee.RetrieveByEmployeeId<Employee>(employee);
+        }
 
 
         public void Create(Employee employee)
