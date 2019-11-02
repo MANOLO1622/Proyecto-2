@@ -43,7 +43,7 @@ namespace CoreCode.DataAccess.Mapper
         //hace una instancia del pojo de user
         public BaseEntity BuildObject(Dictionary<string, object> row)
         {
-            var User = new User
+            var Employee = new Employee
             {
                 ID = GetStringValue(row, DB_COL_ID),
                 FirstName = GetStringValue(row, DB_COL_NAME),
@@ -70,13 +70,13 @@ namespace CoreCode.DataAccess.Mapper
                 AssignedID = GetStringValue(row, DB_COL_IDASSIGNED)
             };
 
-            return User;
+            return Employee;
         }
 
         //hace una instancia del pojo de user
         public BaseEntity BuildObjectWithPassword(Dictionary<string, object> row)
         {
-            var User = new User
+            var Employee = new Employee
             {
                 ID = GetStringValue(row, DB_COL_ID),
                 FirstName = GetStringValue(row, DB_COL_NAME),
@@ -104,12 +104,12 @@ namespace CoreCode.DataAccess.Mapper
                 AssignedID = GetStringValue(row, DB_COL_IDASSIGNED)
             };
 
-            return User;
+            return Employee;
         }
 
-        public User BuildObjectFromDataRow(DataRow row)
+        public Employee BuildObjectFromDataRow(DataRow row)
         {
-            var user = new User
+            var employee = new Employee
             {
                 ID = row.Field<string>(DB_COL_ID),
                 FirstName = row.Field<string>(DB_COL_NAME),
@@ -135,7 +135,7 @@ namespace CoreCode.DataAccess.Mapper
                 License = row.Field<string>(DB_COL_LICENSE),
                 Put = row.Field<string>(DB_COL_PUT)
             };
-            return user;
+            return employee;
         }
 
         public List<BaseEntity> BuildObjects(List<Dictionary<string, object>> lstRows)
@@ -144,8 +144,8 @@ namespace CoreCode.DataAccess.Mapper
 
             foreach (var row in lstRows)
             {
-                var user = BuildObject(row);
-                lstResults.Add(user);
+                var employee = BuildObject(row);
+                lstResults.Add(employee);
             }
 
             return lstResults;
@@ -154,7 +154,7 @@ namespace CoreCode.DataAccess.Mapper
         public SqlOperation GetCreateStatement(BaseEntity entity)
         {
             var operation = new SqlOperation { ProcedureName = "sp_CreateUsers" };
-            var m = (User)entity;
+            var m = (Employee)entity;
 
             operation.AddVarcharParam(DB_COL_ID, m.ID);
             operation.AddVarcharParam(DB_COL_NAME, m.FirstName);
@@ -189,7 +189,7 @@ namespace CoreCode.DataAccess.Mapper
         {
             var operation = new SqlOperation { ProcedureName = "sp_DeleteUser" };
 
-            var m = (User)entity;
+            var m = (Employee)entity;
             operation.AddVarcharParam(DB_COL_ID, m.ID);
             return operation;
         }
@@ -206,7 +206,7 @@ namespace CoreCode.DataAccess.Mapper
         {
             Console.WriteLine("Entro al metodo GetRetrieveStatement");
             var operation = new SqlOperation { ProcedureName = "CRE_OBTENER_USUARIO_POR_EMAIL_Y_PASSWORD_PR" };
-            var userEntity = (User)entity;
+            var userEntity = (Employee)entity;
             operation.AddVarcharParam(DB_COL_EMAIL, userEntity.Email);
             operation.AddVarcharParam(DB_COL_PASSWORD, userEntity.Password);
             return operation;
@@ -215,7 +215,7 @@ namespace CoreCode.DataAccess.Mapper
         public SqlOperation GetRetrieveStatementByUser(BaseEntity entity)
         {
             var operation = new SqlOperation { ProcedureName = "sp_GetUsersByUserName" };
-            var userEntity = (User)entity;
+            var userEntity = (Employee)entity;
             operation.AddVarcharParam(DB_COL_EMAIL, userEntity.Email);
             return operation;
         }
@@ -223,7 +223,7 @@ namespace CoreCode.DataAccess.Mapper
         public SqlOperation GetRetrieveStatementByUserOrId(BaseEntity entity)
         {
             var operation = new SqlOperation { ProcedureName = "sp_GetUsersByUserNameOrId" };
-            var userEntity = (User)entity;
+            var userEntity = (Employee)entity;
             operation.AddVarcharParam(DB_COL_EMAIL, userEntity.Email);
             operation.AddVarcharParam(DB_COL_ID, userEntity.ID);
             return operation;
@@ -235,7 +235,7 @@ namespace CoreCode.DataAccess.Mapper
             //este proc hace el update del perfil del usuario
             var operation = new SqlOperation { ProcedureName = "sp_UpdateUsers" };
 
-            var m = (User)entity;
+            var m = (Employee)entity;
             operation.AddVarcharParam(DB_COL_ID, m.ID);
             operation.AddVarcharParam(DB_COL_NAME, m.FirstName);
             operation.AddVarcharParam(DB_COL_SECOND_NAME, m.SecondName);
@@ -305,7 +305,7 @@ namespace CoreCode.DataAccess.Mapper
         private SqlOperation CommonUpdateUser(string procName, BaseEntity entity)
         {
             var operation = new SqlOperation { ProcedureName = procName };
-            var c = (User)entity;
+            var c = (Employee)entity;
             operation.AddVarcharParam(DB_COL_ID, c.ID);
             operation.AddVarcharParam(DB_COL_NAME, c.FirstName);
             operation.AddVarcharParam(DB_COL_SECOND_NAME, c.SecondName);
@@ -328,6 +328,16 @@ namespace CoreCode.DataAccess.Mapper
             operation.AddVarcharParam(DB_COL_EMAIL, c.GraduationYear);
             operation.AddVarcharParam(DB_COL_EMAIL, c.License);
             operation.AddVarcharParam(DB_COL_EMAIL, c.Put);
+            return operation;
+        }
+
+        public SqlOperation GetRetrieveStatementByEmployeeId(BaseEntity entity)
+        {
+            var operation = new SqlOperation { ProcedureName = "RET_USERS_PR" };
+
+            var m = (Employee)entity;
+            operation.AddVarcharParam(DB_COL_ID, m.ID);
+
             return operation;
         }
 
@@ -359,15 +369,7 @@ namespace CoreCode.DataAccess.Mapper
             return operation;
         }
 
-        public SqlOperation GetRetrieveStatementByEmployeeId(BaseEntity entity)
-        {
-            var operation = new SqlOperation { ProcedureName = "RET_USERS_PR" };
-
-            var m = (User)entity;
-            operation.AddVarcharParam(DB_COL_ID, m.ID);
-
-            return operation;
-        }
+      
         public SqlOperation GetRetrieveStatementById(BaseEntity entity)
         {
             var operation = new SqlOperation { ProcedureName = "sp_GetUserById" };

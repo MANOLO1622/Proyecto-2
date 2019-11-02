@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using CoreCode.API.Core;
+using CoreCode.API.Core.Helpers;
 using CoreCode.API.Core.Managers;
 using CoreCode.Entities.POJO;
 using CoreCode.Exceptions;
@@ -54,9 +55,10 @@ namespace CoreCodeAPI.Controllers
             {
                 var CorreoElectronico = employee.Email;
                 var pass = employee.Password;
-                mng.Create(employee);
                 string Mensaje = "Estimad@ " + employee.FirstName + "  " + employee.FirstLastName + " <br/><br/> " + "Su contraseña de inicio es: " + pass;
-                ToolsHelper.SendMail(CorreoElectronico, "Confirmación de cuenta", Mensaje);
+                ToolsHelper.SendMail(CorreoElectronico, "Confirmación de cuenta", Mensaje);                
+                employee.Password = EncryptionHelper.Encrypt(employee.Password);
+                mng.Create(employee);
                 apiResp = new ApiResponse
                 {
                     Message = "Action was executed"

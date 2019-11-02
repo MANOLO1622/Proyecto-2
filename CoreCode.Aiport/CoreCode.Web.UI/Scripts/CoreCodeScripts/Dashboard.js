@@ -31,6 +31,9 @@ var Dashboard = function(parameters) {
             case 4:
                 instance.setUserAdminDashboard();
                 break;
+            case 5:
+                instance.setEmployeeDashboard();
+                break;
             default:
                 //redirect
                 break;
@@ -274,6 +277,15 @@ var Dashboard = function(parameters) {
     };
     this.setGeneralAdminDashboard = function() {
 
+    }
+
+    this.setEmployeeDashboard = function () {
+        var instance = this;
+        instance.userInstance = UserSession.getUserSessionInstance();
+        var userName = document.getElementById("userName");
+        if (userName) {
+            userName.innerText = instance.userInstance.FirstName;
+        }
     }
 
     

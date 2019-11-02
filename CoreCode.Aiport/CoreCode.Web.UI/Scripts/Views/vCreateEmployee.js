@@ -35,7 +35,7 @@
                     employeeData.Rol = "5";
                     localStorage.setItem("idEmployeeLS", employeeData.Rol);
                     //employeeData.EmployeeID = instance.EmployeeId;
-                    employeeData.Password = "empleado";
+                    employeeData.Password = instance.GenerateRandomPassword();
                     instance.ctrlActions.PostToAPI('postEmployee', employeeData, function () {
                         swal({
                             title: "¡Empleado Registrado!",
@@ -80,6 +80,14 @@
 
         }
 
+    }
+
+    this.GenerateRandomPassword = function () {//--GENERAR LA CONTRASEÑA RANDOM
+        var caracteres = "!@abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789!@";
+        var pass = "";
+        var longitud = 8;
+        for (i = 0; i < longitud; i++) pass += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        return pass;
     }
 
 

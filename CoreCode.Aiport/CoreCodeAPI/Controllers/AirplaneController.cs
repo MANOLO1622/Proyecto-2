@@ -18,6 +18,7 @@ namespace CoreCodeAPI.Controllers
     public class AirplaneController : ApiController
     {
         ApiResponse apiResp = new ApiResponse();
+        LogExceptionManagement logException = new LogExceptionManagement();
 
         [Route("api/getAirplans")]
         public IHttpActionResult GetAirplanes()
@@ -34,11 +35,8 @@ namespace CoreCodeAPI.Controllers
 
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getAirplans", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -46,8 +44,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getAirplans", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
@@ -65,11 +62,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getWaitingAirplans", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -77,8 +71,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getWaitingAirplans", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
 
@@ -97,11 +90,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getAcceptedAirplans", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -109,8 +99,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getAcceptedAirplans", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
@@ -127,11 +116,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getDeniedAirplans", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -139,8 +125,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getDeniedAirplans", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
@@ -158,11 +143,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getAvailableAirplans", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -170,8 +152,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getAvailableAirplans", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
@@ -189,11 +170,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getUnvailableAirplans", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -201,8 +179,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getUnvailableAirplans", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
