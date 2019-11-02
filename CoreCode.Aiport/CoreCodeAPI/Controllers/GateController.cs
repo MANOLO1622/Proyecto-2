@@ -18,6 +18,7 @@ namespace CoreCodeAPI.Controllers
     {
 
         ApiResponse apiResp = new ApiResponse();
+        LogExceptionManagement logException = new LogExceptionManagement();
 
         [Route("api/getGates")]
         public IHttpActionResult Get()
@@ -33,11 +34,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getGates", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -45,8 +43,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getGates", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
 
@@ -67,14 +64,10 @@ namespace CoreCodeAPI.Controllers
                 apiResp.Data = gate;
                 return Ok(apiResp);
             }
-
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "getGateById", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -82,8 +75,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "getGateById", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
@@ -111,11 +103,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "postGate", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -123,8 +112,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "postGate", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
@@ -148,11 +136,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "updateGate", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -160,8 +145,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "updateGate", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
         }
@@ -188,11 +172,8 @@ namespace CoreCodeAPI.Controllers
             }
             catch (BussinessException bex)
             {
-
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(bex.AppMessage);
-                return InternalServerError(new Exception(bex.ExceptionId + "-"
-                    + bex.AppMessage.Message));
+                logException.RecordException(0, bex.Message, DateTime.Now, "deleteGate", bex.StackTrace, bex.Source);
+                return InternalServerError(new Exception(bex.ExceptionId + "-" + bex.AppMessage.Message));
             }
             catch (Exception ex)
             {
@@ -200,8 +181,7 @@ namespace CoreCodeAPI.Controllers
                 {
                     Message = ex.Message
                 };
-                var MessageManage = new ApplicationMessageManagement();
-                MessageManage.Create(msg);
+                logException.RecordException(0, ex.Message, DateTime.Now, "deleteGate", ex.StackTrace, ex.Source);
                 return InternalServerError(new Exception(ex.Message));
             }
 

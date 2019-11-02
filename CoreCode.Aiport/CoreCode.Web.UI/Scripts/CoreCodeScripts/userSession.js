@@ -14,6 +14,10 @@
         return JSON.parse(sessionStorage.getItem("airlineObject"));
     }
 
+    var getEmployeeSession = function () {
+        return JSON.parse(sessionStorage.getItem("employeeObject"));
+    }
+
     var getUserSession = function () {
         return JSON.parse(sessionStorage.getItem("userObject"));
     }
@@ -26,11 +30,13 @@
         sessionStorage.removeItem("userObject");
         sessionStorage.removeItem("airlineObject");
         sessionStorage.removeItem("airportObject");
+        sessionStorage.removeItem("employeeObject");
     }
     return {
         getAirportInstance: getAirportSession,
         getCurrentUserInstance: getCurrentUser,
         getAirlineSessionInstance: getAirlineSession,
+        getEmployeeSessionInstance: getEmployeeSession,
         getUserSessionInstance: getUserSession,
         setCurrentUserInstance: setCurrentUser,
         cleanUserSession: cleanUserSession

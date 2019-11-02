@@ -391,6 +391,7 @@
     <Content Include="Scripts\Views\Index.js" />
     <Content Include="Scripts\Views\vAsignationAirline.js" />
     <Content Include="Scripts\Views\vListReservation.js" />
+    <Content Include="Scripts\Views\vRequestEmployee.js" />
     <Content Include="Scripts\Views\vReservation.js" />
     <Content Include="Scripts\Views\vCreateAirplane.js" />
     <Content Include="Scripts\Views\vCreateEmployee.js" />

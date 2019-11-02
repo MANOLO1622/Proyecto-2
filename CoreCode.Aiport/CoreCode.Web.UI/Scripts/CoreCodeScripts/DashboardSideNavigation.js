@@ -28,6 +28,9 @@ DashboardNav.prototype.init = function() {
         case 4:
             instance.setNavForUser();
             break;
+        case 5:
+            instance.setNavForEmployee();
+            break;
         default:
             //Redirect to home page.
             location.href = window.location.protocol + "//" + window.location.hostname;
@@ -125,6 +128,22 @@ DashboardNav.prototype.setNavForAirlineAdmin = function() {//Optiones que puede 
 };
 
 DashboardNav.prototype.setNavForUser = function () {//Optiones que puede ver el Cliente
+
+    //Aerolíneas
+    $("#reservationNavBtn").fadeIn(4000);
+    $("#viewReservationNavBtn").removeAttr('style');
+
+    //Vuelos
+    $("#flightsNavBtn").fadeIn(4000);
+    $("#viewFlights").removeAttr('style');
+
+    //Money List
+    $("#moneyNavBtn").fadeIn(1000);
+    $("#viewMoneyNavBtn").removeAttr('style');
+
+
+};
+DashboardNav.prototype.setNavForEmployee = function () {//Optiones que puede ver el empleado
 
     //Aerolíneas
     $("#reservationNavBtn").fadeIn(4000);

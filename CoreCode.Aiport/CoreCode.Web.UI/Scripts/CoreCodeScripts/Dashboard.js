@@ -281,10 +281,10 @@ var Dashboard = function(parameters) {
 
     this.setEmployeeDashboard = function () {
         var instance = this;
-        instance.userInstance = UserSession.getUserSessionInstance();
+        instance.employeeInstance = UserSession.getEmployeeSessionInstance();
         var userName = document.getElementById("userName");
         if (userName) {
-            userName.innerText = instance.userInstance.FirstName;
+            userName.innerText = instance.employeeInstance.FirstName;
         }
     }
 
@@ -686,6 +686,7 @@ Dashboard.prototype.init = function() {
             }
         });
     }
+
 };
 
 ///-------------------------------------------------------------------------------------------------

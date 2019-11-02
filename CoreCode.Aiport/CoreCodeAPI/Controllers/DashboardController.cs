@@ -14,7 +14,10 @@ using CoreCodeAPI.Models;
 namespace CoreCodeAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+
+
     public class DashboardController : ApiController
+    
     {
         [Route("api/dashboard/getGeneralReport")]
         public IHttpActionResult GetGeneralReport(string airportId)

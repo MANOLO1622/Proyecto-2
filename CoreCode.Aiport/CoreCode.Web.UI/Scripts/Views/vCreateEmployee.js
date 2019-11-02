@@ -2,6 +2,7 @@
 
 
     this.ctrlActions = new ControlActions();
+    this.EmployeeId = 'tblEmployee';
     this.EmployeeId = localStorage.getItem('idEmployeeLS');
     this.userEmailHtmlElementId = "txtEmail ";
     this.userIdHtmlElementId = "txtId";
